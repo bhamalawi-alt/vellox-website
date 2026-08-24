@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CountUp } from "../../components/motion/CountUp";
+import { Reveal } from "../../components/motion/Reveal";
 import { ShaderBackground } from "../../components/motion/ShaderBackground";
 import "../../components/motion/SlidingTextCta.css";
 import { COPY } from "../../content/pages/about";
@@ -112,8 +114,9 @@ export default function About() {
             className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4"
             aria-label={COPY.approach.eyebrow}
           >
-            {COPY.principles.map((principle) => (
-              <li key={principle.num} className="flex flex-col bg-bg p-6 md:p-8">
+            {COPY.principles.map((principle, i) => (
+              <Reveal key={principle.num} delay={i * 90}>
+              <li className="flex h-full flex-col bg-bg p-6 md:p-8">
                 <span className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-muted">
                   {principle.num} /{" "}
                   {String(COPY.principles.length).padStart(2, "0")}
@@ -125,6 +128,7 @@ export default function About() {
                   {principle.body}
                 </p>
               </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -154,8 +158,7 @@ export default function About() {
                 className="flex flex-col items-center justify-center bg-bg p-6 text-center md:p-8"
               >
                 <span className="display text-4xl md:text-6xl">
-                  {stat.value}
-                  {stat.suffix}
+                  <CountUp value={stat.value} suffix={stat.suffix} />
                 </span>
                 <span className="mt-3 text-sm font-medium">{stat.label}</span>
                 <span className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">

@@ -110,7 +110,7 @@ export default function Portfolio() {
                   width={800}
                   height={800}
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  className="h-full w-full object-cover grayscale transition-all duration-500 ease-out group-hover:scale-110 group-hover:grayscale-0"
                 />
               </li>
             ))}

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CTA_ITEM, NAV_ITEMS, WORDMARK } from "../content/site";
 
@@ -5,8 +8,21 @@ const linkBase =
   "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink";
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-bg/90 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 border-b border-line backdrop-blur transition-shadow duration-300 ${
+        scrolled ? "bg-bg shadow-[0_8px_24px_-16px_rgba(10,10,10,0.3)]" : "bg-bg/90"
+      }`}
+    >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-6 px-6">
         <Link
           href="/"
@@ -20,7 +36,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm text-muted transition-colors hover:text-ink ${linkBase}`}
+              className={`link-draw text-sm text-muted transition-colors hover:text-ink ${linkBase}`}
             >
               {item.label}
             </Link>
