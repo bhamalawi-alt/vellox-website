@@ -46,7 +46,7 @@ export default function ServicesIndex() {
                 <p className="mb-4 text-sm leading-relaxed text-muted">
                   {service.tagline}
                 </p>
-                <p className="mb-8 flex-1 font-mono text-[11px] uppercase leading-relaxed tracking-[0.08em] text-muted-light">
+                <p className="mb-8 flex-1 font-mono text-[11px] uppercase leading-relaxed tracking-[0.08em] text-muted">
                   {service.included.slice(0, SUB_SERVICE_PREVIEW).join(" · ")}
                 </p>
                 <span className="inline-flex items-center gap-2 self-start text-xs uppercase tracking-[0.12em] text-ink">

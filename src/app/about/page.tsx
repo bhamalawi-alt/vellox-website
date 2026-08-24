@@ -164,7 +164,7 @@ export default function About() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.12em] text-muted-light">
+          <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
             {COPY.numbers.note}
           </p>
         </div>
