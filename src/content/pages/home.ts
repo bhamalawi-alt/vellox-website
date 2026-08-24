@@ -16,11 +16,41 @@ export const COPY = {
     "eCommerce",
     "Mobile Apps",
     "Visual Content",
+    "ERP Implementation",
   ],
   "whatWeDo": {
     "eyebrow": "What We Do",
     "heading": "Eight practice areas, one accountable team.",
     "body": "Strategy, design, and engineering under one roof. Click any practice to see what's included and how we run it.",
+  },
+  "numbers": {
+    "eyebrow": "By the numbers",
+    "stats": [
+      {
+        "value": 120,
+        "suffix": "+",
+        "label": "Projects Shipped",
+        "sub": "since 2019 — see portfolio →",
+      },
+      {
+        "value": 8,
+        "suffix": "",
+        "label": "Industries Served",
+        "sub": "Wellness · Fintech · F&B · SaaS · more",
+      },
+      {
+        "value": 94,
+        "suffix": "%",
+        "label": "Client Retention",
+        "sub": "verified via LinkedIn references",
+      },
+      {
+        "value": 12,
+        "suffix": "wk",
+        "label": "Avg. Time to Launch",
+        "sub": "median across 2024–2025",
+      },
+    ],
   },
   "ctaBand": {
     "heading": "Ready to get started?",

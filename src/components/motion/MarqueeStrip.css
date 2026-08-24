@@ -1,0 +1,43 @@
+/* Marquee strip — hero-band practice-name loop.
+ * Markup contract (Task 8, home hero):
+ * <div class="marquee" aria-hidden="true">
+ *   <div class="marquee__track">
+ *     <ul class="marquee__group">…names…</ul>
+ *     <ul class="marquee__group">…same names again…</ul>
+ *   </div>
+ * </div>
+ * The track holds exactly two identical groups; translating it -50%
+ * loops seamlessly.
+ */
+
+.marquee {
+  overflow: hidden;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee__group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation-play-state: paused;
+  }
+}
