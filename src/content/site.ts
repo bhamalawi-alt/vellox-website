@@ -27,19 +27,19 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     heading: "Visual & Marketing",
     links: [
-      { label: "Brand Strategy", href: "/services" },
-      { label: "Brand Identity", href: "/services" },
-      { label: "UX Design", href: "/services" },
-      { label: "Visual Content", href: "/services" },
+      { label: "Brand Strategy", href: "/services/brand-strategy" },
+      { label: "Brand Identity", href: "/services/brand-identity" },
+      { label: "UX Design", href: "/services/user-experience-design" },
+      { label: "Visual Content", href: "/services/visual-content" },
     ],
   },
   {
     heading: "Technology",
     links: [
-      { label: "Web Development", href: "/services" },
-      { label: "eCommerce", href: "/services" },
-      { label: "Mobile Apps", href: "/services" },
-      { label: "ERP Implementation", href: "/services" },
+      { label: "Web Development", href: "/services/web-development" },
+      { label: "eCommerce", href: "/services/ecommerce" },
+      { label: "Mobile Apps", href: "/services/web-mobile-applications" },
+      { label: "ERP Implementation", href: "/services/erp-implementation" },
     ],
   },
   {
@@ -54,9 +54,9 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
 ];
 
 export const SOCIAL_LINKS: NavItem[] = [
-  { label: "Instagram", href: "https://www.instagram.com" },
-  { label: "Facebook", href: "https://www.facebook.com" },
-  { label: "LinkedIn", href: "https://www.linkedin.com" },
+  { label: "Instagram", href: "https://www.instagram.com/velloxstudio" },
+  { label: "Facebook", href: "https://www.facebook.com/velloxstudio" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/velloxstudio" },
   { label: "Mail", href: "mailto:hello@velloxstudio.com" },
 ];
 

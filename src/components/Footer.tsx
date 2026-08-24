@@ -81,6 +81,15 @@ export default function Footer() {
             </Link>
           </nav>
         </div>
+
+        <div className="mt-8 flex justify-end">
+          <a
+            href="#"
+            className={`text-sm text-muted-light transition-colors hover:text-white ${linkBase}`}
+          >
+            Back to top ↑
+          </a>
+        </div>
       </div>
     </footer>
   );

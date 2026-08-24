@@ -1,5 +1,5 @@
 // scripts/verify.mjs — crawl out/, assert routes, OG tags, no sourcemaps, contrast-critical attrs
-import { readdirSync, statSync, readFileSync, existsSync } from "node:fs";
+import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 const OUT = "out";
