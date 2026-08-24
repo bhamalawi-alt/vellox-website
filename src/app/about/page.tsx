@@ -170,6 +170,50 @@ export default function About() {
         </div>
       </section>
 
+      <section className="border-t border-line bg-bg py-20 text-ink md:py-28">
+        <div className="mx-auto w-full max-w-6xl px-6">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted">
+            {COPY.testimonialsSection.eyebrow}
+          </p>
+          <h2 className="display mb-12 max-w-[24ch] text-3xl leading-[1.1] md:text-5xl">
+            {COPY.testimonialsSection.heading}
+          </h2>
+          <ul
+            className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3"
+            aria-label={COPY.testimonialsSection.eyebrow}
+          >
+            {COPY.testimonials.map((testimonial) => (
+              <li
+                key={testimonial.name}
+                className="flex flex-col bg-bg p-6 md:p-8"
+              >
+                <figure className="flex h-full flex-col">
+                  <blockquote className="text-sm leading-relaxed md:text-[15px]">
+                    <p>&ldquo;{testimonial.quote}&rdquo;</p>
+                  </blockquote>
+                  <figcaption className="mt-auto flex items-center gap-4 pt-8">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink font-mono text-xs tracking-[0.08em] text-white"
+                    >
+                      {testimonial.initials}
+                    </span>
+                    <span>
+                      <span className="block text-sm font-medium">
+                        {testimonial.name}
+                      </span>
+                      <span className="mt-0.5 block text-sm text-muted">
+                        {testimonial.role} · {testimonial.company}
+                      </span>
+                    </span>
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="bg-panel py-24 text-bg md:py-32">
         <div className="mx-auto w-full max-w-4xl px-6 text-center">
           <h2 className="display text-3xl leading-[1.1] md:text-5xl">
