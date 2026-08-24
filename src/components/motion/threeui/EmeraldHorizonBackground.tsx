@@ -18,14 +18,19 @@ export function EmeraldHorizonBackground({ className = "", ...props }: EmeraldHo
       console.error("EmeraldHorizonBackground: WebGL context creation failed; keeping the static gradient fallback.", error);
       return undefined;
     }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     const uniforms = { u_time: { value: 0 }, u_resolution: { value: new THREE.Vector2(1, 1) }, u_wave_scale: { value: 1 }, u_variation: { value: 1 }, u_glow: { value: 1 }, u_vignette: { value: 1 } };
     const material = new THREE.ShaderMaterial({ vertexShader: LUMINA_VERTEX_SHADER, fragmentShader: LUMINA_FRAGMENT_SHADER, uniforms, depthWrite: false, depthTest: false }); const geometry = new THREE.PlaneGeometry(2, 2); scene.add(new THREE.Mesh(geometry, material));
     let frame = 0, visible = true; const start = performance.now();
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let reducedMotion = motionQuery.matches;
     const resize = () => { const bounds = host.getBoundingClientRect(); renderer.setSize(bounds.width, bounds.height, false); uniforms.u_resolution.value.set(bounds.width, bounds.height); };
-    const render = (now: number) => { const options = optionsRef.current; uniforms.u_time.value = (now - start) * 0.001 * options.speed; uniforms.u_wave_scale.value = options.waveScale; uniforms.u_variation.value = options.variation; uniforms.u_glow.value = options.glow; uniforms.u_vignette.value = options.vignette; renderer.render(scene, camera); frame = visible && !document.hidden ? requestAnimationFrame(render) : 0; };
-    const resizeObserver = new ResizeObserver(resize), intersection = new IntersectionObserver(([entry]) => { visible = entry?.isIntersecting ?? true; if (visible && !frame) frame = requestAnimationFrame(render); if (!visible && frame) { cancelAnimationFrame(frame); frame = 0; } }); resizeObserver.observe(host); intersection.observe(host); resize(); frame = requestAnimationFrame(render);
-    return () => { if (frame) cancelAnimationFrame(frame); resizeObserver.disconnect(); intersection.disconnect(); geometry.dispose(); material.dispose(); renderer.dispose(); renderer.forceContextLoss(); };
+    const renderStaticFrame = () => { const options = optionsRef.current; uniforms.u_time.value = 0; uniforms.u_wave_scale.value = options.waveScale; uniforms.u_variation.value = options.variation; uniforms.u_glow.value = options.glow; uniforms.u_vignette.value = options.vignette; renderer.render(scene, camera); };
+    const render = (now: number) => { const options = optionsRef.current; uniforms.u_time.value = (now - start) * 0.001 * options.speed; uniforms.u_wave_scale.value = options.waveScale; uniforms.u_variation.value = options.variation; uniforms.u_glow.value = options.glow; uniforms.u_vignette.value = options.vignette; renderer.render(scene, camera); frame = visible && !document.hidden && !reducedMotion ? requestAnimationFrame(render) : 0; };
+    const onMotionChange = () => { reducedMotion = motionQuery.matches; if (reducedMotion) { if (frame) { cancelAnimationFrame(frame); frame = 0; } renderStaticFrame(); } };
+    motionQuery.addEventListener("change", onMotionChange);
+    const resizeObserver = new ResizeObserver(resize), intersection = new IntersectionObserver(([entry]) => { visible = entry?.isIntersecting ?? true; if (visible && !frame && !reducedMotion) frame = requestAnimationFrame(render); if (!visible && frame) { cancelAnimationFrame(frame); frame = 0; } }); resizeObserver.observe(host); intersection.observe(host); resize(); if (reducedMotion) renderStaticFrame(); else frame = requestAnimationFrame(render);
+    return () => { if (frame) cancelAnimationFrame(frame); motionQuery.removeEventListener("change", onMotionChange); resizeObserver.disconnect(); intersection.disconnect(); geometry.dispose(); material.dispose(); renderer.dispose(); renderer.forceContextLoss(); };
   }, []);
   return (
     <div ref={hostRef} className={className} style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
