@@ -19,7 +19,7 @@ export const COPY = {
   ],
   "whatWeDo": {
     "eyebrow": "What We Do",
-    "heading": "Seven practice areas, one accountable team.",
+    "heading": "Eight practice areas, one accountable team.",
     "body": "Strategy, design, and engineering under one roof. Click any practice to see what's included and how we run it.",
   },
   "ctaBand": {
