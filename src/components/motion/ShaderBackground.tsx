@@ -7,6 +7,7 @@ const MAP = {
   globe: dynamic(() => import("./threeui/GlobeCollection"), { ssr: false }),
   connectivity: dynamic(() => import("./threeui/ConnectivityGraph"), { ssr: false }),
   interface: dynamic(() => import("./threeui/InterfaceLines"), { ssr: false }),
+  ribbon: dynamic(() => import("./threeui/RibbonFieldBackground"), { ssr: false }),
 } as const;
 
 export function ShaderBackground({ src, className, hue }: { src: keyof typeof MAP; className?: string; hue?: number }) {

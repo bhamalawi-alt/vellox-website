@@ -41,8 +41,8 @@ export default function Home() {
   return (
     <>
       <section className="relative flex min-h-[90vh] flex-col overflow-hidden bg-[#0a0a0a] text-bg">
-        <ParallaxLayer speed={0.3} className="absolute inset-0">
-          <ShaderBackground src="emerald" />
+        <ParallaxLayer speed={0.25} className="absolute inset-0">
+          <ShaderBackground src="ribbon" />
         </ParallaxLayer>
 
         <div className="relative z-10 flex items-center justify-between gap-6 border-b border-white/10 px-6 py-4 font-mono text-xs uppercase tracking-[0.2em] text-white/70">
@@ -50,11 +50,11 @@ export default function Home() {
           <p>{COPY.hero.metaRight}</p>
         </div>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 pb-28 pt-16 md:pt-20">
-          <p className="mb-6 text-xs uppercase tracking-[0.3em] text-white/70">
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center px-6 pb-32 pt-16 text-center md:pt-20">
+          <p className="mb-8 text-xs uppercase tracking-[0.35em] text-white/70">
             {COPY.hero.eyebrow}
           </p>
-          <h1 className="display max-w-[18ch] text-[clamp(2rem,4.15vw,3.7rem)] font-light leading-[1.05] text-white/60">
+          <h1 className="display max-w-[16ch] text-[clamp(2.4rem,5.6vw,5rem)] font-light leading-[1.02] tracking-[-0.01em] text-white/80">
             {[
               { w: "We" }, { w: "build" }, { w: "brands" }, { w: "and" },
               { w: "platforms" }, { w: "for" }, { w: "wellness", em: true },
@@ -74,10 +74,10 @@ export default function Home() {
               </span>
             ))}
           </h1>
-          <p className="mt-6 max-w-[50ch] text-sm leading-relaxed text-white/70 md:text-base">
+          <p className="mt-8 max-w-[52ch] text-sm leading-relaxed text-white/70 md:text-base">
             {COPY.hero.support}
           </p>
-          <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center md:mt-14">
+          <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:items-center md:mt-16">
             <MagneticCta><StartProjectCta /></MagneticCta>
             <Link
               href="/portfolio"
