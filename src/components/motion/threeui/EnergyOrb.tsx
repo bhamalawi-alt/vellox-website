@@ -141,7 +141,7 @@ export function EnergyOrb({ className = "", ...props }: EnergyOrbProps) {
       const bounds = host.getBoundingClientRect();
       width = Math.max(1, bounds.width);
       height = Math.max(1, bounds.height);
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       const bufferWidth = Math.max(1, Math.round(width * dpr));
       const bufferHeight = Math.max(1, Math.round(height * dpr));
       if (canvas.width !== bufferWidth || canvas.height !== bufferHeight) {
