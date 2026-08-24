@@ -192,7 +192,7 @@ export function EnergyOrb({ className = "", ...props }: EnergyOrbProps) {
       const options = optionsRef.current;
       const elapsed = (now - startedAt) * 0.001;
       drawStars(elapsed);
-      gl.uniform1f(uniforms.time, elapsed * options.speed);
+      gl.uniform1f(uniforms.time, reducedMotion ? 0 : elapsed * options.speed);
       gl.uniform1f(uniforms.smokeScale, Math.max(0.01, options.smokeScale));
       gl.uniform1f(uniforms.smokeStrength, Math.max(0, options.smokeStrength));
       gl.uniform1f(uniforms.smokeSpeed, Math.max(0, options.smokeSpeed));
@@ -201,15 +201,21 @@ export function EnergyOrb({ className = "", ...props }: EnergyOrbProps) {
       gl.uniform1f(uniforms.glow, Math.max(0, options.glow));
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
-      if (visible && !document.hidden) frame = requestAnimationFrame(render);
+      // Reschedule only when motion is allowed; reduced motion renders a single static frame.
+      if (!reducedMotion && visible && !document.hidden) frame = requestAnimationFrame(render);
     };
 
     const start = () => {
+      if (reducedMotion) return;
       if (!frame && visible && !document.hidden) frame = requestAnimationFrame(render);
     };
     const stop = () => {
       if (frame) cancelAnimationFrame(frame);
       frame = 0;
+    };
+    const renderStaticFrame = () => {
+      stop();
+      render(performance.now());
     };
     const onVisibilityChange = () => {
       if (document.hidden) stop();
@@ -217,9 +223,14 @@ export function EnergyOrb({ className = "", ...props }: EnergyOrbProps) {
     };
     const onMotionChange = (event: MediaQueryListEvent) => {
       reducedMotion = event.matches;
+      if (reducedMotion) renderStaticFrame();
+      else start();
     };
 
-    const resizeObserver = new ResizeObserver(resize);
+    const resizeObserver = new ResizeObserver(() => {
+      resize();
+      if (reducedMotion) renderStaticFrame();
+    });
     const intersection = new IntersectionObserver(([entry]) => {
       visible = entry?.isIntersecting ?? true;
       if (visible) start();
@@ -230,7 +241,8 @@ export function EnergyOrb({ className = "", ...props }: EnergyOrbProps) {
     document.addEventListener("visibilitychange", onVisibilityChange);
     motionQuery.addEventListener("change", onMotionChange);
     resize();
-    start();
+    if (reducedMotion) renderStaticFrame();
+    else start();
 
     return () => {
       stop();

@@ -91,11 +91,16 @@ export function InterfaceLines({ className = "", ...props }: InterfaceLinesProps
       }
     };
 
+    // Reduced motion: keep only a single static frame of the network; start()
+    // refuses to spin up the rAF loop so nothing animates over it.
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const loop = () => {
       render();
       frame = visible && !document.hidden ? requestAnimationFrame(loop) : 0;
     };
     const start = () => {
+      if (reducedMotion) return;
       if (!frame && visible && !document.hidden) frame = requestAnimationFrame(loop);
     };
     const stop = () => {
@@ -104,10 +109,13 @@ export function InterfaceLines({ className = "", ...props }: InterfaceLinesProps
     };
 
     resize();
-    // Reduced motion: render one static frame of the network.
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) render();
+    if (reducedMotion) render();
 
-    const resizeObserver = new ResizeObserver(resize);
+    const resizeObserver = new ResizeObserver(() => {
+      resize();
+      if (reducedMotion) render();
+      else start();
+    });
     const intersection = new IntersectionObserver(([entry]) => {
       visible = entry?.isIntersecting ?? true;
       if (visible) start();

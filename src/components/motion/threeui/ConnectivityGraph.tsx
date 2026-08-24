@@ -117,12 +117,17 @@ export function ConnectivityGraph({ className = "", ...props }: ConnectivityGrap
       }
     };
 
+    // Reduced motion: pre-grow particles so a single static frame still shows the
+    // fan; start() refuses to spin up the rAF loop so it stays static.
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const loop = () => {
       tick();
       render();
       frame = visible && !document.hidden ? requestAnimationFrame(loop) : 0;
     };
     const start = () => {
+      if (reducedMotion) return;
       if (!frame && visible && !document.hidden) frame = requestAnimationFrame(loop);
     };
     const stop = () => {
@@ -130,8 +135,6 @@ export function ConnectivityGraph({ className = "", ...props }: ConnectivityGrap
       frame = 0;
     };
 
-    // Reduced motion: pre-grow particles so a single static frame still shows the fan.
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     resize();
     if (reducedMotion) {
       for (let i = 0; i < 240; i += 1) tick();
@@ -140,8 +143,8 @@ export function ConnectivityGraph({ className = "", ...props }: ConnectivityGrap
 
     const resizeObserver = new ResizeObserver(() => {
       resize();
-      if (!reducedMotion && visible && !frame) start();
-      else if (reducedMotion) render();
+      if (reducedMotion) render();
+      else start();
     });
     const intersection = new IntersectionObserver(([entry]) => {
       visible = entry?.isIntersecting ?? true;
@@ -155,7 +158,7 @@ export function ConnectivityGraph({ className = "", ...props }: ConnectivityGrap
     resizeObserver.observe(host);
     intersection.observe(host);
     document.addEventListener("visibilitychange", onVisibilityChange);
-    if (!reducedMotion) start();
+    start();
 
     return () => {
       stop();
