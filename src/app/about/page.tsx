@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CountUp } from "../../components/motion/CountUp";
-import { Reveal } from "../../components/motion/Reveal";
 import { ShaderBackground } from "../../components/motion/ShaderBackground";
-import "../../components/motion/SlidingTextCta.css";
+import { PageHero } from "../../components/PageHero";
+import { ArrowLink } from "../../components/ui/arrow-link";
+import { ScrollRevealText } from "../../components/ui/scroll-reveal-text";
+import { StatsCounter } from "../../components/ui/stats-counter";
+import { StickyStack } from "../../components/ui/sticky-stack";
 import { COPY } from "../../content/pages/about";
 import { pageMeta } from "../../lib/seo";
 
@@ -23,24 +25,6 @@ const GLOBE_BAND = {
   body: "Wellness, fintech, and F&B founders — from positioning to production.",
 };
 
-const darkFocus =
-  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
-
-function StartProjectCta() {
-  return (
-    <Link href="/contact" className={`sliding-text-cta ${darkFocus}`}>
-      <span className="sliding-text-cta__label">
-        Start a Project <span aria-hidden="true">→</span>
-      </span>
-      <span className="sliding-text-cta__label-clone" aria-hidden="true">
-        Start a Project <span aria-hidden="true">→</span>
-      </span>
-      <span className="sliding-text-cta__underline" aria-hidden="true"></span>
-      <span className="sliding-text-cta__glow" aria-hidden="true"></span>
-    </Link>
-  );
-}
-
 const FACTS = [
   { term: "Founded", detail: "2019" },
   { term: "Operating", detail: "Remote · EU · MENA" },
@@ -48,30 +32,17 @@ const FACTS = [
 ];
 
 export default function About() {
+  const total = String(COPY.principles.length).padStart(2, "0");
   return (
     <>
-      <section className="bg-[#0a0a0a] py-24 text-bg md:py-32">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-white/70">
-            {COPY.eyebrow}
-          </p>
-          <h1 className="display max-w-[22ch] text-[clamp(2rem,4.15vw,3.7rem)] font-light leading-[1.05] text-white/60">
-            {COPY.headline}
-          </h1>
-        </div>
-      </section>
+      <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} />
 
       <section className="bg-bg py-20 text-ink md:py-28">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-7">
-            <h2 className="display mb-6 max-w-[20ch] text-3xl leading-[1.1] md:text-4xl">
-              About Vellox Studio
-            </h2>
-            <p className="max-w-[68ch] text-base leading-relaxed text-muted md:text-lg">
-              {COPY.lede}
-            </p>
-          </div>
-          <dl className="md:col-span-5">
+          <p className="display text-2xl leading-[1.3] md:col-span-7 md:text-3xl">
+            {COPY.lede}
+          </p>
+          <dl className="md:col-span-4 md:col-start-9">
             {FACTS.map((fact) => (
               <div
                 key={fact.term}
@@ -87,60 +58,50 @@ export default function About() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-bg py-20 text-ink md:py-28">
+      <section className="bg-bg pb-24 text-ink md:pb-32">
         <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
-            <div>
-              <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted">
-                {COPY.approach.eyebrow}
-              </p>
-              <h2 className="display max-w-[24ch] text-3xl leading-[1.1] md:text-5xl">
-                {COPY.approach.heading}
-              </h2>
-              <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-muted md:text-lg">
-                {COPY.approach.sub}
-              </p>
-            </div>
-            <p
-              aria-hidden="true"
-              className="font-mono text-xs uppercase tabular-nums tracking-[0.2em] text-muted"
-            >
-              {COPY.principles[0].num} /{" "}
-              {String(COPY.principles.length).padStart(2, "0")}
+          <div className="border-t border-line pt-16">
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted">
+              {COPY.approach.eyebrow}
+            </p>
+            <h2 className="display max-w-[22ch] text-4xl leading-[1.05] md:text-6xl">
+              {COPY.approach.heading}
+            </h2>
+            <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-muted md:text-lg">
+              {COPY.approach.sub}
             </p>
           </div>
-
-          <ul
-            className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4"
-            aria-label={COPY.approach.eyebrow}
-          >
-            {COPY.principles.map((principle, i) => (
-              <Reveal key={principle.num} delay={i * 90}>
-              <li className="flex h-full flex-col bg-bg p-6 md:p-8">
-                <span className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-muted">
-                  {principle.num} /{" "}
-                  {String(COPY.principles.length).padStart(2, "0")}
-                </span>
-                <h3 className="display mb-3 text-xl underline-offset-4 md:text-2xl">
-                  {principle.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted">
+          <StickyStack
+            cards={COPY.principles.map((principle) => (
+              <article
+                key={principle.num}
+                className="grid gap-8 rounded-3xl border border-line bg-white p-8 shadow-[0_30px_80px_-50px_rgba(10,10,10,0.45)] md:grid-cols-[1fr_1.4fr] md:p-14"
+              >
+                <div>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+                    {principle.num} / {total}
+                  </span>
+                  <h3 className="display mt-6 text-4xl leading-[1.05] md:text-6xl">
+                    {principle.title}
+                  </h3>
+                </div>
+                <p className="self-end text-base leading-relaxed text-muted md:text-lg">
                   {principle.body}
                 </p>
-              </li>
-              </Reveal>
+              </article>
             ))}
-          </ul>
+          />
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#0a0a0a] py-24 text-bg md:py-32">
+      <section className="relative overflow-hidden bg-[#0a0a0a] py-32 text-white md:py-44">
         <ShaderBackground src="globe" className="opacity-40" />
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
-          <h2 className="display text-3xl font-light leading-[1.15] md:text-5xl">
-            {GLOBE_BAND.heading}
-          </h2>
-          <p className="mx-auto mt-6 max-w-[52ch] text-base leading-relaxed text-white/70 md:text-lg">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-6 text-center">
+          <ScrollRevealText
+            text={GLOBE_BAND.heading}
+            className="display text-4xl font-light leading-[1.1] md:text-7xl"
+          />
+          <p className="mx-auto mt-8 max-w-[52ch] text-base leading-relaxed text-white/75 md:text-lg">
             {GLOBE_BAND.body}
           </p>
         </div>
@@ -148,53 +109,56 @@ export default function About() {
 
       <section className="bg-bg py-24 text-ink md:py-32">
         <div className="mx-auto w-full max-w-6xl px-6">
-          <h2 className="mb-12 text-center font-mono text-xs uppercase tracking-[0.3em] text-muted">
+          <h2 className="mb-12 font-mono text-xs uppercase tracking-[0.3em] text-muted">
             {COPY.numbers.eyebrow}
           </h2>
-          <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+          <ul className="grid grid-cols-2 border-t border-line md:grid-cols-4">
             {COPY.numbers.stats.map((stat) => (
               <li
                 key={stat.label}
-                className="flex flex-col items-center justify-center bg-bg p-6 text-center md:p-8"
+                className="flex flex-col border-b border-line py-8 pr-6 md:border-b-0 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0"
               >
-                <span className="display text-4xl md:text-6xl">
-                  <CountUp value={stat.value} suffix={stat.suffix} />
+                <span className="display text-5xl tracking-[-0.02em] md:text-7xl">
+                  <StatsCounter value={stat.value} suffix={stat.suffix} />
                 </span>
-                <span className="mt-3 text-sm font-medium">{stat.label}</span>
+                <span className="mt-4 text-sm font-medium">{stat.label}</span>
                 <span className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">
                   {stat.sub}
                 </span>
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
+          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
             {COPY.numbers.note}
           </p>
         </div>
       </section>
 
-      <section className="border-t border-line bg-bg py-20 text-ink md:py-28">
+      <section className="border-t border-line bg-bg py-24 text-ink md:py-32">
         <div className="mx-auto w-full max-w-6xl px-6">
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted">
             {COPY.testimonialsSection.eyebrow}
           </p>
-          <h2 className="display mb-12 max-w-[24ch] text-3xl leading-[1.1] md:text-5xl">
+          <h2 className="display mb-14 max-w-[22ch] text-4xl leading-[1.05] md:text-6xl">
             {COPY.testimonialsSection.heading}
           </h2>
           <ul
-            className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3"
+            className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-6 [scrollbar-width:thin]"
             aria-label={COPY.testimonialsSection.eyebrow}
           >
             {COPY.testimonials.map((testimonial) => (
               <li
                 key={testimonial.name}
-                className="flex flex-col bg-bg p-6 md:p-8"
+                className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-2.5rem)/3)]"
               >
-                <figure className="flex h-full flex-col">
-                  <blockquote className="text-sm leading-relaxed md:text-[15px]">
-                    <p>&ldquo;{testimonial.quote}&rdquo;</p>
+                <figure className="flex h-full flex-col rounded-3xl border border-line bg-white p-8">
+                  <span aria-hidden="true" className="display text-6xl leading-none text-ink/20">
+                    &ldquo;
+                  </span>
+                  <blockquote className="mt-2 text-base leading-relaxed md:text-lg">
+                    <p>{testimonial.quote}</p>
                   </blockquote>
-                  <figcaption className="mt-auto flex items-center gap-4 pt-8">
+                  <figcaption className="mt-auto flex items-center gap-4 pt-10">
                     <span
                       aria-hidden="true"
                       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink font-mono text-xs tracking-[0.08em] text-white"
@@ -202,9 +166,7 @@ export default function About() {
                       {testimonial.initials}
                     </span>
                     <span>
-                      <span className="block text-sm font-medium">
-                        {testimonial.name}
-                      </span>
+                      <span className="block text-sm font-medium">{testimonial.name}</span>
                       <span className="mt-0.5 block text-sm text-muted">
                         {testimonial.role} · {testimonial.company}
                       </span>
@@ -217,23 +179,22 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-panel py-24 text-bg md:py-32">
+      <section className="bg-panel py-24 text-white md:py-32">
         <div className="mx-auto w-full max-w-4xl px-6 text-center">
-          <h2 className="display text-3xl leading-[1.1] md:text-5xl">
-            {CTA.heading}
-          </h2>
-          <p className="mx-auto mb-10 mt-6 max-w-[60ch] text-base leading-relaxed text-white/70 md:text-lg">
+          <h2 className="display text-4xl leading-[1.05] md:text-6xl">{CTA.heading}</h2>
+          <p className="mx-auto mb-12 mt-6 max-w-[60ch] text-base leading-relaxed text-white/75 md:text-lg">
             {CTA.body}
           </p>
           <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-            <StartProjectCta />
             <Link
-              href="/portfolio"
-              className={`inline-flex items-center gap-3 text-sm uppercase tracking-[0.12em] text-white/70 transition-colors hover:text-white ${darkFocus}`}
+              href="/contact"
+              className="inline-flex h-12 items-center gap-3 rounded-full bg-white px-7 text-sm uppercase tracking-[0.12em] text-ink transition-colors hover:bg-white/85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              <span aria-hidden="true" className="inline-block h-px w-8 bg-white/40" />
-              View Portfolio
+              Start a Project <span aria-hidden="true">→</span>
             </Link>
+            <ArrowLink href="/portfolio" className="text-sm uppercase tracking-[0.12em] text-white/80 hover:text-white">
+              View portfolio
+            </ArrowLink>
           </div>
         </div>
       </section>

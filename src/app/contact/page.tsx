@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "../../components/ContactForm";
+import { PageHero } from "../../components/PageHero";
 import { COPY } from "../../content/pages/contact";
 import { pageMeta } from "../../lib/seo";
 
@@ -15,23 +16,11 @@ const darkFocus =
 export default function Contact() {
   return (
     <>
-      <section className="bg-[#0a0a0a] py-24 text-bg md:py-32">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-white/70">
-            {COPY.eyebrow}
-          </p>
-          <h1 className="display max-w-[22ch] text-[clamp(2rem,4.15vw,3.7rem)] font-light leading-[1.05] text-white/60">
-            {COPY.headline}
-          </h1>
-          <p className="mt-6 max-w-[68ch] text-base leading-relaxed text-white/70 md:text-lg">
-            {COPY.lede}
-          </p>
-        </div>
-      </section>
+      <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
 
-      <section className="border-t border-white/10 bg-[#0a0a0a] py-20 text-bg md:py-28">
+      <section className="bg-[#0a0a0a] pb-24 pt-4 text-white md:pb-32">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16">
-          <dl className="h-fit md:col-span-5 md:sticky md:top-24">
+          <dl className="h-fit md:col-span-5 md:sticky md:top-28">
             {COPY.details.map((detail) => (
               <div
                 key={detail.term}

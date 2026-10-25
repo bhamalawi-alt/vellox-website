@@ -4,9 +4,15 @@
   --bg: #fafafa;
   --ink: #0a0a0a;
   --panel: #171717;
-  --muted: #525252;
+  --muted: #4a4a4a;
   --muted-light: #a1a1a1;
   --line: #e5e5e5;
+  --brand: #3730e8;
+}
+
+::selection {
+  background: var(--brand);
+  color: #fff;
 }
 
 @theme inline {
@@ -16,6 +22,7 @@
   --color-muted: var(--muted);
   --color-muted-light: var(--muted-light);
   --color-line: var(--line);
+  --color-brand: var(--brand);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
@@ -33,6 +40,12 @@ body {
 
 .display {
   font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
+/* Shader hosts fill their section */
+.threeui-background {
+  position: absolute;
+  inset: 0;
 }
 
 /* Reveal-on-scroll */

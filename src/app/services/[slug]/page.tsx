@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ShaderBackground } from "../../../components/motion/ShaderBackground";
-import "../../../components/motion/SlidingTextCta.css";
+import { PageHero } from "../../../components/PageHero";
+import { Accordion } from "../../../components/ui/accordion";
+import { ArrowLink } from "../../../components/ui/arrow-link";
 import { COPY as brandStrategyCopy } from "../../../content/pages/brand-strategy";
 import { COPY as brandIdentityCopy } from "../../../content/pages/brand-identity";
 import { COPY as ecommerceCopy } from "../../../content/pages/ecommerce";
@@ -71,169 +72,124 @@ export default async function ServiceDetail(
   const copy = PAGE_COPY[slug];
   const isErp = slug === "erp-implementation";
 
-  const darkFocus =
-    "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
-  const lightFocus =
-    "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink";
-
   return (
     <>
-      <section
-        className={`relative overflow-hidden ${
-          isErp ? "bg-[#0a0a0a] text-bg" : "border-b border-line bg-bg text-ink"
-        }`}
-      >
-        {isErp ? <ShaderBackground src="interface" className="opacity-50" /> : null}
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
+      <PageHero
+        before={
           <nav
             aria-label="Breadcrumb"
-            className={`mb-10 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] ${
-              isErp ? "text-white/60" : "text-muted"
-            }`}
+            className="mb-10 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/60"
           >
             <Link
               href="/services"
-              className={`underline-offset-4 hover:underline ${
-                isErp ? darkFocus : lightFocus
-              }`}
+              className="inline-flex min-h-11 items-center underline-offset-4 hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               Services
             </Link>
             <span aria-hidden="true">/</span>
-            <span>{service.title}</span>
+            <span aria-current="page">{service.title}</span>
           </nav>
+        }
+        eyebrow={`/ ${String(service.index).padStart(2, "0")} · ${service.count}`}
+        title={service.title}
+        lede={service.tagline}
+        after={
+          isErp ? (
+            <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/80">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              {FRAPPE_BADGE}
+            </span>
+          ) : null
+        }
+      />
 
-          <p
-            className={`mb-5 font-mono text-xs uppercase tracking-[0.3em] ${
-              isErp ? "text-white/70" : "text-muted"
-            }`}
-          >
-            / {String(service.index).padStart(2, "0")} · {service.count}
-          </p>
-
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-            <h1 className="display max-w-[20ch] text-[clamp(2rem,4vw,3.4rem)] font-light leading-[1.05]">
-              {service.title}
-            </h1>
-            {isErp ? (
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/80">
-                <span
-                  aria-hidden="true"
-                  className="h-1.5 w-1.5 rounded-full bg-emerald-400"
-                />
-                {FRAPPE_BADGE}
-              </span>
-            ) : null}
-          </div>
-
-          <p
-            className={`mt-6 max-w-[56ch] text-base leading-relaxed md:text-lg ${
-              isErp ? "text-white/70" : "text-muted"
-            }`}
-          >
-            {service.tagline}
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-bg py-16 text-ink md:py-24">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="max-w-[70ch] space-y-6">
+      <section className="bg-bg py-20 text-ink md:py-28">
+        <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 md:grid-cols-12">
+          <div className="space-y-6 md:col-span-8">
             {service.intro.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)} className="text-base leading-relaxed md:text-lg">
+              <p key={paragraph.slice(0, 48)} className="text-lg leading-relaxed md:text-xl">
                 {paragraph}
               </p>
             ))}
           </div>
-
-          <div className="mt-16 md:mt-24">
-            <div className="mb-8 flex flex-wrap items-baseline justify-between gap-3 border-b border-line pb-4">
-              <h2 className="display text-2xl md:text-4xl">What&apos;s Included</h2>
-              <span className="font-mono text-xs uppercase tracking-[0.14em] text-muted">
-                {copy?.includedHeading ?? service.count}
-              </span>
-            </div>
-
-            {copy ? (
-              <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2">
-                {copy.included.map((item) => (
-                  <li key={item.num} className="bg-bg p-6 md:p-8">
-                    <div className="mb-3 flex items-baseline gap-4">
-                      <span className="font-mono text-xs text-muted">{item.num}</span>
-                      <h3 className="display text-lg md:text-xl">{item.title}</h3>
-                    </div>
-                    <p className="text-sm leading-relaxed text-muted">{item.body}</p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <ul className="divide-y divide-line rounded-2xl border border-line">
-                {service.included.map((item) => (
-                  <li key={item} className="flex items-center gap-4 bg-bg p-5 md:p-6">
-                    <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />
-                    <span className="text-base leading-relaxed md:text-lg">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {service.timeline ? (
-              <p className="mt-8 inline-flex items-center gap-3 rounded-full border border-line bg-panel px-5 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-bg">
-                Timeline — {service.timeline}
+          {service.timeline ? (
+            <aside className="md:col-span-4">
+              <p className="rounded-2xl border border-line bg-white p-6 text-sm leading-relaxed">
+                <span className="mb-2 block font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+                  Timeline
+                </span>
+                {service.timeline}
               </p>
-            ) : null}
-          </div>
-
-          {copy?.approach ? (
-            <div className="mt-16 md:mt-24">
-              <h2 className="display mb-8 max-w-[24ch] text-2xl leading-[1.15] md:text-4xl">
-                {copy.approach.heading}
-              </h2>
-              <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-                {copy.approach.steps.map((step) => (
-                  <li key={step.num} className="bg-bg p-6 md:p-8">
-                    <span className="mb-3 block font-mono text-xs text-muted">
-                      {step.num}
-                    </span>
-                    <h3 className="display mb-2 text-lg">{step.title}</h3>
-                    <p className="text-sm leading-relaxed text-muted">{step.body}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </aside>
           ) : null}
         </div>
+
+        <div className="mx-auto mt-20 w-full max-w-6xl px-6 md:mt-28">
+          <div className="mb-8 flex flex-wrap items-baseline justify-between gap-3">
+            <h2 className="display text-3xl md:text-5xl">What&apos;s included</h2>
+            <span className="font-mono text-xs uppercase tracking-[0.14em] text-muted">
+              {copy?.includedHeading ?? service.count}
+            </span>
+          </div>
+          {copy ? (
+            <Accordion
+              items={copy.included.map((item) => ({
+                id: item.num,
+                label: item.num,
+                title: item.title,
+                body: item.body,
+              }))}
+            />
+          ) : (
+            <ul className="border-t border-line">
+              {service.included.map((item, i) => (
+                <li key={item} className="flex items-baseline gap-5 border-b border-line py-5 md:gap-8 md:pl-8">
+                  <span className="font-mono text-xs tabular-nums text-muted">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="display text-lg md:text-2xl">{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {copy?.approach ? (
+          <div className="mx-auto mt-20 w-full max-w-6xl px-6 md:mt-28">
+            <h2 className="display mb-10 max-w-[24ch] text-3xl leading-[1.1] md:text-5xl">
+              {copy.approach.heading}
+            </h2>
+            <ol className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+              {copy.approach.steps.map((step) => (
+                <li key={step.num} className="border-t-2 border-ink pt-6">
+                  <span className="mb-4 block font-mono text-xs text-muted">{step.num}</span>
+                  <h3 className="display mb-3 text-xl">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted">{step.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ) : null}
       </section>
 
-      <section className="bg-panel py-20 text-bg md:py-28">
+      <section className="bg-panel py-24 text-white md:py-32">
         <div className="mx-auto w-full max-w-4xl px-6 text-center">
-          <h2 className="display text-3xl leading-[1.1] md:text-5xl">
+          <h2 className="display text-4xl leading-[1.05] md:text-6xl">
             {copy?.cta?.heading ?? FALLBACK_CTA.heading}
           </h2>
-          <p className="mx-auto mt-6 mb-10 max-w-[60ch] text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mx-auto mb-12 mt-6 max-w-[60ch] text-base leading-relaxed text-white/75 md:text-lg">
             {copy?.cta?.body ?? FALLBACK_CTA.body}
           </p>
           <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
             <Link
               href="/contact"
-              className={`sliding-text-cta ${darkFocus}`}
+              className="inline-flex h-12 items-center gap-3 rounded-full bg-white px-7 text-sm uppercase tracking-[0.12em] text-ink transition-colors hover:bg-white/85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              <span className="sliding-text-cta__label">
-                Start a Project <span aria-hidden="true">→</span>
-              </span>
-              <span className="sliding-text-cta__label-clone" aria-hidden="true">
-                Start a Project <span aria-hidden="true">→</span>
-              </span>
-              <span className="sliding-text-cta__underline" aria-hidden="true"></span>
-              <span className="sliding-text-cta__glow" aria-hidden="true"></span>
+              Start a Project <span aria-hidden="true">→</span>
             </Link>
-            <Link
-              href="/services"
-              className={`inline-flex items-center gap-3 text-sm uppercase tracking-[0.12em] text-white/70 transition-colors hover:text-white ${darkFocus}`}
-            >
-              <span aria-hidden="true" className="inline-block h-px w-8 bg-white/40" />
-              All Services
-            </Link>
+            <ArrowLink href="/services" className="text-sm uppercase tracking-[0.12em] text-white/80 hover:text-white">
+              All services
+            </ArrowLink>
           </div>
         </div>
       </section>

@@ -1,88 +1,137 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { CTA_ITEM, NAV_ITEMS, WORDMARK } from "../content/site";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import { CTA_ITEM, NAV_ITEMS, SOCIAL_LINKS } from "../content/site";
+import { BrandLockup } from "./BrandLogo";
+import { SpotlightNav } from "./ui/spotlight-nav";
+import { TextRoll } from "./ui/text-roll";
 
-const linkBase =
-  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink";
+const pill =
+  "rounded-full border border-white/10 bg-[#0a0a0a]/75 text-white shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] backdrop-blur-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  // The menu is open only for the route it was opened on, so it closes on navigation.
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const open = openOn === pathname;
+  const setOpen = (next: boolean) => setOpenOn(next ? pathname : null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!open) return;
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = overflow;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b border-line backdrop-blur transition-shadow duration-300 ${
-        scrolled ? "bg-bg shadow-[0_8px_24px_-16px_rgba(10,10,10,0.3)]" : "bg-bg/90"
-      }`}
-    >
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-6 px-6">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-6">
         <Link
           href="/"
-          className={`display text-2xl font-medium tracking-tight text-ink ${linkBase}`}
+          aria-label="Vellox Studio — home"
+          className={`pointer-events-auto relative z-[60] flex h-11 items-center px-4 ${pill}`}
         >
-          {WORDMARK}
+          <BrandLockup height={26} className="h-[26px] w-auto" />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`link-draw text-sm text-muted transition-colors hover:text-ink ${linkBase}`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link
-            href={CTA_ITEM.href}
-            className={`rounded-full border border-ink px-5 py-2 text-sm text-ink transition-colors hover:bg-ink hover:text-bg ${linkBase}`}
-          >
-            {CTA_ITEM.label}
-          </Link>
-        </nav>
+        <SpotlightNav items={NAV_ITEMS} className="pointer-events-auto hidden md:block" />
 
-        <details className="group relative md:hidden">
-          <summary
-            className={`flex cursor-pointer list-none items-center rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink [&::-webkit-details-marker]:hidden ${linkBase}`}
+        <Link
+          href={CTA_ITEM.href}
+          className={`pointer-events-auto hidden h-11 items-center px-5 text-sm transition-colors hover:border-brand hover:bg-brand md:inline-flex ${pill}`}
+        >
+          {CTA_ITEM.label}
+        </Link>
+
+        <button
+          ref={toggleRef}
+          type="button"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen(!open)}
+          className={`pointer-events-auto relative z-[60] inline-flex h-11 items-center gap-2 px-5 font-mono text-xs uppercase tracking-[0.2em] md:hidden ${pill}`}
+        >
+          {open ? "Close" : "Menu"}
+          <span
+            aria-hidden="true"
+            className={`inline-block transition-transform duration-300 ${open ? "rotate-45" : ""}`}
           >
-            Menu
-            <span
-              aria-hidden="true"
-              className="ml-2 inline-block transition-transform group-open:rotate-45"
-            >
-              +
-            </span>
-          </summary>
-          <nav
-            aria-label="Mobile"
-            className="absolute right-0 top-full mt-3 flex w-56 flex-col gap-1 rounded-xl border border-line bg-bg p-3 shadow-lg"
+            +
+          </span>
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu"
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-auto fixed inset-0 z-[55] flex flex-col bg-[#0a0a0a] px-6 pb-10 pt-28 text-white md:hidden"
           >
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-line/60 hover:text-ink ${linkBase}`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            <nav aria-label="Mobile" className="flex-1">
+              <ul className="flex flex-col gap-2">
+                {NAV_ITEMS.map((item, i) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={pathname.startsWith(item.href) ? "page" : undefined}
+                      className="flex min-h-14 items-baseline gap-4 py-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                    >
+                      <span className="font-mono text-xs text-white/50">
+                        [{i + 1}]
+                      </span>
+                      <TextRoll className="display whitespace-nowrap text-[clamp(2rem,11vw,3rem)] font-light uppercase tracking-[-0.02em]">
+                        {item.label}
+                      </TextRoll>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
             <Link
               href={CTA_ITEM.href}
-              className={`mt-2 rounded-lg bg-panel px-3 py-2.5 text-center text-sm text-white transition-opacity hover:opacity-90 ${linkBase}`}
+              className="mb-8 inline-flex h-14 items-center justify-center rounded-full bg-white text-sm uppercase tracking-[0.12em] text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               {CTA_ITEM.label}
             </Link>
-          </nav>
-        </details>
-      </div>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+              {SOCIAL_LINKS.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    {...(social.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  >
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }
