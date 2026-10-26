@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { BASE } from "../lib/seo";
 import { SERVICES } from "../content/services";
+import { getProjects } from "../lib/projects";
 
 export const dynamic = "force-static";
 
@@ -12,6 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...SERVICES.map((service) => ({
       url: `${BASE}/services/${service.slug}`,
       priority: 0.9,
+    })),
+    ...getProjects().map((project) => ({
+      url: `${BASE}/portfolio/${project.slug}`,
+      priority: 0.8,
     })),
     ...["/about", "/contact", "/portfolio", "/insights"].map((path) => ({
       url: `${BASE}${path}`,

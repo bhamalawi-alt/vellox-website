@@ -1,0 +1,21 @@
+{
+  "title": "Atlas Fintech",
+  "order": 3,
+  "published": true,
+  "featured": true,
+  "industry": "Fintech",
+  "location": "Singapore",
+  "year": "",
+  "tags": [
+    "UX/UI",
+    "Web App",
+    "Design System"
+  ],
+  "summary": "B2B treasury platform for mid-market cross-border payments.",
+  "body": "",
+  "results": [],
+  "cover": "",
+  "coverAlt": "",
+  "gallery": [],
+  "liveUrl": ""
+}

@@ -15,6 +15,7 @@ import { StatsCounter } from "../components/ui/stats-counter";
 import { StickyStack } from "../components/ui/sticky-stack";
 import { COPY } from "../content/pages/home";
 import { COPY as PORTFOLIO } from "../content/pages/portfolio";
+import { getFeaturedProjects } from "../lib/projects";
 import { FRAPPE_BADGE, SERVICES } from "../content/services";
 import { pageMeta } from "../lib/seo";
 
@@ -45,6 +46,7 @@ const primaryCta =
   "inline-flex h-12 items-center gap-3 rounded-full bg-white px-7 text-sm uppercase tracking-[0.12em] text-ink transition-colors hover:bg-brand hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
 
 export default function Home() {
+  const featured = getFeaturedProjects();
   return (
     <>
       <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0a0a0a] text-white">
@@ -123,28 +125,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] pb-24 text-white md:pb-32">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-4 flex flex-wrap items-end justify-between gap-6 border-t border-white/10 pt-16">
-            <div>
-              <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-white/60">
-                {PORTFOLIO.caseStudies.eyebrow}
-              </p>
-              <h2 className="display text-4xl leading-[1.05] md:text-6xl">
-                Selected engagements
-              </h2>
+      {featured.length > 0 ? (
+        <section className="bg-[#0a0a0a] pb-24 text-white md:pb-32">
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <div className="mb-4 flex flex-wrap items-end justify-between gap-6 border-t border-white/10 pt-16">
+              <div>
+                <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-white/60">
+                  {PORTFOLIO.caseStudies.eyebrow}
+                </p>
+                <h2 className="display text-4xl leading-[1.05] md:text-6xl">
+                  Selected engagements
+                </h2>
+              </div>
+              <ArrowLink href="/portfolio" className="text-sm uppercase tracking-[0.12em] text-white/80 hover:text-white">
+                All work
+              </ArrowLink>
             </div>
-            <ArrowLink href="/portfolio" className="text-sm uppercase tracking-[0.12em] text-white/80 hover:text-white">
-              All work
-            </ArrowLink>
+            <StickyStack
+              cards={featured.map((study, i) => (
+                <CaseStudyCard key={study.slug} study={study} index={i} total={featured.length} />
+              ))}
+            />
           </div>
-          <StickyStack
-            cards={PORTFOLIO.projects.map((study, i) => (
-              <CaseStudyCard key={study.title} study={study} tone={i} />
-            ))}
-          />
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="bg-bg py-24 text-ink md:py-32">
         <div className="mx-auto w-full max-w-6xl px-6">

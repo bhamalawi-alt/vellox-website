@@ -5,48 +5,11 @@ export const COPY = {
   "gallery": {
     "eyebrow": "Gallery",
     "caption": "Project galleries are on their way.",
+    "captionWithPhotos": "Moments from recent brand, product, and engineering work.",
     "sub": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
   "caseStudies": {
     "eyebrow": "Case Studies",
-    "caption": "Three recent engagements in detail.",
-  },
-  "projects": [
-    {
-      "n": "01 / 03",
-      "tags": [
-        "Brand Identity",
-        "Packaging",
-        "Web Design",
-      ],
-      "title": "Aurelia Wellness",
-      "desc": "Premium wellness brand offering cold-pressed botanicals and adaptogenic blends.",
-      "location": "United Arab Emirates",
-      "industry": "Wellness",
-    },
-    {
-      "n": "02 / 03",
-      "tags": [
-        "Brand Identity",
-        "eCommerce",
-        "Photography",
-      ],
-      "title": "Northwind Coffee",
-      "desc": "Specialty coffee roaster sourcing single-origin beans from East Africa.",
-      "location": "Norway",
-      "industry": "F&B",
-    },
-    {
-      "n": "03 / 03",
-      "tags": [
-        "UX/UI",
-        "Web App",
-        "Design System",
-      ],
-      "title": "Atlas Fintech",
-      "desc": "B2B treasury platform for mid-market cross-border payments.",
-      "location": "Singapore",
-      "industry": "Fintech",
-    },
-  ],
+    "caption": "Recent engagements in detail.",
+  }
 };

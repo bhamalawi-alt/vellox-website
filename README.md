@@ -32,6 +32,6 @@ bun run typecheck
 ## Where things live
 
 - `src/content/` — all copy. `services.ts` drives the service list; `pages/*.ts` hold per-page copy.
-- `src/content/pages/portfolio.ts` — case studies. Add `image: "/work/<file>"` to a project to replace its placeholder cover.
+- `src/content/projects/*.json` — portfolio projects, one file each, edited through the CMS at `/admin`. Setup and usage: [docs/cms.md](docs/cms.md).
 - `src/components/ui/` — UI components adapted from Skiper UI and Vengeance UI (attribution in the footer is a Skiper UI licence condition).
 - `scripts/generate-og.mjs` — regenerates the share image and icons from `public/logos/` (`bun run icons`).

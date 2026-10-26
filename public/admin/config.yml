@@ -1,0 +1,140 @@
+# Vellox CMS — Sveltia CMS configuration (Decap-compatible).
+# Docs: https://github.com/sveltia/sveltia-cms
+#
+# Every save is a commit to the branch below; Cloudflare Pages rebuilds the
+# site from that commit, and the change is live in about 1–2 minutes.
+
+backend:
+  name: github
+  repo: bhamalawi-alt/vellox-website
+  # The branch Cloudflare Pages deploys to production.
+  branch: main
+
+site_url: https://www.velloxstudio.com
+display_url: https://www.velloxstudio.com
+logo_url: /icon-512.png
+
+# Uploaded images are stored in the repo and served from /uploads/projects/.
+media_folder: public/uploads/projects
+public_folder: /uploads/projects
+
+# Uploads are converted to WebP and capped at 2400 px, so large photos from a
+# camera or phone don't slow the site down.
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 2400
+          height: 2400
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: projects
+    label: Projects
+    label_singular: Project
+    description: Portfolio case studies. Each project gets its own page at /portfolio/<name>.
+    folder: src/content/projects
+    format: json
+    extension: json
+    create: true
+    delete: true
+    # The file name becomes the page URL, e.g. "Aurelia Wellness" → /portfolio/aurelia-wellness.
+    slug: "{{title}}"
+    identifier_field: title
+    summary: "{{order}} · {{title}} — {{industry}}"
+    sortable_fields: [order, title, industry]
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Published
+        name: published
+        widget: boolean
+        default: true
+        hint: Turn off to hide the project from the site without deleting it.
+      - label: Show on home page
+        name: featured
+        widget: boolean
+        default: false
+      - label: Order
+        name: order
+        widget: number
+        value_type: int
+        default: 10
+        hint: Lower numbers show first.
+      - label: Industry
+        name: industry
+        widget: string
+        hint: For example Wellness, Fintech, F&B.
+      - label: Location
+        name: location
+        widget: string
+        required: false
+      - label: Year
+        name: year
+        widget: string
+        required: false
+      - label: Services delivered
+        name: tags
+        widget: list
+        required: false
+        hint: For example Brand Identity, Packaging, Web Design.
+        field:
+          label: Service
+          name: tag
+          widget: string
+      - label: Short summary
+        name: summary
+        widget: text
+        hint: One or two sentences. Shown on the portfolio cards and in search results.
+      - label: Project story
+        name: body
+        widget: text
+        required: false
+        hint: The challenge, what you did, and the outcome. Leave a blank line between paragraphs.
+      - label: Results
+        name: results
+        widget: list
+        required: false
+        hint: Headline numbers, for example "+28%" / "conversion rate".
+        fields:
+          - label: Value
+            name: value
+            widget: string
+          - label: Label
+            name: label
+            widget: string
+      - label: Cover image
+        name: cover
+        widget: image
+        required: false
+        hint: Landscape works best (16:9 or 4:3).
+      - label: Cover image description
+        name: coverAlt
+        widget: string
+        required: false
+        hint: Describe the image for screen readers and search engines.
+      - label: Gallery
+        name: gallery
+        widget: list
+        required: false
+        hint: Extra photos for the project page. They also appear in the portfolio gallery.
+        fields:
+          - label: Image
+            name: image
+            widget: image
+          - label: Description
+            name: alt
+            widget: string
+            required: false
+      - label: Live site URL
+        name: liveUrl
+        widget: string
+        required: false

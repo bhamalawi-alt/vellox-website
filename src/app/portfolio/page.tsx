@@ -5,6 +5,7 @@ import { PageHero } from "../../components/PageHero";
 import { ParallaxGallery } from "../../components/ui/parallax-gallery";
 import { StickyStack } from "../../components/ui/sticky-stack";
 import { COPY } from "../../content/pages/portfolio";
+import { getProjects } from "../../lib/projects";
 import { pageMeta } from "../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -13,11 +14,25 @@ export const metadata: Metadata = pageMeta({
   path: "/portfolio",
 });
 
-// Placeholder tiles until project photography is uploaded; add { src, alt }
-// entries here (or through the CMS) to replace them.
-const GALLERY = Array.from({ length: 12 }, () => ({ alt: "" }));
+const GALLERY_TILES = 12;
+
+// Gallery images come from every project's gallery in the CMS. Until there
+// are enough, the rest of the 12 tiles are branded placeholders.
+function galleryImages(projects: ReturnType<typeof getProjects>) {
+  const images = projects.flatMap((p) =>
+    p.gallery.map((g) => ({ src: g.image, alt: g.alt || p.title })),
+  );
+  if (images.length >= GALLERY_TILES) return images;
+  return [
+    ...images,
+    ...Array.from({ length: GALLERY_TILES - images.length }, () => ({ alt: "" })),
+  ];
+}
 
 export default function Portfolio() {
+  const projects = getProjects();
+  const gallery = galleryImages(projects);
+  const hasPhotos = projects.some((p) => p.gallery.length > 0);
   return (
     <>
       <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
@@ -35,8 +50,8 @@ export default function Portfolio() {
             </div>
           </div>
           <StickyStack
-            cards={COPY.projects.map((study, i) => (
-              <CaseStudyCard key={study.title} study={study} tone={i} />
+            cards={projects.map((study, i) => (
+              <CaseStudyCard key={study.slug} study={study} index={i} total={projects.length} />
             ))}
           />
         </div>
@@ -48,10 +63,10 @@ export default function Portfolio() {
             {COPY.gallery.eyebrow}
           </p>
           <h2 id="gallery-heading" className="display max-w-[24ch] text-3xl leading-[1.1] md:text-5xl">
-            {COPY.gallery.caption}
+            {hasPhotos ? COPY.gallery.captionWithPhotos : COPY.gallery.caption}
           </h2>
         </div>
-        <ParallaxGallery images={GALLERY} />
+        <ParallaxGallery images={gallery} />
       </section>
 
       <section className="bg-panel py-24 text-center text-white md:py-32">
