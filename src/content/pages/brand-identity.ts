@@ -6,7 +6,7 @@ export const COPY = {
   "intro": [
     "Brand identity is the visual translation of strategy — the logo, colors, typography, imagery, and design system that make your brand recognizable in any context. We design identities that work on a 16-pixel favicon and a 16-meter billboard, in print and on screen, today and in five years. Identity engagements typically run 6–10 weeks and include exploration, refinement, system design, and a comprehensive brand book. The deliverable is a system your team can use and extend without us in the room.",
   ],
-  "includedHeading": "5 sub-services covering every aspect of brand identity.",
+  "includedHeading": "5 sub-services",
   "included": [
     {
       "num": "01",
@@ -64,7 +64,7 @@ export const COPY = {
     "sub": "Explore related practice areas.",
   },
   "cta": {
-    "heading": "Ready to start a brand identity engagement?",
+    "heading": "Ready for an identity that holds up?",
     "body": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
 };

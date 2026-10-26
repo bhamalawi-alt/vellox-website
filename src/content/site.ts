@@ -10,7 +10,7 @@ export type FooterColumn = {
 
 export const WORDMARK = "Vellox";
 
-export const CTA_ITEM: NavItem = { label: "Start a Project →", href: "/contact" };
+export const CTA_ITEM: NavItem = { label: "Start a Project", href: "/contact" };
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "About", href: "/about" },
@@ -25,7 +25,7 @@ export const TAGLINE =
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    heading: "Visual & Marketing",
+    heading: "Brand & Design",
     links: [
       { label: "Brand Strategy", href: "/services/brand-strategy" },
       { label: "Brand Identity", href: "/services/brand-identity" },
@@ -60,4 +60,5 @@ export const SOCIAL_LINKS: NavItem[] = [
   { label: "Mail", href: "mailto:hello@velloxstudio.com" },
 ];
 
-export const COPYRIGHT = "© 2026 Vellox Studio. All rights reserved.";
+// Evaluated at build time, so the year stays current on every deploy.
+export const COPYRIGHT = `© ${new Date().getFullYear()} Vellox Studio. All rights reserved.`;

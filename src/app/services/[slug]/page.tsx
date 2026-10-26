@@ -7,23 +7,31 @@ import { ArrowLink } from "../../../components/ui/arrow-link";
 import { COPY as brandStrategyCopy } from "../../../content/pages/brand-strategy";
 import { COPY as brandIdentityCopy } from "../../../content/pages/brand-identity";
 import { COPY as ecommerceCopy } from "../../../content/pages/ecommerce";
+import { COPY as erpCopy } from "../../../content/pages/erp-implementation";
 import { COPY as uxdCopy } from "../../../content/pages/user-experience-design";
 import { COPY as visualContentCopy } from "../../../content/pages/visual-content";
 import { COPY as webDevCopy } from "../../../content/pages/web-development";
 import { COPY as webMobileCopy } from "../../../content/pages/web-mobile-applications";
 import { FRAPPE_BADGE, SERVICES } from "../../../content/services";
-import { pageMeta } from "../../../lib/seo";
+import { BASE, pageMeta } from "../../../lib/seo";
 
 type IncludedItem = { num: string; title: string; body: string };
 
 type ServiceCopy = {
-  includedHeading?: string;
   included: IncludedItem[];
   approach?: {
     heading: string;
     steps: { num: string; title: string; body: string }[];
   };
+  related?: { heading: string; sub: string };
   cta?: { heading: string; body: string };
+};
+
+const RELATED_COUNT = 3;
+
+// ERPNext is what people search for, so the ERP page title names it.
+const TITLE_OVERRIDES: Record<string, string> = {
+  "erp-implementation": "ERPNext Implementation & Customization — Vellox Studio",
 };
 
 const PAGE_COPY: Record<string, ServiceCopy> = {
@@ -34,6 +42,7 @@ const PAGE_COPY: Record<string, ServiceCopy> = {
   "web-development": webDevCopy,
   ecommerce: ecommerceCopy,
   "web-mobile-applications": webMobileCopy,
+  "erp-implementation": erpCopy,
 };
 
 const FALLBACK_CTA = {
@@ -56,7 +65,7 @@ export async function generateMetadata({
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) return {};
   return pageMeta({
-    title: `${service.title} — Vellox Studio`,
+    title: TITLE_OVERRIDES[service.slug] ?? `${service.title} — Vellox Studio`,
     description: service.tagline,
     path: `/services/${service.slug}`,
   });
@@ -71,9 +80,47 @@ export default async function ServiceDetail(
 
   const copy = PAGE_COPY[slug];
   const isErp = slug === "erp-implementation";
+  const at = SERVICES.indexOf(service);
+  const related = Array.from(
+    { length: RELATED_COUNT },
+    (_, i) => SERVICES[(at + 1 + i) % SERVICES.length],
+  );
+  const url = `${BASE}/services/${service.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        name: service.title,
+        description: service.tagline,
+        url,
+        serviceType: service.title,
+        provider: { "@id": `${BASE}/#organization` },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: service.title,
+          itemListElement: service.included.map((name) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name },
+          })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Services", item: `${BASE}/services` },
+          { "@type": "ListItem", position: 2, name: service.title, item: url },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <PageHero
         before={
           <nav
@@ -96,7 +143,7 @@ export default async function ServiceDetail(
         after={
           isErp ? (
             <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/80">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[#7c78ff]" />
               {FRAPPE_BADGE}
             </span>
           ) : null
@@ -127,9 +174,6 @@ export default async function ServiceDetail(
         <div className="mx-auto mt-20 w-full max-w-6xl px-6 md:mt-28">
           <div className="mb-8 flex flex-wrap items-baseline justify-between gap-3">
             <h2 className="display text-3xl md:text-5xl">What&apos;s included</h2>
-            <span className="font-mono text-xs uppercase tracking-[0.14em] text-muted">
-              {copy?.includedHeading ?? service.count}
-            </span>
           </div>
           {copy ? (
             <Accordion
@@ -170,6 +214,36 @@ export default async function ServiceDetail(
             </ol>
           </div>
         ) : null}
+
+        <div className="mx-auto mt-20 w-full max-w-6xl px-6 md:mt-28">
+          <div className="mb-8 flex flex-wrap items-baseline justify-between gap-3">
+            <h2 className="display text-3xl md:text-5xl">
+              {copy?.related?.heading ?? "Other Services"}
+            </h2>
+            <span className="font-mono text-xs uppercase tracking-[0.14em] text-muted">
+              {copy?.related?.sub ?? "Explore related practice areas."}
+            </span>
+          </div>
+          <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {related.map((other) => (
+              <li key={other.slug}>
+                <Link
+                  href={`/services/${other.slug}`}
+                  className="card-lift group flex h-full flex-col rounded-2xl border border-line bg-white p-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+                >
+                  <span className="mb-6 font-mono text-xs tabular-nums text-muted">
+                    {String(other.index).padStart(2, "0")}
+                  </span>
+                  <span className="display mb-3 text-xl md:text-2xl">{other.title}</span>
+                  <span className="mb-6 text-sm leading-relaxed text-muted">{other.tagline}</span>
+                  <span className="mt-auto font-mono text-[11px] uppercase tracking-[0.14em]">
+                    View service <span aria-hidden="true">→</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className="bg-panel py-24 text-white md:py-32">

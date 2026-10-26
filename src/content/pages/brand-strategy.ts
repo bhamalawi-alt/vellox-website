@@ -6,7 +6,7 @@ export const COPY = {
   "intro": [
     "Brand strategy is the foundational work that decides whether everything downstream lands or flops. We help you articulate a single defensible position in the market, map the competitive landscape, name the brand, and write the messaging playbook your team will use for years. Without sharp strategy, every identity, marketing, and product decision becomes a subjective debate. With it, those decisions become obvious. Engagements typically run 4–6 weeks and combine stakeholder interviews, market research, positioning workshops, and a final strategy document your team can operationalize.",
   ],
-  "includedHeading": "6 sub-services covering every aspect of brand strategy.",
+  "includedHeading": "6 sub-services",
   "included": [
     {
       "num": "01",
@@ -69,7 +69,7 @@ export const COPY = {
     "sub": "Explore related practice areas.",
   },
   "cta": {
-    "heading": "Ready to start a brand strategy engagement?",
+    "heading": "Ready to sharpen your positioning?",
     "body": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
 };

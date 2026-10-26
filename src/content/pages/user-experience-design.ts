@@ -6,7 +6,7 @@ export const COPY = {
   "intro": [
     "UX design is where strategy meets the user. We design digital products — websites, web apps, mobile apps, internal tools — that balance business outcomes with user needs. Our work spans research, information architecture, interaction design, visual design, and prototyping. We're not pixel-pushers; we're product partners who happen to be very good at design. Engagements run 4–12 weeks depending on scope, and ship with everything engineering needs to build without guessing.",
   ],
-  "includedHeading": "6 sub-services covering every aspect of user experience design.",
+  "includedHeading": "6 sub-services",
   "included": [
     {
       "num": "01",
@@ -36,11 +36,11 @@ export const COPY = {
     {
       "num": "06",
       "title": "Design System & UI Kit",
-      "body": "Build a reusable component library that scales design across your team. We document every UI component with anatomy, variants, states, usage guidelines, and accessibility requirements. The system is delivered as a Figma library and, where needed, a coded component library (React, Vue, or Swift). A mature design system 10x's design throughput and ensures consistency at scale.",
+      "body": "Build a reusable component library that scales design across your team. We document every UI component with anatomy, variants, states, usage guidelines, and accessibility requirements. The system is delivered as a Figma library and, where needed, a coded component library (React, Vue, or Swift). A mature design system multiplies design throughput and keeps the product consistent as it grows.",
     },
   ],
   "approach": {
-    "heading": "How we run a user experience design engagement.",
+    "heading": "How we run a UX design engagement.",
     "steps": [
       {
         "num": "01",
@@ -69,7 +69,7 @@ export const COPY = {
     "sub": "Explore related practice areas.",
   },
   "cta": {
-    "heading": "Ready to start a user experience design engagement?",
+    "heading": "Ready to fix the experience?",
     "body": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
 };

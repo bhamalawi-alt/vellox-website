@@ -10,10 +10,6 @@ export const metadata: Metadata = pageMeta({
   path: "/insights",
 });
 
-function discussHref(title: string) {
-  return `mailto:hello@velloxstudio.com?subject=${encodeURIComponent(title)}`;
-}
-
 export default function Insights() {
   return (
     <>
@@ -32,9 +28,9 @@ export default function Insights() {
                     <span className="rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
                       {article.category}
                     </span>
-                    <time className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-                      {article.date}
-                    </time>
+                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+                      {COPY.status}
+                    </span>
                   </div>
                   <div className="md:col-span-9">
                     <h2 className="display mb-5 max-w-[24ch] text-3xl leading-[1.1] md:text-5xl">
@@ -44,10 +40,11 @@ export default function Insights() {
                       {article.excerpt}
                     </p>
                     <ArrowLink
-                      href={discussHref(article.title)}
+                      href="/contact"
                       className="text-sm uppercase tracking-[0.12em] text-ink"
                     >
                       {article.linkLabel}
+                      <span className="sr-only">: {article.title}</span>
                     </ArrowLink>
                   </div>
                 </article>

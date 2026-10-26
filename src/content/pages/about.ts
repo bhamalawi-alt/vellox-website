@@ -1,7 +1,7 @@
 export const COPY = {
   "eyebrow": "About Vellox Studio",
   "headline": "We pair the discipline of a strategy consultancy with the craft of a design studio.",
-  "lede": "Vellox is a business development studio founded in 2019, operating remotely across the EU and MENA. We help wellness, fintech, and F&B founders build brands, products, and the systems that scale them — from positioning to production.",
+  "lede": "Founded in 2019 and operating across the EU and MENA, Vellox helps wellness, fintech, and F&B founders build brands, products, and the systems that scale them.",
   "approach": {
     "eyebrow": "Our Approach & Values",
     "heading": "Four principles guide every engagement.",

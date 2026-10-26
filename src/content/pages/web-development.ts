@@ -6,7 +6,7 @@ export const COPY = {
   "intro": [
     "Web development at Vellox covers everything from marketing sites to multi-tenant SaaS platforms. We build in Next.js, TypeScript, and Prisma by default — a stack that's fast, SEO-friendly, and easy to hire for. Every engagement ships with responsive design, accessibility, Core Web Vitals in the green, analytics, and a CMS your team can use without us. We don't disappear at launch; most clients stay on a maintenance retainer for ongoing improvements.",
   ],
-  "includedHeading": "7 sub-services covering every aspect of web development.",
+  "includedHeading": "7 sub-services",
   "included": [
     {
       "num": "01",
@@ -74,7 +74,7 @@ export const COPY = {
     "sub": "Explore related practice areas.",
   },
   "cta": {
-    "heading": "Ready to start a web development engagement?",
+    "heading": "Ready for a faster website?",
     "body": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
 };

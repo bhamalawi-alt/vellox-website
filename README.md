@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vellox Studio website
 
-## Getting Started
+Marketing site for Vellox Studio: Next.js 16 (App Router) + Tailwind CSS 4, exported as a static site and hosted on Cloudflare Pages.
 
-First, run the development server:
+## Develop
+
+This project uses [Bun](https://bun.sh) (`bun.lock` is the lockfile).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun --bun next dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build and check
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun run build             # static export to out/
+bun run verify            # routes, OG tags, canonicals, sitemap, form endpoint
+bun run start             # serve out/ locally like Cloudflare Pages
+bun run lint
+bun run typecheck
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy (Cloudflare Pages)
 
-## Learn More
+- Build command: `bun run build`
+- Build output directory: `out`
+- Environment variable: `NEXT_PUBLIC_FORMSPREE_ID` (see `.env.example`); without it the contact form is disabled.
+- `public/_headers` sets security and cache headers; `public/_redirects` holds path redirects.
+- In the Cloudflare dashboard, turn on **SSL/TLS → Always Use HTTPS** and add a **Redirect Rule** from `velloxstudio.com` to `www.velloxstudio.com` (the canonical host in `src/lib/seo.ts`).
 
-To learn more about Next.js, take a look at the following resources:
+## Where things live
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/content/` — all copy. `services.ts` drives the service list; `pages/*.ts` hold per-page copy.
+- `src/content/pages/portfolio.ts` — case studies. Add `image: "/work/<file>"` to a project to replace its placeholder cover.
+- `src/components/ui/` — UI components adapted from Skiper UI and Vengeance UI (attribution in the footer is a Skiper UI licence condition).
+- `scripts/generate-og.mjs` — regenerates the share image and icons from `public/logos/` (`bun run icons`).

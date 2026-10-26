@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import Link from "next/link";
 import { COPY } from "../content/pages/contact";
-import { SERVICES } from "../content/services";
 
 const EMAIL = "hello@velloxstudio.com";
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
@@ -14,13 +14,13 @@ const ENDPOINT = FORMSPREE_ID
 type Status = "idle" | "pending" | "success" | "error";
 
 const fieldBase =
-  "w-full rounded-lg border border-white/30 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/50 transition-colors hover:border-white/60 focus:border-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+  "w-full rounded-lg border border-white/45 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/50 transition-colors hover:border-white/60 focus:border-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
 const labelBase =
   "mb-2 block font-mono text-[11px] uppercase tracking-[0.2em] text-white/70";
 
 const pillBase =
-  "cursor-pointer rounded-full border border-white/30 px-4 py-2 text-[11px] uppercase tracking-[0.08em] text-white/80 transition-colors hover:border-white/60 hover:text-white peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-white peer-checked:border-white peer-checked:bg-white/10 peer-checked:text-white";
+  "cursor-pointer rounded-full border border-white/45 px-4 py-2 text-[11px] uppercase tracking-[0.08em] text-white/80 transition-colors hover:border-white/60 hover:text-white peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-white peer-checked:border-white peer-checked:bg-white/10 peer-checked:text-white";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -61,8 +61,13 @@ export default function ContactForm() {
   }
 
   return (
+    // method/action keep a plain POST to Formspree working if JS fails, so
+    // personal data never lands in a GET query string.
     <form
       onSubmit={handleSubmit}
+      method="post"
+      action={ENDPOINT ?? undefined}
+      aria-label="Project enquiry"
       aria-busy={pending}
       className="relative space-y-6 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8"
     >
@@ -165,17 +170,17 @@ export default function ContactForm() {
           {COPY.form.interestsLabel}
         </legend>
         <ul className="flex flex-wrap gap-2">
-          {SERVICES.map((service) => (
-            <li key={service.slug}>
+          {COPY.form.interestOptions.map((title, i) => (
+            <li key={title}>
               <input
                 type="checkbox"
                 name="interests[]"
-                value={service.title}
-                id={`contact-interest-${service.slug}`}
+                value={title}
+                id={`contact-interest-${i}`}
                 className="peer sr-only"
               />
-              <label htmlFor={`contact-interest-${service.slug}`} className={pillBase}>
-                {service.title}
+              <label htmlFor={`contact-interest-${i}`} className={pillBase}>
+                {title}
               </label>
             </li>
           ))}
@@ -183,7 +188,14 @@ export default function ContactForm() {
       </fieldset>
 
       <p className="text-xs leading-relaxed text-white/70">
-        {COPY.form.privacyNote}
+        {COPY.form.privacyNote}{" "}
+        <Link
+          href="/privacy"
+          className="underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          Privacy policy
+        </Link>
+        .
       </p>
 
       <div aria-live="polite">

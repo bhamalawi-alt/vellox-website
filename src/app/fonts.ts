@@ -2,11 +2,9 @@ import localFont from "next/font/local";
 import { Geist, Geist_Mono } from "next/font/google";
 
 export const optika = localFont({
-  src: [
-    { path: "../../public/fonts/Optika-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../../public/fonts/Optika-Medium.woff2", weight: "500", style: "normal" },
-    { path: "../../public/fonts/Optika-Bold.woff2", weight: "700", style: "normal" },
-  ],
+  // Only Regular is used; display headings never ask for heavier weights, so
+  // Medium and Bold are not shipped or preloaded.
+  src: [{ path: "../../public/fonts/Optika-Regular.woff2", weight: "400", style: "normal" }],
   variable: "--font-display",
   display: "swap",
 });

@@ -10,7 +10,7 @@ export type ImageRevealItem = {
   title: string;
   description: string;
   meta: string;
-  image: string;
+  image?: string;
   href: string;
 };
 
@@ -29,14 +29,20 @@ export function ImageRevealList({
             href={item.href}
             className="group relative grid grid-cols-[3rem_1fr_auto] items-baseline gap-x-4 gap-y-2 py-7 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-ink md:grid-cols-[4rem_minmax(0,1.1fr)_minmax(0,1fr)_auto] md:items-center md:py-9"
           >
-            {/* The preview card floats to the right of the row on wide screens. */}
-            <img
-              src={item.image}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              className="pointer-events-none absolute right-24 top-1/2 z-10 hidden h-44 w-36 -translate-y-1/2 rotate-3 scale-90 rounded-lg object-cover opacity-0 shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100 group-focus-visible:opacity-100 lg:block"
-            />
+            {/* The preview card floats to the right of the row on wide screens,
+                on hover only, so it never covers text a keyboard user is reading. */}
+            {item.image ? (
+              <img
+                src={item.image}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                width={144}
+                height={176}
+                className="pointer-events-none absolute right-24 top-1/2 z-10 hidden h-44 w-36 -translate-y-1/2 rotate-3 scale-90 rounded-lg object-cover opacity-0 shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100 lg:block"
+              />
+            ) : null}
             <span className="font-mono text-xs tabular-nums text-muted">
               {item.number}
             </span>

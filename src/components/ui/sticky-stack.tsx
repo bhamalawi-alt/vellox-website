@@ -29,7 +29,9 @@ function StickyCard({
   const reduce = useReducedMotion();
   const scale = useTransform(progress, range, [1, targetScale]);
   return (
-    <div className="sticky top-0 flex h-[85vh] items-center justify-center md:h-screen">
+    // .sticky-stack-card (globals.css) pins only on screens tall and wide enough
+    // to fit a whole card; elsewhere cards stack normally so none hides another.
+    <div className="sticky-stack-card flex items-center justify-center py-3">
       <motion.div
         style={{
           scale: reduce ? 1 : scale,

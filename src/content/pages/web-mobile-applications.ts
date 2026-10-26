@@ -6,7 +6,7 @@ export const COPY = {
   "intro": [
     "We build native mobile apps (Swift/Kotlin), cross-platform apps (React Native), and the backend APIs that power them. Our work has shipped across consumer, B2B, healthcare, and education verticals — including booking systems, learning platforms, internal business tools, and payments systems. Mobile engagements include design, development, App Store/Play Store submission, and post-launch monitoring. We default to a shared backend with separate native frontends for performance and platform feel.",
   ],
-  "includedHeading": "6 sub-services covering every aspect of web & mobile applications.",
+  "includedHeading": "6 sub-services",
   "included": [
     {
       "num": "01",
@@ -36,11 +36,11 @@ export const COPY = {
     {
       "num": "06",
       "title": "Payments Systems",
-      "body": "Build payment flows that don't leak revenue. We integrate Stripe, Adyen, Square, or regional processors (Mpesa, PSE, iDEAL) for one-time payments, subscriptions, marketplaces, and B2B invoicing. Payment work includes PCI compliance, fraud rules, dunning, refunds, and reconciliation. The deliverable is a payment system that handles edge cases without manual intervention.",
+      "body": "Build payment flows that don't leak revenue. We integrate Stripe, Adyen, Square, or regional processors (Checkout.com, PayTabs, Tap, mada, iDEAL) for one-time payments, subscriptions, marketplaces, and B2B invoicing. Payment work includes PCI compliance, fraud rules, dunning, refunds, and reconciliation. The deliverable is a payment system that handles edge cases without manual intervention.",
     },
   ],
   "approach": {
-    "heading": "How we run a web & mobile applications engagement.",
+    "heading": "How we run an app engagement.",
     "steps": [
       {
         "num": "01",
@@ -69,7 +69,7 @@ export const COPY = {
     "sub": "Explore related practice areas.",
   },
   "cta": {
-    "heading": "Ready to start a web & mobile applications engagement?",
+    "heading": "Ready to build your app?",
     "body": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
 };

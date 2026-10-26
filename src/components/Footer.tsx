@@ -69,10 +69,10 @@ export default function Footer() {
         <div className="flex flex-col gap-4 py-8 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
           <p>{COPYRIGHT}</p>
           <nav aria-label="Legal" className="flex flex-wrap gap-x-6">
-            <Link href="/privacy/" className={`inline-flex min-h-11 items-center hover:text-white ${linkBase}`}>
+            <Link href="/privacy" className={`inline-flex min-h-11 items-center hover:text-white ${linkBase}`}>
               Privacy
             </Link>
-            <Link href="/terms/" className={`inline-flex min-h-11 items-center hover:text-white ${linkBase}`}>
+            <Link href="/terms" className={`inline-flex min-h-11 items-center hover:text-white ${linkBase}`}>
               Terms
             </Link>
             <a href="#top" className={`inline-flex min-h-11 items-center hover:text-white ${linkBase}`}>

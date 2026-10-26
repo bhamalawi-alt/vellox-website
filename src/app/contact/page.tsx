@@ -20,6 +20,7 @@ export default function Contact() {
 
       <section className="bg-[#0a0a0a] pb-24 pt-4 text-white md:pb-32">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16">
+          <h2 className="sr-only">Contact details</h2>
           <dl className="h-fit md:col-span-5 md:sticky md:top-28">
             {COPY.details.map((detail) => (
               <div
@@ -45,6 +46,7 @@ export default function Contact() {
             ))}
           </dl>
           <div className="md:col-span-7">
+            <h2 className="sr-only">Send us a message</h2>
             <ContactForm />
           </div>
         </div>

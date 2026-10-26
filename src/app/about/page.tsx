@@ -142,14 +142,17 @@ export default function About() {
           <h2 className="display mb-14 max-w-[22ch] text-4xl leading-[1.05] md:text-6xl">
             {COPY.testimonialsSection.heading}
           </h2>
+          {/* A swipeable row on small screens (focusable so keyboards can scroll
+              it), a full grid from lg so no testimonial is hidden off-screen. */}
           <ul
-            className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-6 [scrollbar-width:thin]"
+            tabIndex={0}
+            className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-6 [scrollbar-width:thin] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:pb-0"
             aria-label={COPY.testimonialsSection.eyebrow}
           >
             {COPY.testimonials.map((testimonial) => (
               <li
                 key={testimonial.name}
-                className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-2.5rem)/3)]"
+                className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-auto"
               >
                 <figure className="flex h-full flex-col rounded-3xl border border-line bg-white p-8">
                   <span aria-hidden="true" className="display text-6xl leading-none text-ink/20">

@@ -13,7 +13,10 @@ import {
   type MotionValue,
 } from "framer-motion";
 
-export type GalleryImage = { src: string; alt: string };
+import { BrandMark } from "../BrandLogo";
+
+// An image without src renders as a branded placeholder tile.
+export type GalleryImage = { src?: string; alt: string };
 
 const COLUMN_OFFSETS = ["-top-[20%]", "-top-[55%]", "-top-[25%]", "-top-[45%]"];
 
@@ -33,17 +36,24 @@ function Column({
       style={{ y }}
       className={`relative flex h-full w-1/2 min-w-0 flex-col gap-[2vw] md:w-1/4 ${offset} ${className}`}
     >
-      {images.map((image) => (
+      {images.map((image, i) => (
         <div
-          key={image.src}
+          key={image.src ?? i}
           className="relative min-h-0 flex-1 overflow-hidden rounded-xl bg-white/5"
         >
-          <img
-            src={image.src}
-            alt={image.alt}
-            loading="lazy"
-            className="h-full w-full object-cover"
-          />
+          {image.src ? (
+            <img
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#3730e8]/25 via-[#121130] to-[#0a0a0a]">
+              <BrandMark height={32} className="h-8 w-auto opacity-30" />
+            </div>
+          )}
         </div>
       ))}
     </motion.div>

@@ -1,5 +1,5 @@
-/* Marquee strip — hero-band practice-name loop.
- * Markup contract (Task 8, home hero):
+/* Marquee strip — hero-band practice-name loop (components/motion/Marquee.tsx).
+ * Markup contract:
  * <div class="marquee" aria-hidden="true">
  *   <div class="marquee__track">
  *     <ul class="marquee__group">…names…</ul>
@@ -34,6 +34,10 @@
   to {
     transform: translateX(-50%);
   }
+}
+
+.marquee[data-paused] .marquee__track {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

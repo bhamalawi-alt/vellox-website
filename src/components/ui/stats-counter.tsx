@@ -22,16 +22,29 @@ export function StatsCounter({
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const reduce = useReducedMotion();
   const [display, setDisplay] = useState(value);
+  // Count up only when the number starts below the fold, so nobody sees the
+  // final value snap back to 0.
+  const [counts, setCounts] = useState(false);
 
   useEffect(() => {
-    if (!inView || reduce) return;
+    const el = ref.current;
+    if (!el || reduce || el.getBoundingClientRect().top < window.innerHeight) return;
+    const raf = requestAnimationFrame(() => {
+      setCounts(true);
+      setDisplay(0);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [reduce]);
+
+  useEffect(() => {
+    if (!inView || !counts) return;
     const controls = animate(0, value, {
       duration: 1.4,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => setDisplay(Math.round(v)),
     });
     return () => controls.stop();
-  }, [inView, reduce, value]);
+  }, [inView, counts, value]);
 
   return (
     <span ref={ref} className={cn("tabular-nums", className)}>

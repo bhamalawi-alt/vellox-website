@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ShaderBackground } from "../components/motion/ShaderBackground";
 import { Reveal } from "../components/motion/Reveal";
 import { MagneticCta } from "../components/motion/MagneticCta";
-import "../components/motion/MarqueeStrip.css";
+import { Marquee } from "../components/motion/Marquee";
 import { BrandMark } from "../components/BrandLogo";
 import { CaseStudyCard } from "../components/CaseStudyCard";
 import { ArrowLink } from "../components/ui/arrow-link";
@@ -19,8 +19,8 @@ import { FRAPPE_BADGE, SERVICES } from "../content/services";
 import { pageMeta } from "../lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Vellox Studio — Business Development Studio",
-  description: COPY.hero.support,
+  title: "Vellox Studio — Brand, Web & ERP Studio for Wellness, Fintech, F&B",
+  description: COPY.hero.metaDescription,
   path: "/",
 });
 
@@ -32,13 +32,12 @@ const HEADLINE = [
   { w: "to" }, { w: "production." },
 ];
 
-const SERVICE_ROWS = SERVICES.map((service, i) => ({
+const SERVICE_ROWS = SERVICES.map((service) => ({
   id: service.slug,
   number: String(service.index).padStart(2, "0"),
   title: service.title,
   description: service.tagline,
   meta: service.count,
-  image: `/work/work-${String((i % 12) + 1).padStart(2, "0")}.jpg`,
   href: `/services/${service.slug}`,
 }));
 
@@ -79,7 +78,7 @@ export default function Home() {
               {COPY.hero.secondaryCta}
             </ArrowLink>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/80">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[#7c78ff]" />
               {FRAPPE_BADGE}
             </span>
           </div>
@@ -87,22 +86,7 @@ export default function Home() {
 
         <ProgressiveBlur position="bottom" color="#0a0a0a" height="220px" className="z-[5]" />
 
-        <div aria-hidden="true" className="marquee relative z-20 border-t border-white/10 py-4">
-          <div className="marquee__track">
-            {[0, 1].map((half) => (
-              <ul key={half} className="marquee__group">
-                {COPY.marquee.map((name) => (
-                  <li
-                    key={name}
-                    className="mx-8 font-mono text-xs uppercase tracking-[0.2em] text-white/60"
-                  >
-                    {name}
-                  </li>
-                ))}
-              </ul>
-            ))}
-          </div>
-        </div>
+        <Marquee items={COPY.marquee} className="z-20 border-t border-white/10 py-4" />
       </section>
 
       <section className="bg-bg py-24 text-ink md:py-36">

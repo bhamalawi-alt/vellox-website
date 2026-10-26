@@ -88,8 +88,17 @@ export function EnergyOrb({ className = "", ...props }: EnergyOrbProps) {
     const gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: false, antialias: true });
     if (!starContext || !gl) return undefined;
 
-    const vertex = compile(gl, gl.VERTEX_SHADER, NXA_ENERGY_ORB_VERTEX_SHADER);
-    const fragment = compile(gl, gl.FRAGMENT_SHADER, NXA_ENERGY_ORB_CONFIGURABLE_FRAGMENT_SHADER);
+    // A decorative background must never take the page down: on a shader
+    // error, leave the static fallback in place.
+    let vertex: WebGLShader;
+    let fragment: WebGLShader;
+    try {
+      vertex = compile(gl, gl.VERTEX_SHADER, NXA_ENERGY_ORB_VERTEX_SHADER);
+      fragment = compile(gl, gl.FRAGMENT_SHADER, NXA_ENERGY_ORB_CONFIGURABLE_FRAGMENT_SHADER);
+    } catch {
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      return undefined;
+    }
     const program = gl.createProgram();
     if (!program) {
       gl.deleteShader(vertex);
@@ -254,6 +263,7 @@ export function EnergyOrb({ className = "", ...props }: EnergyOrbProps) {
       gl.deleteShader(vertex);
       gl.deleteShader(fragment);
       gl.deleteProgram(program);
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
   }, []);
 

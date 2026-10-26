@@ -6,7 +6,7 @@ export const COPY = {
   "intro": [
     "eCommerce is where brand, UX, and engineering converge on a single metric: revenue. We build Shopify stores, custom headless storefronts, multi-vendor marketplaces, and B2B portals — each engineered for the specific business model it serves. We don't just build and leave; most clients stay on a CRO retainer that lifts revenue 15–40% within six months. Our work has shipped across wellness, F&B, fashion, and B2B verticals.",
   ],
-  "includedHeading": "7 sub-services covering every aspect of ecommerce.",
+  "includedHeading": "7 sub-services",
   "included": [
     {
       "num": "01",
@@ -45,7 +45,7 @@ export const COPY = {
     },
   ],
   "approach": {
-    "heading": "How we run a ecommerce engagement.",
+    "heading": "How we run an eCommerce engagement.",
     "steps": [
       {
         "num": "01",
@@ -74,7 +74,7 @@ export const COPY = {
     "sub": "Explore related practice areas.",
   },
   "cta": {
-    "heading": "Ready to start a ecommerce engagement?",
+    "heading": "Ready to grow your store?",
     "body": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
 };

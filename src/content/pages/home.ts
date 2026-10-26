@@ -1,17 +1,18 @@
 export const COPY = {
   "hero": {
     "metaLeft": "Est. 2019 — Remote / On-site",
-    "metaRight": "2026",
+    "metaRight": "EU · MENA",
     "eyebrow": "Business Development Studio",
     "headline": "We build brands and platforms for wellness, fintech, and F&B founders — from positioning to production.",
-    "support": "One accountable team across strategy, design, and engineering. No hand-offs, no translation loss, no surprises at launch.",
+    "support": "Brand, web, eCommerce, and ERPNext under one roof. No hand-offs, no translation loss, no surprises at launch.",
+    "metaDescription": "Brand, web, eCommerce, and ERPNext studio for wellness, fintech, and F&B founders across the EU and MENA. Strategy, design, and engineering in one team.",
     "primaryCta": "Start a Project",
     "secondaryCta": "View Work",
   },
   "marquee": [
     "Brand Strategy",
-    "Identity Design",
-    "UX / UI",
+    "Brand Identity",
+    "UX Design",
     "Web Development",
     "eCommerce",
     "Mobile Apps",
@@ -30,7 +31,7 @@ export const COPY = {
         "value": 120,
         "suffix": "+",
         "label": "Projects Shipped",
-        "sub": "since 2019 — see portfolio →",
+        "sub": "since 2019",
       },
       {
         "value": 8,

@@ -13,15 +13,15 @@ export const metadata: Metadata = pageMeta({
 
 const SUB_SERVICE_PREVIEW = 3;
 
-const ROWS = SERVICES.map((service, i) => ({
+const ROWS = SERVICES.map((service) => ({
   id: service.slug,
   number: String(service.index).padStart(2, "0"),
   title: service.title,
   description: `${service.tagline} Includes ${service.included
     .slice(0, SUB_SERVICE_PREVIEW)
-    .join(", ")}, and more.`,
+    .map((item) => item.split(" — ")[0])
+    .join(", ")}${service.included.length > SUB_SERVICE_PREVIEW ? ", and more" : ""}.`,
   meta: service.count,
-  image: `/work/work-${String((i % 12) + 1).padStart(2, "0")}.jpg`,
   href: `/services/${service.slug}`,
 }));
 
@@ -34,8 +34,9 @@ export default function ServicesIndex() {
         lede={COPY.lede}
         shader="interface"
       />
-      <section className="bg-bg py-20 text-ink md:py-28">
+      <section className="bg-bg py-20 text-ink md:py-28" aria-labelledby="services-list">
         <div className="mx-auto w-full max-w-6xl px-6">
+          <h2 id="services-list" className="sr-only">All practice areas</h2>
           <ImageRevealList items={ROWS} />
         </div>
       </section>

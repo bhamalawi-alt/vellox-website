@@ -9,7 +9,7 @@ const ROUTES = [
   "/services/user-experience-design", "/services/visual-content",
   "/services/web-development", "/services/ecommerce",
   "/services/web-mobile-applications", "/services/erp-implementation",
-  "/privacy/", "/terms/",
+  "/privacy", "/terms",
 ];
 let failures = [];
 const check = (ok, msg) => { if (!ok) failures.push(msg); };
@@ -30,5 +30,10 @@ const maps = [];
 (function walk(dir) { for (const e of readdirSync(dir, { withFileTypes: true })) { const p = join(dir, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith(".map")) maps.push(p); } })(OUT);
 check(maps.length === 0, `source maps shipped: ${maps.slice(0, 3).join(", ")}`);
 check(existsSync(join(OUT, "sitemap.xml")), "missing sitemap.xml");
+// The contact form is the only conversion path; warn loudly when the build has
+// no Formspree endpoint (set NEXT_PUBLIC_FORMSPREE_ID in the hosting env).
+const chunks = join(OUT, "_next", "static", "chunks");
+const formWired = readdirSync(chunks).some((f) => f.endsWith(".js") && /formspree\.io\/f\/[A-Za-z0-9]+/.test(readFileSync(join(chunks, f), "utf8")));
+if (!formWired) console.warn("WARNING: contact form has no Formspree endpoint — set NEXT_PUBLIC_FORMSPREE_ID before deploying.");
 if (failures.length) { console.error("FAIL:\n" + failures.join("\n")); process.exit(1); }
 console.log(`OK: ${ROUTES.length} routes verified`);

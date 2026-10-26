@@ -13,21 +13,9 @@ export const metadata: Metadata = pageMeta({
   path: "/portfolio",
 });
 
-// Replace these with real project photography as it becomes available.
-const GALLERY = [
-  { src: "/work/work-01.jpg", alt: "Couple cooking with red enamel cookware in a bright kitchen" },
-  { src: "/work/work-02.jpg", alt: "Matte white coffee bag with a house blend label from a specialty roaster" },
-  { src: "/work/work-03.jpg", alt: "Dark product analytics dashboard showing bounce rate and session charts" },
-  { src: "/work/work-04.jpg", alt: "Printed brand color palettes beside a tablet with color studies" },
-  { src: "/work/work-05.jpg", alt: "Bride and groom walking hand in hand under a palm tree at dusk" },
-  { src: "/work/work-06.jpg", alt: "Minimal office interior with black-framed glass partitions and pendant lights" },
-  { src: "/work/work-07.jpg", alt: "Hands gesturing during a product workshop beside a laptop with interface drafts" },
-  { src: "/work/work-08.jpg", alt: "Engineer carrying a laptop along a glass corridor beside server racks" },
-  { src: "/work/work-09.jpg", alt: "Two engineers working at laptops in a bright studio office" },
-  { src: "/work/work-10.jpg", alt: "Tablet showing a sketched serif letterform beside an open red typography manual" },
-  { src: "/work/work-11.jpg", alt: "Hands typing on a laptop previewing responsive website templates" },
-  { src: "/work/work-12.jpg", alt: "White body lotion tube resting on soft linen, minimal wellness packaging" },
-];
+// Placeholder tiles until project photography is uploaded; add { src, alt }
+// entries here (or through the CMS) to replace them.
+const GALLERY = Array.from({ length: 12 }, () => ({ alt: "" }));
 
 export default function Portfolio() {
   return (

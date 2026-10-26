@@ -25,7 +25,7 @@ export function ArrowLink({
   );
   const arrow = (
     <svg
-      className="ml-[0.35em] size-[0.55em] translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none"
+      className="ml-[0.35em] size-[0.55em] translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100"
       fill="none"
       viewBox="0 0 10 10"
       aria-hidden="true"
@@ -48,6 +48,7 @@ export function ArrowLink({
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}
+        {external ? <span className="sr-only"> (opens in a new tab)</span> : null}
         {arrow}
       </a>
     );

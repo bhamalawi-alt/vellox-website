@@ -6,7 +6,7 @@ export const COPY = {
   "intro": [
     "Visual content is the proof of your brand. We produce photography that earns attention in feeds, on shelves, and in consideration sets — from clean product cutouts to full campaign productions. Our work includes art direction, casting, location scouting, lighting, retouching, and delivery in every format your channels need. Photography engagements range from one-day studio shoots to multi-day campaign productions with full crews.",
   ],
-  "includedHeading": "3 sub-services covering every aspect of visual content.",
+  "includedHeading": "3 sub-services",
   "included": [
     {
       "num": "01",
@@ -54,7 +54,7 @@ export const COPY = {
     "sub": "Explore related practice areas.",
   },
   "cta": {
-    "heading": "Ready to start a visual content engagement?",
+    "heading": "Ready to plan your next shoot?",
     "body": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
 };

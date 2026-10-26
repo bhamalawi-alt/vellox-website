@@ -1,12 +1,29 @@
+# Cloudflare Pages headers. Pages serves pretty URLs (/about, not /about.html),
+# so rules match those paths.
+
 /*
   X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
 
+# Hashed build assets never change.
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
 
-/fonts/*
-  Cache-Control: public, max-age=31536000, immutable
-  Content-Type: font/woff2
+# Unhashed images: cache for a week, revalidate after.
+/logos/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/og-default.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/icon-512.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
+# React Server Component payloads (/about.txt etc.) are for client navigation,
+# not for search results.
+/*.txt
+  X-Robots-Tag: noindex
+/robots.txt
+  ! X-Robots-Tag

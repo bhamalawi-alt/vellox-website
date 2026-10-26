@@ -30,6 +30,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchor targets and focused elements clear of the fixed header */
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -40,12 +42,6 @@ body {
 
 .display {
   font-family: var(--font-display), var(--font-sans), sans-serif;
-}
-
-/* Shader hosts fill their section */
-.threeui-background {
-  position: absolute;
-  inset: 0;
 }
 
 /* Reveal-on-scroll */
@@ -61,47 +57,52 @@ body {
   transform: none;
 }
 
-/* Underline draw for nav links */
-.link-draw {
-  position: relative;
-}
-.link-draw::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  height: 1px;
-  width: 100%;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-.link-draw:hover::after,
-.link-draw:focus-visible::after {
-  transform: scaleX(1);
-}
-
 /* Marquee slows on hover (pause via track) */
 .marquee:hover .marquee__track {
   animation-play-state: paused;
 }
 
-/* Hero headline word reveal */
-@keyframes word-up {
+/* Headline word reveal (StaggerText): CSS only, so it runs before hydration */
+@keyframes stagger-up {
   from {
-    opacity: 0;
-    transform: translate3d(0, 0.6em, 0);
+    transform: translate3d(0, 105%, 0);
   }
-  to {
+}
+.stagger-word {
+  display: inline-block;
+  animation: stagger-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--stagger-delay, 0s);
+}
+@supports (animation-timeline: view()) {
+  .stagger--view .stagger-word {
+    animation-timeline: view();
+    animation-range: entry 10% entry 70%;
+    animation-delay: 0s;
+  }
+}
+
+/* StickyStack: pin and scale cards only where a whole card fits on screen */
+@media (min-width: 768px) and (min-height: 760px) {
+  .sticky-stack-card {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding-block: 0;
+  }
+}
+@media not ((min-width: 768px) and (min-height: 760px)) {
+  .sticky-stack-card > * {
+    top: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* Without JS, nothing waits for an observer */
+@media (scripting: none) {
+  .reveal {
     opacity: 1;
     transform: none;
   }
-}
-.word-up {
-  display: inline-block;
-  opacity: 0;
-  animation: word-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* Service card lift */
@@ -125,5 +126,12 @@ body {
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+  .stagger-word {
+    animation: none;
+  }
+  .scroll-reveal-word {
+    transform: none !important;
+    opacity: 1 !important;
   }
 }

@@ -1,6 +1,8 @@
+import { BrandMark } from "./BrandLogo";
+
 // Case study imagery: add `image: "/work/<file>"` to a project in
 // src/content/pages/portfolio.ts and the card shows it instead of the
-// labelled placeholder below.
+// branded placeholder below.
 
 export type CaseStudy = {
   n: string;
@@ -12,10 +14,11 @@ export type CaseStudy = {
   image?: string;
 };
 
+// Brand-blue placeholder covers, one shade per card, until real imagery lands.
 const PLACEHOLDER_TONES = [
-  "from-[#2b3a2f] via-[#1d2620] to-[#0f1411]",
-  "from-[#3d2f22] via-[#251c15] to-[#120d0a]",
-  "from-[#262b45] via-[#191c2e] to-[#0c0e17]",
+  "from-[#3730e8]/45 via-[#16143a] to-[#0a0a0a]",
+  "from-[#3730e8]/30 via-[#121130] to-[#0a0a0a]",
+  "from-[#3730e8]/20 via-[#0f0e24] to-[#0a0a0a]",
 ];
 
 export function CaseStudyCard({ study, tone = 0 }: { study: CaseStudy; tone?: number }) {
@@ -41,9 +44,7 @@ export function CaseStudyCard({ study, tone = 0 }: { study: CaseStudy; tone?: nu
             >
               {study.title.charAt(0)}
             </span>
-            <span className="relative rounded-full border border-dashed border-white/30 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-white/70">
-              Project imagery coming soon
-            </span>
+            <BrandMark height={28} className="relative h-7 w-auto opacity-60" />
           </>
         )}
       </div>

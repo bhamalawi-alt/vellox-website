@@ -32,7 +32,7 @@ export function PageHero({
             {eyebrow}
           </p>
         ) : null}
-        <h1 className="display max-w-[20ch] text-[clamp(2.4rem,5.2vw,4.8rem)] font-light leading-[1.03] tracking-[-0.02em]">
+        <h1 className="display max-w-[20ch] text-[2.4rem] font-light md:text-[clamp(3.9rem,6.5vw,5.4rem)] leading-[1.03] tracking-[-0.02em]">
           <StaggerText words={title.split(" ").map((w) => ({ w }))} />
         </h1>
         {lede ? (
