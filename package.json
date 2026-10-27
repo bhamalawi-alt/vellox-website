@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "verify": "bun scripts/verify.mjs",
+    "deploy": "bun x wrangler deploy",
     "icons": "bun scripts/generate-og.mjs"
   },
   "dependencies": {

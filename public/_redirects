@@ -1,7 +1,7 @@
 # Page routes are served by the exported static files; cache and security rules
 # are in _headers. HTTP→HTTPS and apex→www are set in the Cloudflare dashboard
-# (SSL/TLS → Always Use HTTPS, and a Redirect Rule), since _redirects only
-# matches paths, not hostnames.
+# (SSL/TLS → Always Use HTTPS, and a Redirect Rule): Workers only accept
+# relative URLs in this file, so hostnames cannot be redirected here.
 
 # Old trailing-slash legal URLs
 /privacy/ /privacy 301

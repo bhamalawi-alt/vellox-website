@@ -6,7 +6,7 @@ The CMS is the admin panel at **https://www.velloxstudio.com/admin**. Use it to 
 
 1. You sign in at `/admin` and edit a project.
 2. When you save, the CMS commits the change to the GitHub repository (`bhamalawi-alt/vellox-website`, branch `main`).
-3. Cloudflare Pages sees the commit, rebuilds the site, and the change is live in about 1–2 minutes.
+3. The site is rebuilt and deployed from `main` (see [Deploying](#deploying)), and the change is live a minute or two after the deploy.
 
 Each project is one file in `src/content/projects/`. The file name is the page URL: `aurelia-wellness.json` is shown at `/portfolio/aurelia-wellness`. Uploaded images go to `public/uploads/projects/` and are converted to WebP automatically.
 
@@ -14,9 +14,7 @@ Each project is one file in `src/content/projects/`. The file name is the page U
 
 ### 1. Make sure the CMS points at the production branch
 
-`public/admin/config.yml` saves to the branch `main`. Cloudflare Pages must deploy `main` to production. If your production branch has another name, change `branch:` in the config.
-
-The CMS can only edit files that exist on that branch, so merge `redesign/ui-libraries` into `main` before you start using it.
+`public/admin/config.yml` saves to the branch `main`, and `main` is what gets deployed. If your production branch ever changes name, change `branch:` in the config.
 
 ### 2. Hide `/admin` behind a login (Cloudflare Access)
 
@@ -25,7 +23,7 @@ This makes the admin invisible to visitors: anyone who opens `/admin` sees a Clo
 1. Open the Cloudflare dashboard and go to **Zero Trust**. The free plan covers up to 50 users.
 2. Go to **Access → Applications → Add an application → Self-hosted**.
 3. Application name: `Vellox CMS`. Session duration: 24 hours (or what you prefer).
-4. Add the public hostname `www.velloxstudio.com` with path `admin`. Add a second one for `velloxstudio.com` with path `admin`. If you use the `*.pages.dev` preview address, add it too (path `admin`).
+4. Add the public hostname `www.velloxstudio.com` with path `admin`. Add a second one for `velloxstudio.com` with path `admin`, and a third for `round-math-59b4.vellox.workers.dev` (the Worker's own address, which also serves the site).
 5. Add a policy: Action **Allow**, rule **Emails**, and enter your email address (and any team members').
 6. Under login methods, keep **One-time PIN**. Cloudflare will email you a code when you sign in.
 7. Save. Open `https://www.velloxstudio.com/admin` in a private window: you should see the Cloudflare login, not the CMS.
@@ -59,6 +57,20 @@ To hide a project without deleting it, turn off **Published**.
 The home page shows a project's cover image next to the matching service row (for example a project tagged "Packaging" appears beside Brand Identity and Visual Content). Tags that count for each service are listed in `src/lib/projects.ts`; the first published project with a cover wins.
 
 Gallery photos from all projects also fill the portfolio page gallery. Until there are 12, the rest of the tiles stay as branded placeholders.
+
+## Deploying
+
+The site is served by the Cloudflare Worker `round-math-59b4` (static assets from `out/`), with routes for `velloxstudio.com/*` and `www.velloxstudio.com/*`. `wrangler.jsonc` holds that configuration; the Worker name must stay as it is, or the routes detach.
+
+To deploy by hand, with a Cloudflare API token that can edit Workers:
+
+```bash
+CLOUDFLARE_API_TOKEN=… CLOUDFLARE_ACCOUNT_ID=fd44b42e6416b12e2441ff9516a95bcc bun run build && bun run deploy
+```
+
+Set `NEXT_PUBLIC_FORMSPREE_ID` in the environment before `bun run build` so the contact form has its endpoint.
+
+**Automatic deploys from the CMS** need the Worker connected to GitHub once: in the Cloudflare dashboard open **Workers & Pages → round-math-59b4 → Settings → Builds → Connect**, choose the `vellox-website` repository and branch `main`, and set build command `bun run build` and deploy command `bun x wrangler deploy`, plus the `NEXT_PUBLIC_FORMSPREE_ID` variable. From then on every CMS save (a commit to `main`) rebuilds and deploys the site on its own. Until that is connected, run the manual deploy above after saving in the CMS.
 
 ## Editing on your computer (optional)
 

@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers static-assets deploy of the Next.js export in out/.
+  // The Worker name is the one the velloxstudio.com routes already point at;
+  // renaming it would detach the domain. Deploy: bun run build && bun run deploy.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "round-math-59b4",
+  "compatibility_date": "2026-07-28",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
