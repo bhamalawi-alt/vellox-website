@@ -28,17 +28,19 @@ export function StatsCounter({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reduce || el.getBoundingClientRect().top < window.innerHeight) return;
+    // Nothing to count on a single digit: it would only read as a flicker.
+    if (!el || reduce || value < 10 || el.getBoundingClientRect().top < window.innerHeight) return;
     const raf = requestAnimationFrame(() => {
       setCounts(true);
-      setDisplay(0);
+      setDisplay(Math.round(value * 0.6));
     });
     return () => cancelAnimationFrame(raf);
   }, [reduce]);
 
   useEffect(() => {
     if (!inView || !counts) return;
-    const controls = animate(0, value, {
+    // Count from 60% so no false low figure ever shows on screen
+    const controls = animate(Math.round(value * 0.6), value, {
       duration: 1.4,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => setDisplay(Math.round(v)),

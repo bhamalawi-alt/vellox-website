@@ -56,6 +56,8 @@ To use the **Sign In with GitHub** button instead (no token to copy), you need a
 
 To hide a project without deleting it, turn off **Published**.
 
+The home page shows a project's cover image next to the matching service row (for example a project tagged "Packaging" appears beside Brand Identity and Visual Content). Tags that count for each service are listed in `src/lib/projects.ts`; the first published project with a cover wins.
+
 Gallery photos from all projects also fill the portfolio page gallery. Until there are 12, the rest of the tiles stay as branded placeholders.
 
 ## Editing on your computer (optional)

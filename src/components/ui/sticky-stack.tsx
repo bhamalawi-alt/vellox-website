@@ -35,7 +35,7 @@ function StickyCard({
       <motion.div
         style={{
           scale: reduce ? 1 : scale,
-          top: `calc(-6vh + ${index * 28}px)`,
+          top: `calc(-6vh + ${index * 48}px)`,
         }}
         className="relative w-full origin-top"
       >

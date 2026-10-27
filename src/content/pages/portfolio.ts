@@ -2,6 +2,7 @@ export const COPY = {
   "eyebrow": "Latest Work",
   "headline": "Selected projects across brand, product, and engineering.",
   "lede": "A sample of recent engagements across wellness, fintech, F&B, and publishing. Each project ships with strategy, design, and engineering under one roof — no hand-offs, no translation loss.",
+  "metaDescription": "Selected brand, product, and engineering projects for wellness, fintech, and F&B companies, by Vellox Studio.",
   "gallery": {
     "eyebrow": "Gallery",
     "caption": "Project galleries are on their way.",
@@ -10,6 +11,8 @@ export const COPY = {
   },
   "caseStudies": {
     "eyebrow": "Case Studies",
-    "caption": "Recent engagements in detail.",
+    "homeHeading": "Recent work",
+    "caption": "Recent work in detail.",
+    "empty": "Case studies are being added. See what's live so far in the portfolio.",
   }
 };

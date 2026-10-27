@@ -7,8 +7,14 @@ import { ArrowLink } from "../../../components/ui/arrow-link";
 import { BASE, pageMeta } from "../../../lib/seo";
 import { getProject, getProjects, paragraphs } from "../../../lib/projects";
 
+// A static export needs at least one generated route, so with no published
+// projects (all unpublished or deleted in the CMS) a placeholder slug keeps the
+// build working; it renders the 404 page and is never linked.
+const NO_PROJECTS = "_none";
+
 export function generateStaticParams() {
-  return getProjects().map((project) => ({ slug: project.slug }));
+  const slugs = getProjects().map((project) => ({ slug: project.slug }));
+  return slugs.length > 0 ? slugs : [{ slug: NO_PROJECTS }];
 }
 
 export const dynamicParams = false;

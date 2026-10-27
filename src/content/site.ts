@@ -25,11 +25,11 @@ export const TAGLINE =
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    heading: "Brand & Design",
+    heading: "Brand and Design",
     links: [
       { label: "Brand Strategy", href: "/services/brand-strategy" },
       { label: "Brand Identity", href: "/services/brand-identity" },
-      { label: "UX Design", href: "/services/user-experience-design" },
+      { label: "User Experience Design", href: "/services/user-experience-design" },
       { label: "Visual Content", href: "/services/visual-content" },
     ],
   },
@@ -38,8 +38,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       { label: "Web Development", href: "/services/web-development" },
       { label: "eCommerce", href: "/services/ecommerce" },
-      { label: "Mobile Apps", href: "/services/web-mobile-applications" },
-      { label: "ERP Implementation", href: "/services/erp-implementation" },
+      { label: "Web and Mobile Apps", href: "/services/web-mobile-applications" },
+      { label: "ERPNext Implementation", href: "/services/erp-implementation" },
     ],
   },
   {

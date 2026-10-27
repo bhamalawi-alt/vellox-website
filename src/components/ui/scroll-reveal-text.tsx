@@ -21,8 +21,10 @@ function Word({
   offset: number;
   progress: MotionValue<number>;
 }) {
-  const x = useTransform(progress, [0, 0.55], [offset * 40, 0]);
-  const rotateX = useTransform(progress, [0, 0.55], [offset * 22, 0]);
+  // Small per-word slide: with eight words the outer ones stay inside a phone
+  // viewport even inside an overflow-hidden section.
+  const x = useTransform(progress, [0, 0.55], [offset * 12, 0]);
+  const rotateX = useTransform(progress, [0, 0.55], [offset * 16, 0]);
   const opacity = useTransform(progress, [0, 0.45], [0.15, 1]);
   return (
     <motion.span className="scroll-reveal-word inline-block" style={{ x, rotateX, opacity }}>

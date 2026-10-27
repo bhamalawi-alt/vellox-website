@@ -13,6 +13,7 @@ Bun.serve({
       const file = Bun.file(root + candidate);
       if (await file.exists()) return new Response(file);
     }
+    if (process.env.LOG_404) console.log(`404 ${path}`);
     return new Response(Bun.file(`${root}/404.html`), { status: 404, headers: { "content-type": "text/html" } });
   },
 });

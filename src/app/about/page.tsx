@@ -134,7 +134,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-bg py-24 text-ink md:py-32">
+      <section id="testimonials" className="scroll-mt-24 border-t border-line bg-bg py-24 text-ink md:py-32">
         <div className="mx-auto w-full max-w-6xl px-6">
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted">
             {COPY.testimonialsSection.eyebrow}

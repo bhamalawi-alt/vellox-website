@@ -25,11 +25,15 @@ export function Marquee({ items, className = "" }: { items: string[]; className?
           ))}
         </div>
       </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent"
+      />
       <button
         type="button"
         onClick={() => setPaused(!paused)}
         aria-pressed={paused}
-        className="absolute right-2 top-1/2 inline-flex h-8 -translate-y-1/2 items-center rounded-full border border-white/20 bg-[#0a0a0a] px-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="absolute right-2 top-1/2 inline-flex h-8 -translate-y-1/2 items-center rounded-full border border-white/20 bg-[#0a0a0a] px-3 font-mono text-[11px] uppercase tracking-[0.14em] text-white/80 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
       >
         {paused ? "Play" : "Pause"}
         <span className="sr-only"> scrolling practice names</span>

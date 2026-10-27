@@ -78,3 +78,25 @@ export function paragraphs(text: string): string[] {
     .map((p) => p.trim())
     .filter(Boolean);
 }
+
+// Which CMS tags count as a sample of each service. The home page uses this to
+// show a real project cover next to a service row as soon as one is uploaded.
+const SERVICE_TAGS: Record<string, string[]> = {
+  "brand-strategy": ["brand strategy", "positioning", "naming"],
+  "brand-identity": ["brand identity", "logo", "identity", "packaging"],
+  "user-experience-design": ["ux", "ui", "design system", "product design"],
+  "visual-content": ["photography", "photo", "video", "packaging", "social"],
+  "web-development": ["web design", "website", "web development", "web app"],
+  ecommerce: ["ecommerce", "e-commerce", "shopify", "store"],
+  "web-mobile-applications": ["mobile", "app", "ios", "android", "web app"],
+  "erp-implementation": ["erp", "erpnext", "frappe"],
+};
+
+/** The cover of the first published project tagged with the service, if any. */
+export function coverForService(slug: string, projects: Project[]): string | undefined {
+  const wanted = SERVICE_TAGS[slug] ?? [];
+  const match = projects.find(
+    (p) => p.cover && p.tags.some((t) => wanted.some((w) => t.toLowerCase().includes(w))),
+  );
+  return match?.cover;
+}

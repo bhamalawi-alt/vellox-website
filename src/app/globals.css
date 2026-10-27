@@ -8,6 +8,8 @@
   --muted-light: #a1a1a1;
   --line: #e5e5e5;
   --brand: #3730e8;
+  /* Brand tint for emphasis on dark surfaces (8:1 on #0a0a0a) */
+  --brand-light: #a5a2ff;
 }
 
 ::selection {
@@ -23,6 +25,7 @@
   --color-muted-light: var(--muted-light);
   --color-line: var(--line);
   --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
@@ -82,7 +85,7 @@ body {
 }
 
 /* StickyStack: pin and scale cards only where a whole card fits on screen */
-@media (min-width: 768px) and (min-height: 760px) {
+@media (min-width: 768px) and (min-height: 880px) {
   .sticky-stack-card {
     position: sticky;
     top: 0;
@@ -90,7 +93,7 @@ body {
     padding-block: 0;
   }
 }
-@media not ((min-width: 768px) and (min-height: 760px)) {
+@media not ((min-width: 768px) and (min-height: 880px)) {
   .sticky-stack-card > * {
     top: 0 !important;
     transform: none !important;

@@ -31,7 +31,7 @@ const RELATED_COUNT = 3;
 
 // ERPNext is what people search for, so the ERP page title names it.
 const TITLE_OVERRIDES: Record<string, string> = {
-  "erp-implementation": "ERPNext Implementation & Customization — Vellox Studio",
+  "erp-implementation": "ERPNext Implementation and Customization — Vellox Studio",
 };
 
 const PAGE_COPY: Record<string, ServiceCopy> = {

@@ -10,7 +10,7 @@ import { pageMeta } from "../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Portfolio — Vellox Studio",
-  description: COPY.lede,
+  description: COPY.metaDescription,
   path: "/portfolio",
 });
 
@@ -37,25 +37,27 @@ export default function Portfolio() {
     <>
       <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
 
-      <section className="bg-[#0a0a0a] pb-24 text-white md:pb-32">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="flex flex-wrap items-end justify-between gap-4 border-t border-white/10 pt-16">
-            <div>
-              <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-white/60">
-                {COPY.caseStudies.eyebrow}
-              </p>
-              <h2 className="display text-4xl leading-[1.05] md:text-6xl">
-                {COPY.caseStudies.caption}
-              </h2>
+      {projects.length > 0 ? (
+        <section className="bg-[#0a0a0a] pb-24 text-white md:pb-32">
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <div className="flex flex-wrap items-end justify-between gap-4 border-t border-white/10 pt-16">
+              <div>
+                <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-white/60">
+                  {COPY.caseStudies.eyebrow}
+                </p>
+                <h2 className="display text-4xl leading-[1.05] md:text-6xl">
+                  {COPY.caseStudies.caption}
+                </h2>
+              </div>
             </div>
+            <StickyStack
+              cards={projects.map((study, i) => (
+                <CaseStudyCard key={study.slug} study={study} index={i} total={projects.length} />
+              ))}
+            />
           </div>
-          <StickyStack
-            cards={projects.map((study, i) => (
-              <CaseStudyCard key={study.slug} study={study} index={i} total={projects.length} />
-            ))}
-          />
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="bg-[#0a0a0a] text-white" aria-labelledby="gallery-heading">
         <div className="mx-auto w-full max-w-6xl px-6 pb-12">

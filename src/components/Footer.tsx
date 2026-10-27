@@ -25,7 +25,7 @@ export default function Footer() {
               href="/contact"
               className="display mt-8 text-2xl text-white md:text-3xl"
             >
-              Start a project
+              Start a Project
             </ArrowLink>
           </div>
 

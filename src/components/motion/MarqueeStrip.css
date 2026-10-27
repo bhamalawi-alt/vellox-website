@@ -17,7 +17,8 @@
 .marquee__track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 40s linear infinite;
+  /* Starts after the headline has settled, so the hero has one entrance */
+  animation: marquee-scroll 40s linear 1.2s infinite;
 }
 
 .marquee__group {
