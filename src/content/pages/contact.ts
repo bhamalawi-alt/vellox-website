@@ -2,6 +2,7 @@ export const COPY = {
   "eyebrow": "Get In Touch",
   "headline": "Ready to get started? Tell us what you're building.",
   "lede": "We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
+  "metaDescription": "Start a project with Vellox Studio: brand, web, eCommerce, and ERPNext for founders in the EU and MENA. We reply within one working day and start with a short call.",
   "details": [
     {
       "term": "Email",

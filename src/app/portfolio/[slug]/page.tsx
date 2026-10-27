@@ -27,7 +27,11 @@ export async function generateMetadata(
   if (!project) return {};
   const meta = pageMeta({
     title: `${project.title} — Vellox Studio Portfolio`,
-    description: project.summary,
+    // CMS summaries are one sentence; the tail gives the snippet the studio
+    // name and the services, which the summary alone leaves out.
+    description: `${project.summary} A Vellox Studio project${
+      project.tags.length ? `: ${project.tags.join(", ").toLowerCase()}` : ""
+    }${project.industry ? ` for a ${project.industry.toLowerCase()} company` : ""}.`,
     path: `/portfolio/${project.slug}`,
   });
   if (project.cover) {

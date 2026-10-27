@@ -9,6 +9,9 @@ export type ServiceEntry = {
   count: string;
   /** What the founder ends up with, in their words. Shown instead of a count. */
   outcome: string;
+  /** Search result title (under 60 characters) and snippet (120–160). */
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export const SERVICES: ServiceEntry[] = [
@@ -19,6 +22,9 @@ export const SERVICES: ServiceEntry[] = [
     title: "Brand Strategy",
     tagline:
       "Define who you are, who you serve, and why you're different — before you spend a cent on identity or marketing.",
+    metaTitle: "Brand Strategy & Positioning — Vellox Studio",
+    metaDescription:
+      "Positioning, naming, and messaging for wellness, fintech, and F&B founders. Define who you are and who you serve before you spend on identity or marketing.",
     intro: [
       "Brand strategy is the foundational work that decides whether everything downstream lands or flops. We help you articulate a single defensible position in the market, map the competitive landscape, name the brand, and write the messaging playbook your team will use for years. Without sharp strategy, every identity, marketing, and product decision becomes a subjective debate. With it, those decisions become obvious. Engagements typically run 4–6 weeks and combine stakeholder interviews, market research, positioning workshops, and a final strategy document your team can operationalize.",
     ],
@@ -40,6 +46,9 @@ export const SERVICES: ServiceEntry[] = [
     title: "Brand Identity",
     tagline:
       "Logo, color, typography, imagery, and the design system that holds it all together.",
+    metaTitle: "Brand Identity & Logo Design — Vellox Studio",
+    metaDescription:
+      "Logo, color, typography, packaging, and a brand book your team can use. Brand identity design for wellness, fintech, and F&B companies across the EU and MENA.",
     intro: [
       "Brand identity is the visual translation of strategy — the logo, colors, typography, imagery, and design system that make your brand recognizable in any context. We design identities that work on a 16-pixel favicon and a 16-meter billboard, in print and on screen, today and in five years. Identity engagements typically run 6–10 weeks and include exploration, refinement, system design, and a comprehensive brand book. The deliverable is a system your team can use and extend without us in the room.",
     ],
@@ -60,6 +69,9 @@ export const SERVICES: ServiceEntry[] = [
     title: "User Experience Design",
     tagline:
       "Products people choose to use, not products they have to use — researched, prototyped, and tested before anyone builds.",
+    metaTitle: "UX & Product Design — Vellox Studio",
+    metaDescription:
+      "UX research, prototyping, and interface design for apps and web products. We test the screens with real users before anyone writes code.",
     intro: [
       "UX design is where strategy meets the user. We design digital products — websites, web apps, mobile apps, internal tools — that balance business outcomes with user needs. Our work spans research, information architecture, interaction design, visual design, and prototyping. We're not pixel-pushers; we're product partners who happen to be very good at design. Engagements run 4–12 weeks depending on scope, and ship with everything engineering needs to build without guessing.",
     ],
@@ -81,6 +93,9 @@ export const SERVICES: ServiceEntry[] = [
     title: "Visual Content",
     tagline:
       "Product, lifestyle, and eCommerce photography that makes your brand look as premium as it is.",
+    metaTitle: "Product & Brand Photography — Vellox Studio",
+    metaDescription:
+      "Product, lifestyle, and eCommerce photography and visual content that make a brand look as premium as it is, on the shelf and online.",
     intro: [
       "Visual content is the proof of your brand. We produce photography that earns attention in feeds, on shelves, and in consideration sets — from clean product cutouts to full campaign productions. Our work includes art direction, casting, location scouting, lighting, retouching, and delivery in every format your channels need. Photography engagements range from one-day studio shoots to multi-day campaign productions with full crews.",
     ],
@@ -98,6 +113,9 @@ export const SERVICES: ServiceEntry[] = [
     title: "Web Development",
     tagline:
       "Websites that load fast, rank well, and your team can edit without calling us.",
+    metaTitle: "Website Design & Development — Vellox Studio",
+    metaDescription:
+      "Fast, search-friendly websites with a CMS your team can edit without calling us. Web design and development for founders across the EU and MENA.",
     intro: [
       "Web development at Vellox covers everything from marketing sites to multi-tenant SaaS platforms. We build in Next.js, TypeScript, and Prisma by default — a stack that's fast, SEO-friendly, and easy to hire for. Every engagement ships with responsive design, accessibility, Core Web Vitals in the green, analytics, and a CMS your team can use without us. We don't disappear at launch; most clients stay on a maintenance retainer for ongoing improvements.",
     ],
@@ -119,6 +137,9 @@ export const SERVICES: ServiceEntry[] = [
     title: "eCommerce",
     tagline:
       "Online stores built to sell — on Shopify or custom-built — and tuned for revenue after launch.",
+    metaTitle: "eCommerce & Shopify Store Development — Vellox Studio",
+    metaDescription:
+      "Online stores on Shopify or custom-built, designed to take orders from day one and tuned for conversion and revenue after launch.",
     intro: [
       "eCommerce is where brand, UX, and engineering converge on a single metric: revenue. We build Shopify stores, custom headless storefronts, multi-vendor marketplaces, and B2B portals — each engineered for the specific business model it serves. We don't just build and leave; most clients stay on a CRO retainer that lifts revenue 15–40% within six months. Our work has shipped across wellness, F&B, fashion, and B2B verticals.",
     ],
@@ -140,6 +161,9 @@ export const SERVICES: ServiceEntry[] = [
     title: "Web and Mobile Apps",
     tagline:
       "iPhone, Android, and web apps built for people who come back, not just downloads.",
+    metaTitle: "Web & Mobile App Development — Vellox Studio",
+    metaDescription:
+      "iPhone, Android, and web apps designed and built by one team, from UX research and prototyping to launch and the releases that follow.",
     intro: [
       "We build native mobile apps (Swift/Kotlin), cross-platform apps (React Native), and the backend APIs that power them. Our work has shipped across consumer, B2B, healthcare, and education verticals — including booking systems, learning platforms, internal business tools, and payments systems. Mobile engagements include design, development, App Store/Play Store submission, and post-launch monitoring.",
     ],
@@ -160,6 +184,9 @@ export const SERVICES: ServiceEntry[] = [
     title: "ERPNext Implementation",
     tagline:
       "Open-source ERP that runs your operations — implemented and customized by a Frappe Partner.",
+    metaTitle: "ERPNext Implementation & Customization — Vellox Studio",
+    metaDescription:
+      "ERPNext implementation by a Frappe Partner: accounting, stock, sales, and HR in one open-source system, set up around how your business already works.",
     intro: [
       "For wellness, fintech, and F&B companies outgrowing spreadsheets and disconnected SaaS tools, Frappe/ERPNext puts Accounting, Inventory, CRM, and HR in one system you actually own.",
       "As a Frappe Partner we implement it around your processes — not the other way round — then customize where off-the-shelf falls short.",

@@ -6,7 +6,7 @@ import { pageMeta } from "../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Contact — Vellox Studio",
-  description: COPY.lede,
+  description: COPY.metaDescription,
   path: "/contact",
 });
 

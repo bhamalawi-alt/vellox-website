@@ -54,8 +54,7 @@ export function ScrollRevealText({
   return (
     <div ref={ref} style={{ perspective: "600px" }}>
       <p className={className}>
-        <span className="sr-only">{text}</span>
-        <span aria-hidden="true">
+        <span>
           {words.map((word, i) => (
             <Word
               key={i}

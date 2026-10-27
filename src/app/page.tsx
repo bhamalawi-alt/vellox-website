@@ -21,7 +21,7 @@ import { SERVICES } from "../content/services";
 import { pageMeta } from "../lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Vellox Studio — Brand, Web & ERP Studio for Wellness, Fintech, F&B",
+  title: "Vellox Studio — Brand, Web & ERP for Wellness, Fintech, F&B",
   description: COPY.hero.metaDescription,
   path: "/",
 });

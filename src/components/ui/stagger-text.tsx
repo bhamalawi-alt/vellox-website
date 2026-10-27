@@ -5,8 +5,9 @@ import type { CSSProperties } from "react";
 
 export type StaggerWord = { w: string; em?: boolean };
 
-// The sr-only copy keeps the full sentence in the HTML for crawlers and screen
-// readers. The visible words mask-slide in with a CSS animation (globals.css,
+// The words are real text (one span each, space included), so crawlers and
+// screen readers get the sentence once; an sr-only copy would make Google read
+// the heading twice. The words mask-slide in with a CSS animation (globals.css,
 // .stagger-word), so they show from first paint without waiting for hydration.
 // onView ties the slide to the element entering the viewport where the browser
 // supports scroll-driven animations; elsewhere it plays on load.
@@ -23,8 +24,7 @@ export function StaggerText({
 }) {
   return (
     <>
-      <span className="sr-only">{words.map((t) => t.w).join(" ")}</span>
-      <span aria-hidden="true" className={onView ? "stagger stagger--view" : "stagger"}>
+      <span className={onView ? "stagger stagger--view" : "stagger"}>
         {words.map((tok, i) => (
           <span
             key={i}

@@ -29,11 +29,6 @@ type ServiceCopy = {
 
 const RELATED_COUNT = 3;
 
-// ERPNext is what people search for, so the ERP page title names it.
-const TITLE_OVERRIDES: Record<string, string> = {
-  "erp-implementation": "ERPNext Implementation and Customization — Vellox Studio",
-};
-
 const PAGE_COPY: Record<string, ServiceCopy> = {
   "brand-strategy": brandStrategyCopy,
   "brand-identity": brandIdentityCopy,
@@ -65,8 +60,8 @@ export async function generateMetadata({
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) return {};
   return pageMeta({
-    title: TITLE_OVERRIDES[service.slug] ?? `${service.title} — Vellox Studio`,
-    description: service.tagline,
+    title: service.metaTitle,
+    description: service.metaDescription,
     path: `/services/${service.slug}`,
   });
 }
