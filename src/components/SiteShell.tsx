@@ -53,11 +53,11 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
         >
           {ui.skipToContent}
         </a>
-        <Header />
+        <Header locale={locale} />
         <main id="main" className="flex-1">
           {children}
         </main>
-        <Footer />
+        <Footer locale={locale} />
       </MotionProvider>
     </body>
   );

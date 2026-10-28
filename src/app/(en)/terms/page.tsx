@@ -13,6 +13,7 @@ export const metadata: Metadata = pageMeta({
 export default function Terms() {
   return (
     <LegalPage
+      locale="en"
       title={COPY.title}
       updated={COPY.updated}
       intro={COPY.intro}

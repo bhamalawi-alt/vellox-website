@@ -4,16 +4,26 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { CTA_ITEM, NAV_ITEMS, SOCIAL_LINKS } from "../content/site";
+import { getSite } from "../content/site";
+import { getUi } from "../content/ui";
+import { arrow, localePath, type Locale } from "../lib/i18n";
 import { BrandLockup } from "./BrandLogo";
+import { LanguageSwitch } from "./LanguageSwitch";
 import { SpotlightNav } from "./ui/spotlight-nav";
 import { TextRoll } from "./ui/text-roll";
 
 const pill =
   "rounded-full border border-white/10 bg-[#0a0a0a]/75 text-white shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] backdrop-blur-md focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white";
 
-export default function Header() {
+const switchPill =
+  "pointer-events-auto inline-flex h-11 items-center px-4 text-sm transition-colors hover:border-white/30";
+
+export default function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname();
+  const site = getSite(locale);
+  const ui = getUi(locale);
+  const navItems = site.NAV_ITEMS.map((item) => ({ ...item, href: localePath(locale, item.href) }));
+  const ctaHref = localePath(locale, site.CTA_ITEM.href);
   // The menu is open only for the route it was opened on, so it closes on
   // navigation. Link taps and history moves also clear it, so it never
   // reopens when the visitor comes Back to that route.
@@ -55,21 +65,27 @@ export default function Header() {
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-6">
         <Link
-          href="/"
-          aria-label="Vellox Studio — home"
+          href={localePath(locale, "/")}
+          aria-label={ui.homeAria}
           className={`pointer-events-auto relative z-[60] flex h-11 items-center px-4 ${pill}`}
         >
           <BrandLockup height={26} className="h-[26px] w-auto" />
         </Link>
 
-        <SpotlightNav items={NAV_ITEMS} className="pointer-events-auto hidden lg:block" />
+        <SpotlightNav items={navItems} className="pointer-events-auto hidden lg:block" />
 
-        <Link
-          href={CTA_ITEM.href}
-          className={`pointer-events-auto hidden h-11 items-center px-5 text-sm transition-colors hover:border-brand hover:bg-brand lg:inline-flex ${pill}`}
-        >
-          {CTA_ITEM.label} <span aria-hidden="true" className="ml-1.5">→</span>
-        </Link>
+        <div className="hidden items-center gap-3 lg:flex">
+          <LanguageSwitch locale={locale} className={`${switchPill} ${pill}`} />
+          <Link
+            href={ctaHref}
+            className={`pointer-events-auto inline-flex h-11 items-center px-5 text-sm transition-colors hover:border-brand hover:bg-brand ${pill}`}
+          >
+            {site.CTA_ITEM.label}{" "}
+            <span aria-hidden="true" className="ms-1.5">
+              {arrow(locale)}
+            </span>
+          </Link>
+        </div>
 
         <button
           ref={toggleRef}
@@ -79,7 +95,7 @@ export default function Header() {
           onClick={() => setOpen(!open)}
           className={`pointer-events-auto relative z-[60] inline-flex h-11 items-center gap-2 px-5 font-mono text-xs uppercase tracking-[0.2em] lg:hidden ${pill}`}
         >
-          {open ? "Close" : "Menu"}
+          {open ? ui.close : ui.menu}
           <span
             aria-hidden="true"
             className={`inline-block transition-transform duration-300 ${open ? "rotate-45" : ""}`}
@@ -100,9 +116,13 @@ export default function Header() {
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="pointer-events-auto fixed inset-0 z-[55] flex flex-col overflow-y-auto overscroll-contain bg-[#0a0a0a] px-6 pb-10 pt-28 text-white lg:hidden"
           >
-            <nav aria-label="Mobile" className="flex-1 pb-8">
+            <LanguageSwitch
+              locale={locale}
+              className="mb-6 inline-flex min-h-11 w-fit items-center font-mono text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            />
+            <nav aria-label={ui.mobileNavAria} className="flex-1 pb-8">
               <ul className="flex flex-col gap-2">
-                {NAV_ITEMS.map((item, i) => (
+                {navItems.map((item, i) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
@@ -113,23 +133,34 @@ export default function Header() {
                       <span className="font-mono text-xs text-white/50">
                         [{i + 1}]
                       </span>
-                      <TextRoll className="display whitespace-nowrap text-[clamp(2rem,11vw,3rem)] font-light uppercase tracking-[-0.02em]">
-                        {item.label}
-                      </TextRoll>
+                      {/* TextRoll animates letter by letter, which would break
+                          Arabic's connected script, so Arabic gets plain text. */}
+                      {locale === "ar" ? (
+                        <span className="display whitespace-nowrap text-[clamp(2rem,11vw,3rem)] font-light">
+                          {item.label}
+                        </span>
+                      ) : (
+                        <TextRoll className="display whitespace-nowrap text-[clamp(2rem,11vw,3rem)] font-light uppercase tracking-[-0.02em]">
+                          {item.label}
+                        </TextRoll>
+                      )}
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
             <Link
-              href={CTA_ITEM.href}
+              href={ctaHref}
               onClick={close}
               className="mb-8 inline-flex h-14 items-center justify-center rounded-full bg-white text-sm uppercase tracking-[0.12em] text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              {CTA_ITEM.label} <span aria-hidden="true" className="ml-1.5">→</span>
+              {site.CTA_ITEM.label}{" "}
+              <span aria-hidden="true" className="ms-1.5">
+                {arrow(locale)}
+              </span>
             </Link>
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {SOCIAL_LINKS.map((social) => (
+              {site.SOCIAL_LINKS.map((social) => (
                 <li key={social.label}>
                   <a
                     href={social.href}
@@ -140,7 +171,7 @@ export default function Header() {
                   >
                     {social.label}
                     {social.href.startsWith("http") ? (
-                      <span className="sr-only"> (opens in a new tab)</span>
+                      <span className="sr-only">{ui.opensInNewTab}</span>
                     ) : null}
                   </a>
                 </li>
