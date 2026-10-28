@@ -32,7 +32,8 @@ Commercial priority right now: **brand and web** (brand identity, websites, eCom
 
 ## Capabilities and Constraints
 
-- Static site: Next.js 16 App Router with `output: "export"`, React 19, Tailwind CSS 4, hosted on Cloudflare Pages. No server, no database; everything is built at deploy time.
+- Static site: Next.js 16 App Router with `output: "export"`, React 19, Tailwind CSS 4, served by a Cloudflare Worker (static assets). No server, no database; everything is built at deploy time.
+- Bilingual: English at the root URLs, Arabic (Modern Standard, RTL, IBM Plex Sans Arabic) at `/ar/…`, with a language switch and hreflang pairs. Copy lives in `src/content/**` with Arabic twins under `src/content/ar/`; projects are `<slug>.en.json` + `<slug>.ar.json`. `ARABIC_LIVE` in `src/lib/i18n.ts` hides the Arabic site from search and the switch while it is proofread.
 - Built with Bun (`bun.lock`); Node is not installed on the owner's machine. Build `bun run build`, checks `bun run verify`, `typecheck`, `lint`.
 - Strict Content-Security-Policy in `public/_headers` (`script-src 'self'`); third-party scripts, fonts or embeds need an explicit allowlist change.
 - Eight services are defined in `src/content/services.ts`; per-page copy in `src/content/pages/*.ts`. Service names currently vary between nav, footer and titles (open item from the copy review).
@@ -66,4 +67,4 @@ Commercial priority right now: **brand and web** (brand identity, websites, eCom
 
 ## Accessibility & Inclusion
 
-WCAG 2.2 AA is the standard already applied; keep contrast, focus visibility, reduced-motion behaviour and keyboard operation at current level or better. Audience spans EU and MENA; an Arabic version and RTL layout are a known future consideration, not yet planned.
+WCAG 2.2 AA is the standard already applied; keep contrast, focus visibility, reduced-motion behaviour and keyboard operation at current level or better. Audience spans EU and MENA; the Arabic version with RTL layout exists (see Capabilities).

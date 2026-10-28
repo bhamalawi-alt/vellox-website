@@ -54,6 +54,20 @@ To use the **Sign In with GitHub** button instead (no token to copy), you need a
 
 To hide a project without deleting it, turn off **Published**.
 
+## Arabic
+
+The site has an Arabic version at `/ar/…`, and every project has two language tabs in the CMS: **English** and **العربية**. Switch between them with the language selector at the top of the editor.
+
+- **Shared fields** (cover image, gallery images, published, show on home page, order, year, live site URL, result values) are entered once and apply to both languages.
+- **Text fields** (title, industry, location, services delivered, summary, story, result labels, image descriptions) are per language. Keep brand names like "Aurelia Wellness" in Latin letters in both tabs.
+- The Arabic tab is optional. Until it has a summary, the Arabic site shows the project's English text with a small note that it is available in English only. Fill in the Arabic tab and the note disappears on the next deploy.
+
+On disk each project is two files: `src/content/projects/<name>.en.json` and `<name>.ar.json`. The CMS manages both; never rename them by hand.
+
+The CMS interface itself follows your browser language; to use it in Arabic, open the account menu (top right) → **Settings** → **Language** and choose العربية. Sveltia's Arabic translation is new, so a few labels may still appear in English until they ship the rest.
+
+The whole Arabic site can be hidden from search engines and the language switch (while someone proofreads it, say) by setting `ARABIC_LIVE` to `false` in `src/lib/i18n.ts` and deploying; the Arabic pages stay reachable by URL.
+
 The home page shows a project's cover image next to the matching service row (for example a project tagged "Packaging" appears beside Brand Identity and Visual Content). Tags that count for each service are listed in `src/lib/projects.ts`; the first published project with a cover wins.
 
 Gallery photos from all projects also fill the portfolio page gallery. Until there are 12, the rest of the tiles stay as branded placeholders.
