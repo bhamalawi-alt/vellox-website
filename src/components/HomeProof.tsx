@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Project } from "../lib/projects";
+import { englishAttrs, type Project } from "../lib/projects";
 import { aboutCopy, homeCopy } from "../content/pages";
 import { getUi } from "../content/ui";
 import { arrow, localePath, type Locale } from "../lib/i18n";
@@ -50,19 +50,27 @@ export function HomeProof({ projects, locale }: { projects: Project[]; locale: L
                 className="group flex items-baseline justify-between gap-4 py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 <span>
-                  <span className="display block text-xl text-white transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1 md:text-2xl">
+                  <span
+                    {...englishAttrs(p, "title")}
+                    className="display block text-xl text-white transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1 md:text-2xl"
+                  >
                     {p.title}
                   </span>
-                  <span className="mt-1 block text-sm text-white/70">
+                  <span
+                    {...(p.fallbackFields.includes("industry") || p.fallbackFields.includes("location") ? { lang: "en", dir: "ltr" as const } : {})}
+                    className="mt-1 block text-sm text-white/70"
+                  >
                     {[p.industry, p.location, p.year].filter(Boolean).join(" · ")}
                   </span>
-                  <span className="mt-1 block text-sm text-white/60">{p.tags.join(locale === "ar" ? "، " : ", ")}</span>
+                  <span {...englishAttrs(p, "tags")} className="mt-1 block text-sm text-white/60">
+                    {p.tags.join(locale === "ar" ? "، " : ", ")}
+                  </span>
                   {!p.translated ? (
                     <span className="mt-1 block text-xs text-white/50">{ui.englishOnlyNote}</span>
                   ) : null}
                 </span>
                 <span aria-hidden="true" className="text-white/60 transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
-                  →
+                  {arrow(locale)}
                 </span>
               </Link>
             </li>

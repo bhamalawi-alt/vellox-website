@@ -60,7 +60,7 @@ The site has an Arabic version at `/ar/…`, and every project has two language 
 
 - **Shared fields** (cover image, gallery images, published, show on home page, order, year, live site URL, result values) are entered once and apply to both languages.
 - **Text fields** (title, industry, location, services delivered, summary, story, result labels, image descriptions) are per language. Keep brand names like "Aurelia Wellness" in Latin letters in both tabs.
-- The Arabic tab is optional. Until it has a summary, the Arabic site shows the project's English text with a small note that it is available in English only. Fill in the Arabic tab and the note disappears on the next deploy.
+- The Arabic tab is optional: only the English fields are required to save. Until the Arabic tab has its text, the Arabic site shows the project's English text with a small note that it is available in English only. Fill in the Arabic tab and the note disappears on the next deploy.
 
 On disk each project is two files: `src/content/projects/<name>.en.json` and `<name>.ar.json`. The CMS manages both; never rename them by hand.
 

@@ -15,9 +15,12 @@ export type ProjectResult = { value: string; label: string };
 export type Project = {
   slug: string;
   locale: Locale;
-  /** False when an Arabic reader is seeing English text because no Arabic
-   *  entry (or none with a summary) exists yet. Always true for English. */
+  /** False when any visible text on an Arabic page fell back to English.
+   *  Always true for English. */
   translated: boolean;
+  /** Which text fields came from the English file (empty for English). Pages
+   *  mark those spans lang="en" dir="ltr" and show the English-only note. */
+  fallbackFields: FallbackField[];
   title: string;
   order: number;
   published: boolean;
@@ -37,7 +40,10 @@ export type Project = {
   liveUrl: string;
 };
 
-type Raw = Partial<Omit<Project, "slug" | "locale" | "translated" | "serviceTags">>;
+export type FallbackField =
+  | "title" | "industry" | "location" | "tags" | "summary" | "body" | "results" | "coverAlt" | "gallery";
+
+type Raw = Partial<Omit<Project, "slug" | "locale" | "translated" | "serviceTags" | "fallbackFields">>;
 
 const DIR = join(process.cwd(), "src", "content", "projects");
 
@@ -52,36 +58,49 @@ const filled = (s: unknown): s is string => typeof s === "string" && s.trim().le
 
 // Text fields come from the locale file when it has them; everything else
 // (flags, order, images, URLs) is shared and read from the English file. The
-// CMS writes shared fields into both files, so either source is fine.
-function merge(en: Raw, loc: Raw | undefined): Raw {
-  if (!loc) return en;
-  return {
+// CMS writes shared fields into both files, so either source is fine. Every
+// text field that had English content but no translation is recorded.
+function merge(en: Raw, loc: Raw | undefined): { data: Raw; fallback: FallbackField[] } {
+  const fallback: FallbackField[] = [];
+  const text = (field: FallbackField, enValue: string | undefined, locValue: string | undefined) => {
+    if (filled(locValue)) return locValue;
+    if (filled(enValue)) fallback.push(field);
+    return enValue;
+  };
+  const tags = loc?.tags?.some(filled) ? loc.tags.filter(filled) : en.tags;
+  if (!loc?.tags?.some(filled) && en.tags?.length) fallback.push("tags");
+  const data: Raw = {
     ...en,
-    title: filled(loc.title) ? loc.title : en.title,
-    industry: filled(loc.industry) ? loc.industry : en.industry,
-    location: filled(loc.location) ? loc.location : en.location,
-    tags: loc.tags?.some(filled) ? loc.tags.filter(filled) : en.tags,
-    summary: filled(loc.summary) ? loc.summary : en.summary,
-    body: filled(loc.body) ? loc.body : en.body,
-    coverAlt: filled(loc.coverAlt) ? loc.coverAlt : en.coverAlt,
+    title: text("title", en.title, loc?.title),
+    industry: text("industry", en.industry, loc?.industry),
+    location: text("location", en.location, loc?.location),
+    tags,
+    summary: text("summary", en.summary, loc?.summary),
+    body: text("body", en.body, loc?.body),
     results: (en.results ?? []).map((r, i) => {
-      const label = loc.results?.[i]?.label;
+      const label = loc?.results?.[i]?.label;
       return filled(label) ? { ...r, label } : r;
     }),
+    coverAlt: text("coverAlt", en.coverAlt, loc?.coverAlt),
     gallery: (en.gallery ?? []).map((g, i) => {
-      const alt = loc.gallery?.[i]?.alt;
+      const alt = loc?.gallery?.[i]?.alt;
       return filled(alt) ? { ...g, alt } : g;
     }),
   };
+  if ((en.results ?? []).some((r, i) => filled(r.label) && !filled(loc?.results?.[i]?.label))) fallback.push("results");
+  if ((en.gallery ?? []).some((g, i) => filled(g.alt) && !filled(loc?.gallery?.[i]?.alt))) fallback.push("gallery");
+  const order: FallbackField[] = ["title", "industry", "location", "tags", "summary", "body", "results", "coverAlt", "gallery"];
+  return { data, fallback: order.filter((f) => fallback.includes(f)) };
 }
 
 function build(slug: string, locale: Locale, en: Raw, loc: Raw | undefined): Project {
-  const data = locale === "en" ? en : merge(en, loc);
+  const { data, fallback } = locale === "en" ? { data: en, fallback: [] } : merge(en, loc);
   // The CMS omits empty optional fields, so every field gets a default here.
   return {
     slug,
     locale,
-    translated: locale === "en" || filled(loc?.summary),
+    translated: fallback.length === 0,
+    fallbackFields: fallback,
     title: data.title ?? "Untitled project",
     order: data.order ?? 999,
     published: en.published ?? true,
@@ -156,4 +175,10 @@ export function coverForService(slug: string, projects: Project[]): string | und
     (p) => p.cover && p.serviceTags.some((t) => wanted.some((w) => t.toLowerCase().includes(w))),
   );
   return match?.cover;
+}
+
+/** `lang`/`dir` for a text field that fell back to English on an Arabic page,
+ *  so the browser shapes and aligns it as English and screen readers switch voice. */
+export function englishAttrs(project: Project, field: FallbackField): { lang?: string; dir?: "ltr" } {
+  return project.fallbackFields.includes(field) ? { lang: "en", dir: "ltr" } : {};
 }

@@ -7,7 +7,7 @@ const DIR = join(import.meta.dir, "__fixtures__", "projects");
 describe("readProjects per locale", () => {
   it("lists every English project once, all translated", () => {
     const en = readProjects(DIR, "en");
-    expect(en.map((p) => p.slug)).toEqual(["a", "b", "c"]);
+    expect(en.map((p) => p.slug)).toEqual(["a", "b", "c", "d"]);
     expect(en.every((p) => p.translated)).toBe(true);
     expect(en[0].title).toBe("Alpha");
     expect(en[0].locale).toBe("en");
@@ -43,5 +43,23 @@ describe("readProjects per locale", () => {
     const ar = readProjects(DIR, "ar");
     expect(ar.find((p) => p.slug === "a")!.serviceTags).toEqual(["Brand Identity", "Packaging"]);
     expect(ar.find((p) => p.slug === "b")!.serviceTags).toEqual(["Web app"]);
+  });
+});
+
+describe("per-field fallback tracking", () => {
+  it("names the fields that fell back to English and withholds 'translated'", () => {
+    const d = readProjects(DIR, "ar").find((p) => p.slug === "d")!;
+    expect(d.summary).toBe("دلتا بالعربية.");
+    expect(d.body).toBe("An English story.");
+    expect(d.fallbackFields).toEqual(["body", "results"]);
+    expect(d.translated).toBe(false);
+  });
+  it("reports no fallback for a fully translated entry or for English", () => {
+    expect(readProjects(DIR, "ar").find((p) => p.slug === "a")!.fallbackFields).toEqual([]);
+    expect(readProjects(DIR, "en").every((p) => p.fallbackFields.length === 0)).toBe(true);
+  });
+  it("lists every text field when no Arabic file exists", () => {
+    const b = readProjects(DIR, "ar").find((p) => p.slug === "b")!;
+    expect(b.fallbackFields).toEqual(["title", "industry", "tags", "summary"]);
   });
 });

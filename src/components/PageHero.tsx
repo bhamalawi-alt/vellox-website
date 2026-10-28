@@ -13,6 +13,8 @@ export function PageHero({
   before,
   after,
   shader = "interface",
+  titleAttrs,
+  ledeAttrs,
 }: {
   eyebrow?: ReactNode;
   title: string;
@@ -20,6 +22,9 @@ export function PageHero({
   before?: ReactNode;
   after?: ReactNode;
   shader?: ShaderName;
+  /** lang/dir overrides for text that fell back to another language. */
+  titleAttrs?: { lang?: string; dir?: "ltr" | "rtl" };
+  ledeAttrs?: { lang?: string; dir?: "ltr" | "rtl" };
 }) {
   return (
     <section className="relative overflow-hidden bg-[#0a0a0a] text-white">
@@ -32,11 +37,14 @@ export function PageHero({
             {eyebrow}
           </p>
         ) : null}
-        <h1 className="display max-w-[20ch] text-[2.4rem] font-light md:text-[clamp(3.9rem,6.5vw,5.4rem)] leading-[1.03] tracking-[-0.02em]">
+        <h1
+          {...titleAttrs}
+          className="display max-w-[20ch] text-[2.4rem] font-light md:text-[clamp(3.9rem,6.5vw,5.4rem)] leading-[1.03] tracking-[-0.02em]"
+        >
           <StaggerText words={title.split(" ").map((w) => ({ w }))} />
         </h1>
         {lede ? (
-          <p className="mt-8 max-w-[60ch] text-base leading-relaxed text-white/75 md:text-lg">
+          <p {...ledeAttrs} className="mt-8 max-w-[60ch] text-base leading-relaxed text-white/75 md:text-lg">
             {lede}
           </p>
         ) : null}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Project } from "../lib/projects";
+import { englishAttrs, type Project } from "../lib/projects";
 import { getUi } from "../content/ui";
 import { arrow, localePath, type Locale } from "../lib/i18n";
 import { BrandMark } from "./BrandLogo";
@@ -60,6 +60,7 @@ export function CaseStudyCard({
             {study.tags.map((tag) => (
               <li
                 key={tag}
+                {...englishAttrs(study, "tags")}
                 className="rounded-full border border-white/20 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.08em] text-white/80"
               >
                 {tag}
@@ -76,21 +77,23 @@ export function CaseStudyCard({
             href={localePath(locale, `/portfolio/${study.slug}`)}
             className="after:absolute after:inset-0 after:rounded-3xl after:content-[''] focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-white"
           >
-            {study.title}
+            <span {...englishAttrs(study, "title")}>{study.title}</span>
           </Link>
         </h3>
-        <p className="mb-10 max-w-[44ch] text-base leading-relaxed text-white/75">{study.summary}</p>
+        <p {...englishAttrs(study, "summary")} className="mb-10 max-w-[44ch] text-base leading-relaxed text-white/75">
+          {study.summary}
+        </p>
         {!study.translated ? (
           <p className="-mt-6 mb-10 text-sm text-white/60">{ui.englishOnlyNote}</p>
         ) : null}
         <dl className="mt-auto grid grid-cols-2 gap-6 border-t border-white/10 pt-6">
           <div>
             <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">{ui.details.location}</dt>
-            <dd className="mt-1 text-sm">{study.location}</dd>
+            <dd {...englishAttrs(study, "location")} className="mt-1 text-sm">{study.location}</dd>
           </div>
           <div>
             <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">{ui.details.industry}</dt>
-            <dd className="mt-1 text-sm">{study.industry}</dd>
+            <dd {...englishAttrs(study, "industry")} className="mt-1 text-sm">{study.industry}</dd>
           </div>
         </dl>
         <span aria-hidden="true" className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-white/80">

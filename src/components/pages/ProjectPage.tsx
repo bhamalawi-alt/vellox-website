@@ -7,7 +7,7 @@ import { ArrowLink } from "../ui/arrow-link";
 import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
-import { getProject, getProjects, paragraphs } from "../../lib/projects";
+import { englishAttrs, getProject, getProjects, paragraphs } from "../../lib/projects";
 import { BASE, pageMeta } from "../../lib/seo";
 import { breadcrumbLink, jsonLd, primaryCtaSoft } from "./shared";
 
@@ -52,9 +52,9 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
   const all = getProjects(locale);
   const next = all[(all.findIndex((p) => p.slug === project.slug) + 1) % all.length];
   const details = [
-    { term: ui.details.industry, value: project.industry },
-    { term: ui.details.location, value: project.location },
-    { term: ui.details.year, value: project.year },
+    { term: ui.details.industry, value: project.industry, attrs: englishAttrs(project, "industry") },
+    { term: ui.details.location, value: project.location, attrs: englishAttrs(project, "location") },
+    { term: ui.details.year, value: project.year, attrs: {} },
   ].filter((d) => d.value);
   const url = BASE + href(`/portfolio/${project.slug}`);
   const graph = {
@@ -127,7 +127,7 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
               {details.map((d) => (
                 <div key={d.term}>
                   <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">{d.term}</dt>
-                  <dd className="mt-1 text-sm">{d.value}</dd>
+                  <dd {...d.attrs} className="mt-1 text-sm">{d.value}</dd>
                 </div>
               ))}
               {project.liveUrl ? (
@@ -151,7 +151,7 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
             <div className="space-y-6 md:col-span-8">
               <h2 className="display mb-2 text-3xl md:text-5xl">{ui.theProject}</h2>
               {paragraphs(project.body).map((p) => (
-                <p key={p.slice(0, 48)} className="text-lg leading-relaxed md:text-xl">
+                <p key={p.slice(0, 48)} {...englishAttrs(project, "body")} className="text-lg leading-relaxed md:text-xl">
                   {p}
                 </p>
               ))}
@@ -163,7 +163,7 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
                   {project.results.map((r) => (
                     <li key={r.label} className="border-t border-line pt-4">
                       <span className="display block text-4xl tracking-[-0.02em]">{r.value}</span>
-                      <span className="mt-1 block text-sm text-muted">{r.label}</span>
+                      <span {...englishAttrs(project, "results")} className="mt-1 block text-sm text-muted">{r.label}</span>
                     </li>
                   ))}
                 </ul>
@@ -209,7 +209,7 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
             <div className="md:text-end">
               <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">{ui.nextProject}</p>
               <ArrowLink href={href(`/portfolio/${next.slug}`)} className="display text-2xl text-white md:text-3xl">
-                {next.title}
+                <span {...englishAttrs(next, "title")}>{next.title}</span>
               </ArrowLink>
             </div>
           ) : null}

@@ -45,6 +45,9 @@ for (const route of ROUTES) {
   check(html.includes('rel="canonical"'), `${route}: missing canonical`);
   check(/<title>[^<]{10,}<\/title>/.test(html), `${route}: bad title`);
   check(/<html[^>]*lang="en"/.test(html), `${route}: html lang is not en`);
+  // Optika, Geist and Geist Mono only; the Arabic family must not be preloaded here.
+  const preloads = (html.match(/<link rel="preload" href="[^"]*\.woff2"/g) ?? []).length;
+  check(preloads === 3, `${route}: expected 3 font preloads (Optika, Geist, Geist Mono), found ${preloads}`);
   if (ARABIC_LIVE) {
     check(hreflang(html, "ar") === norm(BASE + arPath(route)), `${route}: hreflang ar should point at ${arPath(route)}`);
     check(hreflang(html, "x-default") === norm(BASE + route), `${route}: hreflang x-default should point at itself`);
@@ -63,6 +66,9 @@ for (const route of AR_ROUTES) {
   check(html.includes(`rel="canonical" href="${BASE}${route}"`), `${route}: canonical should be ${route}`);
   check(/<title>[^<]*[؀-ۿ][^<]*<\/title>/.test(html), `${route}: title has no Arabic`);
   const en = route === "/ar" ? "/" : route.slice(3);
+  const preloads = (html.match(/<link rel="preload" href="[^"]*\.woff2"/g) ?? []).length;
+  check(preloads === 0, `${route}: Arabic pages preload no fonts (swap), found ${preloads}`);
+  check(html.includes('lang="en" hrefLang="en"') === ARABIC_LIVE, `${route}: language switch ${ARABIC_LIVE ? "missing" : "present while ARABIC_LIVE is off"}`);
   if (ARABIC_LIVE) {
     check(hreflang(html, "en") === norm(BASE + en), `${route}: hreflang en should point at ${en}`);
     check(!/<meta name="robots" content="noindex/.test(html), `${route}: noindex while ARABIC_LIVE is on`);

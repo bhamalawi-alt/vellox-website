@@ -66,6 +66,7 @@ collections:
         name: title
         widget: string
         i18n: true
+        required: [en]
       - label: Published
         name: published
         widget: boolean
@@ -88,6 +89,7 @@ collections:
         name: industry
         widget: string
         i18n: true
+        required: [en]
         hint: For example Wellness, Fintech, F&B.
       - label: Location
         name: location
@@ -113,6 +115,7 @@ collections:
         name: summary
         widget: text
         i18n: true
+        required: [en]
         hint: One or two sentences. Shown on the portfolio cards and in search results.
       - label: Project story
         name: body

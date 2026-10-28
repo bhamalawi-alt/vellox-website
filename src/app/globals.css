@@ -71,6 +71,12 @@ html[lang="ar"] {
 [dir="rtl"] [class*="tracking-"] {
   letter-spacing: 0 !important;
 }
+/* The strip stays an LTR box (an over-wide max-content track in RTL would be
+ * aligned to the right edge and translate off-screen); reversing the keyframes
+ * makes it travel left-to-right, with the reading direction. */
+[dir="rtl"] .marquee {
+  direction: ltr;
+}
 [dir="rtl"] .marquee__track {
   animation-direction: reverse;
 }
