@@ -46,7 +46,7 @@ export function HomeProof({ projects }: { projects: Project[] }) {
                 className="group flex items-baseline justify-between gap-4 py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 <span>
-                  <span className="display block text-xl text-white transition-transform duration-300 group-hover:translate-x-1 md:text-2xl">
+                  <span className="display block text-xl text-white transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1 md:text-2xl">
                     {p.title}
                   </span>
                   <span className="mt-1 block text-sm text-white/70">
@@ -54,7 +54,7 @@ export function HomeProof({ projects }: { projects: Project[] }) {
                   </span>
                   <span className="mt-1 block text-sm text-white/60">{p.tags.join(", ")}</span>
                 </span>
-                <span aria-hidden="true" className="text-white/60 transition-transform duration-300 group-hover:translate-x-1">
+                <span aria-hidden="true" className="text-white/60 transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
                   →
                 </span>
               </Link>

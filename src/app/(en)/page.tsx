@@ -15,6 +15,7 @@ import { StaggerText } from "../../components/ui/stagger-text";
 import { StatsCounter } from "../../components/ui/stats-counter";
 import { StickyStack } from "../../components/ui/sticky-stack";
 import { COPY } from "../../content/pages/home";
+import { UI } from "../../content/ui";
 import { COPY as PORTFOLIO } from "../../content/pages/portfolio";
 import { coverForService, getProjects } from "../../lib/projects";
 import { SERVICES } from "../../content/services";
@@ -97,7 +98,11 @@ export default function Home() {
 
         <ProgressiveBlur position="bottom" color="#0a0a0a" height="220px" className="z-[5]" />
 
-        <Marquee items={COPY.marquee} className="z-20 border-t border-white/10 py-4" />
+        <Marquee
+          items={COPY.marquee}
+          labels={{ pause: UI.pause, play: UI.play, aria: UI.marqueeAria }}
+          className="z-20 border-t border-white/10 py-4"
+        />
       </section>
 
       <section className="bg-bg py-24 text-ink md:py-36" aria-labelledby="services-heading">

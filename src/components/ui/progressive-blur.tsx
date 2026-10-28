@@ -20,7 +20,7 @@ export function ProgressiveBlur({
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none absolute left-0 w-full select-none ${className}`}
+      className={`pointer-events-none absolute inset-x-0 select-none ${className}`}
       style={{
         [isTop ? "top" : "bottom"]: 0,
         height,

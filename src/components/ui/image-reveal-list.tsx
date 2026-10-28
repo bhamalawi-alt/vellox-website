@@ -17,9 +17,12 @@ export type ImageRevealItem = {
 export function ImageRevealList({
   items,
   className,
+  arrow = "→",
 }: {
   items: ImageRevealItem[];
   className?: string;
+  /** Row arrow glyph: "→" for English, "←" for Arabic (lib/i18n arrow()). */
+  arrow?: string;
 }) {
   return (
     <ul className={cn("border-t border-line", className)}>
@@ -40,25 +43,25 @@ export function ImageRevealList({
                 decoding="async"
                 width={144}
                 height={176}
-                className="pointer-events-none absolute right-24 top-1/2 z-10 hidden h-44 w-36 -translate-y-1/2 rotate-3 scale-90 rounded-lg object-cover opacity-0 shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100 lg:block"
+                className="pointer-events-none absolute end-24 top-1/2 z-10 hidden h-44 w-36 -translate-y-1/2 rotate-3 scale-90 rounded-lg object-cover opacity-0 shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100 lg:block"
               />
             ) : null}
             <span className="font-mono text-xs tabular-nums text-muted">
               {item.number}
             </span>
-            <span className="display text-2xl leading-tight transition-transform duration-300 group-hover:translate-x-2 md:text-4xl">
+            <span className="display text-2xl leading-tight transition-transform duration-300 ltr:group-hover:translate-x-2 rtl:group-hover:-translate-x-2 md:text-4xl">
               {item.title}
             </span>
             <span className="col-start-2 text-sm leading-relaxed text-muted md:col-start-3 md:max-w-[38ch]">
               {item.description}
             </span>
-            <span className="col-start-3 row-start-1 inline-flex items-center gap-2 text-sm text-muted md:col-start-4 md:max-w-[22ch] md:text-right">
+            <span className="col-start-3 row-start-1 inline-flex items-center gap-2 text-sm text-muted md:col-start-4 md:max-w-[22ch] md:text-end">
               <span className="hidden sm:inline">{item.meta}</span>
               <span
                 aria-hidden="true"
-                className="text-ink transition-transform duration-300 group-hover:translate-x-1"
+                className="text-ink transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
               >
-                →
+                {arrow}
               </span>
             </span>
           </Link>

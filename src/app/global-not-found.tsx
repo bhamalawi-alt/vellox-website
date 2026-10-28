@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BrandMark } from "../components/BrandLogo";
 import { getUi } from "../content/ui";
 import "./globals.css";
@@ -30,16 +31,16 @@ export default function GlobalNotFound() {
           <h1 className="display max-w-[20ch] text-[2.4rem] font-light leading-[1.03] tracking-[-0.02em] md:text-[clamp(3.2rem,5.5vw,4.6rem)]">
             {en.title}
           </h1>
-          <a href="/" className={`${link} mt-8`}>
+          <Link href="/" className={`${link} mt-8`}>
             {en.back} <span aria-hidden="true">→</span>
-          </a>
+          </Link>
           <section lang="ar" dir="rtl" className="mt-16 border-t border-white/10 pt-10 [font-family:var(--font-arabic),sans-serif]">
             <h2 className="max-w-[20ch] text-[2rem] font-light leading-[1.3] md:text-[clamp(2.6rem,4.5vw,3.6rem)]">
               {ar.title}
             </h2>
-            <a href="/ar" className={`${link} mt-8 normal-case tracking-normal`}>
+            <Link href="/ar" className={`${link} mt-8 normal-case tracking-normal`}>
               {ar.back} <span aria-hidden="true">←</span>
-            </a>
+            </Link>
           </section>
         </main>
       </body>

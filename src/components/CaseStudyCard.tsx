@@ -41,7 +41,7 @@ export function CaseStudyCard({
           <>
             <span
               aria-hidden="true"
-              className="display absolute left-6 top-4 text-[9rem] font-light leading-none text-white/10 md:text-[12rem]"
+              className="display absolute start-6 top-4 text-[9rem] font-light leading-none text-white/10 md:text-[12rem]"
             >
               {study.title.charAt(0)}
             </span>

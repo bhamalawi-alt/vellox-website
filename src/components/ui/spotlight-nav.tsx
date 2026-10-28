@@ -118,7 +118,7 @@ export function SpotlightNav({
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 z-[2] h-[2px] w-full"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[2px]"
         style={{
           opacity: "var(--ambience-opacity, 0)",
           background:

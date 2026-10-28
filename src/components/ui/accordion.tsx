@@ -36,10 +36,10 @@ export function Accordion({
                 aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? null : i)}
                 className={cn(
-                  "group relative flex min-h-16 w-full items-baseline gap-5 border-l-4 py-5 pl-5 pr-12 text-left transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-ink md:gap-8 md:pl-8",
+                  "group relative flex min-h-16 w-full items-baseline gap-5 border-s-4 py-5 ps-5 pe-12 text-start transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-ink md:gap-8 md:ps-8",
                   isOpen
-                    ? "border-l-ink bg-white"
-                    : "border-l-transparent hover:border-l-line hover:bg-white/60",
+                    ? "border-s-ink bg-white"
+                    : "border-s-transparent hover:border-s-line hover:bg-white/60",
                 )}
               >
                 <span className="font-mono text-xs tabular-nums text-muted">{item.label}</span>
@@ -47,7 +47,7 @@ export function Accordion({
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "absolute right-5 top-1/2 -translate-y-1/2 text-2xl font-light leading-none text-muted transition-transform duration-300",
+                    "absolute end-5 top-1/2 -translate-y-1/2 text-2xl font-light leading-none text-muted transition-transform duration-300",
                     isOpen && "rotate-45 text-ink",
                   )}
                 >
@@ -60,12 +60,12 @@ export function Accordion({
               role="region"
               aria-labelledby={buttonId}
               className={cn(
-                "grid border-l-4 transition-[grid-template-rows] duration-300 ease-out",
-                isOpen ? "grid-rows-[1fr] border-l-ink bg-white" : "grid-rows-[0fr] border-l-transparent",
+                "grid border-s-4 transition-[grid-template-rows] duration-300 ease-out",
+                isOpen ? "grid-rows-[1fr] border-s-ink bg-white" : "grid-rows-[0fr] border-s-transparent",
               )}
             >
               <div className="overflow-hidden" inert={!isOpen}>
-                <div className="max-w-[68ch] pb-7 pl-5 pr-6 text-base leading-relaxed text-muted md:pl-[calc(2rem+3.25rem)]">
+                <div className="max-w-[68ch] pb-7 ps-5 pe-6 text-base leading-relaxed text-muted md:ps-[calc(2rem+3.25rem)]">
                   {item.body}
                 </div>
               </div>

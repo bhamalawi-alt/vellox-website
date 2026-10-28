@@ -17,15 +17,15 @@ export function ArrowLink({
   const external = href.startsWith("http");
   const classes = cn(
     "group relative inline-flex min-h-11 items-center",
-    "before:pointer-events-none before:absolute before:left-0 before:top-[calc(50%+0.7em)] before:h-px before:w-full before:bg-current before:content-['']",
-    "before:origin-right before:scale-x-0 before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)]",
-    "hover:before:origin-left hover:before:scale-x-100 focus-visible:before:origin-left focus-visible:before:scale-x-100",
+    "before:pointer-events-none before:absolute before:start-0 before:top-[calc(50%+0.7em)] before:h-px before:w-full before:bg-current before:content-['']",
+    "before:origin-right rtl:before:origin-left before:scale-x-0 before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)]",
+    "hover:before:origin-left rtl:hover:before:origin-right hover:before:scale-x-100 focus-visible:before:origin-left rtl:focus-visible:before:origin-right focus-visible:before:scale-x-100",
     "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current",
     className,
   );
   const arrow = (
     <svg
-      className="ml-[0.35em] size-[0.55em] translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100"
+      className="ms-[0.35em] size-[0.55em] rtl:-scale-x-100 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100"
       fill="none"
       viewBox="0 0 10 10"
       aria-hidden="true"
