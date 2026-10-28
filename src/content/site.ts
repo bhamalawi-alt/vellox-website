@@ -1,3 +1,6 @@
+import type { Locale } from "../lib/i18n";
+import { SITE as SITE_AR } from "./ar/site";
+
 export type NavItem = {
   label: string;
   href: string;
@@ -62,3 +65,19 @@ export const SOCIAL_LINKS: NavItem[] = [
 
 // Evaluated at build time, so the year stays current on every deploy.
 export const COPYRIGHT = `© ${new Date().getFullYear()} Vellox Studio. All rights reserved.`;
+
+export type SiteContent = {
+  CTA_ITEM: NavItem;
+  NAV_ITEMS: NavItem[];
+  TAGLINE: string;
+  FOOTER_COLUMNS: FooterColumn[];
+  SOCIAL_LINKS: NavItem[];
+  COPYRIGHT: string;
+};
+
+const EN: SiteContent = { CTA_ITEM, NAV_ITEMS, TAGLINE, FOOTER_COLUMNS, SOCIAL_LINKS, COPYRIGHT };
+
+/** Navigation, footer and tagline for a locale; hrefs stay locale-less. */
+export function getSite(locale: Locale): SiteContent {
+  return locale === "ar" ? SITE_AR : EN;
+}

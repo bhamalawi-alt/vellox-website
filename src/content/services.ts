@@ -1,3 +1,6 @@
+import type { Locale } from "../lib/i18n";
+import { FRAPPE_BADGE as FRAPPE_BADGE_AR, SERVICES as SERVICES_AR } from "./ar/services";
+
 export type ServiceEntry = {
   slug: string;
   index: number;
@@ -206,3 +209,11 @@ export const SERVICES: ServiceEntry[] = [
 ];
 
 export const FRAPPE_BADGE = "Frappe Partner";
+
+export function getServices(locale: Locale): ServiceEntry[] {
+  return locale === "ar" ? SERVICES_AR : SERVICES;
+}
+
+export function getFrappeBadge(locale: Locale): string {
+  return locale === "ar" ? FRAPPE_BADGE_AR : FRAPPE_BADGE;
+}
