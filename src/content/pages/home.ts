@@ -7,6 +7,7 @@ export const COPY = {
     "support": "One team from the first logo to the store that sells it — and, when you're ready, the system that runs the business.",
     "metaDescription": "Brand, web, eCommerce, and ERPNext studio for wellness, fintech, and F&B founders across the EU and MENA. Strategy, design, and engineering in one team.",
     "primaryCta": "Start a Project",
+    "emphasis": ["wellness,", "fintech,", "F&B"],
     "secondaryCta": "View Work",
   },
   "marquee": [
@@ -77,3 +78,5 @@ export const COPY = {
     "body": "Tell us what you're building and where it's stuck. We work with founders across the EU and MENA, reply within a working day, and start with a 20-minute call: no deck, no pitch.",
   },
 };
+
+export type PageCopy = typeof COPY;

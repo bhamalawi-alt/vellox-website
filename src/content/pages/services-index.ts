@@ -4,3 +4,5 @@ export const COPY = {
   "lede": "Eight practice areas, one accountable team. We don't hand off between agencies — strategy, design, and engineering sit in the same room.",
   "cardCta": "View details",
 };
+
+export type PageCopy = typeof COPY;

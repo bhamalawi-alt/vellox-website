@@ -41,3 +41,5 @@ export const COPY = {
     },
   ],
 };
+
+export type PageCopy = typeof COPY;

@@ -16,3 +16,5 @@ export const COPY = {
     "empty": "Case studies are being added. See what's live so far in the portfolio.",
   }
 };
+
+export type PageCopy = typeof COPY;

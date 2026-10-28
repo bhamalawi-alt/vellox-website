@@ -71,3 +71,5 @@ export const COPY = {
     "body": "Tell us how your operations run today. We typically reply within 24 hours with a short diagnostic call to align on scope, modules, and timeline.",
   },
 };
+
+export type PageCopy = typeof COPY;

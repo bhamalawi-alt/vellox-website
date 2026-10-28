@@ -41,3 +41,5 @@ export const COPY = {
     "submitLabel": "Send Message",
   },
 };
+
+export type PageCopy = typeof COPY;

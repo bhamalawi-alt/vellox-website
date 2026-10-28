@@ -58,3 +58,5 @@ export const COPY = {
     "body": "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
 };
+
+export type PageCopy = typeof COPY;
