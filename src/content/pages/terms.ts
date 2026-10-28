@@ -1,4 +1,5 @@
 export const COPY = {
+  "metaTitle": "Terms of Use — Vellox Studio",
   "title": "Terms of Use",
   "updated": "October 26, 2026",
   "intro": "These terms apply to your use of velloxstudio.com, which is operated by Vellox Studio. By using the site, you agree to them.",

@@ -32,7 +32,27 @@ export const UI: UiStrings = {
   includes: (items: string, more: boolean) => ` تشمل ${items}${more ? " وغيرها" : ""}.`,
   details: { industry: "القطاع", location: "الموقع", year: "السنة" },
   nextProject: "المشروع التالي",
+  live: "الموقع المباشر",
   visitSite: "زيارة الموقع",
+  viewProject: "عرض المشروع",
+  theProject: "المشروع",
+  results: "النتائج",
+  gallery: "المعرض",
+  galleryImageAlt: (title: string, n: number) => `${title} — صورة ${n}`,
+  portfolioTitleSuffix: "أعمال Vellox Studio",
+  projectDescription: (summary: string, tags: string[], industry: string) =>
+    `${summary} مشروع من Vellox Studio${tags.length ? `: ${tags.join("، ")}` : ""}${
+      industry ? ` لشركة في قطاع ${industry}` : ""
+    }.`,
+  haveProjectInMind: "هل لديك مشروع في بالك؟",
+  haveProjectLikeThis: "هل لديك مشروع مشابه؟",
+  whatsIncluded: "ما الذي تشمله الخدمة",
+  timeline: "المدة",
+  viewService: "عرض الخدمة",
+  allServices: "كل الخدمات",
+  allPracticeAreas: "كل مجالات العمل",
+  contactDetails: "بيانات التواصل",
+  sendMessage: "أرسل لنا رسالة",
   englishOnlyNote: "هذا المشروع متاح بالإنجليزية فقط حاليًا.",
   notFound: {
     eyebrow: "404",

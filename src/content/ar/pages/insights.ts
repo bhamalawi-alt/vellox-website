@@ -1,6 +1,7 @@
 import type { PageCopy } from "../../pages/insights";
 
 export const COPY: PageCopy = {
+  metaTitle: "رؤى — Vellox Studio",
   eyebrow: "رؤى",
   headline: "موضوعات نكتب عنها قريبًا.",
   lede: "مقالات عن استراتيجية العلامة التجارية والتسمية والتطوير قيد الإعداد. هل تودّ مناقشة أحدها قبل نشره؟ تواصل معنا.",

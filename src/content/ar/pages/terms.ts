@@ -1,6 +1,7 @@
 import type { PageCopy } from "../../pages/terms";
 
 export const COPY: PageCopy = {
+  metaTitle: "شروط الاستخدام — Vellox Studio",
   title: "شروط الاستخدام",
   updated: "26 أكتوبر 2026",
   intro: "تنطبق هذه الشروط على استخدامك لموقع velloxstudio.com الذي تديره Vellox Studio. باستخدامك للموقع فأنت توافق عليها.",

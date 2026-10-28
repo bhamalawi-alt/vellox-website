@@ -1,4 +1,5 @@
 export const COPY = {
+  "metaTitle": "Portfolio — Vellox Studio",
   "eyebrow": "Latest Work",
   "headline": "Selected projects across brand, product, and engineering.",
   "lede": "A sample of recent engagements across wellness, fintech, F&B, and publishing. Each project ships with strategy, design, and engineering under one roof — no hand-offs, no translation loss.",

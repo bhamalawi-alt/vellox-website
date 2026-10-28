@@ -1,4 +1,5 @@
 export const COPY = {
+  "metaTitle": "About — Vellox Studio",
   "eyebrow": "About Vellox Studio",
   "headline": "We pair the discipline of a strategy consultancy with the craft of a design studio.",
   "lede": "Founded in 2019 and operating across the EU and MENA, Vellox helps wellness, fintech, and F&B founders build brands, products, and the systems that scale them.",

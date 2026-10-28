@@ -1,6 +1,7 @@
 import type { PageCopy } from "../../pages/contact";
 
 export const COPY: PageCopy = {
+  metaTitle: "تواصل معنا — Vellox Studio",
   eyebrow: "تواصل معنا",
   headline: "هل أنت مستعد للبدء؟ أخبرنا بما تبنيه.",
   lede: "نردّ عادةً خلال 24 ساعة بمكالمة قصيرة نتفق فيها على النطاق والجدول الزمني ومدى الملاءمة.",

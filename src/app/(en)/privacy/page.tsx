@@ -1,23 +1,7 @@
-import type { Metadata } from "next";
-import { COPY } from "../../../content/pages/privacy";
-import { pageMeta } from "../../../lib/seo";
-import { LegalPage } from "../../../components/LegalPage";
+import { PrivacyPage, privacyMetadata } from "../../../components/pages/LegalPages";
 
-export const metadata: Metadata = pageMeta({
-  title: "Privacy Policy — Vellox Studio",
-  description: COPY.intro,
-  path: "/privacy",
-    locale: "en",
-});
+export const metadata = privacyMetadata("en");
 
-export default function Privacy() {
-  return (
-    <LegalPage
-      locale="en"
-      title={COPY.title}
-      updated={COPY.updated}
-      intro={COPY.intro}
-      sections={COPY.sections}
-    />
-  );
+export default function Page() {
+  return <PrivacyPage locale="en" />;
 }

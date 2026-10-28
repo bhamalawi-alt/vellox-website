@@ -1,4 +1,5 @@
 export const COPY = {
+  "metaTitle": "Contact — Vellox Studio",
   "eyebrow": "Get In Touch",
   "headline": "Ready to get started? Tell us what you're building.",
   "lede": "We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",

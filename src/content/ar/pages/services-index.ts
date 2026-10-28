@@ -1,6 +1,7 @@
 import type { PageCopy } from "../../pages/services-index";
 
 export const COPY: PageCopy = {
+  metaTitle: "خدماتنا — Vellox Studio",
   eyebrow: "خدماتنا",
   headline: "استوديو متكامل يغطي العلامة التجارية والمنتج والتطوير، من أول رسم إلى الإطلاق على نطاق واسع.",
   lede: "ثمانية مجالات عمل وفريق واحد مسؤول. لا نسلّم العمل بين جهات متعددة؛ فالاستراتيجية والتصميم والتطوير في غرفة واحدة.",

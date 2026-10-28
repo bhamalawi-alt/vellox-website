@@ -34,7 +34,27 @@ export const UI = {
   includes: (items: string, more: boolean) => ` Includes ${items}${more ? ", and more" : ""}.`,
   details: { industry: "Industry", location: "Location", year: "Year" },
   nextProject: "Next project",
-  visitSite: "Visit the live site",
+  live: "Live",
+  visitSite: "Visit site",
+  viewProject: "View project",
+  theProject: "The project",
+  results: "Results",
+  gallery: "Gallery",
+  galleryImageAlt: (title: string, n: number) => `${title} — image ${n}`,
+  portfolioTitleSuffix: "Vellox Studio Portfolio",
+  projectDescription: (summary: string, tags: string[], industry: string) =>
+    `${summary} A Vellox Studio project${tags.length ? `: ${tags.join(", ").toLowerCase()}` : ""}${
+      industry ? ` for a ${industry.toLowerCase()} company` : ""
+    }.`,
+  haveProjectInMind: "Have a project in mind?",
+  haveProjectLikeThis: "Have a project like this?",
+  whatsIncluded: "What's included",
+  timeline: "Timeline",
+  viewService: "View service",
+  allServices: "All services",
+  allPracticeAreas: "All practice areas",
+  contactDetails: "Contact details",
+  sendMessage: "Send us a message",
   englishOnlyNote: "",
   notFound: {
     eyebrow: "404",

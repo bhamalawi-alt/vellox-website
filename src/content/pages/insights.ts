@@ -1,4 +1,5 @@
 export const COPY = {
+  "metaTitle": "Insights — Vellox Studio",
   "eyebrow": "Insights",
   "headline": "Topics we're writing about next.",
   "lede": "Articles on brand strategy, naming, and engineering are in progress. Want to talk one of them through before it's published? Ask us.",

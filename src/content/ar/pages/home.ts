@@ -1,6 +1,7 @@
 import type { PageCopy } from "../../pages/home";
 
 export const COPY: PageCopy = {
+  metaTitle: "Vellox Studio — علامات تجارية ومواقع ومتاجر وERPNext",
   hero: {
     metaLeft: "تأسس 2019 · عمل عن بُعد",
     metaRight: "أوروبا والشرق الأوسط وشمال أفريقيا",

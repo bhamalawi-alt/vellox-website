@@ -1,4 +1,5 @@
 export const COPY = {
+  "metaTitle": "Vellox Studio — Brand, Web & ERP for Wellness, Fintech, F&B",
   "hero": {
     "metaLeft": "Est. 2019 · Remote-first",
     "metaRight": "EU & MENA",

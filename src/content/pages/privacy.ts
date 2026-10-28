@@ -1,4 +1,5 @@
 export const COPY = {
+  "metaTitle": "Privacy Policy — Vellox Studio",
   "title": "Privacy Policy",
   "updated": "October 26, 2026",
   "intro": "This policy explains what personal data Vellox Studio collects through this website, why, and the rights you have over it.",
