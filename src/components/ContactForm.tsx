@@ -3,7 +3,9 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import Link from "next/link";
-import { COPY } from "../content/pages/contact";
+import { contactCopy } from "../content/pages";
+import { getUi } from "../content/ui";
+import { arrow, dir, localePath, type Locale } from "../lib/i18n";
 
 const EMAIL = "hello@velloxstudio.com";
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
@@ -22,7 +24,12 @@ const labelBase =
 const pillBase =
   "cursor-pointer rounded-full border border-white/45 px-4 py-2 text-[11px] uppercase tracking-[0.08em] text-white/80 transition-colors hover:border-white/60 hover:text-white peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-white peer-checked:border-white peer-checked:bg-white/10 peer-checked:text-white";
 
-export default function ContactForm() {
+const emailLink =
+  "underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+
+export default function ContactForm({ locale }: { locale: Locale }) {
+  const COPY = contactCopy(locale);
+  const ui = getUi(locale).form;
   const [status, setStatus] = useState<Status>("idle");
   const pending = status === "pending";
 
@@ -50,6 +57,8 @@ export default function ContactForm() {
           company: data.get("company"),
           message: data.get("message"),
           interests: data.getAll("interests[]"),
+          // Which language the enquiry came in, so replies can match it.
+          _language: locale,
         }),
       });
       if (!response.ok) throw new Error(`Formspree responded ${response.status}`);
@@ -67,7 +76,8 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       method="post"
       action={ENDPOINT ?? undefined}
-      aria-label="Project enquiry"
+      dir={dir(locale)}
+      aria-label={ui.aria}
       aria-busy={pending}
       className="relative space-y-6 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8"
     >
@@ -77,11 +87,8 @@ export default function ContactForm() {
           aria-live="polite"
           className="rounded-lg border border-dashed border-white/40 bg-white/10 px-4 py-3 text-sm leading-relaxed text-white"
         >
-          Form delivery isn&rsquo;t configured yet — please email us directly at{" "}
-          <a
-            href={`mailto:${EMAIL}`}
-            className="underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
+          {ui.notConfigured}{" "}
+          <a href={`mailto:${EMAIL}`} className={emailLink} dir="ltr">
             {EMAIL}
           </a>
           .
@@ -89,7 +96,7 @@ export default function ContactForm() {
       )}
 
       <div aria-hidden="true" className="h-0 w-0 overflow-hidden opacity-0">
-        <label htmlFor="contact-gotcha">Leave this field empty</label>
+        <label htmlFor="contact-gotcha">{ui.honeypot}</label>
         <input
           id="contact-gotcha"
           name="_gotcha"
@@ -98,6 +105,7 @@ export default function ContactForm() {
           autoComplete="off"
         />
       </div>
+      <input type="hidden" name="_language" value={locale} />
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
@@ -117,12 +125,14 @@ export default function ContactForm() {
           <label htmlFor="contact-email" className={labelBase}>
             {COPY.form.fields[1]}
           </label>
+          {/* Addresses and numbers read left-to-right whatever the page direction. */}
           <input
             id="contact-email"
             name="email"
             type="email"
             required
             autoComplete="email"
+            dir="ltr"
             className={fieldBase}
           />
         </div>
@@ -135,6 +145,7 @@ export default function ContactForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
+            dir="ltr"
             className={fieldBase}
           />
         </div>
@@ -190,10 +201,10 @@ export default function ContactForm() {
       <p className="text-xs leading-relaxed text-white/70">
         {COPY.form.privacyNote}{" "}
         <Link
-          href="/privacy"
+          href={localePath(locale, "/privacy")}
           className="underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         >
-          Privacy policy
+          {ui.privacyLink}
         </Link>
         .
       </p>
@@ -205,7 +216,7 @@ export default function ContactForm() {
             aria-live="polite"
             className="rounded-lg border border-white/30 bg-white/10 px-4 py-3 text-sm leading-relaxed text-white"
           >
-            Thanks — we typically reply within 24 hours.
+            {ui.success}
           </p>
         )}
         {status === "error" && (
@@ -214,12 +225,8 @@ export default function ContactForm() {
             aria-live="assertive"
             className="rounded-lg border border-white/30 bg-white/10 px-4 py-3 text-sm leading-relaxed text-white"
           >
-            Something went wrong sending your message — please try again, or
-            email us directly at{" "}
-            <a
-              href={`mailto:${EMAIL}`}
-              className="underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
+            {ui.error}{" "}
+            <a href={`mailto:${EMAIL}`} className={emailLink} dir="ltr">
               {EMAIL}
             </a>
             .
@@ -232,8 +239,8 @@ export default function ContactForm() {
         disabled={pending || !ENDPOINT}
         className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-[12px] uppercase tracking-[0.12em] text-black transition-colors hover:bg-white/85 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
       >
-        {pending ? "Sending…" : COPY.form.submitLabel}{" "}
-        <span aria-hidden="true">→</span>
+        {pending ? ui.sending : COPY.form.submitLabel}{" "}
+        <span aria-hidden="true">{arrow(locale)}</span>
       </button>
     </form>
   );

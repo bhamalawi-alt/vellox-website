@@ -48,7 +48,7 @@ export default function Contact() {
           </dl>
           <div className="md:col-span-7">
             <h2 className="sr-only">Send us a message</h2>
-            <ContactForm />
+            <ContactForm locale="en" />
           </div>
         </div>
       </section>
