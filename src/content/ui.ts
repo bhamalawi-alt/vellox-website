@@ -37,6 +37,7 @@ export const UI = {
   live: "Live",
   visitSite: "Visit site",
   viewProject: "View project",
+  servicesDelivered: "Services delivered",
   theProject: "The project",
   results: "Results",
   gallery: "Gallery",

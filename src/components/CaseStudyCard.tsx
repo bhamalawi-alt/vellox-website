@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Project } from "../lib/projects";
+import { getUi } from "../content/ui";
+import { arrow, localePath, type Locale } from "../lib/i18n";
 import { BrandMark } from "./BrandLogo";
 
 // Shows a project's cover image when one is set in the CMS, otherwise the
@@ -16,11 +18,14 @@ export function CaseStudyCard({
   study,
   index,
   total,
+  locale = "en",
 }: {
   study: Project;
   index: number;
   total: number;
+  locale?: Locale;
 }) {
+  const ui = getUi(locale);
   const n = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
   return (
     <article className="relative grid overflow-hidden rounded-3xl border border-white/10 bg-[#121212] text-white shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)] transition-colors focus-within:border-white/40 hover:border-white/25 md:grid-cols-[1.15fr_1fr]">
@@ -51,7 +56,7 @@ export function CaseStudyCard({
       </div>
       <div className="flex flex-col p-6 md:p-10">
         <div className="mb-8 flex items-center justify-between gap-4">
-          <ul className="flex flex-wrap gap-2" aria-label="Services delivered">
+          <ul className="flex flex-wrap gap-2" aria-label={ui.servicesDelivered}>
             {study.tags.map((tag) => (
               <li
                 key={tag}
@@ -68,25 +73,28 @@ export function CaseStudyCard({
         <h3 className="display mb-4 text-3xl leading-tight md:text-5xl">
           {/* The ::after overlay stretches this link over the whole card. */}
           <Link
-            href={`/portfolio/${study.slug}`}
+            href={localePath(locale, `/portfolio/${study.slug}`)}
             className="after:absolute after:inset-0 after:rounded-3xl after:content-[''] focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-white"
           >
             {study.title}
           </Link>
         </h3>
         <p className="mb-10 max-w-[44ch] text-base leading-relaxed text-white/75">{study.summary}</p>
+        {!study.translated ? (
+          <p className="-mt-6 mb-10 text-sm text-white/60">{ui.englishOnlyNote}</p>
+        ) : null}
         <dl className="mt-auto grid grid-cols-2 gap-6 border-t border-white/10 pt-6">
           <div>
-            <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">Location</dt>
+            <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">{ui.details.location}</dt>
             <dd className="mt-1 text-sm">{study.location}</dd>
           </div>
           <div>
-            <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">Industry</dt>
+            <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">{ui.details.industry}</dt>
             <dd className="mt-1 text-sm">{study.industry}</dd>
           </div>
         </dl>
         <span aria-hidden="true" className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-white/80">
-          View project →
+          {ui.viewProject} {arrow(locale)}
         </span>
       </div>
     </article>

@@ -43,7 +43,7 @@ export function HomePage({ locale }: { locale: Locale }) {
   const em = new Set(COPY.hero.emphasis);
   const headline = COPY.hero.headline.split(" ").map((w) => ({ w, em: em.has(w) }));
 
-  const projects = getProjects();
+  const projects = getProjects(locale);
   const featured = projects.filter((p) => p.featured);
   // The case-study cards earn their space only once at least one featured
   // project has real imagery; until then the proof block carries the section.
@@ -172,12 +172,12 @@ export function HomePage({ locale }: { locale: Locale }) {
           {showCards ? (
             <StickyStack
               cards={featured.map((study, i) => (
-                <CaseStudyCard key={study.slug} study={study} index={i} total={featured.length} />
+                <CaseStudyCard key={study.slug} study={study} index={i} total={featured.length} locale={locale} />
               ))}
             />
           ) : projects.length > 0 ? (
             <div className="mt-10">
-              <HomeProof projects={projects} />
+              <HomeProof projects={projects} locale={locale} />
             </div>
           ) : (
             <p className="mt-10 max-w-[52ch] text-base leading-relaxed text-white/75 md:text-lg">

@@ -1,17 +1,21 @@
 import Link from "next/link";
 import type { Project } from "../lib/projects";
-import { COPY as ABOUT } from "../content/pages/about";
-import { COPY } from "../content/pages/home";
+import { aboutCopy, homeCopy } from "../content/pages";
+import { getUi } from "../content/ui";
+import { arrow, localePath, type Locale } from "../lib/i18n";
 import { ArrowLink } from "./ui/arrow-link";
 
 // The home page's proof block while projects have no cover imagery yet: the
 // real testimonials from the About page and a compact list of recent clients.
 // Once a featured project has a cover, page.tsx shows the case-study cards
 // instead, so this component is the "no imagery yet" state, not a permanent one.
-export function HomeProof({ projects }: { projects: Project[] }) {
+export function HomeProof({ projects, locale }: { projects: Project[]; locale: Locale }) {
+  const COPY = homeCopy(locale);
+  const ABOUT = aboutCopy(locale);
+  const ui = getUi(locale);
   const quotes = COPY.proof.testimonialNames
     .map((name) => ABOUT.testimonials.find((t) => t.name === name))
-    .filter((t): t is (typeof ABOUT.testimonials)[number] => Boolean(t));
+    .filter((t): t is (typeof ABOUT)["testimonials"][number] => Boolean(t));
 
   return (
     <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
@@ -31,7 +35,7 @@ export function HomeProof({ projects }: { projects: Project[] }) {
             </li>
           ))}
         </ul>
-        <ArrowLink href="/about#testimonials" className="mt-10 text-sm uppercase tracking-[0.12em] text-white/80 hover:text-white">
+        <ArrowLink href={localePath(locale, "/about#testimonials")} className="mt-10 text-sm uppercase tracking-[0.12em] text-white/80 hover:text-white">
           {COPY.proof.allReferences}
         </ArrowLink>
       </div>
@@ -42,7 +46,7 @@ export function HomeProof({ projects }: { projects: Project[] }) {
           {projects.map((p) => (
             <li key={p.slug} className="border-b border-white/10">
               <Link
-                href={`/portfolio/${p.slug}`}
+                href={localePath(locale, `/portfolio/${p.slug}`)}
                 className="group flex items-baseline justify-between gap-4 py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 <span>
@@ -52,7 +56,10 @@ export function HomeProof({ projects }: { projects: Project[] }) {
                   <span className="mt-1 block text-sm text-white/70">
                     {[p.industry, p.location, p.year].filter(Boolean).join(" · ")}
                   </span>
-                  <span className="mt-1 block text-sm text-white/60">{p.tags.join(", ")}</span>
+                  <span className="mt-1 block text-sm text-white/60">{p.tags.join(locale === "ar" ? "، " : ", ")}</span>
+                  {!p.translated ? (
+                    <span className="mt-1 block text-xs text-white/50">{ui.englishOnlyNote}</span>
+                  ) : null}
                 </span>
                 <span aria-hidden="true" className="text-white/60 transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
                   →

@@ -41,7 +41,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
   const COPY = portfolioCopy(locale);
   const ui = getUi(locale);
   const site = getSite(locale);
-  const projects = getProjects();
+  const projects = getProjects(locale);
   const gallery = galleryImages(projects);
   const hasPhotos = projects.some((p) => p.gallery.length > 0);
   return (
@@ -63,7 +63,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
             </div>
             <StickyStack
               cards={projects.map((study, i) => (
-                <CaseStudyCard key={study.slug} study={study} index={i} total={projects.length} />
+                <CaseStudyCard key={study.slug} study={study} index={i} total={projects.length} locale={locale} />
               ))}
             />
           </div>

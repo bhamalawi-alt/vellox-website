@@ -35,6 +35,7 @@ export const UI: UiStrings = {
   live: "الموقع المباشر",
   visitSite: "زيارة الموقع",
   viewProject: "عرض المشروع",
+  servicesDelivered: "الخدمات المقدَّمة",
   theProject: "المشروع",
   results: "النتائج",
   gallery: "المعرض",

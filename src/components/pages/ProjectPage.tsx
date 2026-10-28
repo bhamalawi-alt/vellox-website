@@ -22,7 +22,7 @@ export function projectParams() {
 }
 
 export function projectMetadata(locale: Locale, slug: string): Metadata {
-  const project = getProject(slug);
+  const project = getProject(slug, locale);
   if (!project) return {};
   const ui = getUi(locale);
   const meta = pageMeta({
@@ -43,13 +43,13 @@ export function projectMetadata(locale: Locale, slug: string): Metadata {
 }
 
 export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) {
-  const project = getProject(slug);
+  const project = getProject(slug, locale);
   if (!project) notFound();
 
   const ui = getUi(locale);
   const site = getSite(locale);
   const href = (path: string) => localePath(locale, path);
-  const all = getProjects();
+  const all = getProjects(locale);
   const next = all[(all.findIndex((p) => p.slug === project.slug) + 1) % all.length];
   const details = [
     { term: ui.details.industry, value: project.industry },
@@ -97,6 +97,11 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
           </nav>
         }
         eyebrow={project.tags.join(" · ")}
+        after={
+          !project.translated ? (
+            <p className="mt-6 text-sm text-white/60">{ui.englishOnlyNote}</p>
+          ) : null
+        }
         title={project.title}
         lede={project.summary}
       />
