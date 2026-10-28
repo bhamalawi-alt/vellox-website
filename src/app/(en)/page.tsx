@@ -1,29 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShaderBackground } from "../components/motion/ShaderBackground";
-import { Reveal } from "../components/motion/Reveal";
-import { MagneticCta } from "../components/motion/MagneticCta";
-import { Marquee } from "../components/motion/Marquee";
-import { BrandMark } from "../components/BrandLogo";
-import { CaseStudyCard } from "../components/CaseStudyCard";
-import { HomeProof } from "../components/HomeProof";
-import { ArrowLink } from "../components/ui/arrow-link";
-import { ImageRevealList } from "../components/ui/image-reveal-list";
-import { ProgressiveBlur } from "../components/ui/progressive-blur";
-import { ScrollRevealText } from "../components/ui/scroll-reveal-text";
-import { StaggerText } from "../components/ui/stagger-text";
-import { StatsCounter } from "../components/ui/stats-counter";
-import { StickyStack } from "../components/ui/sticky-stack";
-import { COPY } from "../content/pages/home";
-import { COPY as PORTFOLIO } from "../content/pages/portfolio";
-import { coverForService, getProjects } from "../lib/projects";
-import { SERVICES } from "../content/services";
-import { pageMeta } from "../lib/seo";
+import { ShaderBackground } from "../../components/motion/ShaderBackground";
+import { Reveal } from "../../components/motion/Reveal";
+import { MagneticCta } from "../../components/motion/MagneticCta";
+import { Marquee } from "../../components/motion/Marquee";
+import { BrandMark } from "../../components/BrandLogo";
+import { CaseStudyCard } from "../../components/CaseStudyCard";
+import { HomeProof } from "../../components/HomeProof";
+import { ArrowLink } from "../../components/ui/arrow-link";
+import { ImageRevealList } from "../../components/ui/image-reveal-list";
+import { ProgressiveBlur } from "../../components/ui/progressive-blur";
+import { ScrollRevealText } from "../../components/ui/scroll-reveal-text";
+import { StaggerText } from "../../components/ui/stagger-text";
+import { StatsCounter } from "../../components/ui/stats-counter";
+import { StickyStack } from "../../components/ui/sticky-stack";
+import { COPY } from "../../content/pages/home";
+import { COPY as PORTFOLIO } from "../../content/pages/portfolio";
+import { coverForService, getProjects } from "../../lib/projects";
+import { SERVICES } from "../../content/services";
+import { pageMeta } from "../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Vellox Studio — Brand, Web & ERP for Wellness, Fintech, F&B",
   description: COPY.hero.metaDescription,
   path: "/",
+    locale: "en",
 });
 
 // The three industries are the emphasised words; the rest stays white.

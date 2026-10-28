@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { PageHero } from "../../components/PageHero";
-import { ArrowLink } from "../../components/ui/arrow-link";
-import { COPY } from "../../content/pages/insights";
-import { pageMeta } from "../../lib/seo";
+import { PageHero } from "../../../components/PageHero";
+import { ArrowLink } from "../../../components/ui/arrow-link";
+import { COPY } from "../../../content/pages/insights";
+import { pageMeta } from "../../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Insights — Vellox Studio",
   description: COPY.lede,
   path: "/insights",
+    locale: "en",
 });
 
 export default function Insights() {

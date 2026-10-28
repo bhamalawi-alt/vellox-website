@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShaderBackground } from "../../components/motion/ShaderBackground";
-import { PageHero } from "../../components/PageHero";
-import { ArrowLink } from "../../components/ui/arrow-link";
-import { ScrollRevealText } from "../../components/ui/scroll-reveal-text";
-import { StatsCounter } from "../../components/ui/stats-counter";
-import { StickyStack } from "../../components/ui/sticky-stack";
-import { COPY } from "../../content/pages/about";
-import { pageMeta } from "../../lib/seo";
+import { ShaderBackground } from "../../../components/motion/ShaderBackground";
+import { PageHero } from "../../../components/PageHero";
+import { ArrowLink } from "../../../components/ui/arrow-link";
+import { ScrollRevealText } from "../../../components/ui/scroll-reveal-text";
+import { StatsCounter } from "../../../components/ui/stats-counter";
+import { StickyStack } from "../../../components/ui/sticky-stack";
+import { COPY } from "../../../content/pages/about";
+import { pageMeta } from "../../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "About — Vellox Studio",
   description: COPY.lede,
   path: "/about",
+    locale: "en",
 });
 
 const CTA = {

@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PageHero } from "../../../components/PageHero";
-import { Accordion } from "../../../components/ui/accordion";
-import { ArrowLink } from "../../../components/ui/arrow-link";
-import { COPY as brandStrategyCopy } from "../../../content/pages/brand-strategy";
-import { COPY as brandIdentityCopy } from "../../../content/pages/brand-identity";
-import { COPY as ecommerceCopy } from "../../../content/pages/ecommerce";
-import { COPY as erpCopy } from "../../../content/pages/erp-implementation";
-import { COPY as uxdCopy } from "../../../content/pages/user-experience-design";
-import { COPY as visualContentCopy } from "../../../content/pages/visual-content";
-import { COPY as webDevCopy } from "../../../content/pages/web-development";
-import { COPY as webMobileCopy } from "../../../content/pages/web-mobile-applications";
-import { FRAPPE_BADGE, SERVICES } from "../../../content/services";
-import { BASE, pageMeta } from "../../../lib/seo";
+import { PageHero } from "../../../../components/PageHero";
+import { Accordion } from "../../../../components/ui/accordion";
+import { ArrowLink } from "../../../../components/ui/arrow-link";
+import { COPY as brandStrategyCopy } from "../../../../content/pages/brand-strategy";
+import { COPY as brandIdentityCopy } from "../../../../content/pages/brand-identity";
+import { COPY as ecommerceCopy } from "../../../../content/pages/ecommerce";
+import { COPY as erpCopy } from "../../../../content/pages/erp-implementation";
+import { COPY as uxdCopy } from "../../../../content/pages/user-experience-design";
+import { COPY as visualContentCopy } from "../../../../content/pages/visual-content";
+import { COPY as webDevCopy } from "../../../../content/pages/web-development";
+import { COPY as webMobileCopy } from "../../../../content/pages/web-mobile-applications";
+import { FRAPPE_BADGE, SERVICES } from "../../../../content/services";
+import { BASE, pageMeta } from "../../../../lib/seo";
 
 type IncludedItem = { num: string; title: string; body: string };
 
@@ -63,6 +63,7 @@ export async function generateMetadata({
     title: service.metaTitle,
     description: service.metaDescription,
     path: `/services/${service.slug}`,
+    locale: "en",
   });
 }
 

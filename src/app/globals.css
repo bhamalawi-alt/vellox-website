@@ -47,6 +47,34 @@ body {
   font-family: var(--font-display), var(--font-sans), sans-serif;
 }
 
+/* Arabic pages: IBM Plex Sans Arabic for display and body (fonts.ts), no
+ * Latin-tuned tracking or uppercase, and looser display leading so the
+ * ascenders and marks are never clipped. Monospace labels become medium
+ * weight in the same family. */
+html[lang="ar"] {
+  --font-display: var(--font-arabic);
+  --font-sans: var(--font-arabic);
+}
+[dir="rtl"] .display {
+  line-height: 1.3;
+  letter-spacing: 0 !important;
+}
+[dir="rtl"] .font-mono {
+  font-family: var(--font-arabic), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+[dir="rtl"] .uppercase {
+  text-transform: none !important;
+}
+[dir="rtl"] [class*="tracking-"] {
+  letter-spacing: 0 !important;
+}
+[dir="rtl"] .marquee__track {
+  animation-direction: reverse;
+}
+
 /* Reveal-on-scroll */
 .reveal {
   opacity: 0;

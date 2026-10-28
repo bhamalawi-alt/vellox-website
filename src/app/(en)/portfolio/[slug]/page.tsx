@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BrandMark } from "../../../components/BrandLogo";
-import { PageHero } from "../../../components/PageHero";
-import { ArrowLink } from "../../../components/ui/arrow-link";
-import { BASE, pageMeta } from "../../../lib/seo";
-import { getProject, getProjects, paragraphs } from "../../../lib/projects";
+import { BrandMark } from "../../../../components/BrandLogo";
+import { PageHero } from "../../../../components/PageHero";
+import { ArrowLink } from "../../../../components/ui/arrow-link";
+import { BASE, pageMeta } from "../../../../lib/seo";
+import { getProject, getProjects, paragraphs } from "../../../../lib/projects";
 
 // A static export needs at least one generated route, so with no published
 // projects (all unpublished or deleted in the CMS) a placeholder slug keeps the
@@ -33,6 +33,7 @@ export async function generateMetadata(
       project.tags.length ? `: ${project.tags.join(", ").toLowerCase()}` : ""
     }${project.industry ? ` for a ${project.industry.toLowerCase()} company` : ""}.`,
     path: `/portfolio/${project.slug}`,
+    locale: "en",
   });
   if (project.cover) {
     meta.openGraph = {

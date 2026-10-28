@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CaseStudyCard } from "../../components/CaseStudyCard";
-import { PageHero } from "../../components/PageHero";
-import { ParallaxGallery } from "../../components/ui/parallax-gallery";
-import { StickyStack } from "../../components/ui/sticky-stack";
-import { COPY } from "../../content/pages/portfolio";
-import { getProjects } from "../../lib/projects";
-import { pageMeta } from "../../lib/seo";
+import { CaseStudyCard } from "../../../components/CaseStudyCard";
+import { PageHero } from "../../../components/PageHero";
+import { ParallaxGallery } from "../../../components/ui/parallax-gallery";
+import { StickyStack } from "../../../components/ui/sticky-stack";
+import { COPY } from "../../../content/pages/portfolio";
+import { getProjects } from "../../../lib/projects";
+import { pageMeta } from "../../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Portfolio — Vellox Studio",
   description: COPY.metaDescription,
   path: "/portfolio",
+    locale: "en",
 });
 
 const GALLERY_TILES = 12;

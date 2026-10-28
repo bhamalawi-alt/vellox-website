@@ -11,3 +11,5 @@ export const optika = localFont({
 
 export const geistSans = Geist({ variable: "--font-sans", display: "swap", subsets: ["latin"] });
 export const geistMono = Geist_Mono({ variable: "--font-mono", display: "swap", subsets: ["latin"] });
+// The Arabic set is in ./fonts-arabic.ts, kept apart so each root layout
+// preloads only its own fonts.

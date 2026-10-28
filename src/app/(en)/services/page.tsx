@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { PageHero } from "../../components/PageHero";
-import { ImageRevealList } from "../../components/ui/image-reveal-list";
-import { COPY } from "../../content/pages/services-index";
-import { SERVICES } from "../../content/services";
-import { pageMeta } from "../../lib/seo";
+import { PageHero } from "../../../components/PageHero";
+import { ImageRevealList } from "../../../components/ui/image-reveal-list";
+import { COPY } from "../../../content/pages/services-index";
+import { SERVICES } from "../../../content/services";
+import { pageMeta } from "../../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Services — Vellox Studio",
   description: COPY.lede,
   path: "/services",
+    locale: "en",
 });
 
 const SUB_SERVICE_PREVIEW = 3;

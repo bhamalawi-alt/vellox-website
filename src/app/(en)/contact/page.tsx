@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import ContactForm from "../../components/ContactForm";
-import { PageHero } from "../../components/PageHero";
-import { COPY } from "../../content/pages/contact";
-import { pageMeta } from "../../lib/seo";
+import ContactForm from "../../../components/ContactForm";
+import { PageHero } from "../../../components/PageHero";
+import { COPY } from "../../../content/pages/contact";
+import { pageMeta } from "../../../lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Contact — Vellox Studio",
   description: COPY.metaDescription,
   path: "/contact",
+    locale: "en",
 });
 
 const darkFocus =
