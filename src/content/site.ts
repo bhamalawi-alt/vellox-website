@@ -57,11 +57,21 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
 ];
 
 export const SOCIAL_LINKS: NavItem[] = [
-  { label: "Instagram", href: "https://www.instagram.com/velloxstudio" },
+  { label: "Instagram", href: "https://www.instagram.com/vellox.studio" },
   { label: "Facebook", href: "https://www.facebook.com/velloxstudio" },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/velloxstudio" },
-  { label: "Mail", href: "mailto:hello@velloxstudio.com" },
+  { label: "WhatsApp", href: "https://wa.me/201055212405" },
 ];
+
+// The studio's WhatsApp line: the floating button and the contact page link here.
+export const WHATSAPP = {
+  number: "201055212405",
+  display: "+20 105 521 2405",
+};
+
+/** wa.me link that opens a chat with the studio, optionally with a drafted message. */
+export const whatsappHref = (message?: string) =>
+  `https://wa.me/${WHATSAPP.number}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
 
 // Evaluated at build time, so the year stays current on every deploy.
 export const COPYRIGHT = `© ${new Date().getFullYear()} Vellox Studio. All rights reserved.`;

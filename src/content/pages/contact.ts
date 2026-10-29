@@ -6,10 +6,6 @@ export const COPY = {
   "metaDescription": "Start a project with Vellox Studio: brand, web, eCommerce, and ERPNext for founders in the EU and MENA. We reply within one working day and start with a short call.",
   "details": [
     {
-      "term": "Email",
-      "value": "hello@velloxstudio.com",
-    },
-    {
       "term": "Studio",
       "value": "Remote / EU / MENA",
     },

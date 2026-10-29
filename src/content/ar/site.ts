@@ -44,10 +44,10 @@ export const SITE: SiteContent = {
     },
   ],
   SOCIAL_LINKS: [
-    { label: "Instagram", href: "https://www.instagram.com/velloxstudio" },
+    { label: "Instagram", href: "https://www.instagram.com/vellox.studio" },
     { label: "Facebook", href: "https://www.facebook.com/velloxstudio" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/velloxstudio" },
-    { label: "البريد", href: "mailto:hello@velloxstudio.com" },
+    { label: "واتساب", href: "https://wa.me/201055212405" },
   ],
   COPYRIGHT: `© ${new Date().getFullYear()} Vellox Studio. جميع الحقوق محفوظة.`,
 };

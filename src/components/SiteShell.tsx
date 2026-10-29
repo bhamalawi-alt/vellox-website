@@ -2,9 +2,10 @@ import type { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { MotionProvider } from "./MotionProvider";
+import { WhatsAppButton } from "./WhatsAppButton";
 import { BASE } from "../lib/seo";
 import type { Locale } from "../lib/i18n";
-import { getSite } from "../content/site";
+import { getSite, WHATSAPP } from "../content/site";
 import { getUi } from "../content/ui";
 
 // Everything inside <html> that both root layouts share: the organisation
@@ -24,7 +25,16 @@ function orgJsonLd(locale: Locale) {
         description: site.TAGLINE,
         foundingDate: "2019",
         areaServed: ["Europe", "Middle East", "North Africa"],
-        sameAs: site.SOCIAL_LINKS.filter((s) => s.href.startsWith("http")).map((s) => s.href),
+        // Profiles only; the WhatsApp chat link goes in contactPoint instead.
+        sameAs: site.SOCIAL_LINKS.filter((s) => s.href.startsWith("http") && !s.href.includes("wa.me")).map(
+          (s) => s.href,
+        ),
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          telephone: `+${WHATSAPP.number}`,
+          availableLanguage: ["English", "Arabic"],
+        },
       },
       {
         "@type": "WebSite",
@@ -58,6 +68,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
           {children}
         </main>
         <Footer locale={locale} />
+        <WhatsAppButton locale={locale} />
       </MotionProvider>
     </body>
   );

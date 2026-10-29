@@ -21,6 +21,9 @@ export const UI: UiStrings = {
   englishPrevails:
     "هذه ترجمة للنسخة الإنجليزية. في حال وجود أي اختلاف، يُعتمد النص الإنجليزي.",
   opensInNewTab: " (يفتح في نافذة جديدة)",
+  whatsapp: "واتساب",
+  whatsappAria: "تحدّث مع Vellox Studio عبر واتساب",
+  whatsappMessage: "مرحبًا Vellox Studio، أودّ التحدث عن مشروع.",
   pause: "إيقاف",
   play: "تشغيل",
   marqueeAria: " شريط أسماء الخدمات المتحرك",
@@ -65,8 +68,8 @@ export const UI: UiStrings = {
     honeypot: "اترك هذا الحقل فارغًا",
     sending: "جارٍ الإرسال…",
     success: "شكرًا لك. نردّ عادةً خلال 24 ساعة.",
-    error: "تعذّر إرسال رسالتك. حاول مرة أخرى، أو راسلنا مباشرة على",
-    notConfigured: "لم يُفعَّل إرسال النموذج بعد. راسلنا مباشرة على",
+    error: "تعذّر إرسال رسالتك. حاول مرة أخرى، أو راسلنا عبر واتساب على",
+    notConfigured: "لم يُفعَّل إرسال النموذج بعد. راسلنا عبر واتساب على",
     privacyLink: "سياسة الخصوصية",
   },
   cta: {

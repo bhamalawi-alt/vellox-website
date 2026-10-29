@@ -4,10 +4,10 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import Link from "next/link";
 import { contactCopy } from "../content/pages";
+import { WHATSAPP, whatsappHref } from "../content/site";
 import { getUi } from "../content/ui";
 import { arrow, dir, localePath, type Locale } from "../lib/i18n";
 
-const EMAIL = "hello@velloxstudio.com";
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
 const ENDPOINT = FORMSPREE_ID
   ? `https://formspree.io/f/${FORMSPREE_ID}`
@@ -24,7 +24,7 @@ const labelBase =
 const pillBase =
   "cursor-pointer rounded-full border border-white/45 px-4 py-2 text-[11px] uppercase tracking-[0.08em] text-white/80 transition-colors hover:border-white/60 hover:text-white peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-white peer-checked:border-white peer-checked:bg-white/10 peer-checked:text-white";
 
-const emailLink =
+const inlineLink =
   "underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
 export default function ContactForm({ locale }: { locale: Locale }) {
@@ -88,8 +88,8 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           className="rounded-lg border border-dashed border-white/40 bg-white/10 px-4 py-3 text-sm leading-relaxed text-white"
         >
           {ui.notConfigured}{" "}
-          <a href={`mailto:${EMAIL}`} className={emailLink} dir="ltr">
-            {EMAIL}
+          <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className={inlineLink} dir="ltr">
+            {WHATSAPP.display}
           </a>
           .
         </p>
@@ -226,8 +226,8 @@ export default function ContactForm({ locale }: { locale: Locale }) {
             className="rounded-lg border border-white/30 bg-white/10 px-4 py-3 text-sm leading-relaxed text-white"
           >
             {ui.error}{" "}
-            <a href={`mailto:${EMAIL}`} className={emailLink} dir="ltr">
-              {EMAIL}
+            <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className={inlineLink} dir="ltr">
+              {WHATSAPP.display}
             </a>
             .
           </p>

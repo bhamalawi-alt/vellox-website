@@ -37,7 +37,7 @@ export const COPY = {
     {
       "heading": "Changes and contact",
       "paragraphs": [
-        "We may update these terms; the date above shows the latest version. Questions: hello@velloxstudio.com.",
+        "We may update these terms; the date above shows the latest version. Questions: WhatsApp +20 105 521 2405.",
       ],
     },
   ],
