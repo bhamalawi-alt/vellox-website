@@ -61,7 +61,11 @@ export const SOCIAL_LINKS: NavItem[] = [
   { label: "Facebook", href: "https://www.facebook.com/velloxstudio" },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/velloxstudio" },
   { label: "WhatsApp", href: "https://wa.me/201055212405" },
+  { label: "Email", href: "mailto:info@velloxstudio.com" },
 ];
+
+// The studio inbox: forwards to the team via Cloudflare Email Routing.
+export const EMAIL = "info@velloxstudio.com";
 
 // The studio's WhatsApp line: the floating button and the contact page link here.
 export const WHATSAPP = {

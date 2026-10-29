@@ -7,7 +7,7 @@ export const COPY = {
     {
       "heading": "Who we are",
       "paragraphs": [
-        "Vellox Studio (\"we\", \"us\") operates velloxstudio.com and is the controller of the personal data described here. For any privacy question or request, message us on WhatsApp at +20 105 521 2405.",
+        "Vellox Studio (\"we\", \"us\") operates velloxstudio.com and is the controller of the personal data described here. For any privacy question or request, email info@velloxstudio.com or message us on WhatsApp at +20 105 521 2405.",
       ],
     },
     {
@@ -41,7 +41,7 @@ export const COPY = {
     {
       "heading": "Your rights",
       "paragraphs": [
-        "Depending on where you live, you can ask to access, correct, delete, or export your personal data, to restrict or object to how we use it, and to withdraw consent where we rely on it. Message us on WhatsApp at +20 105 521 2405 and we will reply within one month.",
+        "Depending on where you live, you can ask to access, correct, delete, or export your personal data, to restrict or object to how we use it, and to withdraw consent where we rely on it. Email info@velloxstudio.com or message us on WhatsApp at +20 105 521 2405 and we will reply within one month.",
         "You also have the right to complain to your local data protection authority.",
       ],
     },

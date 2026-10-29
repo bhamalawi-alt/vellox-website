@@ -5,7 +5,7 @@ import { MotionProvider } from "./MotionProvider";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { BASE } from "../lib/seo";
 import type { Locale } from "../lib/i18n";
-import { getSite, WHATSAPP } from "../content/site";
+import { EMAIL, getSite, WHATSAPP } from "../content/site";
 import { getUi } from "../content/ui";
 
 // Everything inside <html> that both root layouts share: the organisation
@@ -33,6 +33,7 @@ function orgJsonLd(locale: Locale) {
           "@type": "ContactPoint",
           contactType: "sales",
           telephone: `+${WHATSAPP.number}`,
+          email: EMAIL,
           availableLanguage: ["English", "Arabic"],
         },
       },

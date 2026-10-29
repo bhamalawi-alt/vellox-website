@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "../ContactForm";
 import { PageHero } from "../PageHero";
 import { contactCopy } from "../../content/pages";
-import { WHATSAPP, whatsappHref } from "../../content/site";
+import { EMAIL, WHATSAPP, whatsappHref } from "../../content/site";
 import { getUi } from "../../content/ui";
 import type { Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
@@ -46,6 +46,14 @@ export function ContactPage({ locale }: { locale: Locale }) {
                 >
                   {WHATSAPP.display}
                   <span className="sr-only">{ui.opensInNewTab}</span>
+                </a>
+              </dd>
+            </div>
+            <div className={detailRow}>
+              <dt className={detailTerm}>{ui.email}</dt>
+              <dd className="text-end text-sm font-medium">
+                <a href={`mailto:${EMAIL}`} dir="ltr" className={detailLink}>
+                  {EMAIL}
                 </a>
               </dd>
             </div>

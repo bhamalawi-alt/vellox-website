@@ -48,6 +48,7 @@ export const SITE: SiteContent = {
     { label: "Facebook", href: "https://www.facebook.com/velloxstudio" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/velloxstudio" },
     { label: "واتساب", href: "https://wa.me/201055212405" },
+  { label: "البريد", href: "mailto:info@velloxstudio.com" },
   ],
   COPYRIGHT: `© ${new Date().getFullYear()} Vellox Studio. جميع الحقوق محفوظة.`,
 };

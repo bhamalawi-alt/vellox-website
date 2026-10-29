@@ -23,6 +23,7 @@ export const UI = {
   lastUpdated: (date: string) => `Last updated ${date}.`,
   englishPrevails: "",
   opensInNewTab: " (opens in a new tab)",
+  email: "Email",
   whatsapp: "WhatsApp",
   whatsappAria: "Chat with Vellox Studio on WhatsApp",
   whatsappMessage: "Hi Vellox Studio, I'd like to talk about a project.",

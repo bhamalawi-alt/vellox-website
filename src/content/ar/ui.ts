@@ -21,6 +21,7 @@ export const UI: UiStrings = {
   englishPrevails:
     "هذه ترجمة للنسخة الإنجليزية. في حال وجود أي اختلاف، يُعتمد النص الإنجليزي.",
   opensInNewTab: " (يفتح في نافذة جديدة)",
+  email: "البريد الإلكتروني",
   whatsapp: "واتساب",
   whatsappAria: "تحدّث مع Vellox Studio عبر واتساب",
   whatsappMessage: "مرحبًا Vellox Studio، أودّ التحدث عن مشروع.",
