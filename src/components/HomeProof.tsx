@@ -19,26 +19,28 @@ export function HomeProof({ projects, locale }: { projects: Project[]; locale: L
 
   return (
     <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
-      <div className="lg:col-span-7">
-        <h3 className="mb-6 text-sm font-medium text-white/60">{COPY.proof.quotesHeading}</h3>
-        <ul className="space-y-10">
-          {quotes.map((t) => (
-            <li key={t.name}>
-              <figure>
-                <blockquote className="display text-2xl leading-[1.25] text-white md:text-3xl">
-                  <p>&ldquo;{t.quote}&rdquo;</p>
-                </blockquote>
-                <figcaption className="mt-4 text-sm text-white/70">
-                  <span className="font-medium text-white">{t.name}</span>, {t.role}, {t.company}
-                </figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
-        <ArrowLink href={localePath(locale, "/about#testimonials")} className="mt-10 text-sm uppercase tracking-[0.12em] text-white/80 hover:text-white">
-          {COPY.proof.allReferences}
-        </ArrowLink>
-      </div>
+      {quotes.length > 0 ? (
+        <div className="lg:col-span-7">
+          <h3 className="mb-6 text-sm font-medium text-white/60">{COPY.proof.quotesHeading}</h3>
+          <ul className="space-y-10">
+            {quotes.map((t) => (
+              <li key={t.name}>
+                <figure>
+                  <blockquote className="display text-2xl leading-[1.25] text-white md:text-3xl">
+                    <p>&ldquo;{t.quote}&rdquo;</p>
+                  </blockquote>
+                  <figcaption className="mt-4 text-sm text-white/70">
+                    <span className="font-medium text-white">{t.name}</span>, {t.role}, {t.company}
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+          <ArrowLink href={localePath(locale, "/about#testimonials")} className="mt-10 text-sm uppercase tracking-[0.12em] text-white/80 hover:text-white">
+            {COPY.proof.allReferences}
+          </ArrowLink>
+        </div>
+      ) : null}
 
       <div className="lg:col-span-5">
         <h3 className="mb-6 text-sm font-medium text-white/60">{COPY.proof.clientsHeading}</h3>

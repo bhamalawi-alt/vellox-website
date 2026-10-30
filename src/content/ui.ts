@@ -88,7 +88,6 @@ export const UI = {
     sub: "No hand-offs, no translation loss, no surprises at launch.",
   },
   facts: {
-    founded: "Founded",
     operating: "Operating",
     focus: "Focus",
     operatingValue: "Remote · EU · MENA",

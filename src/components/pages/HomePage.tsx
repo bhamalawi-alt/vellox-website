@@ -187,49 +187,52 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="bg-bg py-24 text-ink md:py-32" aria-labelledby="numbers-heading">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
-            <h2 id="numbers-heading" className="display text-3xl leading-[1.05] md:text-5xl">
-              {COPY.numbers.heading}
-            </h2>
-            <p className="text-sm text-muted">{COPY.numbers.note}</p>
+      {/* Shown once real figures are filled in; the sample stats were removed. */}
+      {COPY.numbers.stats.length > 0 ? (
+        <section className="bg-bg py-24 text-ink md:py-32" aria-labelledby="numbers-heading">
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
+              <h2 id="numbers-heading" className="display text-3xl leading-[1.05] md:text-5xl">
+                {COPY.numbers.heading}
+              </h2>
+              <p className="text-sm text-muted">{COPY.numbers.note}</p>
+            </div>
+            <ul className="grid grid-cols-2 border-t border-line md:grid-cols-4">
+              {COPY.numbers.stats.map((stat) => {
+                const body = (
+                  <>
+                    <span className="display text-5xl tracking-[-0.02em] md:text-7xl">
+                      <StatsCounter value={stat.value} suffix={stat.suffix} />
+                    </span>
+                    <span className="mt-4 text-sm font-medium">{stat.label}</span>
+                    <span className="mt-1 text-sm text-muted">{stat.sub}</span>
+                  </>
+                );
+                return (
+                  <li
+                    key={stat.label}
+                    className="border-b border-line py-8 pe-6 md:border-b-0 md:border-e md:px-6 md:first:ps-0 md:last:border-e-0"
+                  >
+                    {"href" in stat && stat.href ? (
+                      <Link
+                        href={href(stat.href)}
+                        className="group flex flex-col rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+                      >
+                        {body}
+                        <span className="mt-3 text-sm text-ink underline-offset-4 group-hover:underline">
+                          {ui.readReferences}&nbsp;<span aria-hidden="true">{glyph}</span>
+                        </span>
+                      </Link>
+                    ) : (
+                      <div className="flex flex-col">{body}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-          <ul className="grid grid-cols-2 border-t border-line md:grid-cols-4">
-            {COPY.numbers.stats.map((stat) => {
-              const body = (
-                <>
-                  <span className="display text-5xl tracking-[-0.02em] md:text-7xl">
-                    <StatsCounter value={stat.value} suffix={stat.suffix} />
-                  </span>
-                  <span className="mt-4 text-sm font-medium">{stat.label}</span>
-                  <span className="mt-1 text-sm text-muted">{stat.sub}</span>
-                </>
-              );
-              return (
-                <li
-                  key={stat.label}
-                  className="border-b border-line py-8 pe-6 md:border-b-0 md:border-e md:px-6 md:first:ps-0 md:last:border-e-0"
-                >
-                  {"href" in stat && stat.href ? (
-                    <Link
-                      href={href(stat.href)}
-                      className="group flex flex-col rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
-                    >
-                      {body}
-                      <span className="mt-3 text-sm text-ink underline-offset-4 group-hover:underline">
-                        {ui.readReferences}&nbsp;<span aria-hidden="true">{glyph}</span>
-                      </span>
-                    </Link>
-                  ) : (
-                    <div className="flex flex-col">{body}</div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="relative overflow-hidden bg-panel py-28 text-white md:py-40">
         <div className="mx-auto w-full max-w-5xl px-6 text-center">

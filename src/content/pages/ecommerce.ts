@@ -4,7 +4,7 @@ export const COPY = {
   "index": "06",
   "tagline": "Stores, marketplaces, and B2B commerce that convert and scale.",
   "intro": [
-    "eCommerce is where brand, UX, and engineering converge on a single metric: revenue. We build Shopify stores, custom headless storefronts, multi-vendor marketplaces, and B2B portals — each engineered for the specific business model it serves. We don't just build and leave; most clients stay on a CRO retainer that lifts revenue 15–40% within six months. Our work has shipped across wellness, F&B, fashion, and B2B verticals.",
+    "eCommerce is where brand, UX, and engineering converge on a single metric: revenue. We build Shopify stores, custom headless storefronts, multi-vendor marketplaces, and B2B portals — each engineered for the specific business model it serves. We don't just build and leave: after launch, a CRO retainer keeps testing and improving conversion.",
   ],
   "includedHeading": "7 sub-services",
   "included": [
@@ -26,7 +26,7 @@ export const COPY = {
     {
       "num": "04",
       "title": "Conversion Rate Optimization",
-      "body": "Make your existing traffic convert better. We run CRO programs — audit, hypothesize, test, measure, repeat. Tests cover product pages, checkout, search, navigation, mobile UX, and merchandising. CRO engagements include A/B test design, implementation, analysis, and a monthly report on revenue impact. Most CRO clients see 15–40% revenue lift within 6 months.",
+      "body": "Make your existing traffic convert better. We run CRO programs — audit, hypothesize, test, measure, repeat. Tests cover product pages, checkout, search, navigation, mobile UX, and merchandising. CRO engagements include A/B test design, implementation, analysis, and a monthly report on revenue impact.",
     },
     {
       "num": "05",

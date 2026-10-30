@@ -4,7 +4,7 @@ export const COPY = {
   "index": "07",
   "tagline": "Native iOS, Android, and web apps — built for retention, not just downloads.",
   "intro": [
-    "We build native mobile apps (Swift/Kotlin), cross-platform apps (React Native), and the backend APIs that power them. Our work has shipped across consumer, B2B, healthcare, and education verticals — including booking systems, learning platforms, internal business tools, and payments systems. Mobile engagements include design, development, App Store/Play Store submission, and post-launch monitoring. We default to a shared backend with separate native frontends for performance and platform feel.",
+    "We build native mobile apps (Swift/Kotlin), cross-platform apps (React Native), and the backend APIs that power them. We build booking systems, learning platforms, internal business tools, and payment flows. Mobile engagements include design, development, App Store/Play Store submission, and post-launch monitoring. We default to a shared backend with separate native frontends for performance and platform feel.",
   ],
   "includedHeading": "6 sub-services",
   "included": [

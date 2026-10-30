@@ -25,7 +25,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
   const href = (path: string) => localePath(locale, path);
   const total = String(COPY.principles.length).padStart(2, "0");
   const facts = [
-    { term: ui.facts.founded, detail: "2019" },
     { term: ui.facts.operating, detail: ui.facts.operatingValue },
     { term: ui.facts.focus, detail: ui.facts.focusValue },
   ];
@@ -103,80 +102,86 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="bg-bg py-24 text-ink md:py-32">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <h2 className="mb-12 font-mono text-xs uppercase tracking-[0.3em] text-muted">
-            {COPY.numbers.eyebrow}
-          </h2>
-          <ul className="grid grid-cols-2 border-t border-line md:grid-cols-4">
-            {COPY.numbers.stats.map((stat) => (
-              <li
-                key={stat.label}
-                className="flex flex-col border-b border-line py-8 pe-6 md:border-b-0 md:border-e md:px-6 md:first:ps-0 md:last:border-e-0"
-              >
-                <span className="display text-5xl tracking-[-0.02em] md:text-7xl">
-                  <StatsCounter value={stat.value} suffix={stat.suffix} />
-                </span>
-                <span className="mt-4 text-sm font-medium">{stat.label}</span>
-                <span className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">
-                  {stat.sub}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
-            {COPY.numbers.note}
-          </p>
-        </div>
-      </section>
-
-      <section id="testimonials" className="scroll-mt-24 border-t border-line bg-bg py-24 text-ink md:py-32">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted">
-            {COPY.testimonialsSection.eyebrow}
-          </p>
-          <h2 className="display mb-14 max-w-[22ch] text-4xl leading-[1.05] md:text-6xl">
-            {COPY.testimonialsSection.heading}
-          </h2>
-          {/* A swipeable row on small screens (focusable so keyboards can scroll
-              it), a full grid from lg so no testimonial is hidden off-screen. */}
-          <ul
-            tabIndex={0}
-            className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-6 [scrollbar-width:thin] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:pb-0"
-            aria-label={COPY.testimonialsSection.eyebrow}
-          >
-            {COPY.testimonials.map((testimonial) => (
-              <li
-                key={testimonial.name}
-                className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-auto"
-              >
-                <figure className="flex h-full flex-col rounded-3xl border border-line bg-white p-8">
-                  <span aria-hidden="true" className="display text-6xl leading-none text-ink/20">
-                    &ldquo;
+      {/* Shown once real figures are filled in. */}
+      {COPY.numbers.stats.length > 0 ? (
+        <section className="bg-bg py-24 text-ink md:py-32">
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <h2 className="mb-12 font-mono text-xs uppercase tracking-[0.3em] text-muted">
+              {COPY.numbers.eyebrow}
+            </h2>
+            <ul className="grid grid-cols-2 border-t border-line md:grid-cols-4">
+              {COPY.numbers.stats.map((stat) => (
+                <li
+                  key={stat.label}
+                  className="flex flex-col border-b border-line py-8 pe-6 md:border-b-0 md:border-e md:px-6 md:first:ps-0 md:last:border-e-0"
+                >
+                  <span className="display text-5xl tracking-[-0.02em] md:text-7xl">
+                    <StatsCounter value={stat.value} suffix={stat.suffix} />
                   </span>
-                  <blockquote className="mt-2 text-base leading-relaxed md:text-lg">
-                    <p>{testimonial.quote}</p>
-                  </blockquote>
-                  <figcaption className="mt-auto flex items-center gap-4 pt-10">
-                    <span
-                      aria-hidden="true"
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink font-mono text-xs tracking-[0.08em] text-white"
-                    >
-                      {testimonial.initials}
+                  <span className="mt-4 text-sm font-medium">{stat.label}</span>
+                  <span className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">
+                    {stat.sub}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
+              {COPY.numbers.note}
+            </p>
+          </div>
+        </section>
+      ) : null}
+
+      {/* Shown once real client quotes are added. */}
+      {COPY.testimonials.length > 0 ? (
+        <section id="testimonials" className="scroll-mt-24 border-t border-line bg-bg py-24 text-ink md:py-32">
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted">
+              {COPY.testimonialsSection.eyebrow}
+            </p>
+            <h2 className="display mb-14 max-w-[22ch] text-4xl leading-[1.05] md:text-6xl">
+              {COPY.testimonialsSection.heading}
+            </h2>
+            {/* A swipeable row on small screens (focusable so keyboards can scroll
+                it), a full grid from lg so no testimonial is hidden off-screen. */}
+            <ul
+              tabIndex={0}
+              className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-6 [scrollbar-width:thin] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:pb-0"
+              aria-label={COPY.testimonialsSection.eyebrow}
+            >
+              {COPY.testimonials.map((testimonial) => (
+                <li
+                  key={testimonial.name}
+                  className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-auto"
+                >
+                  <figure className="flex h-full flex-col rounded-3xl border border-line bg-white p-8">
+                    <span aria-hidden="true" className="display text-6xl leading-none text-ink/20">
+                      &ldquo;
                     </span>
-                    <span>
-                      <span className="block text-sm font-medium">{testimonial.name}</span>
-                      <span className="mt-0.5 block text-sm text-muted">
-                        {testimonial.role} · {testimonial.company}
+                    <blockquote className="mt-2 text-base leading-relaxed md:text-lg">
+                      <p>{testimonial.quote}</p>
+                    </blockquote>
+                    <figcaption className="mt-auto flex items-center gap-4 pt-10">
+                      <span
+                        aria-hidden="true"
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink font-mono text-xs tracking-[0.08em] text-white"
+                      >
+                        {testimonial.initials}
                       </span>
-                    </span>
-                  </figcaption>
-                </figure>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+                      <span>
+                        <span className="block text-sm font-medium">{testimonial.name}</span>
+                        <span className="mt-0.5 block text-sm text-muted">
+                          {testimonial.role} · {testimonial.company}
+                        </span>
+                      </span>
+                    </figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-panel py-24 text-white md:py-32">
         <div className="mx-auto w-full max-w-4xl px-6 text-center">

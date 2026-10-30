@@ -120,7 +120,7 @@ export const SERVICES: ServiceEntry[] = [
     metaDescription:
       "Fast, search-friendly websites with a CMS your team can edit without calling us. Web design and development for founders across the EU and MENA.",
     intro: [
-      "Web development at Vellox covers everything from marketing sites to multi-tenant SaaS platforms. We build in Next.js, TypeScript, and Prisma by default — a stack that's fast, SEO-friendly, and easy to hire for. Every engagement ships with responsive design, accessibility, Core Web Vitals in the green, analytics, and a CMS your team can use without us. We don't disappear at launch; most clients stay on a maintenance retainer for ongoing improvements.",
+      "Web development at Vellox covers everything from marketing sites to multi-tenant SaaS platforms. We build in Next.js, TypeScript, and Prisma by default — a stack that's fast, SEO-friendly, and easy to hire for. Every engagement ships with responsive design, accessibility, Core Web Vitals in the green, analytics, and a CMS your team can use without us. We don't disappear at launch: a maintenance retainer covers ongoing improvements.",
     ],
     included: [
       "Website Development",
@@ -144,7 +144,7 @@ export const SERVICES: ServiceEntry[] = [
     metaDescription:
       "Online stores on Shopify or custom-built, designed to take orders from day one and tuned for conversion and revenue after launch.",
     intro: [
-      "eCommerce is where brand, UX, and engineering converge on a single metric: revenue. We build Shopify stores, custom headless storefronts, multi-vendor marketplaces, and B2B portals — each engineered for the specific business model it serves. We don't just build and leave; most clients stay on a CRO retainer that lifts revenue 15–40% within six months. Our work has shipped across wellness, F&B, fashion, and B2B verticals.",
+      "eCommerce is where brand, UX, and engineering converge on a single metric: revenue. We build Shopify stores, custom headless storefronts, multi-vendor marketplaces, and B2B portals — each engineered for the specific business model it serves. We don't just build and leave: after launch, a CRO retainer keeps testing and improving conversion.",
     ],
     included: [
       "Shopify Stores",
@@ -168,7 +168,7 @@ export const SERVICES: ServiceEntry[] = [
     metaDescription:
       "iPhone, Android, and web apps designed and built by one team, from UX research and prototyping to launch and the releases that follow.",
     intro: [
-      "We build native mobile apps (Swift/Kotlin), cross-platform apps (React Native), and the backend APIs that power them. Our work has shipped across consumer, B2B, healthcare, and education verticals — including booking systems, learning platforms, internal business tools, and payments systems. Mobile engagements include design, development, App Store/Play Store submission, and post-launch monitoring.",
+      "We build native mobile apps (Swift/Kotlin), cross-platform apps (React Native), and the backend APIs that power them. We build booking systems, learning platforms, internal business tools, and payment flows. Mobile engagements include design, development, App Store/Play Store submission, and post-launch monitoring.",
     ],
     included: [
       "iOS & Android Apps",

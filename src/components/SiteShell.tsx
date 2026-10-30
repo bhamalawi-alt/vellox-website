@@ -23,7 +23,6 @@ function orgJsonLd(locale: Locale) {
         url: `${BASE}/`,
         logo: `${BASE}/icon-512.png`,
         description: site.TAGLINE,
-        foundingDate: "2019",
         areaServed: ["Europe", "Middle East", "North Africa"],
         // Profiles only; the WhatsApp chat link goes in contactPoint instead.
         sameAs: site.SOCIAL_LINKS.filter((s) => s.href.startsWith("http") && !s.href.includes("wa.me")).map(

@@ -3,7 +3,7 @@ import type { PageCopy } from "../../pages/home";
 export const COPY: PageCopy = {
   metaTitle: "Vellox Studio — علامات تجارية ومواقع ومتاجر وERPNext",
   hero: {
-    metaLeft: "تأسس 2019 · عمل عن بُعد",
+    metaLeft: "عمل عن بُعد",
     metaRight: "أوروبا والشرق الأوسط وشمال أفريقيا",
     eyebrow: "استوديو تطوير الأعمال",
     headline:
@@ -44,40 +44,14 @@ export const COPY: PageCopy = {
     heading: "أحدث الأعمال",
     clientsHeading: "عملاء حديثون",
     quotesHeading: "بكلماتهم",
-    testimonialNames: ["Layla Haddad", "Idris Karam", "Mara Lindqvist"],
+    testimonialNames: [],
     allWork: "كل الأعمال",
     allReferences: "آراء العملاء الستة",
   },
   numbers: {
     heading: "بالأرقام",
     note: "آراء العملاء متاحة عند الطلب.",
-    stats: [
-      {
-        value: 120,
-        suffix: "+",
-        label: "مشروعًا أُنجز",
-        sub: "منذ 2019",
-      },
-      {
-        value: 6,
-        suffix: "",
-        label: "آراء عملاء",
-        sub: "اقرأها في صفحة عن الاستوديو",
-        href: "/about#testimonials",
-      },
-      {
-        value: 94,
-        suffix: "%",
-        label: "نسبة استمرار العملاء",
-        sub: "عملاء عادوا إلينا أو استمروا بعقد متابعة",
-      },
-      {
-        value: 12,
-        suffix: "",
-        label: "أسبوعًا حتى الإطلاق (الوسيط)",
-        sub: "في مشاريع 2024–2025",
-      },
-    ],
+    stats: [],
   },
   ctaBand: {
     heading: "هل أنت مستعد للبدء؟",

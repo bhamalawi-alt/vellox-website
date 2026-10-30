@@ -4,7 +4,7 @@ export const COPY = {
   "index": "05",
   "tagline": "Marketing sites, web apps, and platforms that perform — built in Next.js.",
   "intro": [
-    "Web development at Vellox covers everything from marketing sites to multi-tenant SaaS platforms. We build in Next.js, TypeScript, and Prisma by default — a stack that's fast, SEO-friendly, and easy to hire for. Every engagement ships with responsive design, accessibility, Core Web Vitals in the green, analytics, and a CMS your team can use without us. We don't disappear at launch; most clients stay on a maintenance retainer for ongoing improvements.",
+    "Web development at Vellox covers everything from marketing sites to multi-tenant SaaS platforms. We build in Next.js, TypeScript, and Prisma by default — a stack that's fast, SEO-friendly, and easy to hire for. Every engagement ships with responsive design, accessibility, Core Web Vitals in the green, analytics, and a CMS your team can use without us. We don't disappear at launch: a maintenance retainer covers ongoing improvements.",
   ],
   "includedHeading": "7 sub-services",
   "included": [

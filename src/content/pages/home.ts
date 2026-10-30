@@ -1,7 +1,7 @@
 export const COPY = {
   "metaTitle": "Vellox Studio — Brand, Web & ERP for Wellness, Fintech, F&B",
   "hero": {
-    "metaLeft": "Est. 2019 · Remote-first",
+    "metaLeft": "Remote-first",
     "metaRight": "EU & MENA",
     "eyebrow": "Business Development Studio",
     "headline": "We design brands and build websites and stores for wellness, fintech, and F&B founders.",
@@ -39,40 +39,14 @@ export const COPY = {
     "heading": "Recent work",
     "clientsHeading": "Recent clients",
     "quotesHeading": "In their words",
-    "testimonialNames": ["Layla Haddad", "Idris Karam", "Mara Lindqvist"],
+    "testimonialNames": [] as string[],
     "allWork": "All work",
     "allReferences": "All six references",
   },
   "numbers": {
     "heading": "By the numbers",
     "note": "Client references available on request.",
-    "stats": [
-      {
-        "value": 120,
-        "suffix": "+",
-        "label": "Projects Shipped",
-        "sub": "since 2019",
-      },
-      {
-        "value": 6,
-        "suffix": "",
-        "label": "Client References",
-        "sub": "read them on the About page",
-        "href": "/about#testimonials",
-      },
-      {
-        "value": 94,
-        "suffix": "%",
-        "label": "Client Retention",
-        "sub": "clients who returned or stayed on retainer",
-      },
-      {
-        "value": 12,
-        "suffix": "wk",
-        "label": "Median Time to Launch",
-        "sub": "across 2024–2025 projects",
-      },
-    ],
+    "stats": [] as { value: number; suffix: string; label: string; sub: string; href?: string }[],
   },
   "ctaBand": {
     "heading": "Ready to get started?",
