@@ -47,6 +47,7 @@ export const SITE: SiteContent = {
     { label: "Instagram", href: "https://www.instagram.com/vellox.studio" },
     { label: "Facebook", href: "https://www.facebook.com/velloxstudio" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/velloxstudio" },
+  { label: "Behance", href: "https://www.behance.net/velloxstudio" },
     { label: "واتساب", href: "https://wa.me/201055212405" },
   { label: "البريد", href: "mailto:info@velloxstudio.com" },
   ],

@@ -60,6 +60,7 @@ export const SOCIAL_LINKS: NavItem[] = [
   { label: "Instagram", href: "https://www.instagram.com/vellox.studio" },
   { label: "Facebook", href: "https://www.facebook.com/velloxstudio" },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/velloxstudio" },
+  { label: "Behance", href: "https://www.behance.net/velloxstudio" },
   { label: "WhatsApp", href: "https://wa.me/201055212405" },
   { label: "Email", href: "mailto:info@velloxstudio.com" },
 ];
