@@ -1,0 +1,71 @@
+{
+  "title": "AMANK",
+  "order": 1,
+  "published": true,
+  "featured": true,
+  "industry": "Healthcare & Medical Logistics",
+  "location": "Egypt",
+  "year": "",
+  "tags": [
+    "Brand Identity",
+    "Logo Design",
+    "Visual Identity System",
+    "Web Design"
+  ],
+  "summary": "A connected brand identity for a company that brings medical services and logistics together: care in motion.",
+  "body": "AMANK brings medical services and logistics together in one coordinated ecosystem, built around trust, human care, precision and continuous movement.\n\nThe challenge was to speak to two worlds at once. Healthcare has to feel reassuring and human; logistics has to feel precise, organised and dependable. The identity needed to carry both without turning clinical or mechanical.\n\nWe built the brand on one idea, care in motion: healthcare as a continuous system where people, services, resources and destinations stay connected. The logo joins the letters A and M into a single flowing monogram, and its inner shapes suggest human figures, keeping people at the centre of the mark.\n\nConfident greens sit beside softer supporting tones, so the palette feels professional and trustworthy without becoming cold. Clear typography with generous spacing keeps information easy to read, and curved forms taken from the logo give the visual language its sense of movement.\n\nAMANK was designed as a complete system rather than a logo: uniforms, vehicles, packaging, stationery, digital platforms and environmental graphics all carry the same calm, connected look.",
+  "results": [],
+  "cover": "/uploads/projects/amank/amank-01.webp",
+  "coverAlt": "Clinician in green scrubs wearing the AMANK Medical Services and Logistics logo",
+  "gallery": [
+    {
+      "image": "/uploads/projects/amank/amank-02.webp",
+      "alt": "AMANK identity overview: the AM monogram, a clinician photo with the logo, the Optika typeface and the wordmark on deep teal"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-03.webp",
+      "alt": "AMANK colour palette: deep teal, observatory green, tea green, lavender, warm white and black"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-05.webp",
+      "alt": "AMANK logo lockup with its clear-space and construction grid"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-04.webp",
+      "alt": "Patient resting under soft light, from the AMANK campaign imagery"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-06.webp",
+      "alt": "Child holding a teddy bear beside the AMANK monogram on deep teal"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-07.webp",
+      "alt": "AMANK logo over a teal-toned microscopic image"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-08.webp",
+      "alt": "AMANK business card on a black metal grid"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-09.webp",
+      "alt": "AMANK stationery: letterhead, invoice, business cards and a branded mug"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-10.webp",
+      "alt": "Canvas tote bag printed with the AMANK logo and monogram"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-11.webp",
+      "alt": "Green AMANK backpack with the flowing monogram, worn outdoors"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-12.webp",
+      "alt": "AMANK street poster reading “Moving better, living stronger” in a city bus shelter"
+    },
+    {
+      "image": "/uploads/projects/amank/amank-13.webp",
+      "alt": "AMANK website shown on a laptop: “Precision Care Across Borders”"
+    }
+  ],
+  "liveUrl": "https://amank.org"
+}
