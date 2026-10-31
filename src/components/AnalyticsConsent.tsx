@@ -8,7 +8,9 @@ import {
   CONSENT_KEY,
   GA_MEASUREMENT_ID,
   gtagInitScript,
+  leadEventFor,
   parseConsent,
+  trackEvent,
   type Consent,
 } from "../lib/analytics";
 import { getUi } from "../content/ui";
@@ -71,6 +73,17 @@ export function AnalyticsConsent({ locale }: { locale: Locale }) {
   const consent = useSyncExternalStore(subscribe, readStored, () => undefined);
   const [reopened, setReopened] = useState(false);
   const open = consent === null || reopened;
+
+  // Counts WhatsApp and email link clicks anywhere on the page as leads.
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const link = (event.target as Element | null)?.closest?.("a[href]");
+      const lead = link ? leadEventFor(link.getAttribute("href") ?? "") : null;
+      if (lead) trackEvent(lead.name, { ...lead.params, language: locale });
+    };
+    document.addEventListener("click", onClick, { capture: true });
+    return () => document.removeEventListener("click", onClick, { capture: true });
+  }, [locale]);
 
   useEffect(() => {
     const reopen = () => setReopened(true);

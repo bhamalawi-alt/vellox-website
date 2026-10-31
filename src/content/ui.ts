@@ -54,6 +54,7 @@ export const UI = {
   haveProjectInMind: "Have a project in mind?",
   haveProjectLikeThis: "Have a project like this?",
   whatsIncluded: "What's included",
+  faqHeading: "Frequently asked questions",
   timeline: "Timeline",
   viewService: "View service",
   allServices: "All services",
@@ -87,7 +88,7 @@ export const UI = {
     body: "Tell us what you're building. We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
   },
   globeBand: {
-    heading: "Operating remotely across the EU and MENA.",
+    heading: "Working remotely with companies across Libya and the Gulf.",
     body: "Wellness, fintech, and F&B founders — from positioning to production.",
   },
   statement: {
@@ -97,7 +98,7 @@ export const UI = {
   facts: {
     operating: "Operating",
     focus: "Focus",
-    operatingValue: "Remote · EU · MENA",
+    operatingValue: "Remote · Libya · Gulf",
     focusValue: "Wellness · Fintech · F&B",
   },
 };

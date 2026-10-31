@@ -2,6 +2,8 @@ import { describe, expect, it } from "bun:test";
 import { getServices } from "./services";
 import { aboutCopy, contactCopy, homeCopy, portfolioCopy, servicesIndexCopy } from "./pages";
 import type { Locale } from "../lib/i18n";
+import { getFaq } from "./faq";
+import { getUi } from "./ui";
 
 // Search-result limits: Google cuts titles after about 60 characters and
 // descriptions after about 160. Below 110 a description wastes the space.
@@ -45,3 +47,22 @@ for (const locale of ["en", "ar"] as const) {
     }
   });
 }
+
+describe("service FAQs", () => {
+  for (const service of getServices("en")) {
+    it(`${service.slug}: has the same number of questions in both languages`, () => {
+      const en = getFaq("en", service.slug);
+      const ar = getFaq("ar", service.slug);
+      expect(en.length).toBeGreaterThanOrEqual(3);
+      expect(ar.length).toBe(en.length);
+      for (const item of [...en, ...ar]) {
+        expect(item.q.trim().length).toBeGreaterThan(0);
+        expect(item.a.trim().length).toBeGreaterThan(0);
+      }
+    });
+  }
+  it("has a heading for the FAQ section in both languages", () => {
+    expect(getUi("en").faqHeading.length).toBeGreaterThan(0);
+    expect(getUi("ar").faqHeading).not.toBe(getUi("en").faqHeading);
+  });
+});

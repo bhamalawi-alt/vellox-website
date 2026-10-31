@@ -7,7 +7,7 @@ export const COPY = {
   "details": [
     {
       "term": "Studio",
-      "value": "Remote / EU / MENA",
+      "value": "Remote / Libya / Gulf",
     },
     {
       "term": "Hours",

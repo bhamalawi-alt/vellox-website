@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "../PageHero";
 import { Accordion } from "../ui/accordion";
 import { ArrowLink } from "../ui/arrow-link";
+import { getFaq } from "../../content/faq";
 import { serviceCopy } from "../../content/pages";
 import { getFrappeBadge, getServices, SERVICES } from "../../content/services";
 import { getSite } from "../../content/site";
@@ -46,6 +47,7 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
     (_, i) => services[(at + 1 + i) % services.length],
   );
   const url = BASE + href(`/services/${service.slug}`);
+  const faq = getFaq(locale, slug);
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
@@ -66,6 +68,19 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
           })),
         },
       },
+      ...(faq.length
+        ? [
+            {
+              "@type": "FAQPage",
+              inLanguage: locale,
+              mainEntity: faq.map((item) => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: { "@type": "Answer", text: item.a },
+              })),
+            },
+          ]
+        : []),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -167,6 +182,21 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
                 </li>
               ))}
             </ol>
+          </div>
+        ) : null}
+
+        {faq.length ? (
+          <div className="mx-auto mt-20 w-full max-w-6xl px-6 md:mt-28">
+            <h2 className="display mb-8 text-3xl md:text-5xl">{ui.faqHeading}</h2>
+            <Accordion
+              defaultOpen={null}
+              items={faq.map((item, i) => ({
+                id: `faq-${i}`,
+                label: String(i + 1).padStart(2, "0"),
+                title: item.q,
+                body: item.a,
+              }))}
+            />
           </div>
         ) : null}
 

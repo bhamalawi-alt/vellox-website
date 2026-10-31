@@ -6,6 +6,7 @@ import Link from "next/link";
 import { contactCopy } from "../content/pages";
 import { WHATSAPP, whatsappHref } from "../content/site";
 import { getUi } from "../content/ui";
+import { trackEvent } from "../lib/analytics";
 import { arrow, dir, localePath, type Locale } from "../lib/i18n";
 
 // The studio's Formspree form ("Vellox website contact", delivers to
@@ -67,6 +68,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       if (!response.ok) throw new Error(`Formspree responded ${response.status}`);
       form.reset();
       setStatus("success");
+      trackEvent("generate_lead", { method: "contact_form", language: locale });
     } catch {
       setStatus("error");
     }

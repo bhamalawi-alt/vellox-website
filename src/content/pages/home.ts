@@ -2,7 +2,7 @@ export const COPY = {
   "metaTitle": "Web Design & Branding Agency, Libya & Gulf — Vellox Studio",
   "hero": {
     "metaLeft": "Remote-first",
-    "metaRight": "EU & MENA",
+    "metaRight": "Libya & Gulf",
     "eyebrow": "Business Development Studio",
     "headline": "We design brands and build websites and stores for wellness, fintech, and F&B founders.",
     "support": "One team from the first logo to the store that sells it — and, when you're ready, the system that runs the business.",
@@ -50,7 +50,7 @@ export const COPY = {
   },
   "ctaBand": {
     "heading": "Ready to get started?",
-    "body": "Tell us what you're building and where it's stuck. We work with founders across the EU and MENA, reply within a working day, and start with a 20-minute call: no deck, no pitch.",
+    "body": "Tell us what you're building and where it's stuck. We work with founders across Libya, the Gulf and Oman, reply within a working day, and start with a 20-minute call: no deck, no pitch.",
   },
 };
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { gtagInitScript, isMeasurementId, parseConsent } from "./analytics";
+import { gtagInitScript, isMeasurementId, leadEventFor, parseConsent, trackEvent } from "./analytics";
 import { privacySections } from "./privacy";
 import { COPY as PRIVACY_EN } from "../content/pages/privacy";
 import { COPY as PRIVACY_AR } from "../content/ar/pages/privacy";
@@ -50,4 +50,29 @@ describe("privacy policy analytics wording", () => {
       expect(sections[3].paragraphs).toContain(copy.analytics.processor);
     });
   }
+});
+
+describe("lead events", () => {
+  it("counts WhatsApp and email links as leads", () => {
+    expect(leadEventFor("https://wa.me/201055212405?text=Hi")).toEqual({ name: "whatsapp_click", params: { method: "whatsapp" } });
+    expect(leadEventFor("mailto:info@velloxstudio.com")).toEqual({ name: "email_click", params: { method: "email" } });
+  });
+  it("ignores every other link", () => {
+    expect(leadEventFor("https://www.velloxstudio.com/contact")).toBe(null);
+    expect(leadEventFor("https://www.instagram.com/vellox.studio")).toBe(null);
+    expect(leadEventFor("")).toBe(null);
+  });
+  it("sends nothing before the visitor accepts analytics", () => {
+    const g = globalThis as { gtag?: unknown };
+    delete g.gtag;
+    expect(() => trackEvent("generate_lead", { method: "contact_form" })).not.toThrow();
+  });
+  it("sends the event through gtag once it is loaded", () => {
+    const calls: unknown[][] = [];
+    const g = globalThis as { gtag?: (...args: unknown[]) => void };
+    g.gtag = (...args) => calls.push(args);
+    trackEvent("generate_lead", { method: "contact_form", language: "ar" });
+    delete g.gtag;
+    expect(calls).toEqual([["event", "generate_lead", { method: "contact_form", language: "ar" }]]);
+  });
 });

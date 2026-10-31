@@ -32,3 +32,20 @@ export function gtagInitScript(id: string): string {
     `gtag('config', '${id}');`,
   ].join("\n");
 }
+
+// Leads, reported to GA4 as events and marked as key events in GA4 Admin:
+// generate_lead (contact form sent), whatsapp_click, email_click.
+type EventParams = Record<string, string>;
+
+export function leadEventFor(href: string): { name: string; params: EventParams } | null {
+  if (href.startsWith("https://wa.me/")) return { name: "whatsapp_click", params: { method: "whatsapp" } };
+  if (href.startsWith("mailto:")) return { name: "email_click", params: { method: "email" } };
+  return null;
+}
+
+// gtag exists only after the visitor accepted analytics, so without consent
+// this does nothing.
+export function trackEvent(name: string, params: EventParams): void {
+  const gtag = (globalThis as { gtag?: (...args: unknown[]) => void }).gtag;
+  gtag?.("event", name, params);
+}
