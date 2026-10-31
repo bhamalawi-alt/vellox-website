@@ -3,7 +3,7 @@
 // streams → Web) below and rebuild. Left empty, nothing loads: no banner, no
 // cookie-settings link, and the privacy policy keeps saying there is no
 // analytics. The ID is public by design; it ships in every page anyway.
-export const GA_MEASUREMENT_ID = "";
+export const GA_MEASUREMENT_ID = "G-83BBND3TDT";
 
 export function isMeasurementId(id: string): boolean {
   return /^G-[A-Z0-9]{4,16}$/.test(id);

@@ -3,7 +3,7 @@ import type { PageCopy } from "../../pages/privacy";
 export const COPY: PageCopy = {
   metaTitle: "سياسة الخصوصية — Vellox Studio",
   title: "سياسة الخصوصية",
-  updated: "26 أكتوبر 2026",
+  updated: "31 أكتوبر 2026",
   intro: "توضح هذه السياسة البيانات الشخصية التي تجمعها Vellox Studio عبر هذا الموقع، وسبب جمعها، وحقوقك المتعلقة بها.",
   sections: [
     {
