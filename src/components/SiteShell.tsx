@@ -3,6 +3,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { MotionProvider } from "./MotionProvider";
 import { WhatsAppButton } from "./WhatsAppButton";
+import { AnalyticsConsent } from "./AnalyticsConsent";
+import { ANALYTICS_ENABLED } from "../lib/analytics";
 import { BASE } from "../lib/seo";
 import type { Locale } from "../lib/i18n";
 import { EMAIL, getSite, WHATSAPP } from "../content/site";
@@ -69,6 +71,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
         </main>
         <Footer locale={locale} />
         <WhatsAppButton locale={locale} />
+        {ANALYTICS_ENABLED ? <AnalyticsConsent locale={locale} /> : null}
       </MotionProvider>
     </body>
   );

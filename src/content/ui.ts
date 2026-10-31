@@ -66,6 +66,13 @@ export const UI = {
     title: "This page could not be found.",
     back: "Back to home",
   },
+  consent: {
+    aria: "Cookie consent",
+    text: "We use Google Analytics to see which pages help visitors, but only if you allow it.",
+    accept: "Accept",
+    decline: "Decline",
+    settings: "Cookie settings",
+  },
   form: {
     aria: "Project enquiry",
     honeypot: "Leave this field empty",

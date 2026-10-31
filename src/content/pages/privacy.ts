@@ -15,7 +15,6 @@ export const COPY = {
       "paragraphs": [
         "Contact form: your name, email address, and message, plus your phone number, company, and the services you select if you choose to give them.",
         "Hosting logs: when you visit the site, our hosting provider processes technical data such as your IP address, browser type, and the pages requested, to deliver the site and protect it from abuse.",
-        "We do not use analytics, advertising trackers, or marketing cookies on this website.",
       ],
     },
     {
@@ -52,6 +51,16 @@ export const COPY = {
       ],
     },
   ],
+  // Shown in "What we collect" and "Who processes it for us" depending on
+  // whether Google Analytics is switched on (src/lib/analytics.ts).
+  "analytics": {
+    "off": "We do not use analytics, advertising trackers, or marketing cookies on this website.",
+    "on": [
+      "Analytics, only if you accept: Google Analytics sets cookies (named _ga) and records which pages you view, how you arrived, your approximate location, and your device and browser type. We use this to see which pages help visitors. If you decline, no analytics cookies are set and nothing is sent to Google. We use no advertising trackers or marketing cookies.",
+      "The legal basis for analytics is your consent. You can change your choice at any time with the Cookie settings link at the bottom of every page. Google keeps analytics data for 14 months.",
+    ],
+    "processor": "Google Ireland Limited and Google LLC provide Google Analytics and receive analytics data only if you accept analytics cookies.",
+  },
 };
 
 export type PageCopy = typeof COPY;

@@ -5,6 +5,8 @@ import { localePath, type Locale } from "../lib/i18n";
 import { BrandLockup, BrandMark } from "./BrandLogo";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { ArrowLink } from "./ui/arrow-link";
+import { CookieSettingsButton } from "./AnalyticsConsent";
+import { ANALYTICS_ENABLED } from "../lib/analytics";
 
 const linkBase =
   "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
@@ -76,6 +78,12 @@ export default function Footer({ locale }: { locale: Locale }) {
             <Link href={href("/terms")} className={`inline-flex min-h-11 items-center hover:text-white ${linkBase}`}>
               {ui.terms}
             </Link>
+            {ANALYTICS_ENABLED ? (
+              <CookieSettingsButton
+                label={ui.consent.settings}
+                className={`inline-flex min-h-11 items-center hover:text-white ${linkBase}`}
+              />
+            ) : null}
             <span className="inline-flex min-h-11 items-center gap-2">
               <span aria-current="true" className="text-white/40">
                 {ui.currentLanguage}
