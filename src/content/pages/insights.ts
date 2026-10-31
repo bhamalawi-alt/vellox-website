@@ -1,8 +1,8 @@
 export const COPY = {
   "metaTitle": "Insights — Vellox Studio",
   "eyebrow": "Insights",
-  "headline": "Topics we're writing about next.",
-  "lede": "Articles on brand strategy, naming, and engineering are in progress. Want to talk one of them through before it's published? Ask us.",
+  "headline": "Guides for building your brand, website and systems.",
+  "lede": "Practical guides on websites, ERP systems and brands for companies in Libya and the Gulf, written from the projects we run.",
   "status": "In progress",
   "articles": [
     {

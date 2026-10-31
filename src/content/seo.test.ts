@@ -3,6 +3,7 @@ import { getServices } from "./services";
 import { aboutCopy, contactCopy, homeCopy, portfolioCopy, servicesIndexCopy } from "./pages";
 import type { Locale } from "../lib/i18n";
 import { getFaq } from "./faq";
+import { getArticle, getArticles } from "./articles";
 import { getUi } from "./ui";
 
 // Search-result limits: Google cuts titles after about 60 characters and
@@ -64,5 +65,30 @@ describe("service FAQs", () => {
   it("has a heading for the FAQ section in both languages", () => {
     expect(getUi("en").faqHeading.length).toBeGreaterThan(0);
     expect(getUi("ar").faqHeading).not.toBe(getUi("en").faqHeading);
+  });
+});
+
+describe("insights articles", () => {
+  const services = new Set(getServices("en").map((s) => s.slug));
+  it("has every article in both languages under the same slug", () => {
+    expect(getArticles("ar").map((a) => a.slug)).toEqual(getArticles("en").map((a) => a.slug));
+    expect(getArticles("en").length).toBeGreaterThanOrEqual(4);
+  });
+  for (const locale of ["en", "ar"] as const) {
+    for (const article of getArticles(locale)) {
+      it(`${locale} ${article.slug}: fits search results and links to a real service`, () => {
+        expect(article.description.length).toBeGreaterThanOrEqual(DESC_MIN);
+        expect(article.description.length).toBeLessThanOrEqual(DESC_MAX);
+        expect(services.has(article.service)).toBe(true);
+        expect(article.sections.length).toBeGreaterThanOrEqual(4);
+        expect(getArticle(locale, article.slug)).toBe(article);
+      });
+    }
+  }
+  it("has the article UI strings in both languages", () => {
+    for (const key of ["articlesHeading", "upcomingHeading", "readArticle", "publishedOn"] as const) {
+      expect(String(getUi("en")[key]).length).toBeGreaterThan(0);
+      expect(String(getUi("ar")[key])).not.toBe(String(getUi("en")[key]));
+    }
   });
 });

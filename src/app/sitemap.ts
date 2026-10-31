@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { BASE } from "../lib/seo";
 import { ARABIC_LIVE, localePath } from "../lib/i18n";
 import { SERVICES } from "../content/services";
+import { ARTICLE_SLUGS } from "../content/articles";
 import { getProjects } from "../lib/projects";
 
 export const dynamic = "force-static";
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...SERVICES.map((service) => ({ path: `/services/${service.slug}`, priority: 0.9 })),
     ...getProjects("en").map((project) => ({ path: `/portfolio/${project.slug}`, priority: 0.8 })),
     ...["/about", "/contact", "/portfolio", "/insights"].map((path) => ({ path, priority: 0.7 })),
+    ...ARTICLE_SLUGS.map((slug) => ({ path: `/insights/${slug}`, priority: 0.7 })),
     ...["/privacy", "/terms"].map((path) => ({ path, priority: 0.3 })),
   ];
 
