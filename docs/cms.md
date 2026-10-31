@@ -82,9 +82,9 @@ To deploy by hand, with a Cloudflare API token that can edit Workers:
 CLOUDFLARE_API_TOKEN=… CLOUDFLARE_ACCOUNT_ID=fd44b42e6416b12e2441ff9516a95bcc bun run build && bun run deploy
 ```
 
-Set `NEXT_PUBLIC_FORMSPREE_ID` in the environment before `bun run build` so the contact form has its endpoint.
+The contact form posts to the Formspree form `xrppargl` ("Vellox website contact", account info@velloxstudio.com), which emails each enquiry to info@velloxstudio.com. The ID lives in `src/components/ContactForm.tsx`; setting `NEXT_PUBLIC_FORMSPREE_ID` before the build overrides it.
 
-**Automatic deploys from the CMS** need the Worker connected to GitHub once: in the Cloudflare dashboard open **Workers & Pages → round-math-59b4 → Settings → Builds → Connect**, choose the `vellox-website` repository and branch `main`, and set build command `bun run build` and deploy command `bun x wrangler deploy`, plus the `NEXT_PUBLIC_FORMSPREE_ID` variable. From then on every CMS save (a commit to `main`) rebuilds and deploys the site on its own. Until that is connected, run the manual deploy above after saving in the CMS.
+**Automatic deploys from the CMS** need the Worker connected to GitHub once: in the Cloudflare dashboard open **Workers & Pages → round-math-59b4 → Settings → Builds → Connect**, choose the `vellox-website` repository and branch `main`, and set build command `bun run build` and deploy command `bun x wrangler deploy`. From then on every CMS save (a commit to `main`) rebuilds and deploys the site on its own. Until that is connected, run the manual deploy above after saving in the CMS.
 
 ## Editing on your computer (optional)
 

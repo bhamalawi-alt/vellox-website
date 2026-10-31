@@ -96,7 +96,7 @@ check(existsSync(join(OUT, "404.html")) && readFileSync(join(OUT, "404.html"), "
 // The contact form is the only conversion path; warn loudly when the build has
 // no Formspree endpoint (set NEXT_PUBLIC_FORMSPREE_ID in the hosting env).
 const chunks = join(OUT, "_next", "static", "chunks");
-const formWired = readdirSync(chunks).some((f) => f.endsWith(".js") && /formspree\.io\/f\/[A-Za-z0-9]+/.test(readFileSync(join(chunks, f), "utf8")));
+const formWired = readdirSync(chunks).some((f) => f.endsWith(".js") && /formspree\.io\/f\/[A-Za-z0-9]+|FORMSPREE_ID\|\|"[A-Za-z0-9]+"/.test(readFileSync(join(chunks, f), "utf8")));
 if (!formWired) console.warn("WARNING: contact form has no Formspree endpoint — set NEXT_PUBLIC_FORMSPREE_ID before deploying.");
 if (failures.length) { console.error("FAIL:\n" + failures.join("\n")); process.exit(1); }
 console.log(`OK: ${ROUTES.length + AR_ROUTES.length} routes verified (en+ar, ARABIC_LIVE=${ARABIC_LIVE})`);

@@ -8,7 +8,10 @@ import { WHATSAPP, whatsappHref } from "../content/site";
 import { getUi } from "../content/ui";
 import { arrow, dir, localePath, type Locale } from "../lib/i18n";
 
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+// The studio's Formspree form ("Vellox website contact", delivers to
+// info@velloxstudio.com). The ID is public: it ships in the page anyway.
+// NEXT_PUBLIC_FORMSPREE_ID overrides it, for example to test another form.
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xrppargl";
 const ENDPOINT = FORMSPREE_ID
   ? `https://formspree.io/f/${FORMSPREE_ID}`
   : null;
