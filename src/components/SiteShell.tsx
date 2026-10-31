@@ -25,7 +25,10 @@ function orgJsonLd(locale: Locale) {
         url: `${BASE}/`,
         logo: `${BASE}/icon-512.png`,
         description: site.TAGLINE,
-        areaServed: ["Europe", "Middle East", "North Africa"],
+        // The markets the studio targets, as schema.org countries.
+        areaServed: ["Libya", "Saudi Arabia", "United Arab Emirates", "Oman", "Qatar", "Kuwait", "Bahrain", "Europe"].map(
+          (name) => (name === "Europe" ? { "@type": "Place", name } : { "@type": "Country", name }),
+        ),
         // Profiles only; the WhatsApp chat link goes in contactPoint instead.
         sameAs: site.SOCIAL_LINKS.filter((s) => s.href.startsWith("http") && !s.href.includes("wa.me")).map(
           (s) => s.href,

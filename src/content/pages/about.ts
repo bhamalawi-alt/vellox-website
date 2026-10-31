@@ -1,5 +1,6 @@
 export const COPY = {
-  "metaTitle": "About — Vellox Studio",
+  "metaTitle": "About Vellox Studio — Brand, Web & ERPNext Studio",
+  "metaDescription": "Vellox Studio pairs strategy, design and engineering to help companies in Libya, the Gulf and Oman build brands, websites, apps and ERPNext systems.",
   "eyebrow": "About Vellox Studio",
   "headline": "We pair the discipline of a strategy consultancy with the craft of a design studio.",
   "lede": "Operating across the EU and MENA, Vellox helps wellness, fintech, and F&B founders build brands, products, and the systems that scale them.",

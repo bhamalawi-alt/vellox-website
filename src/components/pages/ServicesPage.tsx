@@ -11,7 +11,7 @@ const SUB_SERVICE_PREVIEW = 3;
 
 export function servicesMetadata(locale: Locale): Metadata {
   const copy = servicesIndexCopy(locale);
-  return pageMeta({ title: copy.metaTitle, description: copy.lede, path: "/services", locale });
+  return pageMeta({ title: copy.metaTitle, description: copy.metaDescription, path: "/services", locale });
 }
 
 export function ServicesPage({ locale }: { locale: Locale }) {

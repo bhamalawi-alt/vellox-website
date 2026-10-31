@@ -93,7 +93,7 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
           </nav>
         }
         eyebrow={`/ ${String(service.index).padStart(2, "0")} · ${service.count}`}
-        title={service.title}
+        title={service.heading}
         lede={service.tagline}
         after={
           isErp ? (

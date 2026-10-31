@@ -1,12 +1,12 @@
 export const COPY = {
-  "metaTitle": "Vellox Studio — Brand, Web & ERP for Wellness, Fintech, F&B",
+  "metaTitle": "Web Design & Branding Agency, Libya & Gulf — Vellox Studio",
   "hero": {
     "metaLeft": "Remote-first",
     "metaRight": "EU & MENA",
     "eyebrow": "Business Development Studio",
     "headline": "We design brands and build websites and stores for wellness, fintech, and F&B founders.",
     "support": "One team from the first logo to the store that sells it — and, when you're ready, the system that runs the business.",
-    "metaDescription": "Brand, web, eCommerce, and ERPNext studio for wellness, fintech, and F&B founders across the EU and MENA. Strategy, design, and engineering in one team.",
+    "metaDescription": "Web design, eCommerce, brand identity and ERPNext studio for companies in Libya, Saudi Arabia, the UAE and Oman. Strategy, design and engineering in one team.",
     "primaryCta": "Start a Project",
     "emphasis": ["wellness,", "fintech,", "F&B"],
     "secondaryCta": "View Work",

@@ -1,9 +1,9 @@
 export const COPY = {
-  "metaTitle": "Contact — Vellox Studio",
+  "metaTitle": "Contact Us — Start a Project with Vellox Studio",
   "eyebrow": "Get In Touch",
   "headline": "Ready to get started? Tell us what you're building.",
   "lede": "We typically reply within 24 hours with a short diagnostic call to align on scope, timeline, and fit.",
-  "metaDescription": "Start a project with Vellox Studio: brand, web, eCommerce, and ERPNext for founders in the EU and MENA. We reply within one working day and start with a short call.",
+  "metaDescription": "Start a project with Vellox Studio: a website, online store, brand identity or ERPNext for companies in Libya and the Gulf. We reply within one working day.",
   "details": [
     {
       "term": "Studio",

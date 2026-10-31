@@ -37,3 +37,14 @@ export function pageMeta(o: {
     twitter: { card: "summary_large_image" },
   };
 }
+
+// Google cuts descriptions at about 160 characters. Use the full text when it
+// fits, otherwise the shorter fallback, trimmed at a word if it still runs over.
+const DESCRIPTION_MAX = 160;
+
+export function fitDescription(full: string, fallback: string): string {
+  if (full.length <= DESCRIPTION_MAX) return full;
+  if (fallback.length <= DESCRIPTION_MAX) return fallback;
+  const cut = fallback.slice(0, DESCRIPTION_MAX - 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).trimEnd()}…`;
+}

@@ -8,7 +8,7 @@ import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { englishAttrs, getProject, getProjects, paragraphs } from "../../lib/projects";
-import { BASE, pageMeta } from "../../lib/seo";
+import { BASE, fitDescription, pageMeta } from "../../lib/seo";
 import { breadcrumbLink, jsonLd, primaryCtaSoft } from "./shared";
 
 // A static export needs at least one generated route, so with no published
@@ -28,8 +28,9 @@ export function projectMetadata(locale: Locale, slug: string): Metadata {
   const meta = pageMeta({
     title: `${project.title} — ${ui.portfolioTitleSuffix}`,
     // CMS summaries are one sentence; the tail gives the snippet the studio
-    // name and the services, which the summary alone leaves out.
-    description: ui.projectDescription(project.summary, project.tags, project.industry),
+    // name and the services, which the summary alone leaves out. When the two
+    // together would be cut off in search results, the summary goes alone.
+    description: fitDescription(ui.projectDescription(project.summary, project.tags, project.industry), project.summary),
     path: `/portfolio/${project.slug}`,
     locale,
   });

@@ -15,7 +15,7 @@ import { primaryCtaSoft, quietLink } from "./shared";
 
 export function aboutMetadata(locale: Locale): Metadata {
   const copy = aboutCopy(locale);
-  return pageMeta({ title: copy.metaTitle, description: copy.lede, path: "/about", locale });
+  return pageMeta({ title: copy.metaTitle, description: copy.metaDescription, path: "/about", locale });
 }
 
 export function AboutPage({ locale }: { locale: Locale }) {

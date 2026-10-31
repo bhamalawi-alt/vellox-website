@@ -1,9 +1,9 @@
 export const COPY = {
-  "metaTitle": "Portfolio — Vellox Studio",
+  "metaTitle": "Portfolio: Branding & Web Design Projects — Vellox Studio",
   "eyebrow": "Latest Work",
   "headline": "Selected projects across brand, product, and engineering.",
   "lede": "Selected work from the studio. Each project ships with strategy, design, and engineering under one roof — no hand-offs, no translation loss.",
-  "metaDescription": "Selected brand, product, and engineering projects for wellness, fintech, and F&B companies, by Vellox Studio.",
+  "metaDescription": "Brand identity, logo and website design projects by Vellox Studio, a design and engineering studio working with companies in Libya and the Gulf.",
   "gallery": {
     "eyebrow": "Gallery",
     "caption": "Project galleries are on their way.",
