@@ -92,3 +92,23 @@ describe("insights articles", () => {
     }
   });
 });
+
+// AI answers quote self-contained, answer-first passages of roughly 134–167
+// words (geo-seo-claude's citability scorer). Each service page leads with one.
+describe("service answer passages", () => {
+  const words = (s: string) => s.trim().split(/\s+/).length;
+  for (const service of getServices("en")) {
+    it(`en ${service.slug}: a question heading and a 120–170 word answer`, () => {
+      expect(service.summaryHeading.endsWith("?")).toBe(true);
+      expect(words(service.summary)).toBeGreaterThanOrEqual(120);
+      expect(words(service.summary)).toBeLessThanOrEqual(170);
+    });
+  }
+  for (const service of getServices("ar")) {
+    it(`ar ${service.slug}: a question heading and a full answer`, () => {
+      expect(service.summaryHeading.endsWith("؟")).toBe(true);
+      expect(words(service.summary)).toBeGreaterThanOrEqual(90);
+      expect(words(service.summary)).toBeLessThanOrEqual(170);
+    });
+  }
+});

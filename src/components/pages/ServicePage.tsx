@@ -123,6 +123,10 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
       <section className="bg-bg py-20 text-ink md:py-28">
         <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 md:grid-cols-12">
           <div className="space-y-6 md:col-span-8">
+            {/* Answer-first passage: the question people (and AI assistants)
+                ask, answered in one self-contained paragraph. */}
+            <h2 className="display text-2xl leading-[1.15] md:text-3xl">{service.summaryHeading}</h2>
+            <p className="text-lg leading-relaxed md:text-xl">{service.summary}</p>
             {service.intro.map((paragraph) => (
               <p key={paragraph.slice(0, 48)} className="text-lg leading-relaxed md:text-xl">
                 {paragraph}
