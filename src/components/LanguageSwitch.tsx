@@ -18,7 +18,9 @@ export function LanguageSwitch({ locale, className = "" }: { locale: Locale; cla
       href={target.href}
       lang={target.locale}
       hrefLang={target.locale}
-      aria-label={ui.switchLanguageAria}
+      // The spoken name starts with the visible text, so voice-control users
+      // can say what they see (WCAG 2.5.3).
+      aria-label={`${ui.switchLanguage}: ${ui.switchLanguageAria}`}
       className={className}
     >
       {ui.switchLanguage}

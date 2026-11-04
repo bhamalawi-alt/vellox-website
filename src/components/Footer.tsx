@@ -85,7 +85,7 @@ export default function Footer({ locale }: { locale: Locale }) {
               />
             ) : null}
             <span className="inline-flex min-h-11 items-center gap-2">
-              <span aria-current="true" className="text-white/40">
+              <span aria-current="true" className="text-white/60">
                 {ui.currentLanguage}
               </span>
               <span aria-hidden="true" className="text-white/30">
