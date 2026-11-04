@@ -1,0 +1,38 @@
+# Vellox Studio
+
+> Vellox Studio is a design and engineering studio for companies in Libya, Saudi Arabia, the United Arab Emirates, Oman and the rest of the Gulf. One team covers brand strategy, brand identity and logo design, website design and development, eCommerce stores, mobile and web apps, UI/UX design, product photography, and ERPNext implementation as a Frappe Partner. The site is bilingual: English at the root and Arabic under /ar.
+
+Contact: info@velloxstudio.com · WhatsApp +20 105 521 2405 · https://www.velloxstudio.com/contact
+
+## Services
+
+- [Brand Strategy & Positioning](https://www.velloxstudio.com/services/brand-strategy): positioning, naming, messaging and tone of voice, typically 4–6 weeks.
+- [Brand Identity & Logo Design](https://www.velloxstudio.com/services/brand-identity): logo, colour, typography, packaging and a brand book, typically 6–10 weeks.
+- [UI/UX Design](https://www.velloxstudio.com/services/user-experience-design): research, wireframes, prototypes and interface design in Arabic and English, 4–12 weeks.
+- [Website Design & Development](https://www.velloxstudio.com/services/web-development): fast bilingual websites built for search, with a CMS the client's team can edit.
+- [eCommerce Website Development](https://www.velloxstudio.com/services/ecommerce): Shopify or custom online stores, with regional payment providers.
+- [Mobile & Web App Development](https://www.velloxstudio.com/services/web-mobile-applications): iOS, Android and web apps, from UX to App Store and Google Play launch.
+- [ERPNext Implementation](https://www.velloxstudio.com/services/erp-implementation): ERPNext set up and customised by a Frappe Partner, in Arabic, English or both, typically 6–16 weeks.
+- [Product & Brand Photography](https://www.velloxstudio.com/services/visual-content): product, lifestyle and eCommerce photography.
+
+## Guides
+
+- [What is an ERP system?](https://www.velloxstudio.com/insights/what-is-an-erp-system)
+- [How much does a website cost?](https://www.velloxstudio.com/insights/how-much-does-a-website-cost)
+- [ERPNext in Arabic](https://www.velloxstudio.com/insights/erpnext-in-arabic)
+- [How to choose a web design company](https://www.velloxstudio.com/insights/how-to-choose-a-web-design-company)
+
+## Work
+
+- [Portfolio](https://www.velloxstudio.com/portfolio): selected brand, web and product projects, including AMANK, a brand identity for a medical services and logistics company.
+
+## Arabic
+
+- [الصفحة الرئيسية بالعربية](https://www.velloxstudio.com/ar)
+- [خدماتنا](https://www.velloxstudio.com/ar/services)
+- [مقالات](https://www.velloxstudio.com/ar/insights)
+
+## Optional
+
+- [About the studio](https://www.velloxstudio.com/about)
+- [Privacy policy](https://www.velloxstudio.com/privacy)

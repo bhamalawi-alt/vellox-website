@@ -1,6 +1,6 @@
 // scripts/verify.mjs — crawl out/, assert routes in both languages, OG tags,
 // hreflang pairs, no sourcemaps, and the Formspree endpoint warning.
-import { readdirSync, readFileSync, existsSync } from "node:fs";
+import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const OUT = "out";
@@ -98,5 +98,14 @@ check(existsSync(join(OUT, "404.html")) && readFileSync(join(OUT, "404.html"), "
 const chunks = join(OUT, "_next", "static", "chunks");
 const formWired = readdirSync(chunks).some((f) => f.endsWith(".js") && /formspree\.io\/f\/[A-Za-z0-9]+|FORMSPREE_ID\|\|"[A-Za-z0-9]+"/.test(readFileSync(join(chunks, f), "utf8")));
 if (!formWired) console.warn("WARNING: contact form has no Formspree endpoint — set NEXT_PUBLIC_FORMSPREE_ID before deploying.");
+
+// CMS uploads go straight to visitors unresized, so a full-size export can
+// cost a phone a megabyte. Warn about any upload over 500 KB.
+const IMAGE_MAX = 500 * 1024;
+const uploads = join(OUT, "uploads");
+const big = existsSync(uploads)
+  ? readdirSync(uploads, { recursive: true }).map(String).filter((f) => /\.(webp|png|jpe?g|avif)$/i.test(f) && statSync(join(uploads, f)).size > IMAGE_MAX)
+  : [];
+for (const f of big) console.warn(`WARNING: uploads/${f} is ${Math.round(statSync(join(uploads, f)).size / 1024)} KB; resize it to about 2000px wide before publishing.`);
 if (failures.length) { console.error("FAIL:\n" + failures.join("\n")); process.exit(1); }
 console.log(`OK: ${ROUTES.length + AR_ROUTES.length} routes verified (en+ar, ARABIC_LIVE=${ARABIC_LIVE})`);
