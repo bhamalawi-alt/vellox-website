@@ -330,6 +330,181 @@ const EN: Article[] = [
       label: "See website design and development",
     },
   },
+  {
+    slug: "erpnext-zatca-e-invoicing",
+    date: "2026-11-08",
+    service: "erp-implementation",
+    category: "ERP",
+    title: "ERPNext and ZATCA e-invoicing: a guide for companies in Saudi Arabia",
+    description:
+      "What Saudi e-invoicing (FATOORA) requires in phase one and phase two, how ERPNext meets it, and the steps to get your company ready before your deadline.",
+    intro:
+      "Every VAT-registered business in Saudi Arabia has to issue electronic invoices under FATOORA, the e-invoicing system run by the Zakat, Tax and Customs Authority (ZATCA). If you use ERPNext, or are thinking of moving to it, here is what the rules require and how ERPNext meets them.",
+    sections: [
+      {
+        heading: "What FATOORA is",
+        paragraphs: [
+          "FATOORA is Saudi Arabia's e-invoicing system. It replaces paper and handwritten invoices with structured electronic invoices that ZATCA can verify, to reduce errors and tax evasion.",
+          "It applies to taxpayers resident in Saudi Arabia who are registered for VAT, and to anyone issuing tax invoices on their behalf. It is being introduced in two phases.",
+        ],
+      },
+      {
+        heading: "Phase one: generating invoices electronically",
+        paragraphs: [
+          "Since 4 December 2021, invoices must be issued and stored through a compliant electronic system. Handwritten invoices and editing an invoice after it is issued are no longer allowed.",
+        ],
+        list: [
+          "Every invoice is created and stored electronically",
+          "Simplified invoices, issued to consumers, carry a QR code",
+          "Invoices cannot be deleted or changed once issued; corrections are made with credit and debit notes",
+          "The system keeps a record that shows invoices have not been tampered with",
+        ],
+      },
+      {
+        heading: "Phase two: connecting to ZATCA",
+        paragraphs: [
+          "The second phase, the integration phase, started on 1 January 2023 and is applied in waves. ZATCA selects each wave by revenue and notifies the businesses in it at least six months before their date.",
+          "In this phase invoices are produced in a set XML format with a cryptographic stamp, and your system connects to ZATCA's platform. Standard tax invoices, between businesses, must be cleared by ZATCA before they are sent to the buyer. Simplified invoices, to consumers, are reported to ZATCA within 24 hours.",
+        ],
+      },
+      {
+        heading: "How ERPNext meets the requirements",
+        paragraphs: [
+          "ERPNext does not include ZATCA integration in its core, but apps built for it by the Frappe community and Frappe partners add it. These apps generate invoices in the required format, add the QR code and cryptographic stamp, and send invoices to ZATCA for clearance or reporting directly from the sales invoice screen.",
+          "Because ERPNext already locks submitted invoices and handles returns with credit notes, it fits the phase-one rules once VAT and the invoice layout are set up correctly.",
+        ],
+      },
+      {
+        heading: "Connecting ERPNext to the FATOORA portal",
+        paragraphs: ["Onboarding usually follows these steps:"],
+        list: [
+          "Check your VAT registration details and company address in ERPNext match ZATCA's records",
+          "Install and configure a ZATCA app for your ERPNext version",
+          "Generate a one-time code on the FATOORA portal and use it to register your ERPNext system",
+          "Pass ZATCA's compliance checks with sample invoices, credit notes and debit notes",
+          "Switch to production and issue real invoices",
+        ],
+      },
+      {
+        heading: "Arabic invoices and the details that matter",
+        paragraphs: [
+          "Tax invoices in Saudi Arabia must be in Arabic, and can also show another language. ERPNext's print formats can show Arabic and English side by side, with the seller and buyer VAT numbers, the VAT breakdown and the QR code where ZATCA expects them.",
+          "Most problems at go-live come from data, not software: customers without VAT numbers or full addresses, items without the right tax template, or a company address that does not match ZATCA's records. Cleaning this data early saves time.",
+        ],
+      },
+      {
+        heading: "If you already use ERPNext",
+        paragraphs: [
+          "Check which ERPNext version you run, because ZATCA apps support specific versions. Older systems may need an upgrade first. Then test the full flow on a copy of your system, including returns and credit notes, before connecting production.",
+          "Plan the switch well before your wave's deadline. Clearing invoices with ZATCA changes how your sales team works day to day, so train them before it goes live.",
+        ],
+      },
+      {
+        heading: "What about the rest of the Gulf?",
+        paragraphs: [
+          "The UAE has announced its own e-invoicing system, introduced in phases starting with larger businesses, and Oman has announced a programme of its own. The details differ from Saudi Arabia's, so check the rules in each country where you invoice. Rules and dates change, so confirm what applies to you with your tax adviser.",
+        ],
+      },
+    ],
+    cta: {
+      heading: "Getting ready for FATOORA?",
+      body: "We set up ERPNext with ZATCA e-invoicing, Arabic invoice formats and VAT, and test it before go-live, as a Frappe Partner.",
+      label: "See ERPNext implementation",
+    },
+  },
+  {
+    slug: "erpnext-cost",
+    date: "2026-11-08",
+    service: "erp-implementation",
+    category: "ERP",
+    title: "How much does ERPNext cost? Licence, hosting and implementation",
+    description:
+      "ERPNext has no licence fee, so what do you pay for? Hosting, implementation, customisation and support explained, plus how to keep the cost under control.",
+    intro:
+      "ERPNext is open source, so there is no licence fee and no charge per user. That raises a fair question: what does an ERPNext system actually cost? The answer is the work and services around the software. This guide explains each part and what makes it bigger or smaller.",
+    sections: [
+      {
+        heading: "The software: no licence fee",
+        paragraphs: [
+          "ERPNext is released under the GNU GPL licence. You can use it for any number of users and companies without paying a licence fee, and every module is included.",
+          "This is the biggest difference from systems licensed per user, where the cost rises each time you add an employee. With ERPNext, adding users does not change what you pay for the software.",
+        ],
+      },
+      {
+        heading: "Hosting",
+        paragraphs: [
+          "ERPNext needs a server. You can rent one on Frappe Cloud, the hosting service from the company behind ERPNext, which handles updates and backups for a monthly fee, or run it on your own server or a cloud provider you choose.",
+          "The size of the server depends on how many people use the system at once and how much data you have. A small company can start on a modest plan and move up as it grows.",
+        ],
+      },
+      {
+        heading: "Implementation: the main cost",
+        paragraphs: [
+          "Implementation is where most of the budget goes. It means setting ERPNext up around how your company works, and it usually includes:",
+        ],
+        list: [
+          "Understanding your processes: sales, buying, stock, accounts and approvals",
+          "Setting up your chart of accounts, taxes, warehouses and price lists",
+          "Designing invoices and other documents in Arabic, English or both",
+          "Moving your data from spreadsheets or your old system",
+          "Training your team and supporting the first weeks of real use",
+        ],
+      },
+      {
+        heading: "What makes implementation bigger or smaller",
+        paragraphs: ["The cost depends mostly on these:"],
+        list: [
+          "How many modules you start with, for example accounting and stock only, or also manufacturing, HR and payroll",
+          "How many companies, branches and warehouses you run",
+          "How much data you move, and how clean it is",
+          "How far your processes differ from ERPNext's standard way of working",
+          "Local requirements, such as ZATCA e-invoicing in Saudi Arabia",
+        ],
+      },
+      {
+        heading: "Customisation",
+        paragraphs: [
+          "Many changes are configuration: extra fields, approval steps, print formats and reports. These are quick and survive upgrades well.",
+          "Custom apps, built for processes ERPNext does not cover, take more time to build and to maintain when ERPNext is upgraded. The closer you stay to the standard system, the lower the cost today and later.",
+        ],
+      },
+      {
+        heading: "Support and upgrades",
+        paragraphs: [
+          "After go-live you will want someone to answer questions, fix problems and make small changes. Most companies take a monthly support plan or a bank of support hours.",
+          "ERPNext releases a new major version regularly. Upgrading keeps you on supported, secure software, and is easier when the system has few custom changes.",
+        ],
+      },
+      {
+        heading: "Costs people forget",
+        paragraphs: [
+          "Your own team's time is the hidden cost: someone has to clean data, answer questions about how you work, and test the system before go-live. Budget for running the old and new systems side by side for a short period, and for any hardware such as barcode scanners, label printers or point-of-sale equipment.",
+        ],
+      },
+      {
+        heading: "How to keep the cost under control",
+        paragraphs: ["The companies that spend the least usually:"],
+        list: [
+          "Go live in stages, starting with accounting, buying, selling and stock",
+          "Clean their data before migration, not during it",
+          "Adapt to ERPNext's standard processes where they can",
+          "Name one person on their side who can make decisions quickly",
+        ],
+      },
+      {
+        heading: "How to compare ERPNext quotes",
+        paragraphs: [
+          "Ask each partner for a written scope: the modules, the data to be moved, the documents to be designed, the training and the support after go-live. Ask whether hosting is included, who owns the system and the code, and how upgrades are handled. Compare scopes, not totals, as with any project.",
+          "A typical ERPNext implementation takes 6 to 16 weeks depending on the modules. A quote far below the rest usually leaves something out.",
+        ],
+      },
+    ],
+    cta: {
+      heading: "Want a clear ERPNext quote?",
+      body: "Tell us how your company works. After a short call we send a written proposal with the scope, the price and the timeline.",
+      label: "See ERPNext implementation",
+    },
+  },
 ];
 
 const AR: Article[] = [
@@ -633,6 +808,179 @@ const AR: Article[] = [
       heading: "تخطّط لموقع جديد؟",
       body: "نصمم ونبني مواقع سريعة ثنائية اللغة للشركات في ليبيا والخليج، مع نظام محتوى يستخدمه فريقك.",
       label: "تصميم وتطوير المواقع",
+    },
+  },
+  {
+    slug: "erpnext-zatca-e-invoicing",
+    date: "2026-11-08",
+    service: "erp-implementation",
+    category: "أنظمة ERP",
+    title: "الفوترة الإلكترونية مع ERPNext: دليل الربط مع هيئة الزكاة (فاتورة)",
+    description:
+      "ما الذي تتطلبه الفوترة الإلكترونية «فاتورة» في المرحلتين الأولى والثانية، وكيف يلبّيها ERPNext، وخطوات تجهيز شركتك في السعودية قبل موعد الربط.",
+    intro:
+      "على كل منشأة مسجلة في ضريبة القيمة المضافة في السعودية إصدار فواتير إلكترونية وفق نظام «فاتورة» الذي تديره هيئة الزكاة والضريبة والجمارك. إن كنت تستخدم ERPNext أو تفكّر في الانتقال إليه، فهذا ما تتطلبه القواعد وكيف يلبّيها النظام.",
+    sections: [
+      {
+        heading: "ما هو نظام «فاتورة»؟",
+        paragraphs: [
+          "«فاتورة» هو نظام الفوترة الإلكترونية في السعودية. يستبدل الفواتير الورقية والمكتوبة يدويًا بفواتير إلكترونية منظمة تستطيع الهيئة التحقق منها، للحد من الأخطاء والتهرب الضريبي.",
+          "ينطبق على المكلّفين المقيمين في السعودية المسجلين في ضريبة القيمة المضافة، وعلى من يصدر الفواتير الضريبية نيابة عنهم، ويُطبَّق على مرحلتين.",
+        ],
+      },
+      {
+        heading: "المرحلة الأولى: مرحلة الإصدار",
+        paragraphs: [
+          "منذ 4 ديسمبر 2021 يجب إصدار الفواتير وحفظها عبر نظام إلكتروني متوافق. ولم يعد مسموحًا بالفواتير المكتوبة يدويًا ولا بتعديل الفاتورة بعد إصدارها.",
+        ],
+        list: [
+          "تُنشأ كل فاتورة وتُحفظ إلكترونيًا",
+          "تحمل الفاتورة الضريبية المبسطة، الصادرة للمستهلك، رمز الاستجابة السريعة (QR)",
+          "لا يجوز حذف الفاتورة أو تعديلها بعد إصدارها، ويتم التصحيح بإشعارات دائنة ومدينة",
+          "يحتفظ النظام بسجل يثبت أن الفواتير لم يُعبث بها",
+        ],
+      },
+      {
+        heading: "المرحلة الثانية: مرحلة الربط والتكامل",
+        paragraphs: [
+          "بدأت المرحلة الثانية في 1 يناير 2023، وتُطبَّق على دفعات. تحدد الهيئة كل دفعة بحسب الإيرادات، وتُبلغ المنشآت المشمولة قبل موعدها بستة أشهر على الأقل.",
+          "في هذه المرحلة تصدر الفواتير بصيغة XML محددة مع ختم تشفيري، ويرتبط نظامك بمنصة الهيئة. فالفواتير الضريبية القياسية بين المنشآت يجب أن تعتمدها الهيئة قبل إرسالها إلى المشتري، أما الفواتير المبسطة للمستهلكين فتُبلَّغ بها الهيئة خلال 24 ساعة.",
+        ],
+      },
+      {
+        heading: "كيف يلبّي ERPNext هذه المتطلبات؟",
+        paragraphs: [
+          "لا يتضمن ERPNext الربط مع الهيئة في نسخته الأساسية، لكن تطبيقات مبنية له من مجتمع Frappe وشركائه تضيف ذلك. تُنشئ هذه التطبيقات الفواتير بالصيغة المطلوبة، وتضيف رمز QR والختم التشفيري، وترسل الفواتير إلى الهيئة للاعتماد أو الإبلاغ مباشرة من شاشة فاتورة المبيعات.",
+          "ولأن ERPNext يقفل الفواتير بعد اعتمادها ويعالج المرتجعات بإشعارات دائنة، فهو يلبّي متطلبات المرحلة الأولى بمجرد إعداد ضريبة القيمة المضافة وشكل الفاتورة بشكل صحيح.",
+        ],
+      },
+      {
+        heading: "خطوات ربط ERPNext ببوابة «فاتورة»",
+        paragraphs: ["تمر عملية الربط عادةً بهذه الخطوات:"],
+        list: [
+          "التأكد من أن بيانات التسجيل الضريبي وعنوان الشركة في ERPNext تطابق سجلات الهيئة",
+          "تثبيت تطبيق الربط مع الهيئة المناسب لنسخة ERPNext لديك وإعداده",
+          "إصدار رمز تحقق لمرة واحدة (OTP) من بوابة «فاتورة» واستخدامه لتسجيل نظامك",
+          "اجتياز فحوصات التوافق لدى الهيئة بفواتير وإشعارات دائنة ومدينة تجريبية",
+          "الانتقال إلى بيئة الإنتاج وإصدار الفواتير الفعلية",
+        ],
+      },
+      {
+        heading: "الفاتورة العربية والتفاصيل المهمة",
+        paragraphs: [
+          "يجب أن تكون الفواتير الضريبية في السعودية باللغة العربية، ويجوز أن تتضمن لغة أخرى. وتستطيع نماذج الطباعة في ERPNext عرض العربية والإنجليزية جنبًا إلى جنب، مع الرقم الضريبي للبائع والمشتري، وتفاصيل الضريبة، ورمز QR في مواضعها المطلوبة.",
+          "معظم المشكلات عند التشغيل سببها البيانات لا البرنامج: عملاء بلا أرقام ضريبية أو عناوين كاملة، أو أصناف بلا قالب ضريبي صحيح، أو عنوان شركة لا يطابق سجلات الهيئة. وتنظيف هذه البيانات مبكرًا يوفّر وقتًا كبيرًا.",
+        ],
+      },
+      {
+        heading: "إن كنت تستخدم ERPNext حاليًا",
+        paragraphs: [
+          "تحقق من نسخة ERPNext التي تعمل بها، لأن تطبيقات الربط تدعم نسخًا محددة، وقد تحتاج الأنظمة القديمة إلى ترقية أولًا. ثم اختبر الدورة كاملة على نسخة من نظامك، بما فيها المرتجعات والإشعارات الدائنة، قبل ربط بيئة الإنتاج.",
+          "خطّط للانتقال قبل موعد دفعتك بوقت كافٍ. فاعتماد الفواتير من الهيئة يغيّر طريقة عمل فريق المبيعات اليومية، لذا درّبهم قبل التشغيل.",
+        ],
+      },
+      {
+        heading: "وماذا عن بقية دول الخليج؟",
+        paragraphs: [
+          "أعلنت الإمارات نظامها الخاص للفوترة الإلكترونية، ويُطبَّق على مراحل تبدأ بالشركات الأكبر، كما أعلنت عُمان برنامجها الخاص. وتختلف التفاصيل عن السعودية، لذا راجع القواعد في كل بلد تصدر فيه فواتير. ولأن القواعد والمواعيد تتغير، تأكد مما ينطبق عليك مع مستشارك الضريبي.",
+        ],
+      },
+    ],
+    cta: {
+      heading: "تستعد لنظام «فاتورة»؟",
+      body: "نُعدّ ERPNext مع الربط مع هيئة الزكاة، ونماذج الفواتير العربية، وضريبة القيمة المضافة، ونختبرها قبل التشغيل، بصفتنا شريكًا لـ Frappe.",
+      label: "تنفيذ نظام ERPNext",
+    },
+  },
+  {
+    slug: "erpnext-cost",
+    date: "2026-11-08",
+    service: "erp-implementation",
+    category: "أنظمة ERP",
+    title: "كم تكلفة نظام ERPNext؟ الترخيص والاستضافة والتطبيق بالتفصيل",
+    description:
+      "ERPNext بلا رسوم ترخيص، فعلى ماذا تدفع إذن؟ شرح لتكلفة الاستضافة والتطبيق والتخصيص والدعم، وكيف تبقي الميزانية تحت السيطرة.",
+    intro:
+      "ERPNext مفتوح المصدر، فلا رسوم ترخيص ولا رسوم لكل مستخدم. وهذا يطرح سؤالًا منطقيًا: كم يكلّف نظام ERPNext فعلًا؟ الجواب أن التكلفة في العمل والخدمات المحيطة بالبرنامج. يشرح هذا الدليل كل جزء منها، وما الذي يرفعها أو يخفضها.",
+    sections: [
+      {
+        heading: "البرنامج نفسه: بلا رسوم ترخيص",
+        paragraphs: [
+          "يصدر ERPNext برخصة GNU GPL مفتوحة المصدر. يمكنك استخدامه لأي عدد من المستخدمين والشركات دون رسوم ترخيص، وكل الوحدات متاحة.",
+          "وهذا أكبر فرق عن الأنظمة المرخّصة لكل مستخدم، حيث ترتفع التكلفة مع كل موظف تضيفه. أما مع ERPNext فإضافة المستخدمين لا تغيّر ما تدفعه مقابل البرنامج.",
+        ],
+      },
+      {
+        heading: "الاستضافة",
+        paragraphs: [
+          "يحتاج ERPNext إلى خادم. يمكنك استئجاره على Frappe Cloud، خدمة الاستضافة التابعة للشركة المطوّرة للنظام، التي تتولى التحديثات والنسخ الاحتياطية مقابل رسوم شهرية، أو تشغيله على خادمك الخاص أو لدى مزوّد سحابي تختاره.",
+          "يعتمد حجم الخادم على عدد من يستخدمون النظام في الوقت نفسه وحجم بياناتك. ويمكن للشركة الصغيرة أن تبدأ بخطة متواضعة وترتقي مع نموها.",
+        ],
+      },
+      {
+        heading: "التطبيق: الجزء الأكبر من التكلفة",
+        paragraphs: ["يذهب معظم الميزانية إلى التطبيق، أي إعداد ERPNext وفق طريقة عمل شركتك، ويشمل عادةً:"],
+        list: [
+          "فهم إجراءاتك: المبيعات والمشتريات والمخزون والحسابات والموافقات",
+          "إعداد دليل الحسابات والضرائب والمستودعات وقوائم الأسعار",
+          "تصميم الفواتير والمستندات بالعربية أو الإنجليزية أو كليهما",
+          "نقل بياناتك من الجداول أو من نظامك القديم",
+          "تدريب فريقك ومرافقته في الأسابيع الأولى من الاستخدام الفعلي",
+        ],
+      },
+      {
+        heading: "ما الذي يرفع تكلفة التطبيق أو يخفضها؟",
+        paragraphs: ["تعتمد التكلفة أساسًا على:"],
+        list: [
+          "عدد الوحدات التي تبدأ بها، مثل الحسابات والمخزون فقط، أو أيضًا التصنيع والموارد البشرية والرواتب",
+          "عدد الشركات والفروع والمستودعات",
+          "حجم البيانات التي تنقلها ومدى نظافتها",
+          "مدى اختلاف إجراءاتك عن طريقة العمل القياسية في ERPNext",
+          "المتطلبات المحلية، مثل الربط مع هيئة الزكاة في السعودية",
+        ],
+      },
+      {
+        heading: "التخصيص",
+        paragraphs: [
+          "كثير من التعديلات مجرد إعدادات: حقول إضافية، وخطوات موافقة، ونماذج طباعة، وتقارير. وهي سريعة ولا تتأثر كثيرًا بالترقيات.",
+          "أما التطبيقات الخاصة، المبنية لإجراءات لا يغطيها ERPNext، فتحتاج وقتًا أطول للبناء وللصيانة عند ترقية النظام. وكلما بقيت قريبًا من النظام القياسي انخفضت التكلفة اليوم ولاحقًا.",
+        ],
+      },
+      {
+        heading: "الدعم والترقيات",
+        paragraphs: [
+          "بعد التشغيل ستحتاج إلى من يجيب عن الأسئلة ويحل المشكلات وينفّذ التعديلات الصغيرة. وتختار معظم الشركات خطة دعم شهرية أو رصيدًا من ساعات الدعم.",
+          "يُصدر ERPNext نسخة رئيسية جديدة بانتظام. والترقية تبقيك على نظام مدعوم وآمن، وتكون أسهل كلما قلّت التعديلات الخاصة.",
+        ],
+      },
+      {
+        heading: "تكاليف يغفل عنها الكثيرون",
+        paragraphs: [
+          "وقت فريقك هو التكلفة الخفية: لا بد أن ينظّف أحدهم البيانات، ويجيب عن أسئلة طريقة العمل، ويختبر النظام قبل التشغيل. وخصّص ميزانية لتشغيل النظامين القديم والجديد معًا لفترة قصيرة، ولأي أجهزة مثل قارئات الباركود وطابعات الملصقات وأجهزة نقاط البيع.",
+        ],
+      },
+      {
+        heading: "كيف تبقي التكلفة تحت السيطرة؟",
+        paragraphs: ["الشركات الأقل إنفاقًا عادةً:"],
+        list: [
+          "تُشغّل النظام على مراحل، بدءًا بالحسابات والمشتريات والمبيعات والمخزون",
+          "تنظّف بياناتها قبل النقل لا أثناءه",
+          "تتكيّف مع الإجراءات القياسية في ERPNext حيثما أمكن",
+          "تسمّي شخصًا واحدًا من طرفها قادرًا على اتخاذ القرار بسرعة",
+        ],
+      },
+      {
+        heading: "كيف تقارن عروض أسعار ERPNext؟",
+        paragraphs: [
+          "اطلب من كل شريك نطاق عمل مكتوبًا: الوحدات، والبيانات المنقولة، والمستندات المصممة، والتدريب، والدعم بعد التشغيل. واسأل هل الاستضافة مشمولة، ومن يملك النظام والشيفرة، وكيف تتم الترقيات. وقارن النطاقات لا المجاميع، كما في أي مشروع.",
+          "يستغرق تطبيق ERPNext عادةً من 6 إلى 16 أسبوعًا بحسب الوحدات. والعرض الأقل بكثير من غيره غالبًا ما يُسقط شيئًا من النطاق.",
+        ],
+      },
+    ],
+    cta: {
+      heading: "تريد عرض سعر واضحًا لـ ERPNext؟",
+      body: "أخبرنا كيف تعمل شركتك. وبعد مكالمة قصيرة نرسل عرضًا مكتوبًا بالنطاق والسعر والمدة.",
+      label: "تنفيذ نظام ERPNext",
     },
   },
 ];
