@@ -5,8 +5,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "round-math-59b4",
   "compatibility_date": "2026-07-28",
+  // worker/index.ts redirects velloxstudio.com to www, then serves the files.
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": true,
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   }

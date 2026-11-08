@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "verify": "bun scripts/verify.mjs",
     "deploy": "bun x wrangler deploy",
+    "indexnow": "bun scripts/indexnow.mjs",
     "icons": "bun scripts/generate-og.mjs"
   },
   "dependencies": {
