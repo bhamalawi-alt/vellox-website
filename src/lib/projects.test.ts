@@ -1,6 +1,6 @@
 import { describe, expect, it } from "bun:test";
 import { join } from "node:path";
-import { readProjects } from "./projects";
+import { interleaveGalleries, readProjects } from "./projects";
 
 const DIR = join(import.meta.dir, "__fixtures__", "projects");
 
@@ -61,5 +61,19 @@ describe("per-field fallback tracking", () => {
   it("lists every text field when no Arabic file exists", () => {
     const b = readProjects(DIR, "ar").find((p) => p.slug === "b")!;
     expect(b.fallbackFields).toEqual(["title", "industry", "tags", "summary"]);
+  });
+});
+
+describe("interleaveGalleries", () => {
+  const project = (title: string, images: string[]) =>
+    ({ title, gallery: images.map((image) => ({ image, alt: "" })) }) as Parameters<typeof interleaveGalleries>[0][number];
+
+  it("takes one image from each project in turn, so a large gallery cannot crowd out the rest", () => {
+    const images = interleaveGalleries([project("A", ["a1", "a2", "a3"]), project("B", ["b1"]), project("C", ["c1", "c2"])]);
+    expect(images.map((i) => i.src)).toEqual(["a1", "b1", "c1", "a2", "c2", "a3"]);
+  });
+
+  it("uses the project title when an image has no alt text", () => {
+    expect(interleaveGalleries([project("A", ["a1"])])[0].alt).toBe("A");
   });
 });

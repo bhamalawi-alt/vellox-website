@@ -57,6 +57,8 @@ export const UI: UiStrings = {
   upcomingHeading: "قريبًا",
   readArticle: "اقرأ المقال",
   publishedOn: (date: string) => `نُشر في ${date}`,
+  updatedOn: (date: string) => `حُدّث في ${date}`,
+  relatedGuides: "أدلة حول هذا الموضوع",
   timeline: "المدة",
   viewService: "عرض الخدمة",
   allServices: "كل الخدمات",

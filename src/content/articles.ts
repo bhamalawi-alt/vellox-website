@@ -12,6 +12,8 @@ export type Article = {
   slug: string;
   /** ISO date, shown and used in structured data. */
   date: string;
+  /** ISO date of the last substantial rewrite, if any. */
+  updated?: string;
   /** The service page the article leads to. */
   service: string;
   category: string;
@@ -159,33 +161,68 @@ const EN: Article[] = [
   {
     slug: "erpnext-in-arabic",
     date: PUBLISHED,
+    updated: "2026-11-08",
     service: "erp-implementation",
     category: "ERP",
     title: "ERPNext in Arabic: is it right for companies in Libya and the Gulf?",
     description:
-      "How ERPNext handles Arabic, right-to-left screens, local taxes and multiple currencies, and when it is the right ERP choice for companies in the region.",
+      "How ERPNext handles Arabic, right-to-left screens, VAT, e-invoicing and multiple currencies, and when it is the right ERP for companies in Libya and the Gulf.",
     intro:
-      "ERPNext is one of the most widely used open-source ERP systems in the world. For companies in Libya and the Gulf, the first questions are practical: does it really work in Arabic, and can it handle local requirements? Here is what to know.",
+      "ERPNext is one of the most widely used open-source ERP systems in the world. For companies in Libya, Saudi Arabia, the UAE and Oman, the first questions are practical: does it really work in Arabic, what does it cost, and can it meet local tax and e-invoicing rules? This guide answers them in plain terms.",
     sections: [
       {
         heading: "What ERPNext is",
         paragraphs: [
           "ERPNext is an open-source ERP built on the Frappe framework. It covers accounting, buying, selling, stock, manufacturing, projects, HR and payroll, CRM and a customer portal, all in one system.",
-          "Because it is open source, there is no licence fee per user for the software itself. You can host it on Frappe Cloud or on your own server, and the data stays yours.",
+          "It runs in a web browser, on a computer or a phone, so there is nothing to install on each employee's machine.",
+        ],
+      },
+      {
+        heading: "Is ERPNext free?",
+        paragraphs: [
+          "The software is free. ERPNext is released under the GNU GPL licence, so there is no licence fee and no charge per user for the software itself, whether you have five users or five hundred.",
+          "What you pay for is everything around it: hosting, setting it up for your company, moving your data, training, and support after go-live. Those costs depend on how many modules you use and how much needs to be customised, not on your number of users.",
         ],
       },
       {
         heading: "Working in Arabic",
         paragraphs: [
           "ERPNext ships with an Arabic translation and switches to a right-to-left layout when a user chooses Arabic. Each user can work in their own language, so the accountant can use Arabic while a foreign manager uses English in the same system.",
-          "Printed documents such as invoices, quotations and delivery notes can be designed in Arabic, English or both side by side, which is common for companies dealing with local and international customers.",
+          "Customer, supplier and item names can be entered in Arabic and searched in Arabic. Printed documents such as invoices, quotations and delivery notes can be designed in Arabic, English or both side by side, which is common for companies dealing with local and international customers.",
+          "The standard translation covers most screens, but some terms are translated literally. A careful implementation reviews the wording your team will see every day and adjusts it to the terms your accountants already use.",
         ],
       },
       {
         heading: "Taxes, currencies and local requirements",
         paragraphs: [
           "ERPNext supports multiple currencies with exchange rates, multiple companies and branches, and flexible tax templates, so VAT setups such as those in Saudi Arabia, the UAE and Oman can be configured.",
-          "Country-specific requirements, such as e-invoicing rules, are handled through apps built for ERPNext and through configuration. Part of a good implementation is checking exactly what your country and sector require and setting it up before go-live.",
+          "Your chart of accounts can follow your accountant's structure, in Arabic or English, rather than a fixed template. Companies in Libya, whose tax and reporting rules differ from the Gulf's, set up their own accounts, taxes and reports the same way.",
+        ],
+      },
+      {
+        heading: "E-invoicing in Saudi Arabia and the Gulf",
+        paragraphs: [
+          "Saudi Arabia's e-invoicing system, FATOORA, is run by the Zakat, Tax and Customs Authority (ZATCA). Its first phase, from December 2021, requires invoices to be issued electronically in an approved format. Its second phase connects invoicing systems directly to ZATCA's platform and is being applied to businesses in waves.",
+          "ERPNext meets these rules through apps built for it by the Frappe community and partners, which add the required QR codes, invoice formats and the connection to ZATCA. The UAE has announced its own e-invoicing programme, introduced in phases, and other Gulf countries are moving in the same direction.",
+          "Rules and deadlines change, so check with your tax adviser which phase applies to your company, and make sure your implementation partner sets it up and tests it before go-live.",
+        ],
+      },
+      {
+        heading: "Hosting and where your data lives",
+        paragraphs: [
+          "You can run ERPNext on Frappe Cloud, the hosting service from the company behind ERPNext, or on your own server or a cloud provider you choose. Either way, the data belongs to you and can be exported at any time.",
+          "Some sectors in the region have rules about where data must be stored. If yours does, choose a host in the right country from the start; moving later is possible but it is extra work.",
+        ],
+      },
+      {
+        heading: "ERPNext compared with Odoo and SAP Business One",
+        paragraphs: [
+          "These are the systems companies in the region most often compare. All three cover accounting, stock, sales and purchasing, and all three can work in Arabic. The biggest difference is how they are licensed.",
+        ],
+        list: [
+          "ERPNext: fully open source, with no licence fee per user. Every module is included.",
+          "Odoo: a free Community edition, while many business features are in the paid Enterprise edition, charged per user each month.",
+          "SAP Business One: licensed per user and sold through SAP partners, with an annual maintenance fee.",
         ],
       },
       {
@@ -196,7 +233,21 @@ const EN: Article[] = [
           "Want one system for accounts, stock, sales and purchasing",
           "Prefer to own their system and data instead of renting per user",
           "Need Arabic and English side by side",
+          "Expect to add users as they grow, without the cost rising with each one",
           "Want room to add custom workflows and reports later",
+        ],
+      },
+      {
+        heading: "When another option may suit you better",
+        paragraphs: [
+          "If you only need invoices and a simple ledger, a basic accounting program may be enough for now. And if your group already runs SAP or Oracle at head office, it is often simpler for a branch to follow the same system. An honest partner will tell you when ERPNext is not the right answer.",
+        ],
+      },
+      {
+        heading: "Moving from spreadsheets or another system",
+        paragraphs: [
+          "ERPNext has a built-in data import tool that loads customers, suppliers, items, opening balances and open invoices from Excel or CSV files. The real work is cleaning the data first: removing duplicates, agreeing on item codes, and confirming opening balances with your accountant.",
+          "Most companies move at the start of a financial year or a month, and run the old and new systems side by side for a short time to check the numbers match.",
         ],
       },
       {
@@ -415,33 +466,68 @@ const AR: Article[] = [
   {
     slug: "erpnext-in-arabic",
     date: PUBLISHED,
+    updated: "2026-11-08",
     service: "erp-implementation",
     category: "أنظمة ERP",
     title: "ERPNext بالعربي: هل يناسب الشركات في ليبيا والخليج؟",
     description:
-      "كيف يتعامل ERPNext مع اللغة العربية والشاشات من اليمين إلى اليسار والضرائب المحلية والعملات المتعددة، ومتى يكون الخيار الصحيح لشركتك.",
+      "كيف يتعامل ERPNext مع العربية والضريبة والفوترة الإلكترونية والعملات المتعددة، وهل هو مجاني، ومتى يكون نظام ERP المناسب لشركتك في ليبيا والخليج.",
     intro:
-      "ERPNext من أكثر أنظمة ERP مفتوحة المصدر استخدامًا في العالم. وبالنسبة للشركات في ليبيا والخليج، تأتي الأسئلة العملية أولًا: هل يعمل فعلًا بالعربية، وهل يلبّي المتطلبات المحلية؟ إليك ما تحتاج إلى معرفته.",
+      "ERPNext من أكثر أنظمة ERP مفتوحة المصدر استخدامًا في العالم. وبالنسبة للشركات في ليبيا والسعودية والإمارات وعُمان، تأتي الأسئلة العملية أولًا: هل يعمل فعلًا بالعربية؟ وكم يكلّف؟ وهل يلبّي قواعد الضريبة والفوترة الإلكترونية المحلية؟ يجيب هذا الدليل عنها بوضوح.",
     sections: [
       {
         heading: "ما هو ERPNext؟",
         paragraphs: [
-          "ERPNext نظام ERP مفتوح المصدر مبني على إطار Frappe. يغطي المحاسبة والمشتريات والمبيعات والمخزون والتصنيع والمشاريع والموارد البشرية والرواتب وإدارة علاقات العملاء وبوابة للعملاء، كلها في نظام واحد.",
-          "ولأنه مفتوح المصدر، لا توجد رسوم ترخيص لكل مستخدم على البرنامج نفسه. يمكنك استضافته على Frappe Cloud أو على خادمك الخاص، وتبقى البيانات ملكك.",
+          "ERPNext نظام تخطيط موارد مؤسسات (ERP) مفتوح المصدر، مبني على إطار Frappe. يغطي المحاسبة والمشتريات والمبيعات والمخزون والتصنيع والمشاريع والموارد البشرية والرواتب وإدارة علاقات العملاء وبوابة للعملاء، كلها في نظام واحد.",
+          "ويعمل من متصفح الإنترنت على الحاسوب أو الهاتف، فلا حاجة إلى تثبيت برنامج على جهاز كل موظف.",
+        ],
+      },
+      {
+        heading: "هل ERPNext مجاني؟",
+        paragraphs: [
+          "البرنامج نفسه مجاني. يصدر ERPNext برخصة GNU GPL مفتوحة المصدر، فلا توجد رسوم ترخيص ولا رسوم لكل مستخدم، سواء كان لديك خمسة مستخدمين أو خمسمئة.",
+          "أما ما تدفع مقابله فهو كل ما حوله: الاستضافة، وإعداده لشركتك، ونقل بياناتك، والتدريب، والدعم بعد التشغيل. وتعتمد هذه التكاليف على عدد الوحدات التي تستخدمها وحجم التخصيص المطلوب، لا على عدد المستخدمين.",
         ],
       },
       {
         heading: "العمل باللغة العربية",
         paragraphs: [
-          "يأتي ERPNext مع ترجمة عربية، ويتحول إلى تصميم من اليمين إلى اليسار عندما يختار المستخدم العربية. ويستطيع كل مستخدم العمل بلغته، فيستخدم المحاسب العربية بينما يستخدم مدير أجنبي الإنجليزية في النظام نفسه.",
-          "ويمكن تصميم المستندات المطبوعة، مثل الفواتير وعروض الأسعار وإشعارات التسليم، بالعربية أو الإنجليزية أو باللغتين جنبًا إلى جنب، وهو أمر شائع لدى الشركات التي تتعامل مع عملاء محليين ودوليين.",
+          "يأتي ERPNext مع ترجمة عربية، ويتحول إلى واجهة من اليمين إلى اليسار عندما يختار المستخدم العربية. ويستطيع كل مستخدم العمل بلغته، فيستخدم المحاسب العربية بينما يستخدم مدير أجنبي الإنجليزية في النظام نفسه.",
+          "ويمكن إدخال أسماء العملاء والموردين والأصناف بالعربية والبحث عنها بالعربية. كما يمكن تصميم المستندات المطبوعة، مثل الفواتير وعروض الأسعار وإشعارات التسليم، بالعربية أو الإنجليزية أو باللغتين جنبًا إلى جنب، وهو أمر شائع لدى الشركات التي تتعامل مع عملاء محليين ودوليين.",
+          "تغطي الترجمة الأساسية معظم الشاشات، لكن بعض المصطلحات مترجمة ترجمة حرفية. لذلك يراجع التطبيق الجيد الكلمات التي سيراها فريقك كل يوم، ويعدّلها إلى المصطلحات التي يستخدمها محاسبوك بالفعل.",
         ],
       },
       {
         heading: "الضرائب والعملات والمتطلبات المحلية",
         paragraphs: [
-          "يدعم ERPNext العملات المتعددة مع أسعار الصرف، والشركات والفروع المتعددة، وقوالب ضريبية مرنة، فيمكن إعداد ضريبة القيمة المضافة مثل المعمول بها في السعودية والإمارات وعُمان.",
-          "أما المتطلبات الخاصة بكل بلد، مثل قواعد الفوترة الإلكترونية، فتُلبّى عبر تطبيقات مبنية لـ ERPNext وعبر الإعداد. وجزء من التطبيق الجيد هو التحقق بدقة مما يتطلبه بلدك وقطاعك وإعداده قبل التشغيل.",
+          "يدعم ERPNext العملات المتعددة مع أسعار الصرف، والشركات والفروع المتعددة، وقوالب ضريبية مرنة، فيمكن إعداد ضريبة القيمة المضافة كما هي في السعودية والإمارات وعُمان.",
+          "ويمكن بناء دليل الحسابات وفق هيكل محاسبك، بالعربية أو الإنجليزية، بدل قالب ثابت. وتُعِدّ الشركات في ليبيا، حيث تختلف قواعد الضريبة والتقارير عن الخليج، حساباتها وضرائبها وتقاريرها بالطريقة نفسها.",
+        ],
+      },
+      {
+        heading: "الفوترة الإلكترونية في السعودية والخليج",
+        paragraphs: [
+          "تدير هيئة الزكاة والضريبة والجمارك في السعودية نظام الفوترة الإلكترونية «فاتورة». بدأت مرحلته الأولى في ديسمبر 2021 وتُلزم بإصدار الفواتير إلكترونيًا بصيغة معتمدة، أما المرحلة الثانية فتربط أنظمة الفوترة مباشرة بمنصة الهيئة، وتُطبَّق على المنشآت على دفعات.",
+          "ويلبّي ERPNext هذه المتطلبات عبر تطبيقات مبنية له من مجتمع Frappe وشركائه، تضيف رمز الاستجابة السريعة (QR) وصيغ الفواتير المطلوبة والربط مع منصة الهيئة. وقد أعلنت الإمارات برنامجها الخاص للفوترة الإلكترونية على مراحل، وتسير دول خليجية أخرى في الاتجاه نفسه.",
+          "تتغير القواعد والمواعيد، لذا تحقّق مع مستشارك الضريبي من المرحلة التي تنطبق على شركتك، وتأكد أن شريك التطبيق يُعدّها ويختبرها قبل التشغيل.",
+        ],
+      },
+      {
+        heading: "الاستضافة وأين تُحفظ بياناتك",
+        paragraphs: [
+          "يمكنك تشغيل ERPNext على Frappe Cloud، خدمة الاستضافة التابعة للشركة المطوّرة للنظام، أو على خادمك الخاص أو لدى مزوّد سحابي تختاره. وفي الحالتين تبقى البيانات ملكك ويمكن تصديرها في أي وقت.",
+          "لبعض القطاعات في المنطقة قواعد تحدد مكان حفظ البيانات. إن كان قطاعك منها، فاختر استضافة في البلد الصحيح من البداية؛ فالنقل لاحقًا ممكن لكنه عمل إضافي.",
+        ],
+      },
+      {
+        heading: "ERPNext مقارنة بـ Odoo وSAP Business One",
+        paragraphs: [
+          "هذه هي الأنظمة التي تقارن بينها الشركات في المنطقة عادةً. تغطي الثلاثة المحاسبة والمخزون والمبيعات والمشتريات، وتعمل الثلاثة بالعربية. والفرق الأكبر في طريقة الترخيص:",
+        ],
+        list: [
+          "ERPNext: مفتوح المصدر بالكامل، بلا رسوم ترخيص لكل مستخدم، وكل الوحدات متاحة.",
+          "Odoo: نسخة مجتمعية مجانية، بينما توجد كثير من مزايا الأعمال في نسخة Enterprise المدفوعة باشتراك شهري لكل مستخدم.",
+          "SAP Business One: ترخيص لكل مستخدم يُباع عبر شركاء SAP، مع رسوم صيانة سنوية.",
         ],
       },
       {
@@ -452,7 +538,21 @@ const AR: Article[] = [
           "تريد نظامًا واحدًا للحسابات والمخزون والمبيعات والمشتريات",
           "تفضّل امتلاك نظامها وبياناتها بدل الاستئجار لكل مستخدم",
           "تحتاج إلى العربية والإنجليزية جنبًا إلى جنب",
+          "تتوقع زيادة المستخدمين مع نموها دون أن ترتفع التكلفة مع كل مستخدم",
           "تريد مجالًا لإضافة سير عمل وتقارير خاصة لاحقًا",
+        ],
+      },
+      {
+        heading: "متى قد يناسبك خيار آخر؟",
+        paragraphs: [
+          "إن كنت تحتاج فقط إلى فواتير ودفتر حسابات بسيط، فقد يكفيك برنامج محاسبة أساسي حاليًا. وإن كانت مجموعتك تعمل بنظام SAP أو Oracle في المقر الرئيسي، فغالبًا ما يكون اتباع النظام نفسه أسهل للفرع. والشريك الصادق يخبرك متى لا يكون ERPNext هو الحل المناسب.",
+        ],
+      },
+      {
+        heading: "الانتقال من الجداول أو من نظام آخر",
+        paragraphs: [
+          "يتضمن ERPNext أداة لاستيراد البيانات تُحمِّل العملاء والموردين والأصناف والأرصدة الافتتاحية والفواتير المفتوحة من ملفات Excel أو CSV. أما العمل الحقيقي فهو تنظيف البيانات أولًا: حذف المكرر، والاتفاق على رموز الأصناف، وتأكيد الأرصدة الافتتاحية مع محاسبك.",
+          "تنتقل معظم الشركات في بداية سنة مالية أو شهر، وتشغّل النظامين القديم والجديد معًا لفترة قصيرة للتأكد من تطابق الأرقام.",
         ],
       },
       {
@@ -545,6 +645,11 @@ export function getArticles(locale: Locale): Article[] {
 
 export function getArticle(locale: Locale, slug: string): Article | undefined {
   return BY_LOCALE[locale].find((a) => a.slug === slug);
+}
+
+/** The guides that lead to a service page, for its "related guides" block. */
+export function getArticlesForService(locale: Locale, service: string): Article[] {
+  return BY_LOCALE[locale].filter((article) => article.service === service);
 }
 
 export const ARTICLE_SLUGS = EN.map((a) => a.slug);

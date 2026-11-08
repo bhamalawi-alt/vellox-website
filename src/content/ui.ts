@@ -59,6 +59,8 @@ export const UI = {
   upcomingHeading: "Coming next",
   readArticle: "Read the article",
   publishedOn: (date: string) => `Published ${date}`,
+  updatedOn: (date: string) => `Updated ${date}`,
+  relatedGuides: "Guides on this topic",
   timeline: "Timeline",
   viewService: "View service",
   allServices: "All services",

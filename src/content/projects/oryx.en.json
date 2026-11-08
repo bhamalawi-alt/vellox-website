@@ -1,0 +1,35 @@
+{
+  "title": "ORYX",
+  "order": 2,
+  "published": true,
+  "featured": true,
+  "industry": "ERP Software",
+  "location": "Libya",
+  "year": "",
+  "tags": [
+    "Brand Identity",
+    "Logo Design",
+    "Visual Identity System"
+  ],
+  "summary": "A bold identity for an ERP platform, built on strength, agility and precision: smart solutions, seamless success.",
+  "body": "ORYX ERP is an integrated enterprise resource planning system that helps organisations simplify complex operations and manage their business with more clarity.\n\nThe challenge was to give a strong, recognisable face to something abstract: software that connects accounts, stock, sales and people. The identity had to feel dependable and precise, without the cold, generic look common to business software.\n\nWe started from the oryx, an animal known for strength, resilience and agility. Its head is drawn as a single geometric line inside a hexagon, a form that holds stability and movement together and hints at the way an ERP brings separate operations into one platform. A bold, custom-styled wordmark completes the logo and stays clear at every size.\n\nThe palette leads with Heavy Metal, a near-black that carries stability and professionalism, set against a Red Orange that brings energy and ambition, with Morning Glory adding a fresh, cool contrast. Montserrat, from Light to Black, gives the brand a modern, legible voice, and a set of line icons covers code, data and workflow.\n\nThe system runs from building signage and billboards to posters, stationery, ID badges, lanyards and social media, all carrying the same line: smart solutions, seamless success.",
+  "results": [],
+  "cover": "/uploads/projects/oryx/oryx-01.webp",
+  "coverAlt": "ORYX logo and the line “Smart solutions, seamless success” over a glowing orange curve on black",
+  "gallery": [
+    { "image": "/uploads/projects/oryx/oryx-02.webp", "alt": "ORYX symbol: its geometric construction lines beside the finished red-orange oryx head in a hexagon on near-black" },
+    { "image": "/uploads/projects/oryx/oryx-03.webp", "alt": "ORYX logo lockups in three sizes, XL, L and S" },
+    { "image": "/uploads/projects/oryx/oryx-04.webp", "alt": "ORYX logo on its construction grid, showing the spacing between symbol and wordmark" },
+    { "image": "/uploads/projects/oryx/oryx-05.webp", "alt": "ORYX typography: Montserrat from Light to Black, with heading, subtitle and body text examples" },
+    { "image": "/uploads/projects/oryx/oryx-06.webp", "alt": "ORYX line icon set for code, data, workflow and system concepts" },
+    { "image": "/uploads/projects/oryx/oryx-07.webp", "alt": "ORYX logo in large letters on the dark facade of a building" },
+    { "image": "/uploads/projects/oryx/oryx-08.webp", "alt": "Illuminated red-orange and white ORYX sign box on a grey wall" },
+    { "image": "/uploads/projects/oryx/oryx-09.webp", "alt": "ORYX billboard with the orange curve and tagline on a city street" },
+    { "image": "/uploads/projects/oryx/oryx-10.webp", "alt": "Framed ORYX poster with the logo above a glowing orange curve" },
+    { "image": "/uploads/projects/oryx/oryx-11.webp", "alt": "ORYX stationery: invoice, letterhead, business cards and a black branded mug" },
+    { "image": "/uploads/projects/oryx/oryx-12.webp", "alt": "Black ORYX business cards, front and back, on grey stone" },
+    { "image": "/uploads/projects/oryx/oryx-13.webp", "alt": "ORYX staff ID badge and branded black lanyards" },
+    { "image": "/uploads/projects/oryx/oryx-14.webp", "alt": "ORYX letter template beside a branded social media post on a phone reading “Let’s build”" }
+  ],
+  "liveUrl": ""
+}

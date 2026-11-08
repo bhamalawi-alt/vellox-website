@@ -7,7 +7,7 @@ import { StickyStack } from "../ui/sticky-stack";
 import { portfolioCopy } from "../../content/pages";
 import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
-import { getProjects } from "../../lib/projects";
+import { getProjects, interleaveGalleries } from "../../lib/projects";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
 import { primaryCtaSoft } from "./shared";
@@ -27,9 +27,7 @@ export function portfolioMetadata(locale: Locale): Metadata {
 // Gallery images come from every project's gallery in the CMS. Until there
 // are enough, the rest of the 12 tiles are branded placeholders.
 function galleryImages(projects: ReturnType<typeof getProjects>) {
-  const images = projects.flatMap((p) =>
-    p.gallery.map((g) => ({ src: g.image, alt: g.alt || p.title })),
-  );
+  const images = interleaveGalleries(projects);
   if (images.length >= GALLERY_TILES) return images;
   return [
     ...images,

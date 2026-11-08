@@ -147,6 +147,17 @@ export function getProject(slug: string, locale: Locale = "en"): Project | undef
   return getProjects(locale).find((p) => p.slug === slug);
 }
 
+/** Every project's gallery images, one from each project in turn, so the
+ *  portfolio gallery shows all projects even when one has many images. */
+export function interleaveGalleries(
+  projects: Pick<Project, "title" | "gallery">[],
+): { src: string; alt: string }[] {
+  const longest = Math.max(0, ...projects.map((p) => p.gallery.length));
+  return Array.from({ length: longest }, (_, i) =>
+    projects.flatMap((p) => (p.gallery[i] ? [{ src: p.gallery[i].image, alt: p.gallery[i].alt || p.title }] : [])),
+  ).flat();
+}
+
 /** Body text split into paragraphs on blank lines. */
 export function paragraphs(text: string): string[] {
   return text

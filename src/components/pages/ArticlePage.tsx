@@ -25,7 +25,15 @@ export function articleMetadata(locale: Locale, slug: string): Metadata {
     path: `/insights/${article.slug}`,
     locale,
   });
-  return { ...meta, openGraph: { ...meta.openGraph, type: "article", publishedTime: article.date } };
+  return {
+    ...meta,
+    openGraph: {
+      ...meta.openGraph,
+      type: "article",
+      publishedTime: article.date,
+      ...(article.updated ? { modifiedTime: article.updated } : {}),
+    },
+  };
 }
 
 function formatDate(locale: Locale, iso: string) {
@@ -54,7 +62,7 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
         description: article.description,
         inLanguage: locale,
         datePublished: article.date,
-        dateModified: article.date,
+        dateModified: article.updated ?? article.date,
         url,
         mainEntityOfPage: url,
         author: { "@id": `${BASE}/#organization` },
@@ -87,7 +95,11 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
             <span>{article.category}</span>
           </nav>
         }
-        eyebrow={ui.publishedOn(formatDate(locale, article.date))}
+        eyebrow={
+          article.updated
+            ? ui.updatedOn(formatDate(locale, article.updated))
+            : ui.publishedOn(formatDate(locale, article.date))
+        }
         title={article.title}
         lede={article.description}
       />

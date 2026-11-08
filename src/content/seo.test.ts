@@ -3,7 +3,7 @@ import { getServices } from "./services";
 import { aboutCopy, contactCopy, homeCopy, portfolioCopy, servicesIndexCopy } from "./pages";
 import type { Locale } from "../lib/i18n";
 import { getFaq } from "./faq";
-import { getArticle, getArticles } from "./articles";
+import { getArticle, getArticles, getArticlesForService } from "./articles";
 import { getUi } from "./ui";
 
 // Search-result limits: Google cuts titles after about 60 characters and
@@ -85,8 +85,21 @@ describe("insights articles", () => {
       });
     }
   }
+  // "erpnext arabic" is the site's closest query to page one (Search Console,
+  // Nov 2026), so this guide is the long one and the ERPNext page links to it.
+  for (const locale of ["en", "ar"] as const) {
+    it(`${locale} erpnext-in-arabic: expanded, dated as updated, and listed on the ERPNext page`, () => {
+      const article = getArticle(locale, "erpnext-in-arabic")!;
+      expect(article.sections.length).toBeGreaterThanOrEqual(9);
+      expect(article.updated! > article.date).toBe(true);
+      expect(getArticlesForService(locale, "erp-implementation").map((a) => a.slug)).toContain("erpnext-in-arabic");
+    });
+  }
+  it("lists no guides for a service no article leads to", () => {
+    expect(getArticlesForService("en", "visual-content")).toEqual([]);
+  });
   it("has the article UI strings in both languages", () => {
-    for (const key of ["articlesHeading", "upcomingHeading", "readArticle", "publishedOn"] as const) {
+    for (const key of ["articlesHeading", "upcomingHeading", "readArticle", "publishedOn", "updatedOn", "relatedGuides"] as const) {
       expect(String(getUi("en")[key]).length).toBeGreaterThan(0);
       expect(String(getUi("ar")[key])).not.toBe(String(getUi("en")[key]));
     }

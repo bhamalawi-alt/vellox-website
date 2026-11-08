@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "../PageHero";
 import { Accordion } from "../ui/accordion";
 import { ArrowLink } from "../ui/arrow-link";
+import { getArticlesForService } from "../../content/articles";
 import { getFaq } from "../../content/faq";
 import { serviceCopy } from "../../content/pages";
 import { getFrappeBadge, getServices, SERVICES } from "../../content/services";
@@ -48,6 +49,7 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
   );
   const url = BASE + href(`/services/${service.slug}`);
   const faq = getFaq(locale, slug);
+  const guides = getArticlesForService(locale, slug);
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
@@ -201,6 +203,27 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
                 body: item.a,
               }))}
             />
+          </div>
+        ) : null}
+
+        {guides.length ? (
+          <div className="mx-auto mt-20 w-full max-w-6xl px-6 md:mt-28">
+            <h2 className="display mb-8 text-3xl md:text-5xl">{ui.relatedGuides}</h2>
+            <ul className="border-t border-line">
+              {guides.map((guide) => (
+                <li key={guide.slug} className="border-b border-line">
+                  <Link
+                    href={href(`/insights/${guide.slug}`)}
+                    className="group flex flex-col gap-2 py-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink md:flex-row md:items-baseline md:justify-between md:gap-8 md:ps-8"
+                  >
+                    <span className="display text-lg md:text-2xl">{guide.title}</span>
+                    <span className="shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-muted group-hover:text-ink">
+                      {ui.readArticle} <span aria-hidden="true">{glyph}</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         ) : null}
 
