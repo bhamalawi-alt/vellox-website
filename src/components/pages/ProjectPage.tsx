@@ -9,6 +9,7 @@ import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { englishAttrs, getProject, getProjects, paragraphs } from "../../lib/projects";
 import { BASE, fitDescription, pageMeta } from "../../lib/seo";
+import { CtaArt } from "../CtaArt";
 import { breadcrumbLink, jsonLd, primaryCtaSoft } from "./shared";
 
 // A static export needs at least one generated route, so with no published
@@ -198,8 +199,9 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
         </section>
       ) : null}
 
-      <section className="bg-panel py-24 text-white md:py-32">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 md:flex-row md:items-end md:justify-between">
+      <section className="relative overflow-hidden bg-panel py-24 text-white md:py-32">
+        <CtaArt spread />
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="display text-4xl leading-[1.05] md:text-6xl">{ui.haveProjectLikeThis}</h2>
             <Link href={href("/contact")} className={`${primaryCtaSoft} mt-10`}>

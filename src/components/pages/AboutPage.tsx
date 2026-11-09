@@ -11,6 +11,7 @@ import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
+import { CtaArt } from "../CtaArt";
 import { primaryCtaSoft, quietLink } from "./shared";
 
 export function aboutMetadata(locale: Locale): Metadata {
@@ -30,7 +31,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
   ];
   return (
     <>
-      <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} />
+      <PageHero art="about" eyebrow={COPY.eyebrow} title={COPY.headline} />
 
       <section className="bg-bg py-20 text-ink md:py-28">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16">
@@ -183,8 +184,9 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </section>
       ) : null}
 
-      <section className="bg-panel py-24 text-white md:py-32">
-        <div className="mx-auto w-full max-w-4xl px-6 text-center">
+      <section className="relative overflow-hidden bg-panel py-24 text-white md:py-32">
+        <CtaArt />
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
           <h2 className="display text-4xl leading-[1.05] md:text-6xl">{ui.cta.heading}</h2>
           <p className="mx-auto mb-12 mt-6 max-w-[60ch] text-base leading-relaxed text-white/75 md:text-lg">
             {ui.cta.body}

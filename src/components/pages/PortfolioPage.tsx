@@ -10,6 +10,7 @@ import { getUi } from "../../content/ui";
 import { getProjects, interleaveGalleries } from "../../lib/projects";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
+import { CtaArt } from "../CtaArt";
 import { primaryCtaSoft } from "./shared";
 
 const GALLERY_TILES = 12;
@@ -44,7 +45,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
   const hasPhotos = projects.some((p) => p.gallery.length > 0);
   return (
     <>
-      <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
+      <PageHero art="portfolio" eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
 
       {projects.length > 0 ? (
         <section className="bg-[#0a0a0a] pb-24 text-white md:pb-32">
@@ -80,8 +81,9 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         <ParallaxGallery images={gallery} />
       </section>
 
-      <section className="bg-panel py-24 text-center text-white md:py-32">
-        <div className="mx-auto w-full max-w-4xl px-6">
+      <section className="relative overflow-hidden bg-panel py-24 text-center text-white md:py-32">
+        <CtaArt />
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-6">
           <h2 className="display text-4xl leading-[1.05] md:text-6xl">{ui.haveProjectInMind}</h2>
           <p className="mx-auto mb-12 mt-6 max-w-[56ch] text-base leading-relaxed text-white/75 md:text-lg">
             {COPY.gallery.sub}

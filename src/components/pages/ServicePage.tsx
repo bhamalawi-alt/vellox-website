@@ -12,6 +12,7 @@ import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { BASE, pageMeta } from "../../lib/seo";
+import { CtaArt } from "../CtaArt";
 import { breadcrumbLink, jsonLd, primaryCtaSoft, quietLink } from "./shared";
 
 const RELATED_COUNT = 3;
@@ -97,6 +98,7 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(graph) }} />
       <PageHero
+        art={service.slug}
         before={
           <nav
             aria-label={ui.breadcrumbAria}
@@ -256,8 +258,9 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
         </div>
       </section>
 
-      <section className="bg-panel py-24 text-white md:py-32">
-        <div className="mx-auto w-full max-w-4xl px-6 text-center">
+      <section className="relative overflow-hidden bg-panel py-24 text-white md:py-32">
+        <CtaArt />
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
           <h2 className="display text-4xl leading-[1.05] md:text-6xl">
             {copy?.cta?.heading ?? ui.cta.heading}
           </h2>

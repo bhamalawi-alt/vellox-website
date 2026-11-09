@@ -28,7 +28,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
   const ui = getUi(locale);
   return (
     <>
-      <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
+      <PageHero art="contact" eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
 
       <section className="bg-[#0a0a0a] pb-24 pt-4 text-white md:pb-32">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16">

@@ -8,6 +8,7 @@ import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { BASE, pageMeta } from "../../lib/seo";
+import { CtaArt } from "../CtaArt";
 import { breadcrumbLink, jsonLd, primaryCtaSoft, quietLink } from "./shared";
 
 export function articleParams() {
@@ -136,8 +137,9 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
         </div>
       </article>
 
-      <section className="bg-panel py-24 text-white md:py-32">
-        <div className="mx-auto w-full max-w-4xl px-6 text-center">
+      <section className="relative overflow-hidden bg-panel py-24 text-white md:py-32">
+        <CtaArt />
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
           <h2 className="display text-4xl leading-[1.05] md:text-6xl">{article.cta.heading}</h2>
           <p className="mx-auto mb-12 mt-6 max-w-[60ch] text-base leading-relaxed text-white/75 md:text-lg">
             {article.cta.body}

@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { BrandMark } from "./BrandLogo";
+import { HeroArt } from "./HeroArt";
+import { HeroLoop } from "./motion/HeroLoop";
 import { ShaderBackground } from "./motion/ShaderBackground";
 import { ProgressiveBlur } from "./ui/progressive-blur";
 import { StaggerText } from "./ui/stagger-text";
@@ -13,9 +15,12 @@ export function PageHero({
   before,
   after,
   shader = "interface",
+  art,
   titleAttrs,
   ledeAttrs,
 }: {
+  /** Artwork name in /public/art. When set it replaces the animated shader. */
+  art?: string;
   eyebrow?: ReactNode;
   title: string;
   lede?: ReactNode;
@@ -28,7 +33,21 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-[#0a0a0a] text-white">
-      <ShaderBackground src={shader} className="opacity-40" />
+      {art ? (
+        <>
+          <HeroArt name={art} mirrorRtl />
+          <HeroLoop name={`${art}-loop`} className="rtl:-scale-x-100" />
+          {/* Darken the side the text sits on so it stays readable. */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/55 to-transparent rtl:bg-gradient-to-l"
+          />
+          {/* On phones the text spans the full width, over the artwork: dim it further. */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[#0a0a0a]/40 md:hidden" />
+        </>
+      ) : (
+        <ShaderBackground src={shader} className="opacity-40" />
+      )}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-20 pt-36 md:pb-28 md:pt-44">
         {before}
         <BrandMark height={36} className="mb-8 h-9 w-auto opacity-90" />

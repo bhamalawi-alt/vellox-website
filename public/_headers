@@ -22,6 +22,9 @@
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 /uploads/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+# Hero artwork and loops (unhashed, replaced only when re-generated).
+/art/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 # CMS admin. Cloudflare Access guards the login; these headers keep it out of
 # search results and lift the site CSP, which would block the CMS script and

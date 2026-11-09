@@ -19,7 +19,7 @@ export function InsightsPage({ locale }: { locale: Locale }) {
   const articles = getArticles(locale);
   return (
     <>
-      <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
+      <PageHero art="insights" eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
 
       <section className="bg-bg py-20 text-ink md:py-28">
         <div className="mx-auto w-full max-w-6xl px-6">

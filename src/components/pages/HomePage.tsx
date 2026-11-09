@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShaderBackground } from "../motion/ShaderBackground";
+import { HeroLoop } from "../motion/HeroLoop";
 import { Reveal } from "../motion/Reveal";
 import { MagneticCta } from "../motion/MagneticCta";
 import { Marquee } from "../motion/Marquee";
 import { BrandMark } from "../BrandLogo";
+import { HeroArt } from "../HeroArt";
+import { CtaArt } from "../CtaArt";
 import { CaseStudyCard } from "../CaseStudyCard";
 import { HomeProof } from "../HomeProof";
 import { ArrowLink } from "../ui/arrow-link";
@@ -71,11 +73,14 @@ export function HomePage({ locale }: { locale: Locale }) {
   return (
     <>
       <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0a0a0a] text-white">
-        <ShaderBackground src="interface" className="opacity-50" />
+        <HeroArt name="home" />
+        <HeroLoop name="home-loop" />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_45%,rgba(10,10,10,0.55),transparent)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(75%_65%_at_50%_45%,rgba(10,10,10,0.8),rgba(10,10,10,0.25))]"
         />
+        {/* On phones the artwork sits right behind the headline: dim it further. */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[#0a0a0a]/50 md:hidden" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-6 pt-20 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
           <p>{COPY.hero.metaLeft}</p>
@@ -140,8 +145,14 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#0a0a0a] py-28 text-white md:py-36">
-        <ShaderBackground src="connectivity" className="opacity-30" />
+      <section className="relative overflow-hidden bg-[#0a0a0a] pb-80 pt-28 text-white md:pt-36">
+        <HeroArt name="statement" lazy className="object-bottom" />
+        <HeroLoop name="statement-loop" className="object-bottom" />
+        {/* Keep the text above the wave readable. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/70 to-transparent"
+        />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-6 text-center">
           <ScrollRevealText
             text={ui.statement.heading}
@@ -235,7 +246,8 @@ export function HomePage({ locale }: { locale: Locale }) {
       ) : null}
 
       <section className="relative overflow-hidden bg-panel py-28 text-white md:py-40">
-        <div className="mx-auto w-full max-w-5xl px-6 text-center">
+        <CtaArt />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-6 text-center">
           <h2 className="display text-4xl leading-[1.05] md:text-7xl">
             <StaggerText
               words={COPY.ctaBand.heading.split(" ").map((w) => ({ w }))}
