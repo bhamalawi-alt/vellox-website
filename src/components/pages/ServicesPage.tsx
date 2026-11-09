@@ -33,7 +33,7 @@ export function ServicesPage({ locale }: { locale: Locale }) {
   });
   return (
     <>
-      <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} shader="interface" />
+      <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} art="services" />
       <section className="bg-bg py-20 text-ink md:py-28" aria-labelledby="services-list">
         <div className="mx-auto w-full max-w-6xl px-6">
           <h2 id="services-list" className="sr-only">
