@@ -101,6 +101,7 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
             ? ui.updatedOn(formatDate(locale, article.updated))
             : ui.publishedOn(formatDate(locale, article.date))
         }
+        art={article.service}
         title={article.title}
         lede={article.description}
       />

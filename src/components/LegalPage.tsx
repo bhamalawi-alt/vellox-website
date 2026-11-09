@@ -20,7 +20,7 @@ export function LegalPage({
   const ui = getUi(locale);
   return (
     <>
-      <PageHero eyebrow={ui.legal} title={title} lede={ui.lastUpdated(updated)} />
+      <PageHero art="about" eyebrow={ui.legal} title={title} lede={ui.lastUpdated(updated)} />
       <section className="bg-bg py-20 text-ink md:py-28">
         <div className="mx-auto w-full max-w-6xl px-6">
           <div className="max-w-[68ch]">

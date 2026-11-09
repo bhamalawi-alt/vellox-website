@@ -104,6 +104,7 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
             <p className="mt-6 text-sm text-white/60">{ui.englishOnlyNote}</p>
           ) : null
         }
+        art="portfolio"
         title={project.title}
         lede={project.summary}
       />
