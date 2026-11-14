@@ -141,6 +141,43 @@ describe("insights articles", () => {
       }
     });
   });
+  // Market ranges, never the studio's own prices: every table is dated and
+  // says where its figures come from.
+  describe("price tables", () => {
+    const tables = (locale: "en" | "ar", slug: string) =>
+      getArticle(locale, slug)!.sections.flatMap((s) => (s.table ? [s.table] : []));
+    // Prices only: the first column is the label, which words numbers differently per language.
+    const figures = (rows: string[][]) => rows.map((r) => r.slice(1).join("|").match(/\d[\d,]*/g));
+    for (const [slug, shape] of [
+      ["how-much-does-a-website-cost", [[4, 5], [4, 2]]],
+      ["erpnext-cost", [[3, 9]]],
+    ] as const) {
+      it(`${slug}: the same tables, with the same figures, in both languages`, () => {
+        const en = tables("en", slug);
+        const ar = tables("ar", slug);
+        expect(en.map((t) => [t.head.length, t.rows.length])).toEqual(shape.map((x) => [...x]));
+        expect(ar.length).toBe(en.length);
+        en.forEach((table, i) => {
+          for (const t of [table, ar[i]]) {
+            for (const row of t.rows) expect(row.length).toBe(t.head.length);
+            expect(t.note!.length).toBeGreaterThan(40);
+          }
+          expect(figures(ar[i].rows)).toEqual(figures(table.rows));
+        });
+      });
+      it(`${slug}: dated as updated`, () => {
+        for (const locale of ["en", "ar"] as const) {
+          const article = getArticle(locale, slug)!;
+          expect(article.updated! > article.date).toBe(true);
+        }
+      });
+    }
+    it("says the ERPNext figures are partner estimates and that the work is priced per business", () => {
+      expect(tables("en", "erpnext-cost")[0].note).toMatch(/estimates/);
+      expect(tables("en", "erpnext-cost")[0].note).toMatch(/priced for each business/);
+      expect(tables("ar", "erpnext-cost")[0].note).toMatch(/تقديرات/);
+    });
+  });
   it("lists the website guides on the store and UX pages too", () => {
     for (const locale of ["en", "ar"] as const) {
       const store = getArticlesForService(locale, "ecommerce").map((a) => a.slug);

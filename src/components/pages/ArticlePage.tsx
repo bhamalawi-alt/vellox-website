@@ -67,6 +67,27 @@ function RichText({ text, locale }: { text: string; locale: Locale }) {
   return <>{parts}</>;
 }
 
+/**
+ * A table cell with its number ranges kept left to right. In Arabic text a
+ * range such as 900–1,500 would otherwise be drawn back to front.
+ */
+function Figures({ text }: { text: string }) {
+  const parts = text.split(/(\d[\d,.]*(?:–\d[\d,.]*)+)/);
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 ? (
+          <bdi key={i} dir="ltr">
+            {part}
+          </bdi>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  );
+}
+
 export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) {
   const article = getArticle(locale, slug);
   if (!article) notFound();
@@ -145,6 +166,43 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
                     </p>
                   ))}
                 </div>
+                {section.table ? (
+                  <figure className="mt-6">
+                    <div className="overflow-x-auto">
+                      <table className="w-full min-w-[34rem] border-collapse text-start text-sm md:text-base">
+                        <thead>
+                          <tr className="border-b border-ink">
+                            {section.table.head.map((cell) => (
+                              <th key={cell} scope="col" className="px-3 py-3 text-start font-medium first:ps-0">
+                                {cell}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {section.table.rows.map((row) => (
+                            <tr key={row[0]} className="border-b border-line align-top">
+                              {row.map((cell, i) =>
+                                i === 0 ? (
+                                  <th key={i} scope="row" className="py-3 pe-3 text-start font-normal">
+                                    {cell}
+                                  </th>
+                                ) : (
+                                  <td key={i} className="px-3 py-3 tabular-nums text-muted">
+                                    <Figures text={cell} />
+                                  </td>
+                                ),
+                              )}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    {section.table.note ? (
+                      <figcaption className="mt-3 text-sm leading-relaxed text-muted">{section.table.note}</figcaption>
+                    ) : null}
+                  </figure>
+                ) : null}
                 {section.list ? (
                   <ul className="mt-5 space-y-3 border-s-2 border-line ps-5">
                     {section.list.map((item, i) => (

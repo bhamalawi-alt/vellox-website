@@ -230,7 +230,7 @@ export const SERVICES: ServiceEntry[] = [
     metaDescription:
       "ERPNext implementation by a Frappe Partner for Libya and the Gulf: accounting, stock, sales and HR in one Arabic-ready system, set up around how you work.",
     intro: [
-      "For wellness, fintech, and F&B companies outgrowing spreadsheets and disconnected SaaS tools, Frappe/ERPNext puts Accounting, Inventory, CRM, and HR in one system you actually own.",
+      "For companies outgrowing spreadsheets and disconnected SaaS tools, Frappe/ERPNext puts Accounting, Inventory, CRM, and HR in one system you actually own.",
       "As a Frappe Partner we implement it around your processes — not the other way round — then customize where off-the-shelf falls short.",
     ],
     included: [

@@ -2,7 +2,10 @@
 // for. Each article exists in both languages under the same slug; the Arabic
 // is written for Arabic readers, not translated line by line. Articles only
 // state general, checkable facts and what the rest of the site already says:
-// no prices, no client claims.
+// no client claims, and never the studio's own prices. The website cost guide
+// and ERPNext cost guides carry published market ranges, dated and labelled as
+// such. ERPNext work itself is priced per business after scoping, and the
+// table's note says so.
 
 import type { Locale } from "../lib/i18n";
 
@@ -11,7 +14,9 @@ import type { Locale } from "../lib/i18n";
  * [the linked words](/insights/slug) or [words](/services/slug). The path is
  * the locale-less one; the page adds /ar when it renders Arabic.
  */
-export type ArticleSection = { heading: string; paragraphs: string[]; list?: string[] };
+export type ArticleTable = { head: string[]; rows: string[][]; note?: string };
+
+export type ArticleSection = { heading: string; paragraphs: string[]; list?: string[]; table?: ArticleTable };
 
 export const ARTICLE_LINK = /\[([^\]]+)\]\((\/[^)\s]+)\)/g;
 
@@ -112,6 +117,7 @@ const EN: Article[] = [
   {
     slug: "how-much-does-a-website-cost",
     date: PUBLISHED,
+    updated: "2026-11-15",
     service: "web-development",
     category: "Web",
     title: "How much does a website cost? What actually drives the price",
@@ -138,6 +144,35 @@ const EN: Article[] = [
           "Features: [online payments](/services/ecommerce), bookings, member areas or integrations with other systems",
           "Content: who writes the copy and who provides the photos",
         ],
+      },
+      {
+        heading: "Typical market ranges in Libya, Saudi Arabia and the UAE",
+        paragraphs: [
+          "These are ranges published by agencies and platforms in each country, collected in November 2026. They are market figures, not our price list: your quote depends on the six things above.",
+        ],
+        table: {
+          head: ["What you are buying", "Libya (LYD)", "Saudi Arabia (SAR)", "UAE (AED)"],
+          rows: [
+            ["Template website", "900–1,500", "2,000–7,000", "1,000–4,500"],
+            ["Custom company website, Arabic and English, editable", "1,300–4,000 and up", "8,000–25,000", "6,000–18,000"],
+            ["Online store on Shopify, Salla or Zid", "1,700–3,500 and up", "7,000–25,000", "3,000–15,000"],
+            ["Custom online store", "Quoted per project", "20,000–60,000", "18,000–50,000"],
+            ["Maintenance, per month", "From about 400", "From about 2,000", "300–3,000"],
+          ],
+          note: "Libya has few published price lists, so its ranges rest on a small number of local agencies. UAE figures exclude 5% VAT.",
+        },
+      },
+      {
+        heading: "If you need a brand identity too",
+        paragraphs: ["Many new websites start with a logo or a brand identity. These are the published ranges for that work in the Gulf:"],
+        table: {
+          head: ["What you are buying", "Libya", "Saudi Arabia (SAR)", "UAE (AED)"],
+          rows: [
+            ["Logo only", "Quoted per project", "750–12,000", "1,000–15,000"],
+            ["Full brand identity with guidelines", "Quoted per project", "3,500–18,000", "8,500–40,000"],
+          ],
+          note: "Libyan studios do not publish identity prices. The ranges are for studio-level work; large agencies charge more. Collected November 2026.",
+        },
       },
       {
         heading: "Costs people forget",
@@ -428,6 +463,7 @@ const EN: Article[] = [
   {
     slug: "erpnext-cost",
     date: "2026-11-08",
+    updated: "2026-11-15",
     service: "erp-implementation",
     category: "ERP",
     title: "How much does ERPNext cost? Licence, hosting and implementation",
@@ -493,6 +529,27 @@ const EN: Article[] = [
         paragraphs: [
           "Your own team's time is the hidden cost: someone has to clean data, answer questions about how you work, and test the system before go-live. Budget for running the old and new systems side by side for a short period, and for any hardware such as barcode scanners, label printers or point-of-sale equipment.",
         ],
+      },
+      {
+        heading: "Typical cost ranges",
+        paragraphs: [
+          "The figures below combine Frappe's published prices with ranges that ERPNext partners publish. Use them to size a budget, not as a quote.",
+        ],
+        table: {
+          head: ["Cost", "USD", "SAR"],
+          rows: [
+            ["ERPNext licence", "0", "0"],
+            ["Frappe Cloud shared hosting, per month", "From 5", "From about 19"],
+            ["Frappe Cloud server, per month", "From 20–40", "From about 75–150"],
+            ["Your own server (2 CPUs, 4 GB), per month", "Up to about 24", "Up to about 90"],
+            ["Small implementation: accounts and stock, under 20 users", "2,000–12,000", "7,500–45,000"],
+            ["Medium implementation: adds manufacturing or HR", "12,000–25,000", "45,000–94,000"],
+            ["Large or heavily customised implementation", "25,000–75,000 and up", "94,000–281,000 and up"],
+            ["Support plan, per month", "200–1,000", "750–3,750"],
+            ["ZATCA e-invoicing", "Free community app; paid builds from about 800–1,000", "Paid builds from about 3,000–3,750"],
+          ],
+          note: "Hosting prices are Frappe's published entry prices. Implementation and support ranges are estimates published by ERPNext partners, not verified market data and not our price list: ERPNext work is priced for each business once its processes and timeline are scoped. Collected November 2026.",
+        },
       },
       {
         heading: "How to keep the cost under control",
@@ -592,6 +649,7 @@ const AR: Article[] = [
   {
     slug: "how-much-does-a-website-cost",
     date: PUBLISHED,
+    updated: "2026-11-15",
     service: "web-development",
     category: "المواقع",
     title: "كم تكلفة تصميم موقع إلكتروني؟ ما الذي يحدد السعر فعلًا",
@@ -618,6 +676,35 @@ const AR: Article[] = [
           "الخصائص: [الدفع الإلكتروني](/services/ecommerce) أو الحجوزات أو مناطق الأعضاء أو الربط مع أنظمة أخرى",
           "المحتوى: من يكتب النصوص ومن يوفّر الصور",
         ],
+      },
+      {
+        heading: "نطاقات الأسعار المعتادة في ليبيا والسعودية والإمارات",
+        paragraphs: [
+          "هذه نطاقات نشرتها وكالات ومنصات في كل بلد، وجُمعت في نوفمبر 2026. وهي أرقام السوق لا قائمة أسعارنا: عرضك يعتمد على العوامل الست أعلاه.",
+        ],
+        table: {
+          head: ["ما الذي تشتريه", "ليبيا (دينار)", "السعودية (ريال)", "الإمارات (درهم)"],
+          rows: [
+            ["موقع بقالب جاهز", "900–1,500", "2,000–7,000", "1,000–4,500"],
+            ["موقع شركة بتصميم خاص، عربي وإنجليزي، قابل للتعديل", "1,300–4,000 فأكثر", "8,000–25,000", "6,000–18,000"],
+            ["متجر إلكتروني على Shopify أو سلة أو زد", "1,700–3,500 فأكثر", "7,000–25,000", "3,000–15,000"],
+            ["متجر إلكتروني مخصص", "يُسعَّر بحسب المشروع", "20,000–60,000", "18,000–50,000"],
+            ["الصيانة شهريًا", "من نحو 400", "من نحو 2,000", "300–3,000"],
+          ],
+          note: "قوائم الأسعار المنشورة في ليبيا قليلة، فنطاقاتها مبنية على عدد محدود من الوكالات المحلية. وأرقام الإمارات لا تشمل ضريبة القيمة المضافة (5%).",
+        },
+      },
+      {
+        heading: "وإن احتجت هوية بصرية أيضًا",
+        paragraphs: ["كثير من المواقع الجديدة تبدأ بشعار أو هوية بصرية. وهذه النطاقات المنشورة لها في الخليج:"],
+        table: {
+          head: ["ما الذي تشتريه", "ليبيا", "السعودية (ريال)", "الإمارات (درهم)"],
+          rows: [
+            ["شعار فقط", "يُسعَّر بحسب المشروع", "750–12,000", "1,000–15,000"],
+            ["هوية بصرية كاملة مع دليل الاستخدام", "يُسعَّر بحسب المشروع", "3,500–18,000", "8,500–40,000"],
+          ],
+          note: "لا تنشر الاستوديوهات الليبية أسعار الهوية البصرية. والنطاقات لأعمال على مستوى الاستوديوهات، أما الوكالات الكبرى فتتقاضى أكثر. جُمعت في نوفمبر 2026.",
+        },
       },
       {
         heading: "تكاليف ينساها الناس",
@@ -908,6 +995,7 @@ const AR: Article[] = [
   {
     slug: "erpnext-cost",
     date: "2026-11-08",
+    updated: "2026-11-15",
     service: "erp-implementation",
     category: "أنظمة ERP",
     title: "كم تكلفة نظام ERPNext؟ الترخيص والاستضافة والتطبيق بالتفصيل",
@@ -971,6 +1059,27 @@ const AR: Article[] = [
         paragraphs: [
           "وقت فريقك هو التكلفة الخفية: لا بد أن ينظّف أحدهم البيانات، ويجيب عن أسئلة طريقة العمل، ويختبر النظام قبل التشغيل. وخصّص ميزانية لتشغيل النظامين القديم والجديد معًا لفترة قصيرة، ولأي أجهزة مثل قارئات الباركود وطابعات الملصقات وأجهزة نقاط البيع.",
         ],
+      },
+      {
+        heading: "نطاقات التكلفة المعتادة",
+        paragraphs: [
+          "تجمع الأرقام التالية أسعار Frappe المنشورة مع نطاقات ينشرها شركاء ERPNext. استخدمها لتكوين تصور عن الميزانية لا كعرض سعر.",
+        ],
+        table: {
+          head: ["البند", "بالدولار", "بالريال السعودي"],
+          rows: [
+            ["ترخيص ERPNext", "0", "0"],
+            ["استضافة مشتركة على Frappe Cloud، شهريًا", "من 5", "من نحو 19"],
+            ["خادم على Frappe Cloud، شهريًا", "من 20–40", "من نحو 75–150"],
+            ["خادمك الخاص (معالجان و4 غيغابايت)، شهريًا", "حتى نحو 24", "حتى نحو 90"],
+            ["تطبيق صغير: الحسابات والمخزون، أقل من 20 مستخدمًا", "2,000–12,000", "7,500–45,000"],
+            ["تطبيق متوسط: يضيف التصنيع أو الموارد البشرية", "12,000–25,000", "45,000–94,000"],
+            ["تطبيق كبير أو بتخصيص واسع", "25,000–75,000 فأكثر", "94,000–281,000 فأكثر"],
+            ["خطة الدعم، شهريًا", "200–1,000", "750–3,750"],
+            ["الربط مع هيئة الزكاة", "تطبيق مجتمعي مجاني، والتنفيذ المدفوع من نحو 800–1,000", "التنفيذ المدفوع من نحو 3,000–3,750"],
+          ],
+          note: "أسعار الاستضافة هي أسعار البداية المنشورة من Frappe. أما نطاقات التطبيق والدعم فهي تقديرات ينشرها شركاء ERPNext، وليست بيانات سوق موثقة ولا قائمة أسعارنا: يُسعَّر تطبيق ERPNext لكل شركة بعد تحديد إجراءاتها ومدة التنفيذ. جُمعت في نوفمبر 2026.",
+        },
       },
       {
         heading: "كيف تبقي التكلفة تحت السيطرة؟",

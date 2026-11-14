@@ -95,7 +95,7 @@ export const UI = {
   },
   globeBand: {
     heading: "Working remotely with companies across Libya and the Gulf.",
-    body: "Wellness, fintech, and F&B founders — from positioning to production.",
+    body: "Founders and growing companies — from positioning to production.",
   },
   statement: {
     heading: "One accountable team across strategy, design, and engineering.",
@@ -105,7 +105,7 @@ export const UI = {
     operating: "Operating",
     focus: "Focus",
     operatingValue: "Remote · Libya · Gulf",
-    focusValue: "Wellness · Fintech · F&B",
+    focusValue: "Brand · Web · ERPNext",
   },
 };
 
