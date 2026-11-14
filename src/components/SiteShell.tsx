@@ -25,6 +25,9 @@ function orgJsonLd(locale: Locale) {
         "@type": "Organization",
         "@id": `${BASE}/#organization`,
         name: "Vellox Studio",
+        // The two ways the name is written in Arabic, so a search for either
+        // is understood as this studio. Names only: never search phrases.
+        alternateName: ["فيلوكس ستوديو", "فيلوكس استوديو"],
         url: `${BASE}/`,
         logo: `${BASE}/icon-512.png`,
         description: site.TAGLINE,
