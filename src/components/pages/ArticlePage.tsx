@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "../PageHero";
 import { ArrowLink } from "../ui/arrow-link";
-import { ARTICLE_SLUGS, getArticle } from "../../content/articles";
+import { ARTICLE_SLUGS, getArticle, getRelatedArticles } from "../../content/articles";
 import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
@@ -54,6 +54,7 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
   const href = (path: string) => localePath(locale, path);
   const glyph = arrow(locale);
   const url = BASE + href(`/insights/${article.slug}`);
+  const related = getRelatedArticles(locale, article.slug);
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
@@ -104,6 +105,7 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
         art={article.service}
         title={article.title}
         lede={article.description}
+        cta={{ href: href("/contact"), label: site.CTA_ITEM.label, glyph }}
       />
 
       <article className="bg-bg py-20 text-ink md:py-28">
@@ -134,6 +136,27 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
             <ArrowLink href={href(`/services/${article.service}`)} className="text-sm uppercase tracking-[0.12em] text-ink">
               {article.cta.label}
             </ArrowLink>
+
+            {related.length ? (
+              <nav aria-label={ui.moreGuides} className="mt-16">
+                <h2 className="display mb-6 text-2xl md:text-3xl">{ui.moreGuides}</h2>
+                <ul className="border-t border-line">
+                  {related.map((guide) => (
+                    <li key={guide.slug} className="border-b border-line">
+                      <Link
+                        href={href(`/insights/${guide.slug}`)}
+                        className="group flex flex-col gap-2 py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+                      >
+                        <span className="display text-lg md:text-xl">{guide.title}</span>
+                        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted group-hover:text-ink">
+                          {ui.readArticle} <span aria-hidden="true">{glyph}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
           </div>
         </div>
       </article>

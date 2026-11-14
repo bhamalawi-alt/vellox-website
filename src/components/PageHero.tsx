@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { BrandMark } from "./BrandLogo";
 import { HeroArt } from "./HeroArt";
 import { HeroLoop } from "./motion/HeroLoop";
@@ -14,6 +15,7 @@ export function PageHero({
   lede,
   before,
   after,
+  cta,
   shader = "interface",
   art,
   titleAttrs,
@@ -26,6 +28,8 @@ export function PageHero({
   lede?: ReactNode;
   before?: ReactNode;
   after?: ReactNode;
+  /** Shown under the intro on phones only, where the header has just the menu button. */
+  cta?: { href: string; label: string; glyph: string };
   shader?: ShaderName;
   /** lang/dir overrides for text that fell back to another language. */
   titleAttrs?: { lang?: string; dir?: "ltr" | "rtl" };
@@ -66,6 +70,14 @@ export function PageHero({
           <p {...ledeAttrs} className="mt-8 max-w-[60ch] text-base leading-relaxed text-white/75 md:text-lg">
             {lede}
           </p>
+        ) : null}
+        {cta ? (
+          <Link
+            href={cta.href}
+            className="mt-8 inline-flex h-12 items-center gap-3 rounded-full bg-white px-7 text-sm uppercase tracking-[0.12em] text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:hidden"
+          >
+            {cta.label} <span aria-hidden="true">{cta.glyph}</span>
+          </Link>
         ) : null}
         {after}
       </div>

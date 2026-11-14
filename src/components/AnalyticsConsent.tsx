@@ -119,9 +119,9 @@ export function AnalyticsConsent({ locale }: { locale: Locale }) {
       {open ? (
         <section
           aria-label={ui.aria}
-          className="fixed inset-x-4 bottom-4 z-50 rounded-2xl border border-white/10 bg-[#0a0a0a] p-5 text-white shadow-2xl shadow-black/40 print:hidden md:inset-x-auto md:start-8 md:bottom-8 md:max-w-md"
+          className="fixed inset-x-3 bottom-3 z-50 rounded-2xl border border-white/10 bg-[#0a0a0a] p-3.5 text-white shadow-2xl shadow-black/40 print:hidden md:inset-x-auto md:start-8 md:bottom-8 md:max-w-md md:p-5"
         >
-          <p className="text-sm leading-relaxed text-white/85">
+          <p className="text-[13px] leading-snug text-white/85 md:text-sm md:leading-relaxed">
             {ui.text}{" "}
             <Link
               href={localePath(locale, "/privacy")}
@@ -130,7 +130,7 @@ export function AnalyticsConsent({ locale }: { locale: Locale }) {
               {getUi(locale).form.privacyLink}
             </Link>
           </p>
-          <div className="mt-4 flex gap-3">
+          <div className="mt-3 flex gap-3 md:mt-4">
             <button
               type="button"
               onClick={() => choose("granted")}

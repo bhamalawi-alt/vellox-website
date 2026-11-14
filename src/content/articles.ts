@@ -995,9 +995,26 @@ export function getArticle(locale: Locale, slug: string): Article | undefined {
   return BY_LOCALE[locale].find((a) => a.slug === slug);
 }
 
-/** The guides that lead to a service page, for its "related guides" block. */
+// Guides that are also useful on a second service page, besides the one they
+// lead to: the two website guides apply to stores, and choosing an agency
+// covers how its design process works.
+const ALSO_FOR: Record<string, string[]> = {
+  "how-much-does-a-website-cost": ["ecommerce"],
+  "how-to-choose-a-web-design-company": ["ecommerce", "user-experience-design"],
+};
+
+/** The guides shown on a service page, in its "related guides" block. */
 export function getArticlesForService(locale: Locale, service: string): Article[] {
-  return BY_LOCALE[locale].filter((article) => article.service === service);
+  return BY_LOCALE[locale].filter(
+    (article) => article.service === service || ALSO_FOR[article.slug]?.includes(service),
+  );
+}
+
+/** Up to three other guides on the same subject, for the end of a guide. */
+export function getRelatedArticles(locale: Locale, slug: string): Article[] {
+  const article = getArticle(locale, slug);
+  if (!article) return [];
+  return BY_LOCALE[locale].filter((a) => a.slug !== slug && a.service === article.service).slice(0, 3);
 }
 
 export const ARTICLE_SLUGS = EN.map((a) => a.slug);

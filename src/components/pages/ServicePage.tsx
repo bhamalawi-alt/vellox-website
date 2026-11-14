@@ -114,6 +114,7 @@ export function ServicePage({ locale, slug }: { locale: Locale; slug: string }) 
         eyebrow={`/ ${String(service.index).padStart(2, "0")} · ${service.count}`}
         title={service.heading}
         lede={service.tagline}
+        cta={{ href: href("/contact"), label: site.CTA_ITEM.label, glyph }}
         after={
           isErp ? (
             <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/80">

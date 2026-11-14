@@ -32,6 +32,16 @@ describe("worker", () => {
     expect(served).toContain("https://www.velloxstudio.com/contact");
   });
 
+  // The assets layer answers /about/ with a temporary 307 to /about.
+  it("makes the trailing-slash redirect permanent", async () => {
+    const slashEnv = {
+      ASSETS: { fetch: async () => new Response(null, { status: 307, headers: { Location: "/about" } }) },
+    };
+    const response = await worker.fetch(new Request("https://www.velloxstudio.com/about/"), slashEnv);
+    expect(response.status).toBe(301);
+    expect(response.headers.get("location")).toBe("/about");
+  });
+
   it("serves other hosts, such as the workers.dev preview, unchanged", async () => {
     const response = await worker.fetch(new Request("https://round-math-59b4.example.workers.dev/"), env);
     expect(response.status).toBe(200);

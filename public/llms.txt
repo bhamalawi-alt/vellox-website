@@ -33,6 +33,27 @@ Contact: info@velloxstudio.com · WhatsApp +20 105 521 2405 · https://www.vello
 - [الصفحة الرئيسية بالعربية](https://www.velloxstudio.com/ar)
 - [خدماتنا](https://www.velloxstudio.com/ar/services)
 - [مقالات](https://www.velloxstudio.com/ar/insights)
+- [الأعمال](https://www.velloxstudio.com/ar/portfolio)
+
+### الخدمات بالعربية
+
+- [استراتيجية العلامة التجارية](https://www.velloxstudio.com/ar/services/brand-strategy)
+- [الهوية البصرية](https://www.velloxstudio.com/ar/services/brand-identity)
+- [تصميم تجربة المستخدم](https://www.velloxstudio.com/ar/services/user-experience-design)
+- [تطوير المواقع](https://www.velloxstudio.com/ar/services/web-development)
+- [المتاجر الإلكترونية](https://www.velloxstudio.com/ar/services/ecommerce)
+- [تطبيقات الويب والجوال](https://www.velloxstudio.com/ar/services/web-mobile-applications)
+- [تنفيذ نظام ERPNext](https://www.velloxstudio.com/ar/services/erp-implementation)
+- [المحتوى البصري](https://www.velloxstudio.com/ar/services/visual-content)
+
+### الأدلة بالعربية
+
+- [ما هو نظام ERP؟ دليل مبسّط للشركات النامية](https://www.velloxstudio.com/ar/insights/what-is-an-erp-system)
+- [كم تكلفة تصميم موقع إلكتروني؟](https://www.velloxstudio.com/ar/insights/how-much-does-a-website-cost)
+- [ERPNext بالعربي: هل يناسب الشركات في ليبيا والخليج؟](https://www.velloxstudio.com/ar/insights/erpnext-in-arabic)
+- [كيف تختار شركة تصميم مواقع](https://www.velloxstudio.com/ar/insights/how-to-choose-a-web-design-company)
+- [الفوترة الإلكترونية مع ERPNext: الربط مع هيئة الزكاة (فاتورة)](https://www.velloxstudio.com/ar/insights/erpnext-zatca-e-invoicing)
+- [كم تكلفة نظام ERPNext؟](https://www.velloxstudio.com/ar/insights/erpnext-cost)
 
 ## Optional
 

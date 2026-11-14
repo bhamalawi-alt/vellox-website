@@ -15,7 +15,14 @@ const worker = {
       url.protocol = "https:";
       return Response.redirect(url.toString(), 301);
     }
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    // The assets layer sends /about/ to /about with a temporary 307. The move
+    // is permanent, so say so: search engines then keep only the short URL.
+    const location = response.headers.get("Location");
+    if (response.status === 307 && location) {
+      return new Response(null, { status: 301, headers: { Location: location } });
+    }
+    return response;
   },
 };
 

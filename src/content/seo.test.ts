@@ -3,7 +3,7 @@ import { getServices } from "./services";
 import { aboutCopy, contactCopy, homeCopy, portfolioCopy, servicesIndexCopy } from "./pages";
 import type { Locale } from "../lib/i18n";
 import { getFaq } from "./faq";
-import { getArticle, getArticles, getArticlesForService } from "./articles";
+import { getArticle, getArticles, getArticlesForService, getRelatedArticles } from "./articles";
 import { getUi } from "./ui";
 
 // Search-result limits: Google cuts titles after about 60 characters and
@@ -98,8 +98,30 @@ describe("insights articles", () => {
   it("lists no guides for a service no article leads to", () => {
     expect(getArticlesForService("en", "visual-content")).toEqual([]);
   });
+  // Guides used to link only to one service page, never to each other.
+  for (const locale of ["en", "ar"] as const) {
+    for (const article of getArticles(locale)) {
+      it(`${locale} ${article.slug}: links to other guides on the same subject`, () => {
+        const related = getRelatedArticles(locale, article.slug);
+        expect(related.length).toBeGreaterThanOrEqual(1);
+        expect(related.length).toBeLessThanOrEqual(3);
+        expect(related.map((a) => a.slug)).not.toContain(article.slug);
+        for (const other of related) expect(other.service).toBe(article.service);
+      });
+    }
+  }
+  it("lists the website guides on the store and UX pages too", () => {
+    for (const locale of ["en", "ar"] as const) {
+      const store = getArticlesForService(locale, "ecommerce").map((a) => a.slug);
+      expect(store).toContain("how-much-does-a-website-cost");
+      expect(store).toContain("how-to-choose-a-web-design-company");
+      expect(getArticlesForService(locale, "user-experience-design").map((a) => a.slug)).toEqual([
+        "how-to-choose-a-web-design-company",
+      ]);
+    }
+  });
   it("has the article UI strings in both languages", () => {
-    for (const key of ["articlesHeading", "upcomingHeading", "readArticle", "publishedOn", "updatedOn", "relatedGuides"] as const) {
+    for (const key of ["articlesHeading", "readArticle", "publishedOn", "updatedOn", "relatedGuides", "moreGuides"] as const) {
       expect(String(getUi("en")[key]).length).toBeGreaterThan(0);
       expect(String(getUi("ar")[key])).not.toBe(String(getUi("en")[key]));
     }

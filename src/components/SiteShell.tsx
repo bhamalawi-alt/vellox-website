@@ -16,6 +16,7 @@ import { getUi } from "../content/ui";
 // <html> element (lang, dir, fonts) and renders this inside it.
 function orgJsonLd(locale: Locale) {
   const site = getSite(locale);
+  const home = locale === "ar" ? "/ar" : "/";
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -46,9 +47,10 @@ function orgJsonLd(locale: Locale) {
       },
       {
         "@type": "WebSite",
-        "@id": `${BASE}/#website`,
+        // The Arabic site is its own WebSite node, so the two do not collide.
+        "@id": `${BASE}${home}#website`,
         name: "Vellox Studio",
-        url: `${BASE}/`,
+        url: `${BASE}${home}`,
         inLanguage: locale,
         publisher: { "@id": `${BASE}/#organization` },
       },
