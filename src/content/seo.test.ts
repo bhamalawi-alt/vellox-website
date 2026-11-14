@@ -3,7 +3,7 @@ import { getServices } from "./services";
 import { aboutCopy, contactCopy, homeCopy, portfolioCopy, servicesIndexCopy } from "./pages";
 import type { Locale } from "../lib/i18n";
 import { getFaq } from "./faq";
-import { getArticle, getArticles, getArticlesForService, getRelatedArticles } from "./articles";
+import { articleLinks, getArticle, getArticles, getArticlesForService, getRelatedArticles } from "./articles";
 import { getUi } from "./ui";
 
 // Search-result limits: Google cuts titles after about 60 characters and
@@ -110,6 +110,37 @@ describe("insights articles", () => {
       });
     }
   }
+  // Links inside the guide text, written as [words](/path) in a paragraph.
+  describe("links inside guide text", () => {
+    const targets = new Set([
+      ...getArticles("en").map((a) => `/insights/${a.slug}`),
+      ...getServices("en").map((s) => `/services/${s.slug}`),
+    ]);
+    for (const locale of ["en", "ar"] as const) {
+      for (const article of getArticles(locale)) {
+        it(`${locale} ${article.slug}: at least two links, all to real pages, none to itself`, () => {
+          const links = articleLinks(article);
+          expect(links.length).toBeGreaterThanOrEqual(2);
+          for (const href of links) expect(targets.has(href)).toBe(true);
+          expect(links).not.toContain(`/insights/${article.slug}`);
+        });
+      }
+    }
+    it("links to the same pages in both languages", () => {
+      for (const article of getArticles("en")) {
+        expect(articleLinks(getArticle("ar", article.slug)!).sort()).toEqual(articleLinks(article).sort());
+      }
+    });
+    it("leaves no link markup in the plain-text fields", () => {
+      for (const locale of ["en", "ar"] as const) {
+        for (const a of getArticles(locale)) {
+          for (const text of [a.title, a.description, a.intro, a.cta.heading, a.cta.body, ...a.sections.map((x) => x.heading)]) {
+            expect(text).not.toMatch(/\]\(/);
+          }
+        }
+      }
+    });
+  });
   it("lists the website guides on the store and UX pages too", () => {
     for (const locale of ["en", "ar"] as const) {
       const store = getArticlesForService(locale, "ecommerce").map((a) => a.slug);

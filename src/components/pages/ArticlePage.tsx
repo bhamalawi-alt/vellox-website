@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import type React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "../PageHero";
 import { ArrowLink } from "../ui/arrow-link";
-import { ARTICLE_SLUGS, getArticle, getRelatedArticles } from "../../content/articles";
+import { ARTICLE_LINK, ARTICLE_SLUGS, getArticle, getRelatedArticles } from "../../content/articles";
 import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
@@ -43,6 +44,27 @@ function formatDate(locale: Locale, iso: string) {
     month: "long",
     year: "numeric",
   }).format(new Date(`${iso}T00:00:00Z`));
+}
+
+/** Guide text with its [words](/path) links turned into real links. */
+function RichText({ text, locale }: { text: string; locale: Locale }) {
+  const parts: React.ReactNode[] = [];
+  let last = 0;
+  for (const match of text.matchAll(ARTICLE_LINK)) {
+    if (match.index > last) parts.push(text.slice(last, match.index));
+    parts.push(
+      <Link
+        key={match.index}
+        href={localePath(locale, match[2])}
+        className="text-ink underline decoration-line underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+      >
+        {match[1]}
+      </Link>,
+    );
+    last = match.index + match[0].length;
+  }
+  parts.push(text.slice(last));
+  return <>{parts}</>;
 }
 
 export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) {
@@ -116,17 +138,18 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
               <section key={section.heading} className="mb-12 border-t border-line pt-8">
                 <h2 className="display mb-5 text-2xl md:text-3xl">{section.heading}</h2>
                 <div className="space-y-4">
-                  {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph.slice(0, 48)} className="text-base leading-relaxed text-muted md:text-lg">
-                      {paragraph}
+                  {section.paragraphs.map((paragraph, i) => (
+                    // Index keys: the text can hold link markup, and the lists never reorder.
+                    <p key={i} className="text-base leading-relaxed text-muted md:text-lg">
+                      <RichText text={paragraph} locale={locale} />
                     </p>
                   ))}
                 </div>
                 {section.list ? (
                   <ul className="mt-5 space-y-3 border-s-2 border-line ps-5">
-                    {section.list.map((item) => (
-                      <li key={item} className="text-base leading-relaxed md:text-lg">
-                        {item}
+                    {section.list.map((item, i) => (
+                      <li key={i} className="text-base leading-relaxed md:text-lg">
+                        <RichText text={item} locale={locale} />
                       </li>
                     ))}
                   </ul>

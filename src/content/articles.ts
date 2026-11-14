@@ -6,7 +6,20 @@
 
 import type { Locale } from "../lib/i18n";
 
+/**
+ * Paragraphs and list items may link to another page of the site by writing
+ * [the linked words](/insights/slug) or [words](/services/slug). The path is
+ * the locale-less one; the page adds /ar when it renders Arabic.
+ */
 export type ArticleSection = { heading: string; paragraphs: string[]; list?: string[] };
+
+export const ARTICLE_LINK = /\[([^\]]+)\]\((\/[^)\s]+)\)/g;
+
+/** Every path a guide links to from inside its text. */
+export function articleLinks(article: Article): string[] {
+  const texts = article.sections.flatMap((s) => [...s.paragraphs, ...(s.list ?? [])]);
+  return texts.flatMap((text) => [...text.matchAll(ARTICLE_LINK)].map((m) => m[2]));
+}
 
 export type Article = {
   slug: string;
@@ -68,7 +81,7 @@ const EN: Article[] = [
         heading: "Cloud or on your own server, open source or licensed",
         paragraphs: [
           "Modern ERPs run either in the cloud or on a server you control. Cloud is faster to start and needs no IT team; your own server gives you full control over your data and where it is stored.",
-          "Licensed systems charge per user, every year. Open-source systems such as ERPNext have no licence fee for the software itself, so the cost goes into setting it up properly around your processes, hosting and support.",
+          "Licensed systems charge per user, every year. [Open-source systems such as ERPNext](/insights/erpnext-in-arabic) have no licence fee for the software itself, so [the cost goes into setting it up properly](/insights/erpnext-cost) around your processes, hosting and support.",
         ],
       },
       {
@@ -122,7 +135,7 @@ const EN: Article[] = [
           "Custom design or a template: custom design takes research, layout and several rounds of review",
           "Languages: a proper Arabic and English site needs right-to-left layouts, not just translated text",
           "Content management: whether your team can update pages, projects and articles without a developer",
-          "Features: online payments, bookings, member areas or integrations with other systems",
+          "Features: [online payments](/services/ecommerce), bookings, member areas or integrations with other systems",
           "Content: who writes the copy and who provides the photos",
         ],
       },
@@ -137,7 +150,7 @@ const EN: Article[] = [
         heading: "How to compare quotes fairly",
         paragraphs: [
           "Send every studio the same brief: your goals, the pages you need, the languages, and examples of sites you like. Then compare the proposals line by line, not by the total.",
-          "A good proposal lists the deliverables, the timeline, how many design revisions are included, who owns the site at the end, and what happens after launch.",
+          "A good proposal lists the deliverables, the timeline, how many design revisions are included, [who owns the site at the end, and what happens after launch](/insights/how-to-choose-a-web-design-company).",
         ],
       },
       {
@@ -173,7 +186,7 @@ const EN: Article[] = [
       {
         heading: "What ERPNext is",
         paragraphs: [
-          "ERPNext is an open-source ERP built on the Frappe framework. It covers accounting, buying, selling, stock, manufacturing, projects, HR and payroll, CRM and a customer portal, all in one system.",
+          "ERPNext is an [open-source ERP](/insights/what-is-an-erp-system) built on the Frappe framework. It covers accounting, buying, selling, stock, manufacturing, projects, HR and payroll, CRM and a customer portal, all in one system.",
           "It runs in a web browser, on a computer or a phone, so there is nothing to install on each employee's machine.",
         ],
       },
@@ -181,7 +194,7 @@ const EN: Article[] = [
         heading: "Is ERPNext free?",
         paragraphs: [
           "The software is free. ERPNext is released under the GNU GPL licence, so there is no licence fee and no charge per user for the software itself, whether you have five users or five hundred.",
-          "What you pay for is everything around it: hosting, setting it up for your company, moving your data, training, and support after go-live. Those costs depend on how many modules you use and how much needs to be customised, not on your number of users.",
+          "[What you pay for is everything around it](/insights/erpnext-cost): hosting, setting it up for your company, moving your data, training, and support after go-live. Those costs depend on how many modules you use and how much needs to be customised, not on your number of users.",
         ],
       },
       {
@@ -202,7 +215,7 @@ const EN: Article[] = [
       {
         heading: "E-invoicing in Saudi Arabia and the Gulf",
         paragraphs: [
-          "Saudi Arabia's e-invoicing system, FATOORA, is run by the Zakat, Tax and Customs Authority (ZATCA). Its first phase, from December 2021, requires invoices to be issued electronically in an approved format. Its second phase connects invoicing systems directly to ZATCA's platform and is being applied to businesses in waves.",
+          "[Saudi Arabia's e-invoicing system, FATOORA](/insights/erpnext-zatca-e-invoicing), is run by the Zakat, Tax and Customs Authority (ZATCA). Its first phase, from December 2021, requires invoices to be issued electronically in an approved format. Its second phase connects invoicing systems directly to ZATCA's platform and is being applied to businesses in waves.",
           "ERPNext meets these rules through apps built for it by the Frappe community and partners, which add the required QR codes, invoice formats and the connection to ZATCA. The UAE has announced its own e-invoicing programme, introduced in phases, and other Gulf countries are moving in the same direction.",
           "Rules and deadlines change, so check with your tax adviser which phase applies to your company, and make sure your implementation partner sets it up and tests it before go-live.",
         ],
@@ -278,13 +291,13 @@ const EN: Article[] = [
       {
         heading: "1. Can you show work similar to ours?",
         paragraphs: [
-          "Ask for projects in your sector or of similar size and complexity, and open the live sites on your phone. Check that they load quickly and are easy to use, not just that the screenshots look good.",
+          "Ask for projects in your sector or of similar size and complexity, and open the live sites on your phone. Check that they load quickly and are [easy to use](/services/user-experience-design), not just that the screenshots look good.",
         ],
       },
       {
         heading: "2. How do you handle Arabic and English?",
         paragraphs: [
-          "A bilingual site needs proper right-to-left layouts, Arabic typography and separate pages for each language so both can rank on Google. Ask to see an Arabic site they built, and check the Arabic version on a phone.",
+          "[A bilingual site](/services/web-development) needs proper right-to-left layouts, Arabic typography and separate pages for each language so both can rank on Google. Ask to see an Arabic site they built, and check the Arabic version on a phone.",
         ],
       },
       {
@@ -314,7 +327,7 @@ const EN: Article[] = [
       {
         heading: "7. What happens after launch?",
         paragraphs: [
-          "Ask about hosting, security updates, backups and how quickly they respond to problems, and what that costs per month or per year.",
+          "Ask about hosting, security updates, backups and how quickly they respond to problems, and [what that costs](/insights/how-much-does-a-website-cost) per month or per year.",
         ],
       },
       {
@@ -388,14 +401,14 @@ const EN: Article[] = [
       {
         heading: "Arabic invoices and the details that matter",
         paragraphs: [
-          "Tax invoices in Saudi Arabia must be in Arabic, and can also show another language. ERPNext's print formats can show Arabic and English side by side, with the seller and buyer VAT numbers, the VAT breakdown and the QR code where ZATCA expects them.",
+          "Tax invoices in Saudi Arabia must be in Arabic, and can also show another language. ERPNext's print formats can show [Arabic and English side by side](/insights/erpnext-in-arabic), with the seller and buyer VAT numbers, the VAT breakdown and the QR code where ZATCA expects them.",
           "Most problems at go-live come from data, not software: customers without VAT numbers or full addresses, items without the right tax template, or a company address that does not match ZATCA's records. Cleaning this data early saves time.",
         ],
       },
       {
         heading: "If you already use ERPNext",
         paragraphs: [
-          "Check which ERPNext version you run, because ZATCA apps support specific versions. Older systems may need an upgrade first. Then test the full flow on a copy of your system, including returns and credit notes, before connecting production.",
+          "Check which ERPNext version you run, because ZATCA apps support specific versions. Older systems [may need an upgrade first](/insights/erpnext-cost). Then test the full flow on a copy of your system, including returns and credit notes, before connecting production.",
           "Plan the switch well before your wave's deadline. Clearing invoices with ZATCA changes how your sales team works day to day, so train them before it goes live.",
         ],
       },
@@ -445,7 +458,7 @@ const EN: Article[] = [
         list: [
           "Understanding your processes: sales, buying, stock, accounts and approvals",
           "Setting up your chart of accounts, taxes, warehouses and price lists",
-          "Designing invoices and other documents in Arabic, English or both",
+          "Designing invoices and other documents [in Arabic, English or both](/insights/erpnext-in-arabic)",
           "Moving your data from spreadsheets or your old system",
           "Training your team and supporting the first weeks of real use",
         ],
@@ -458,7 +471,7 @@ const EN: Article[] = [
           "How many companies, branches and warehouses you run",
           "How much data you move, and how clean it is",
           "How far your processes differ from ERPNext's standard way of working",
-          "Local requirements, such as ZATCA e-invoicing in Saudi Arabia",
+          "Local requirements, such as [ZATCA e-invoicing in Saudi Arabia](/insights/erpnext-zatca-e-invoicing)",
         ],
       },
       {
@@ -548,7 +561,7 @@ const AR: Article[] = [
         heading: "سحابي أم على خادمك، مفتوح المصدر أم بترخيص؟",
         paragraphs: [
           "تعمل أنظمة ERP الحديثة إما على السحابة أو على خادم تتحكم فيه. السحابة أسرع في البدء ولا تحتاج فريق تقنية معلومات، والخادم الخاص يمنحك تحكمًا كاملًا في بياناتك ومكان حفظها.",
-          "الأنظمة المرخّصة تفرض رسومًا لكل مستخدم كل سنة. أما الأنظمة مفتوحة المصدر مثل ERPNext فلا رسوم ترخيص فيها على البرنامج نفسه، فتذهب التكلفة إلى إعداده جيدًا وفق عملياتك، وإلى الاستضافة والدعم.",
+          "الأنظمة المرخّصة تفرض رسومًا لكل مستخدم كل سنة. أما [الأنظمة مفتوحة المصدر مثل ERPNext](/insights/erpnext-in-arabic) فلا رسوم ترخيص فيها على البرنامج نفسه، [فتذهب التكلفة إلى إعداده جيدًا](/insights/erpnext-cost) وفق عملياتك، وإلى الاستضافة والدعم.",
         ],
       },
       {
@@ -602,7 +615,7 @@ const AR: Article[] = [
           "تصميم خاص أم قالب جاهز: التصميم الخاص يحتاج بحثًا وتخطيطًا وعدة جولات مراجعة",
           "اللغات: الموقع العربي والإنجليزي الصحيح يحتاج تصميمًا من اليمين إلى اليسار، لا مجرد ترجمة",
           "نظام إدارة المحتوى: هل يستطيع فريقك تحديث الصفحات والمشاريع والمقالات من دون مبرمج",
-          "الخصائص: الدفع الإلكتروني أو الحجوزات أو مناطق الأعضاء أو الربط مع أنظمة أخرى",
+          "الخصائص: [الدفع الإلكتروني](/services/ecommerce) أو الحجوزات أو مناطق الأعضاء أو الربط مع أنظمة أخرى",
           "المحتوى: من يكتب النصوص ومن يوفّر الصور",
         ],
       },
@@ -617,7 +630,7 @@ const AR: Article[] = [
         heading: "كيف تقارن العروض بعدل",
         paragraphs: [
           "أرسل إلى كل شركة الوصف نفسه: أهدافك، والصفحات التي تحتاجها، واللغات، وأمثلة لمواقع تعجبك. ثم قارن العروض بندًا بندًا، لا بالمبلغ الإجمالي.",
-          "العرض الجيد يذكر المخرجات والجدول الزمني وعدد جولات تعديل التصميم ومن يملك الموقع في النهاية وما الذي يحدث بعد الإطلاق.",
+          "العرض الجيد يذكر المخرجات والجدول الزمني وعدد جولات تعديل التصميم [ومن يملك الموقع في النهاية وما الذي يحدث بعد الإطلاق](/insights/how-to-choose-a-web-design-company).",
         ],
       },
       {
@@ -653,7 +666,7 @@ const AR: Article[] = [
       {
         heading: "ما هو ERPNext؟",
         paragraphs: [
-          "ERPNext نظام تخطيط موارد مؤسسات (ERP) مفتوح المصدر، مبني على إطار Frappe. يغطي المحاسبة والمشتريات والمبيعات والمخزون والتصنيع والمشاريع والموارد البشرية والرواتب وإدارة علاقات العملاء وبوابة للعملاء، كلها في نظام واحد.",
+          "ERPNext [نظام تخطيط موارد مؤسسات (ERP)](/insights/what-is-an-erp-system) مفتوح المصدر، مبني على إطار Frappe. يغطي المحاسبة والمشتريات والمبيعات والمخزون والتصنيع والمشاريع والموارد البشرية والرواتب وإدارة علاقات العملاء وبوابة للعملاء، كلها في نظام واحد.",
           "ويعمل من متصفح الإنترنت على الحاسوب أو الهاتف، فلا حاجة إلى تثبيت برنامج على جهاز كل موظف.",
         ],
       },
@@ -661,7 +674,7 @@ const AR: Article[] = [
         heading: "هل ERPNext مجاني؟",
         paragraphs: [
           "البرنامج نفسه مجاني. يصدر ERPNext برخصة GNU GPL مفتوحة المصدر، فلا توجد رسوم ترخيص ولا رسوم لكل مستخدم، سواء كان لديك خمسة مستخدمين أو خمسمئة.",
-          "أما ما تدفع مقابله فهو كل ما حوله: الاستضافة، وإعداده لشركتك، ونقل بياناتك، والتدريب، والدعم بعد التشغيل. وتعتمد هذه التكاليف على عدد الوحدات التي تستخدمها وحجم التخصيص المطلوب، لا على عدد المستخدمين.",
+          "أما [ما تدفع مقابله فهو كل ما حوله](/insights/erpnext-cost): الاستضافة، وإعداده لشركتك، ونقل بياناتك، والتدريب، والدعم بعد التشغيل. وتعتمد هذه التكاليف على عدد الوحدات التي تستخدمها وحجم التخصيص المطلوب، لا على عدد المستخدمين.",
         ],
       },
       {
@@ -682,7 +695,7 @@ const AR: Article[] = [
       {
         heading: "الفوترة الإلكترونية في السعودية والخليج",
         paragraphs: [
-          "تدير هيئة الزكاة والضريبة والجمارك في السعودية نظام الفوترة الإلكترونية «فاتورة». بدأت مرحلته الأولى في ديسمبر 2021 وتُلزم بإصدار الفواتير إلكترونيًا بصيغة معتمدة، أما المرحلة الثانية فتربط أنظمة الفوترة مباشرة بمنصة الهيئة، وتُطبَّق على المنشآت على دفعات.",
+          "تدير هيئة الزكاة والضريبة والجمارك في السعودية [نظام الفوترة الإلكترونية «فاتورة»](/insights/erpnext-zatca-e-invoicing). بدأت مرحلته الأولى في ديسمبر 2021 وتُلزم بإصدار الفواتير إلكترونيًا بصيغة معتمدة، أما المرحلة الثانية فتربط أنظمة الفوترة مباشرة بمنصة الهيئة، وتُطبَّق على المنشآت على دفعات.",
           "ويلبّي ERPNext هذه المتطلبات عبر تطبيقات مبنية له من مجتمع Frappe وشركائه، تضيف رمز الاستجابة السريعة (QR) وصيغ الفواتير المطلوبة والربط مع منصة الهيئة. وقد أعلنت الإمارات برنامجها الخاص للفوترة الإلكترونية على مراحل، وتسير دول خليجية أخرى في الاتجاه نفسه.",
           "تتغير القواعد والمواعيد، لذا تحقّق مع مستشارك الضريبي من المرحلة التي تنطبق على شركتك، وتأكد أن شريك التطبيق يُعدّها ويختبرها قبل التشغيل.",
         ],
@@ -758,13 +771,13 @@ const AR: Article[] = [
       {
         heading: "1. هل يمكنكم عرض أعمال تشبه ما نحتاجه؟",
         paragraphs: [
-          "اطلب مشاريع في قطاعك أو بحجم وتعقيد مشابهين، وافتح المواقع الحقيقية على هاتفك. تأكد أنها سريعة وسهلة الاستخدام، لا أن الصور جميلة فقط.",
+          "اطلب مشاريع في قطاعك أو بحجم وتعقيد مشابهين، وافتح المواقع الحقيقية على هاتفك. تأكد أنها سريعة [وسهلة الاستخدام](/services/user-experience-design)، لا أن الصور جميلة فقط.",
         ],
       },
       {
         heading: "2. كيف تتعاملون مع العربية والإنجليزية؟",
         paragraphs: [
-          "الموقع ثنائي اللغة يحتاج تصميمًا صحيحًا من اليمين إلى اليسار، وخطوطًا عربية جيدة، وصفحات مستقلة لكل لغة حتى تظهر النسختان في Google. اطلب رؤية موقع عربي نفّذوه، وافتح النسخة العربية على الهاتف.",
+          "[الموقع ثنائي اللغة](/services/web-development) يحتاج تصميمًا صحيحًا من اليمين إلى اليسار، وخطوطًا عربية جيدة، وصفحات مستقلة لكل لغة حتى تظهر النسختان في Google. اطلب رؤية موقع عربي نفّذوه، وافتح النسخة العربية على الهاتف.",
         ],
       },
       {
@@ -794,7 +807,7 @@ const AR: Article[] = [
       {
         heading: "7. ماذا يحدث بعد الإطلاق؟",
         paragraphs: [
-          "اسأل عن الاستضافة وتحديثات الأمان والنسخ الاحتياطي وسرعة الاستجابة للمشكلات، وكم يكلّف ذلك شهريًا أو سنويًا.",
+          "اسأل عن الاستضافة وتحديثات الأمان والنسخ الاحتياطي وسرعة الاستجابة للمشكلات، [وكم يكلّف ذلك](/insights/how-much-does-a-website-cost) شهريًا أو سنويًا.",
         ],
       },
       {
@@ -868,14 +881,14 @@ const AR: Article[] = [
       {
         heading: "الفاتورة العربية والتفاصيل المهمة",
         paragraphs: [
-          "يجب أن تكون الفواتير الضريبية في السعودية باللغة العربية، ويجوز أن تتضمن لغة أخرى. وتستطيع نماذج الطباعة في ERPNext عرض العربية والإنجليزية جنبًا إلى جنب، مع الرقم الضريبي للبائع والمشتري، وتفاصيل الضريبة، ورمز QR في مواضعها المطلوبة.",
+          "يجب أن تكون الفواتير الضريبية في السعودية باللغة العربية، ويجوز أن تتضمن لغة أخرى. وتستطيع نماذج الطباعة في ERPNext عرض [العربية والإنجليزية جنبًا إلى جنب](/insights/erpnext-in-arabic)، مع الرقم الضريبي للبائع والمشتري، وتفاصيل الضريبة، ورمز QR في مواضعها المطلوبة.",
           "معظم المشكلات عند التشغيل سببها البيانات لا البرنامج: عملاء بلا أرقام ضريبية أو عناوين كاملة، أو أصناف بلا قالب ضريبي صحيح، أو عنوان شركة لا يطابق سجلات الهيئة. وتنظيف هذه البيانات مبكرًا يوفّر وقتًا كبيرًا.",
         ],
       },
       {
         heading: "إن كنت تستخدم ERPNext حاليًا",
         paragraphs: [
-          "تحقق من نسخة ERPNext التي تعمل بها، لأن تطبيقات الربط تدعم نسخًا محددة، وقد تحتاج الأنظمة القديمة إلى ترقية أولًا. ثم اختبر الدورة كاملة على نسخة من نظامك، بما فيها المرتجعات والإشعارات الدائنة، قبل ربط بيئة الإنتاج.",
+          "تحقق من نسخة ERPNext التي تعمل بها، لأن تطبيقات الربط تدعم نسخًا محددة، [وقد تحتاج الأنظمة القديمة إلى ترقية أولًا](/insights/erpnext-cost). ثم اختبر الدورة كاملة على نسخة من نظامك، بما فيها المرتجعات والإشعارات الدائنة، قبل ربط بيئة الإنتاج.",
           "خطّط للانتقال قبل موعد دفعتك بوقت كافٍ. فاعتماد الفواتير من الهيئة يغيّر طريقة عمل فريق المبيعات اليومية، لذا درّبهم قبل التشغيل.",
         ],
       },
@@ -923,7 +936,7 @@ const AR: Article[] = [
         list: [
           "فهم إجراءاتك: المبيعات والمشتريات والمخزون والحسابات والموافقات",
           "إعداد دليل الحسابات والضرائب والمستودعات وقوائم الأسعار",
-          "تصميم الفواتير والمستندات بالعربية أو الإنجليزية أو كليهما",
+          "تصميم الفواتير والمستندات [بالعربية أو الإنجليزية أو كليهما](/insights/erpnext-in-arabic)",
           "نقل بياناتك من الجداول أو من نظامك القديم",
           "تدريب فريقك ومرافقته في الأسابيع الأولى من الاستخدام الفعلي",
         ],
@@ -936,7 +949,7 @@ const AR: Article[] = [
           "عدد الشركات والفروع والمستودعات",
           "حجم البيانات التي تنقلها ومدى نظافتها",
           "مدى اختلاف إجراءاتك عن طريقة العمل القياسية في ERPNext",
-          "المتطلبات المحلية، مثل الربط مع هيئة الزكاة في السعودية",
+          "المتطلبات المحلية، مثل [الربط مع هيئة الزكاة في السعودية](/insights/erpnext-zatca-e-invoicing)",
         ],
       },
       {
