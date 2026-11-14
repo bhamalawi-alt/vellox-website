@@ -9,6 +9,7 @@ import { BASE } from "../lib/seo";
 import type { Locale } from "../lib/i18n";
 import { EMAIL, getSite, WHATSAPP } from "../content/site";
 import { getServices } from "../content/services";
+import { getKeywords } from "../content/keywords";
 import { getUi } from "../content/ui";
 
 // Everything inside <html> that both root layouts share: the organisation
@@ -28,7 +29,10 @@ function orgJsonLd(locale: Locale) {
         logo: `${BASE}/icon-512.png`,
         description: site.TAGLINE,
         // What the studio is expert in, for search engines and AI assistants.
-        knowsAbout: [...getServices(locale).map((s) => s.heading), "ERPNext", "Frappe"],
+        // The service names first, then the specialties behind each one.
+        knowsAbout: [
+          ...new Set([...getServices(locale).map((s) => s.heading), ...getKeywords(locale), "ERPNext", "Frappe"]),
+        ],
         // The markets the studio targets, as schema.org countries.
         areaServed: ["Libya", "Saudi Arabia", "United Arab Emirates", "Oman", "Qatar", "Kuwait", "Bahrain", "Europe"].map(
           (name) => (name === "Europe" ? { "@type": "Place", name } : { "@type": "Country", name }),
