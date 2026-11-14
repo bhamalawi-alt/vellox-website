@@ -32,7 +32,7 @@ export const COPY = {
       "Web Development",
       "eCommerce",
       "Web and Mobile Apps",
-      "ERPNext Implementation",
+      "ERP Consulting & Implementation",
     ],
     "privacyNote": "We use your details only to reply about your project. The form is delivered through Formspree, our form processor; we never sell your data or use it for marketing.",
     "submitLabel": "Send Message",

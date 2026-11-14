@@ -8,7 +8,8 @@ import { getSite } from "../../content/site";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { englishAttrs, getProject, getProjects, paragraphs } from "../../lib/projects";
-import { BASE, fitDescription, pageMeta } from "../../lib/seo";
+import { imageSources } from "../../lib/project-images";
+import { BASE, fitDescription, pageMeta, projectTitle } from "../../lib/seo";
 import { CtaArt } from "../CtaArt";
 import { breadcrumbLink, jsonLd, primaryCtaSoft } from "./shared";
 
@@ -27,7 +28,7 @@ export function projectMetadata(locale: Locale, slug: string): Metadata {
   if (!project) return {};
   const ui = getUi(locale);
   const meta = pageMeta({
-    title: `${project.title} — ${ui.portfolioTitleSuffix}`,
+    title: projectTitle(locale, project, ui.portfolioTitleSuffix),
     // CMS summaries are one sentence; the tail gives the snippet the studio
     // name and the services, which the summary alone leaves out. When the two
     // together would be cut off in search results, the summary goes alone.
@@ -114,9 +115,11 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
           <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#3730e8]/40 via-[#16143a] to-[#0a0a0a]">
             {project.cover ? (
               <img
-                src={project.cover}
+                {...imageSources(project.cover)}
+                sizes="(min-width: 1200px) 1104px, 100vw"
                 alt={project.coverAlt || project.title}
                 decoding="async"
+                fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover"
               />
             ) : (
@@ -187,7 +190,8 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
                   className={`overflow-hidden rounded-2xl bg-white/5 ${i % 3 === 0 ? "sm:col-span-2" : ""}`}
                 >
                   <img
-                    src={g.image}
+                    {...imageSources(g.image)}
+                    sizes={i % 3 === 0 ? "(min-width: 1200px) 1104px, 100vw" : "(min-width: 640px) 50vw, 100vw"}
                     alt={g.alt || ui.galleryImageAlt(project.title, i + 1)}
                     loading="lazy"
                     decoding="async"

@@ -1,0 +1,336 @@
+{
+  "en": {
+    "slug": "erpnext-uae-e-invoicing",
+    "date": "2026-11-15",
+    "service": "erp-implementation",
+    "category": "ERP",
+    "title": "ERPNext and UAE e-invoicing: what companies need to prepare",
+    "description": "The UAE's e-invoicing dates, who must comply, how the Peppol five-corner model works, and how to prepare ERPNext and your Accredited Service Provider.",
+    "intro": "The UAE is making structured e-invoicing mandatory in phases. Businesses with revenue of AED 50 million or more must go live by 1 January 2027, and smaller businesses by 1 July 2027. ERPNext has no UAE e-invoicing in its core, so it meets the rules by connecting to an Accredited Service Provider through an app or an integration. This guide explains the system, the official dates, how it differs from Saudi Arabia's, and what to prepare in ERPNext.",
+    "sections": [
+      {
+        "heading": "What is the UAE e-invoicing system?",
+        "paragraphs": [
+          "The UAE Electronic Invoicing System is a programme led by the Ministry of Finance, with the Federal Tax Authority (FTA) receiving the tax data. Under it, an invoice is no longer a PDF or a sheet of paper. It is a structured XML file that software can read, exchanged between the seller's and the buyer's systems and reported to the FTA.",
+          "The rules sit in Ministerial Decision No. 243 of 2025, which covers scope and obligations, and Ministerial Decision No. 244 of 2025, which covers the rollout. Both were amended during 2026. The [Ministry of Finance e-invoicing page](https://mof.gov.ae/en/about-ministry/mof-initiatives/einvoicing/) holds the current texts, and the [FTA's e-invoicing page](https://tax.gov.ae/en/content/uae.einvoicing.aspx) points to the Ministry as the official source of information.",
+          "The invoice format is PINT AE, the UAE version of the Peppol international invoice specification. PDFs, Word files, scans and images sent by email do not count as e-invoices. UAE e-invoices carry no QR code."
+        ]
+      },
+      {
+        "heading": "How does the five-corner model work?",
+        "paragraphs": [
+          "The UAE chose a decentralised model. Invoices are not sent to a government portal for approval. Instead, each business appoints an Accredited Service Provider (ASP), a company accredited by the Ministry of Finance to exchange invoices over the Peppol network. The five corners are:"
+        ],
+        "list": [
+          "Corner 1, the supplier: sends invoice data from its own system to its ASP",
+          "Corner 2, the supplier's ASP: validates the data, converts it to the UAE XML format, sends it to the buyer's ASP and reports the tax data to the FTA",
+          "Corner 3, the buyer's ASP: validates the invoice and passes it to the buyer",
+          "Corner 4, the buyer: receives the invoice in its own system",
+          "Corner 5, the FTA: receives the tax data from the ASPs"
+        ]
+      },
+      {
+        "heading": "Who has to comply, and when?",
+        "paragraphs": [
+          "E-invoicing applies to any person conducting business in the UAE, whether or not they are registered for VAT, for business-to-business and business-to-government transactions. Business-to-consumer transactions stay outside the system until the Minister decides otherwise. A few transactions are excluded, including certain airline services and VAT-exempt financial services, and transactions between members of the same tax group are excluded for 24 months from 1 January 2027.",
+          "The rollout depends on revenue, defined as gross income in the most recent accounting period. [Ministerial Decision No. 244 of 2025](https://mof.gov.ae/wp-content/uploads/2025/09/Ministerial-Decision-No.-244-of-2025-on-the-Implementation-of-the-Electronic-Invoicing-System.pdf), as amended by Ministerial Decision No. 66 of 2026, sets these dates.",
+          "The 30 October 2026 deadline for larger businesses has already passed. If your revenue is AED 50 million or more and you have not appointed an ASP, treat it as urgent."
+        ],
+        "table": {
+          "head": [
+            "Phase",
+            "Who it applies to",
+            "Appoint an ASP by",
+            "Go-live date"
+          ],
+          "rows": [
+            [
+              "Pilot",
+              "A working group of taxpayers invited by the Ministry",
+              "Not applicable",
+              "1 July 2026"
+            ],
+            [
+              "Voluntary",
+              "Any business that chooses to start early",
+              "Not applicable",
+              "From 1 July 2026"
+            ],
+            [
+              "Mandatory, larger businesses",
+              "Revenue of AED 50,000,000 or more",
+              "30 October 2026",
+              "1 January 2027"
+            ],
+            [
+              "Mandatory, other businesses",
+              "Revenue below AED 50,000,000",
+              "31 March 2027",
+              "1 July 2027"
+            ],
+            [
+              "Mandatory, government",
+              "Government entities",
+              "31 March 2027",
+              "1 October 2027"
+            ]
+          ],
+          "note": "Source: Ministerial Decision No. 244 of 2025 as amended by Ministerial Decision No. 66 of 2026. Position as of November 2026."
+        }
+      },
+      {
+        "heading": "What does a business have to do?",
+        "paragraphs": [
+          "Once your phase begins, the obligations are these:"
+        ],
+        "list": [
+          "Appoint one ASP from the Ministry's list, for both sending and receiving invoices",
+          "Onboard with that ASP through the FTA's EmaraTax portal and obtain a Peppol participant identifier, which is based on your Tax Identification Number (TIN), the first 10 digits of your TRN",
+          "Send invoice and credit note data from your ERP to the ASP, which issues the XML e-invoice",
+          "Issue and transmit each e-invoice within 14 business days of the transaction date",
+          "Receive your suppliers' e-invoices through the same ASP",
+          "Correct mistakes with an electronic credit note",
+          "Keep e-invoices and their data for the period set by the Tax Procedures Law, and produce them to the FTA on request"
+        ]
+      },
+      {
+        "heading": "What are the penalties?",
+        "paragraphs": [
+          "Legal responsibility stays with the business, not the ASP. Cabinet Decision No. 173 of 2026 sets the penalties: AED 5,000 for failing to implement the system or appoint an ASP, repeated for each month the failure continues, up to AED 50,000 in any 12 months, and AED 100 for each e-invoice or credit note not issued, up to AED 5,000 a month. These penalties do not apply to businesses taking part voluntarily."
+        ]
+      },
+      {
+        "heading": "How is this different from Saudi Arabia's ZATCA system?",
+        "paragraphs": [
+          "Companies that invoice in both countries should not assume one setup covers both. [Saudi Arabia's FATOORA system](/insights/erpnext-zatca-e-invoicing) is a clearance model: your ERP connects directly to ZATCA's platform, and ZATCA clears each business-to-business invoice before it reaches the buyer. The UAE works differently."
+        ],
+        "list": [
+          "Route: in the UAE invoices travel through ASPs over Peppol; in Saudi Arabia your system connects to ZATCA",
+          "Approval: the UAE has no clearance step, and tax data is reported alongside delivery; Saudi business-to-business invoices are cleared first",
+          "Consumer invoices: excluded in the UAE for now; reported to ZATCA within 24 hours in Saudi Arabia",
+          "QR code: none in the UAE; Saudi invoices carry a QR code and a cryptographic stamp",
+          "Scope: the UAE covers businesses whether or not they are registered for VAT; Saudi Arabia covers VAT-registered taxpayers"
+        ]
+      },
+      {
+        "heading": "Can ERPNext meet the UAE requirements?",
+        "paragraphs": [
+          "Yes, but not out of the box. As of November 2026, ERPNext does not include UAE e-invoicing in its core. A request to add it has been open on the ERPNext GitHub repository since December 2025.",
+          "Either way, ERPNext already holds what an e-invoice needs: customer and supplier tax numbers, addresses, item lines, tax templates, and credit notes linked to the original invoice. It also locks submitted invoices and corrects them with credit notes, which is how the UAE system expects corrections to be made. If you run an old version, [an upgrade may have to come first](/insights/erpnext-cost). If you are still choosing a system, start with [what an ERP system is](/insights/what-is-an-erp-system).",
+          "This matters less than it sounds, because the UAE model does not ask your ERP to talk to the tax authority. ERPNext only has to pass complete invoice data to your ASP, and take back statuses and incoming invoices. There are two routes:"
+        ],
+        "list": [
+          "A community or partner app. At least one open-source app on GitHub states that it supports PINT AE for ERPNext versions 15 and 16 through connectors for several ASPs. Check which ASPs and versions an app supports, and test it yourself before relying on it",
+          "A direct integration with your ASP's API, built for your system. Sales invoices and credit notes are sent when they are submitted, and the ASP's responses are written back into ERPNext"
+        ]
+      },
+      {
+        "heading": "A preparation checklist for ERPNext users",
+        "paragraphs": [
+          "The Ministry's [e-invoicing guidelines](https://mof.gov.ae/wp-content/uploads/2026/10/UAE-Electronic-Invoicing-Guidelines_En.pdf) include a fuller readiness checklist. The e-invoice itself is XML, but people still need a readable copy, so keep your [Arabic and English print formats](/insights/erpnext-in-arabic) in order.",
+          "Most go-live problems come from data, not software. Work through these steps before you test:"
+        ],
+        "list": [
+          "Confirm your phase from your latest financial statements and note both of your dates",
+          "Check that your company details in EmaraTax, such as trade licence, address and contacts, match ERPNext",
+          "Clean customer and supplier records: TRN or TIN, legal name and full address",
+          "Review tax templates so every invoice line maps to a UAE tax category: standard rate, zero rated, exempt, out of scope, reverse charge or margin scheme",
+          "Compare your sales invoice with the Ministry's mandatory fields and add any that ERPNext does not capture today",
+          "Decide how exports, free zone sales, advance payments and retention will be invoiced",
+          "Choose an ASP from the [Ministry's list of accredited providers](https://mof.gov.ae/en/about-us/initiatives/einvoicing/einvoicing-accredited-service-providers-asps/) and agree how data will move between ERPNext and the ASP",
+          "Test the full flow on a copy of your system: invoices, credit notes, incoming invoices and rejection messages",
+          "Train finance and sales staff, and agree with the ASP who fixes a rejected invoice"
+        ]
+      },
+      {
+        "heading": "Common questions",
+        "paragraphs": [
+          "Do I still need PDF invoices? Often, yes. The e-invoice is an XML file. A customer that has not yet joined the system may still need an ordinary tax invoice as well, and the guidelines say one is required in that case.",
+          "Does a business that is not registered for VAT have to comply? Yes, if it carries out business transactions in the UAE. It registers with the FTA to obtain a TIN.",
+          "Can I use one ASP for sales and another for purchases? No. Each business appoints a single ASP for sending and receiving. Each member of a tax group is onboarded separately.",
+          "Does the data have to be stored in the UAE? The current rule, in force since 1 October 2026, does not name a storage location. It requires that records are kept for the statutory period and can be produced to the FTA on request.",
+          "Can I start before my deadline? Yes. Voluntary e-invoicing has been open since 1 July 2026, and penalties apply only from your mandatory date."
+        ]
+      },
+      {
+        "heading": "What may still change?",
+        "paragraphs": [
+          "This guide reflects the position as of November 2026. The rules were amended several times during 2026: the ASP deadline for larger businesses moved from 31 July to 30 October, the penalties decision was replaced, and the Ministry reissued its guidelines on 26 October 2026. More changes are possible, for example on consumer invoices and on item classification codes, which are optional for now.",
+          "Before you commit to dates, confirm them with the Ministry of Finance, the FTA and your tax adviser. For the software side, see how we approach [ERPNext implementation](/services/erp-implementation)."
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "Preparing ERPNext for UAE e-invoicing?",
+      "body": "We set up ERPNext for companies in the UAE, clean the invoice data, connect it to the Accredited Service Provider you choose, and test the full flow before go-live.",
+      "label": "See ERP consulting and implementation"
+    }
+  },
+  "ar": {
+    "slug": "erpnext-uae-e-invoicing",
+    "date": "2026-11-15",
+    "service": "erp-implementation",
+    "category": "أنظمة ERP",
+    "title": "ERPNext والفوترة الإلكترونية في الإمارات: ما الذي يجب تجهيزه؟",
+    "description": "مواعيد الفوترة الإلكترونية في الإمارات، ومن تشمله، وكيف يعمل نموذج الزوايا الخمس عبر شبكة Peppol، وكيف تجهّز ERPNext ومزوّد الخدمة المعتمد.",
+    "intro": "تطبّق الإمارات الفوترة الإلكترونية المنظمة إلزاميًا على مراحل. على المنشآت التي تبلغ إيراداتها 50 مليون درهم أو أكثر أن تبدأ التطبيق في موعد أقصاه 1 يناير 2027، وعلى المنشآت الأصغر في موعد أقصاه 1 يوليو 2027. ولا يتضمن ERPNext الفوترة الإلكترونية الإماراتية في نسخته الأساسية، لذا يلبّي المتطلبات بالربط مع مزوّد خدمة معتمد عبر تطبيق أو تكامل. يشرح هذا الدليل النظام، والمواعيد الرسمية، واختلافه عن النظام السعودي، وما الذي يجب تجهيزه في ERPNext.",
+    "sections": [
+      {
+        "heading": "ما هو نظام الفوترة الإلكترونية في الإمارات؟",
+        "paragraphs": [
+          "نظام الفوترة الإلكترونية في الإمارات برنامج تقوده وزارة المالية، وتستقبل الهيئة الاتحادية للضرائب بياناته الضريبية. وبموجبه لم تعد الفاتورة ملف PDF أو ورقة مطبوعة، بل ملف XML منظم تقرؤه البرامج، يُتبادل بين نظام البائع ونظام المشتري ويُبلَّغ به إلى الهيئة.",
+          "ترد القواعد في القرار الوزاري رقم 243 لسنة 2025 الذي يحدد النطاق والالتزامات، والقرار الوزاري رقم 244 لسنة 2025 الذي يحدد مراحل التطبيق، وقد عُدِّل القراران خلال عام 2026. وتجد النصوص السارية في [صفحة الفوترة الإلكترونية لدى وزارة المالية](https://mof.gov.ae/en/about-ministry/mof-initiatives/einvoicing/)، كما تشير [صفحة الفوترة الإلكترونية لدى الهيئة الاتحادية للضرائب](https://tax.gov.ae/en/content/uae.einvoicing.aspx) إلى الوزارة بوصفها المصدر الرسمي للمعلومات.",
+          "صيغة الفاتورة هي PINT AE، وهي النسخة الإماراتية من مواصفة Peppol الدولية للفواتير. أما ملفات PDF و Word والنسخ الممسوحة ضوئيًا والصور المرسلة بالبريد الإلكتروني فلا تُعد فواتير إلكترونية. ولا تحمل الفاتورة الإلكترونية الإماراتية رمز QR."
+        ]
+      },
+      {
+        "heading": "كيف يعمل نموذج الزوايا الخمس؟",
+        "paragraphs": [
+          "اختارت الإمارات نموذجًا لامركزيًا. فالفواتير لا تُرسل إلى بوابة حكومية لاعتمادها، بل تعيّن كل منشأة مزوّد خدمة معتمدًا (ASP)، وهو شركة اعتمدتها وزارة المالية لتبادل الفواتير عبر شبكة Peppol. والزوايا الخمس هي:"
+        ],
+        "list": [
+          "الزاوية 1، المورّد: يرسل بيانات الفاتورة من نظامه إلى مزوّد الخدمة المعتمد لديه",
+          "الزاوية 2، مزوّد خدمة المورّد: يتحقق من البيانات، ويحوّلها إلى صيغة XML الإماراتية، ويرسلها إلى مزوّد خدمة المشتري، ويبلّغ الهيئة بالبيانات الضريبية",
+          "الزاوية 3، مزوّد خدمة المشتري: يتحقق من الفاتورة ويسلّمها إلى المشتري",
+          "الزاوية 4، المشتري: يستلم الفاتورة في نظامه",
+          "الزاوية 5، الهيئة الاتحادية للضرائب: تستقبل البيانات الضريبية من مزوّدي الخدمة"
+        ]
+      },
+      {
+        "heading": "من الملزَم بالتطبيق، ومتى؟",
+        "paragraphs": [
+          "تنطبق الفوترة الإلكترونية على كل شخص يمارس الأعمال في الإمارات، سواء كان مسجلًا في ضريبة القيمة المضافة أم لا، في المعاملات بين المنشآت وبين المنشآت والجهات الحكومية. أما المعاملات مع المستهلكين فتبقى خارج النظام إلى أن يقرر الوزير غير ذلك. وتُستثنى معاملات قليلة، منها بعض خدمات شركات الطيران والخدمات المالية المعفاة من ضريبة القيمة المضافة، كما تُستثنى المعاملات بين أعضاء المجموعة الضريبية الواحدة لمدة 24 شهرًا تبدأ من 1 يناير 2027.",
+          "يعتمد التطبيق على الإيرادات، وهي إجمالي الدخل في آخر فترة محاسبية. ويحدد [القرار الوزاري رقم 244 لسنة 2025](https://mof.gov.ae/wp-content/uploads/2025/09/Ministerial-Decision-No.-244-of-2025-on-the-Implementation-of-the-Electronic-Invoicing-System.pdf)، بصيغته المعدّلة بالقرار الوزاري رقم 66 لسنة 2026، المواعيد التالية.",
+          "وقد انقضى موعد 30 أكتوبر 2026 الخاص بالمنشآت الأكبر. فإن كانت إيراداتك 50 مليون درهم أو أكثر ولم تعيّن مزوّد خدمة معتمدًا بعد، فتعامل مع الأمر على أنه عاجل."
+        ],
+        "table": {
+          "head": [
+            "المرحلة",
+            "من تشمله",
+            "آخر موعد لتعيين مزوّد الخدمة",
+            "موعد التطبيق"
+          ],
+          "rows": [
+            [
+              "المرحلة التجريبية",
+              "مجموعة عمل من المكلّفين تدعوهم الوزارة",
+              "لا ينطبق",
+              "1 يوليو 2026"
+            ],
+            [
+              "التطبيق الاختياري",
+              "أي منشأة تختار البدء مبكرًا",
+              "لا ينطبق",
+              "من 1 يوليو 2026"
+            ],
+            [
+              "إلزامي، المنشآت الأكبر",
+              "إيرادات 50,000,000 درهم أو أكثر",
+              "30 أكتوبر 2026",
+              "1 يناير 2027"
+            ],
+            [
+              "إلزامي، بقية المنشآت",
+              "إيرادات أقل من 50,000,000 درهم",
+              "31 مارس 2027",
+              "1 يوليو 2027"
+            ],
+            [
+              "إلزامي، الجهات الحكومية",
+              "الجهات الحكومية",
+              "31 مارس 2027",
+              "1 أكتوبر 2027"
+            ]
+          ],
+          "note": "المصدر: القرار الوزاري رقم 244 لسنة 2025 بصيغته المعدّلة بالقرار الوزاري رقم 66 لسنة 2026. الوضع حتى نوفمبر 2026."
+        }
+      },
+      {
+        "heading": "ما المطلوب من المنشأة؟",
+        "paragraphs": [
+          "عند بدء مرحلتك تصبح الالتزامات كالتالي:"
+        ],
+        "list": [
+          "تعيين مزوّد خدمة معتمد واحد من قائمة الوزارة، لإرسال الفواتير واستلامها معًا",
+          "إتمام التسجيل لدى هذا المزوّد عبر منصة EmaraTax التابعة للهيئة، والحصول على معرّف المشارك في شبكة Peppol، وهو مبني على رقم التعريف الضريبي (TIN)، أي أول 10 أرقام من رقم التسجيل الضريبي (TRN)",
+          "إرسال بيانات الفواتير والإشعارات الدائنة من نظام ERP إلى مزوّد الخدمة الذي يصدر الفاتورة الإلكترونية بصيغة XML",
+          "إصدار كل فاتورة إلكترونية وإرسالها خلال 14 يوم عمل من تاريخ المعاملة",
+          "استلام فواتير المورّدين الإلكترونية عبر المزوّد نفسه",
+          "تصحيح الأخطاء بإشعار دائن إلكتروني",
+          "حفظ الفواتير الإلكترونية وبياناتها للمدة التي يحددها قانون الإجراءات الضريبية، وتقديمها إلى الهيئة عند الطلب"
+        ]
+      },
+      {
+        "heading": "ما هي الغرامات؟",
+        "paragraphs": [
+          "تبقى المسؤولية القانونية على المنشأة لا على مزوّد الخدمة. ويحدد قرار مجلس الوزراء رقم 173 لسنة 2026 الغرامات: 5,000 درهم عند عدم تطبيق النظام أو عدم تعيين مزوّد خدمة معتمد، تتكرر عن كل شهر تستمر فيه المخالفة، بحد أقصى 50,000 درهم خلال أي 12 شهرًا، و100 درهم عن كل فاتورة إلكترونية أو إشعار دائن لم يصدر، بحد أقصى 5,000 درهم في الشهر. ولا تنطبق هذه الغرامات على المنشآت المشاركة اختياريًا."
+        ]
+      },
+      {
+        "heading": "ما الفرق بينه وبين نظام هيئة الزكاة في السعودية؟",
+        "paragraphs": [
+          "على الشركات التي تصدر فواتير في البلدين ألا تفترض أن إعدادًا واحدًا يكفي لهما. [فنظام «فاتورة» في السعودية](/insights/erpnext-zatca-e-invoicing) يقوم على نموذج الاعتماد المسبق: يرتبط نظام ERP لديك مباشرة بمنصة هيئة الزكاة والضريبة والجمارك، وتعتمد الهيئة كل فاتورة بين المنشآت قبل وصولها إلى المشتري. أما الإمارات فتعمل بطريقة مختلفة."
+        ],
+        "list": [
+          "المسار: في الإمارات تمر الفواتير عبر مزوّدي الخدمة المعتمدين على شبكة Peppol، وفي السعودية يرتبط نظامك بمنصة الهيئة",
+          "الاعتماد: لا توجد في الإمارات خطوة اعتماد مسبق، وتُبلَّغ البيانات الضريبية بالتزامن مع تسليم الفاتورة، أما في السعودية فتُعتمد الفواتير بين المنشآت أولًا",
+          "فواتير المستهلكين: مستثناة في الإمارات حاليًا، وتُبلَّغ بها الهيئة خلال 24 ساعة في السعودية",
+          "رمز QR: غير موجود في الإمارات، بينما تحمل الفواتير السعودية رمز QR وختمًا تشفيريًا",
+          "النطاق: تشمل الإمارات المنشآت سواء كانت مسجلة في ضريبة القيمة المضافة أم لا، وتشمل السعودية المكلّفين المسجلين في الضريبة"
+        ]
+      },
+      {
+        "heading": "هل يلبّي ERPNext المتطلبات الإماراتية؟",
+        "paragraphs": [
+          "نعم، لكن ليس بإعداداته الجاهزة. فحتى نوفمبر 2026 لا يتضمن ERPNext الفوترة الإلكترونية الإماراتية في نسخته الأساسية، وهناك طلب لإضافتها مفتوح في مستودع ERPNext على GitHub منذ ديسمبر 2025.",
+          "وفي الحالتين يحتفظ ERPNext أصلًا بما تحتاجه الفاتورة الإلكترونية: الأرقام الضريبية للعملاء والمورّدين، والعناوين، وبنود الأصناف، والقوالب الضريبية، والإشعارات الدائنة المرتبطة بالفاتورة الأصلية. كما أنه يقفل الفواتير بعد اعتمادها ويصحّحها بإشعارات دائنة، وهي الطريقة التي يتوقعها النظام الإماراتي للتصحيح. وإن كنت تعمل بنسخة قديمة [فقد تحتاج إلى ترقية أولًا](/insights/erpnext-cost). وإن كنت ما زلت تختار نظامًا فابدأ بمعرفة [ما هو نظام ERP](/insights/what-is-an-erp-system).",
+          "لكن أثر ذلك أقل مما يبدو، لأن النموذج الإماراتي لا يطلب من نظام ERP أن يخاطب الهيئة الضريبية. كل ما على ERPNext هو تسليم بيانات الفاتورة كاملة إلى مزوّد الخدمة المعتمد، واستقبال حالات الفواتير والفواتير الواردة منه. وهناك طريقان:"
+        ],
+        "list": [
+          "تطبيق من المجتمع أو من أحد الشركاء. يوجد على GitHub تطبيق مفتوح المصدر واحد على الأقل يذكر أنه يدعم PINT AE لنسختي ERPNext 15 و16 عبر موصّلات لعدة مزوّدي خدمة معتمدين. تحقق من المزوّدين والنسخ التي يدعمها أي تطبيق، واختبره بنفسك قبل الاعتماد عليه",
+          "تكامل مباشر مع واجهة API لدى مزوّد الخدمة، يُبنى لنظامك. تُرسل فواتير المبيعات والإشعارات الدائنة عند اعتمادها، وتُسجَّل ردود المزوّد في ERPNext"
+        ]
+      },
+      {
+        "heading": "قائمة تجهيز لمستخدمي ERPNext",
+        "paragraphs": [
+          "وتتضمن [إرشادات الفوترة الإلكترونية](https://mof.gov.ae/wp-content/uploads/2026/10/UAE-Electronic-Invoicing-Guidelines_En.pdf) الصادرة عن الوزارة قائمة جاهزية أوسع. والفاتورة الإلكترونية نفسها ملف XML، لكن الناس ما زالوا يحتاجون إلى نسخة مقروءة، فحافظ على [نماذج الطباعة بالعربية والإنجليزية](/insights/erpnext-in-arabic) لديك.",
+          "معظم مشكلات التشغيل سببها البيانات لا البرنامج. أنجز هذه الخطوات قبل أن تبدأ الاختبار:"
+        ],
+        "list": [
+          "حدّد مرحلتك من آخر قوائمك المالية ودوّن الموعدين الخاصين بك",
+          "تأكد من أن بيانات شركتك في EmaraTax، مثل الرخصة التجارية والعنوان وبيانات الاتصال، تطابق ما في ERPNext",
+          "نظّف سجلات العملاء والمورّدين: رقم TRN أو TIN، والاسم القانوني، والعنوان الكامل",
+          "راجع القوالب الضريبية حتى يقابل كل بند في الفاتورة فئة ضريبية إماراتية: النسبة الأساسية، أو نسبة الصفر، أو معفى، أو خارج النطاق، أو الاحتساب العكسي، أو هامش الربح",
+          "قارن فاتورة المبيعات لديك بالحقول الإلزامية التي نشرتها الوزارة، وأضف ما لا يسجّله ERPNext حاليًا",
+          "قرّر كيف ستصدر فواتير الصادرات، ومبيعات المناطق الحرة، والدفعات المقدمة، والمبالغ المحتجزة",
+          "اختر مزوّد خدمة من [قائمة المزوّدين المعتمدين لدى الوزارة](https://mof.gov.ae/en/about-us/initiatives/einvoicing/einvoicing-accredited-service-providers-asps/)، واتفق معه على طريقة انتقال البيانات بين ERPNext ونظامه",
+          "اختبر الدورة كاملة على نسخة من نظامك: الفواتير، والإشعارات الدائنة، والفواتير الواردة، ورسائل الرفض",
+          "درّب فريقي المالية والمبيعات، واتفق مع مزوّد الخدمة على من يعالج الفاتورة المرفوضة"
+        ]
+      },
+      {
+        "heading": "أسئلة شائعة",
+        "paragraphs": [
+          "هل ما زلت أحتاج إلى فواتير PDF؟ في الغالب نعم. فالفاتورة الإلكترونية ملف XML، والعميل الذي لم ينضم إلى النظام بعد قد يحتاج إلى فاتورة ضريبية عادية أيضًا، وتنص الإرشادات على أنها مطلوبة في هذه الحالة.",
+          "هل تلتزم المنشأة غير المسجلة في ضريبة القيمة المضافة؟ نعم، إن كانت تجري معاملات أعمال في الإمارات. وتسجّل لدى الهيئة للحصول على رقم TIN.",
+          "هل أستطيع تعيين مزوّد للمبيعات وآخر للمشتريات؟ لا. تعيّن كل منشأة مزوّد خدمة معتمدًا واحدًا للإرسال والاستلام، ويُسجَّل كل عضو في المجموعة الضريبية على حدة.",
+          "هل يجب حفظ البيانات داخل الإمارات؟ القاعدة السارية منذ 1 أكتوبر 2026 لا تحدد مكانًا للحفظ. وتشترط حفظ السجلات للمدة النظامية وإمكانية تقديمها إلى الهيئة عند الطلب.",
+          "هل أستطيع البدء قبل موعدي؟ نعم. فالتطبيق الاختياري متاح منذ 1 يوليو 2026، ولا تنطبق الغرامات إلا من موعدك الإلزامي."
+        ]
+      },
+      {
+        "heading": "ما الذي قد يتغير؟",
+        "paragraphs": [
+          "يعكس هذا الدليل الوضع حتى نوفمبر 2026. وقد عُدِّلت القواعد أكثر من مرة خلال عام 2026: فانتقل موعد تعيين مزوّد الخدمة للمنشآت الأكبر من 31 يوليو إلى 30 أكتوبر، واستُبدل قرار الغرامات، وأعادت الوزارة إصدار إرشاداتها في 26 أكتوبر 2026. ومن الممكن أن تصدر تعديلات أخرى، مثلًا بشأن فواتير المستهلكين ورموز تصنيف الأصناف، وهي اختيارية حاليًا.",
+          "قبل أن تلتزم بمواعيد، تأكد منها لدى وزارة المالية والهيئة الاتحادية للضرائب ومستشارك الضريبي. أما الجانب البرمجي فتعرّف على طريقتنا في [تنفيذ نظام ERPNext](/services/erp-implementation)."
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "تجهّز ERPNext للفوترة الإلكترونية في الإمارات؟",
+      "body": "نُعدّ ERPNext للشركات في الإمارات، وننظّف بيانات الفواتير، ونربطه بمزوّد الخدمة المعتمد الذي تختاره، ونختبر الدورة كاملة قبل التشغيل.",
+      "label": "استشارات وتنفيذ أنظمة ERP"
+    }
+  }
+}

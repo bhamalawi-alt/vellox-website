@@ -7,6 +7,7 @@ import { getUi } from "../../content/ui";
 import type { Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
 import { darkFocus } from "./shared";
+import { HubSchema } from "./HubSchema";
 
 const detailRow =
   "flex items-baseline justify-between gap-6 border-b border-white/10 py-5 first:border-t first:border-white/10";
@@ -28,6 +29,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
   const ui = getUi(locale);
   return (
     <>
+      <HubSchema locale={locale} path="/contact" type="ContactPage" />
       <PageHero art="contact" eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
 
       <section className="bg-[#0a0a0a] pb-24 pt-4 text-white md:pb-32">

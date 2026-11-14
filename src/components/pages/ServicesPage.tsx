@@ -6,6 +6,7 @@ import { getServices } from "../../content/services";
 import { getUi } from "../../content/ui";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
+import { HubSchema } from "./HubSchema";
 
 const SUB_SERVICE_PREVIEW = 3;
 
@@ -33,6 +34,7 @@ export function ServicesPage({ locale }: { locale: Locale }) {
   });
   return (
     <>
+      <HubSchema locale={locale} path="/services" type="CollectionPage" />
       <PageHero eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} art="services" />
       <section className="bg-bg py-20 text-ink md:py-28" aria-labelledby="services-list">
         <div className="mx-auto w-full max-w-6xl px-6">

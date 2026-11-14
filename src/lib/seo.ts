@@ -48,3 +48,58 @@ export function fitDescription(full: string, fallback: string): string {
   const cut = fallback.slice(0, DESCRIPTION_MAX - 1);
   return `${cut.slice(0, cut.lastIndexOf(" ")).trimEnd()}…`;
 }
+
+// Google cuts titles at about 60 characters.
+const TITLE_MAX = 60;
+
+/**
+ * A project page title that says what the work was and for which sector, e.g.
+ * "CROWD RACING: Brand Identity, Motorsport — Vellox Studio". The sector is
+ * dropped when the title would be cut off, and a project with no tags keeps
+ * the plain portfolio title.
+ */
+export function projectTitle(
+  locale: Locale,
+  project: { title: string; tags: string[]; industry: string },
+  fallbackSuffix: string,
+): string {
+  const [tag] = project.tags;
+  if (!tag) return `${project.title} — ${fallbackSuffix}`;
+  const comma = locale === "ar" ? "، " : ", ";
+  const short = `${project.title}: ${tag} — Vellox Studio`;
+  const full = `${project.title}: ${tag}${comma}${project.industry} — Vellox Studio`;
+  return project.industry && full.length <= TITLE_MAX ? full : short;
+}
+
+/**
+ * Structured data for a top-level page (About, Services, Portfolio, Insights,
+ * Contact): what kind of page it is, and its place under the home page.
+ */
+export function hubGraph(o: {
+  locale: Locale;
+  path: string;
+  name: string;
+  type: "AboutPage" | "ContactPage" | "CollectionPage";
+}) {
+  const home = BASE + (o.locale === "ar" ? "/ar" : "/");
+  const url = BASE + localePath(o.locale, o.path);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": o.type,
+        name: o.name,
+        url,
+        inLanguage: o.locale,
+        isPartOf: { "@id": `${home}#website` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Vellox Studio", item: o.locale === "ar" ? home : BASE },
+          { "@type": "ListItem", position: 2, name: o.name, item: url },
+        ],
+      },
+    ],
+  };
+}

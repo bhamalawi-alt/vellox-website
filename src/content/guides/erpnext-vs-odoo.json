@@ -1,0 +1,336 @@
+{
+  "en": {
+    "slug": "erpnext-vs-odoo",
+    "date": "2026-11-15",
+    "service": "erp-implementation",
+    "category": "ERP",
+    "title": "ERPNext vs Odoo: which ERP fits Saudi and Gulf companies?",
+    "description": "An honest comparison of ERPNext and Odoo for Gulf companies: licence, price per user, hosting, Arabic, ZATCA e-invoicing, customisation and upgrades.",
+    "intro": "ERPNext and Odoo are both capable ERP systems, and the biggest difference between them is the commercial model. ERPNext is fully open source, with every module included and no fee per user. Odoo has a free Community edition and a paid Enterprise edition priced per user, with more features and a larger partner network in the Gulf. This guide compares the two on licence, price, hosting, Arabic, ZATCA e-invoicing, customisation, upgrades and local support, and ends with when to choose each.",
+    "sections": [
+      {
+        "heading": "ERPNext vs Odoo at a glance",
+        "paragraphs": [
+          "Both are complete [ERP systems](/insights/what-is-an-erp-system) that cover accounting, sales, buying, stock, manufacturing, projects and HR in a web browser. The table sums up where they differ. Each row is explained in the sections that follow."
+        ],
+        "table": {
+          "head": [
+            "Aspect",
+            "ERPNext",
+            "Odoo"
+          ],
+          "rows": [
+            [
+              "Licence",
+              "GPL v3, one edition",
+              "Community: LGPL v3. Enterprise: proprietary, needs a subscription"
+            ],
+            [
+              "Software fee per user",
+              "0",
+              "Community: 0. Enterprise: list price from US$ 8.95 per user per month, billed yearly"
+            ],
+            [
+              "Modules",
+              "All included",
+              "Full accounting, payroll, Studio and others are Enterprise-only"
+            ],
+            [
+              "Hosting",
+              "Frappe Cloud from US$ 5 per month, or your own server",
+              "Odoo Online, Odoo.sh at extra cost, or your own server"
+            ],
+            [
+              "ZATCA phase 2",
+              "Through marketplace apps, not in the core",
+              "Official modules documented by Odoo"
+            ],
+            [
+              "No-code customisation",
+              "Customize Form, included",
+              "Odoo Studio, on the Custom plan"
+            ],
+            [
+              "Version upgrades",
+              "Managed on Frappe Cloud, otherwise done by you or your partner",
+              "Included with Enterprise, not with Community"
+            ]
+          ],
+          "note": "Odoo prices are the ones its pricing page showed us in US dollars on 15 November 2026. Odoo sets prices by the visitor's country, so the page may show you different figures."
+        }
+      },
+      {
+        "heading": "How is each one licensed?",
+        "paragraphs": [
+          "ERPNext is released under the GNU GPL v3 licence and has one edition. Frappe, the company behind it, states that there are no paid features behind a paywall. You can run it for any number of users and companies and read or change all of the code.",
+          "Odoo comes in two editions. Odoo Community is open source under the LGPL v3 licence and free to use. Odoo Enterprise adds apps and features on top of Community under Odoo's own Enterprise licence, which allows the software to be used and modified only with a valid Odoo Enterprise subscription.",
+          "In practice this means an ERPNext system keeps working with all its features whoever hosts or supports it. An Odoo Enterprise system depends on keeping the subscription active."
+        ]
+      },
+      {
+        "heading": "What is Enterprise-only in Odoo?",
+        "paragraphs": [
+          "Odoo publishes [a comparison of its two editions](https://www.odoo.com/page/editions). Community includes CRM, Sales, Invoicing, Point of Sale, Inventory, Purchase, basic Manufacturing, Project, Website and eCommerce. The items below are marked as Enterprise-only:"
+        ],
+        "list": [
+          "The full Accounting app: general ledger, bank reconciliation, budgets, consolidation, localisations and reports",
+          "Payroll, Appraisals and Referrals",
+          "Barcode scanning in Inventory, Quality, PLM, and the shop floor and scheduling tools in Manufacturing",
+          "Helpdesk, Field Service, Planning, Appointments, Subscriptions and Rental",
+          "Documents, Spreadsheet, Sign, Knowledge and Approvals",
+          "Odoo Studio, the mobile apps, version upgrades, hosting and functional support"
+        ]
+      },
+      {
+        "heading": "How much does Odoo cost per user, and what does ERPNext cost?",
+        "paragraphs": [
+          "[Odoo's pricing page](https://www.odoo.com/pricing) lists three plans. One App Free costs nothing for a single app with unlimited users. Standard gives all apps on Odoo Online. Custom adds Odoo Studio, multi-company, the external API and the choice of Odoo.sh or your own server.",
+          "When we opened the page on 15 November 2026, Standard was listed at US$ 8.95 per user per month billed yearly, or US$ 11.20 billed monthly. Custom was US$ 16.40 billed yearly, or US$ 20.90 billed monthly. New customers were offered US$ 7.25 and US$ 13.40 on yearly billing for the first 12 months. Odoo shows prices by country, so check the page from your own location.",
+          "The plans include hosting on Odoo Online, support and upgrades. They do not include implementation, Odoo.sh hosting or maintenance of custom code. Anyone with access to the back end counts as a paying user, while customers and suppliers who use the portal are free.",
+          "ERPNext has no licence fee and no charge per user. [Frappe's pricing page](https://frappe.io/erpnext/pricing) describes the cost as two parts, hosting and implementation. Our guide to [what ERPNext costs](/insights/erpnext-cost) goes through both.",
+          "The difference grows with headcount. At the list price of US$ 16.40, a company with 40 users on the Custom plan pays US$ 7,872 a year for the software. With ERPNext that line is zero, and hosting does not rise with each user added. Implementation is a separate cost in both cases. Compare the two over three years, not on the first invoice: licence, hosting, implementation, support and one upgrade."
+        ]
+      },
+      {
+        "heading": "Where can you host each system?",
+        "paragraphs": [
+          "ERPNext can run on Frappe Cloud, the managed hosting from Frappe, or on any server you choose. Frappe Cloud is priced by resources, not by user: single sites start at US$ 5 a month and servers at US$ 20 to 40 a month, with managed upgrades and backups. Because the licence is GPL, self-hosting gives you the same software with nothing removed.",
+          "Odoo offers three routes. Odoo Online is Odoo's own cloud and is included in the Standard and Custom plans, but it does not accept custom modules. Odoo.sh is a platform for databases with custom code. It is billed separately, and its price does not include the Enterprise licence. The third route is to download Odoo Enterprise and host it yourself, which needs the Custom plan.",
+          "Odoo Community can be self-hosted free of charge. It then comes without the Enterprise features, Odoo's hosting, Odoo's support or version upgrades."
+        ]
+      },
+      {
+        "heading": "Do both work in Arabic and right to left?",
+        "paragraphs": [
+          "Yes. Both have an Arabic interface with a right-to-left layout, and each user can pick their own language. Odoo's documentation covers right-to-left languages such as Arabic, and Odoo's own website and documentation are available in Arabic.",
+          "ERPNext's translations are contributed by its community, so some terms need review before your accountants see them. We explain what to check in [ERPNext in Arabic](/insights/erpnext-in-arabic).",
+          "Odoo's included support is listed in English, French, Spanish and Dutch. For help in Arabic you will rely on a local partner with either system, so judge the partner's Arabic documents and training as carefully as the software."
+        ]
+      },
+      {
+        "heading": "Does each support ZATCA e-invoicing?",
+        "paragraphs": [
+          "Saudi e-invoicing has two phases. ZATCA describes [the generation phase and the integration phase](https://zatca.gov.sa/en/E-Invoicing/Introduction/Pages/Roll-out-phases.aspx): generating and storing invoices electronically since 4 December 2021, and connecting your system to ZATCA's platform in waves since 1 January 2023.",
+          "Odoo documents [a Saudi Arabia localisation](https://www.odoo.com/documentation/19.0/applications/finance/fiscal_localizations/saudi_arabia.html) with official modules. One adds the phase 1 QR code, one connects to ZATCA's phase 2 API, and one covers simplified invoices from the Point of Sale. Business invoices are sent for clearance and consumer invoices are reported. Odoo lists accounting localisations under Enterprise, so confirm with Odoo or a partner which edition and version your setup needs.",
+          "ERPNext does not include ZATCA integration in its core. It is added by apps on the Frappe marketplace, which Frappe lists on its Saudi Arabia page. One of them is free and open source and covers phase 1 and phase 2. These apps are maintained by their publishers, not by Frappe, so test the one you choose against your ERPNext version. Our guide to [ERPNext and ZATCA e-invoicing](/insights/erpnext-zatca-e-invoicing) describes the onboarding steps.",
+          "Both systems can meet the requirement. With Odoo the module comes from the vendor. With ERPNext you depend on an app and on the team that installs it."
+        ]
+      },
+      {
+        "heading": "How do you customise and upgrade each one?",
+        "paragraphs": [
+          "ERPNext is built on the Frappe framework. Fields, forms, print formats, reports and workflows can be changed from the interface with the Customize Form tool, which is part of the free software. Larger changes are written as separate Frappe apps, which are Python packages installed beside ERPNext without editing its code.",
+          "Odoo's no-code tool is Odoo Studio. It can add or change fields, views, models, automation rules, PDF reports and approval rules. Studio is Enterprise-only and moves you to the Custom plan. Beyond Studio, Odoo is extended with custom modules, which cannot run on Odoo Online and need Odoo.sh or your own server.",
+          "In both, the approach is to configure first and write code only where needed. ERPNext's tools are included, while in Odoo the customisation route also decides your plan and your hosting.",
+          "Odoo supports each major version for three years. With Enterprise, upgrading the database to the latest version is free and covers the standard apps and Studio customisations. Custom modules are the responsibility of whoever maintains them, and Odoo's upgrade service does not cover them without a maintenance contract. Community does not include version upgrades.",
+          "ERPNext upgrades are open to everyone because the code is. Frappe Cloud manages them for sites it hosts. On your own server, you or your partner run them. Custom apps need testing against each new version, as in Odoo.",
+          "In both systems the rule is the same: the more custom code you carry, the more each upgrade costs."
+        ]
+      },
+      {
+        "heading": "Which has more partners and talent in the Gulf?",
+        "paragraphs": [
+          "Odoo, by a wide margin. On 15 November 2026 Odoo's partner directory listed 196 partners in Saudi Arabia, 120 in the UAE, 19 in Oman and 22 in Libya. Frappe states that it has more than 200 partners worldwide, and only a small share of them are in the Gulf.",
+          "A larger network means more choice of implementers, more developers with experience and an easier time replacing a partner. With ERPNext, check the team more carefully: ask to see Arabic print formats, a working ZATCA setup and how they handle upgrades. This is the part of the work we cover in [ERPNext implementation](/services/erp-implementation).",
+          "Neither vendor is your main contact for a project. Frappe does not implement ERPNext itself and works through partners. Odoo offers its own packs for small companies and points mid-size companies to partners."
+        ]
+      },
+      {
+        "heading": "When should you choose Odoo?",
+        "paragraphs": [
+          "Odoo is the stronger choice when:"
+        ],
+        "list": [
+          "You want vendor-maintained ZATCA modules and one company answerable for software, hosting and upgrades",
+          "You need apps Odoo is strong in, such as eCommerce and website building, Field Service or Subscriptions, in the same system",
+          "Your user count is small or stable, so the fee per user stays predictable",
+          "You want a wide choice of local partners and developers"
+        ]
+      },
+      {
+        "heading": "When should you choose ERPNext?",
+        "paragraphs": [
+          "ERPNext is the stronger choice when:"
+        ],
+        "list": [
+          "You have many users, or expect to add them, and do not want the software cost to grow with headcount",
+          "You want every module, including full accounting, without edition limits",
+          "You want to own the system, host it where you like and change partner without changing licence terms",
+          "Your processes need custom work and you want the tools for it included"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "Not sure which one fits your company?",
+      "body": "We are a team that implements and customises ERPNext. Tell us how your company works and we will say plainly whether ERPNext fits, and what it would involve.",
+      "label": "See ERP consulting and implementation"
+    }
+  },
+  "ar": {
+    "slug": "erpnext-vs-odoo",
+    "date": "2026-11-15",
+    "service": "erp-implementation",
+    "category": "أنظمة ERP",
+    "title": "مقارنة ERPNext و Odoo: أيهما أنسب للشركات في السعودية والخليج؟",
+    "description": "مقارنة منصفة بين ERPNext و Odoo لشركات الخليج: الترخيص، وسعر المستخدم، والاستضافة، والعربية، والربط مع هيئة الزكاة، والتخصيص والترقيات.",
+    "intro": "ERPNext و Odoo نظامان قادران على إدارة شركة كاملة، والفرق الأكبر بينهما في النموذج التجاري. ERPNext مفتوح المصدر بالكامل، وكل وحداته متاحة بلا رسوم لكل مستخدم. أما Odoo فله نسخة Community مجانية ونسخة Enterprise مدفوعة تُسعَّر لكل مستخدم، وفيها مزايا أكثر وشبكة شركاء أوسع بكثير في الخليج. يقارن هذا الدليل بين النظامين في الترخيص والسعر والاستضافة والعربية والربط مع هيئة الزكاة والتخصيص والترقيات والدعم المحلي، وينتهي بمتى تختار كلًّا منهما.",
+    "sections": [
+      {
+        "heading": "ERPNext و Odoo في نظرة سريعة",
+        "paragraphs": [
+          "كلاهما [نظام ERP](/insights/what-is-an-erp-system) متكامل يغطي الحسابات والمبيعات والمشتريات والمخزون والتصنيع والمشاريع والموارد البشرية، ويعمل من المتصفح. يلخّص الجدول أهم الفروق، وتشرح الأقسام التالية كل صف فيه."
+        ],
+        "table": {
+          "head": [
+            "وجه المقارنة",
+            "ERPNext",
+            "Odoo"
+          ],
+          "rows": [
+            [
+              "الترخيص",
+              "GPL v3، نسخة واحدة",
+              "Community: رخصة LGPL v3. Enterprise: رخصة مغلقة تتطلب اشتراكًا"
+            ],
+            [
+              "رسوم البرنامج لكل مستخدم",
+              "0",
+              "Community: 0. Enterprise: السعر المعلن من 8.95 دولار للمستخدم شهريًا بفوترة سنوية"
+            ],
+            [
+              "الوحدات",
+              "كلها متاحة",
+              "المحاسبة الكاملة والرواتب و Studio وغيرها في Enterprise فقط"
+            ],
+            [
+              "الاستضافة",
+              "Frappe Cloud من 5 دولارات شهريًا، أو خادمك الخاص",
+              "Odoo Online، أو Odoo.sh بتكلفة إضافية، أو خادمك الخاص"
+            ],
+            [
+              "المرحلة الثانية من الفوترة الإلكترونية",
+              "عبر تطبيقات من المتجر، وليست في النظام الأساسي",
+              "وحدات رسمية موثّقة من Odoo"
+            ],
+            [
+              "التخصيص بلا برمجة",
+              "أداة Customize Form، مشمولة",
+              "Odoo Studio، ضمن خطة Custom"
+            ],
+            [
+              "ترقية الإصدارات",
+              "تديرها Frappe Cloud، وخارجها تتولاها أنت أو شريكك",
+              "مشمولة في Enterprise، وغير مشمولة في Community"
+            ]
+          ],
+          "note": "أسعار Odoo هي ما عرضته لنا صفحة الأسعار بالدولار الأمريكي في 15 نوفمبر 2026. تحدّد Odoo الأسعار بحسب بلد الزائر، فقد تعرض لك الصفحة أرقامًا مختلفة."
+        }
+      },
+      {
+        "heading": "ما رخصة كل نظام؟",
+        "paragraphs": [
+          "يصدر ERPNext برخصة GNU GPL v3 وله نسخة واحدة. وتؤكد Frappe، الشركة المطوّرة له، أنه لا توجد مزايا مدفوعة محجوبة. يمكنك تشغيله لأي عدد من المستخدمين والشركات، والاطلاع على الشيفرة كلها وتعديلها.",
+          "أما Odoo فله نسختان. Odoo Community مفتوحة المصدر برخصة LGPL v3 ومجانية. و Odoo Enterprise تضيف تطبيقات ومزايا فوق Community برخصة خاصة من Odoo، لا تسمح باستخدام البرنامج أو تعديله إلا باشتراك Odoo Enterprise سارٍ.",
+          "وعمليًا يعني ذلك أن نظام ERPNext يبقى يعمل بكل مزاياه أيًّا كان من يستضيفه أو يدعمه، بينما يعتمد نظام Odoo Enterprise على بقاء الاشتراك فعّالًا."
+        ]
+      },
+      {
+        "heading": "ما الذي يقتصر على Enterprise في Odoo؟",
+        "paragraphs": [
+          "تنشر Odoo [مقارنة بين نسختيها](https://www.odoo.com/page/editions). تشمل Community إدارة العملاء CRM والمبيعات والفوترة ونقاط البيع والمخزون والمشتريات والتصنيع الأساسي والمشاريع والموقع والمتجر الإلكتروني. أما البنود التالية فمحدَّدة على أنها في Enterprise فقط:"
+        ],
+        "list": [
+          "تطبيق المحاسبة الكامل: دفتر الأستاذ العام، والتسوية البنكية، والموازنات، والتوحيد، والتوطينات المحلية، والتقارير",
+          "الرواتب والتقييمات والترشيحات",
+          "قراءة الباركود في المخزون، والجودة، و PLM، وأدوات أرضية المصنع والجدولة في التصنيع",
+          "الدعم الفني Helpdesk، والخدمة الميدانية، والتخطيط، والمواعيد، والاشتراكات، والتأجير",
+          "المستندات، وجداول البيانات، والتوقيع الإلكتروني، وقاعدة المعرفة، والموافقات",
+          "Odoo Studio، وتطبيقات الجوال، وترقية الإصدارات، والاستضافة، والدعم الوظيفي"
+        ]
+      },
+      {
+        "heading": "كم يكلّف Odoo لكل مستخدم، وكم يكلّف ERPNext؟",
+        "paragraphs": [
+          "تعرض [صفحة أسعار Odoo](https://www.odoo.com/pricing) ثلاث خطط. خطة One App Free مجانية لتطبيق واحد وعدد غير محدود من المستخدمين. وخطة Standard تتيح كل التطبيقات على Odoo Online. وخطة Custom تضيف Odoo Studio وتعدد الشركات والواجهة البرمجية الخارجية، وخيار الاستضافة على Odoo.sh أو على خادمك.",
+          "عندما فتحنا الصفحة في 15 نوفمبر 2026 كان سعر Standard المعلن 8.95 دولار للمستخدم شهريًا بفوترة سنوية، أو 11.20 دولار بفوترة شهرية. وسعر Custom 16.40 دولار بفوترة سنوية، أو 20.90 دولار بفوترة شهرية. وعُرض على العملاء الجدد 7.25 دولار و13.40 دولار بالفوترة السنوية لأول 12 شهرًا. وتعرض Odoo الأسعار بحسب البلد، فراجع الصفحة من موقعك.",
+          "تشمل الخطط الاستضافة على Odoo Online والدعم والترقيات. ولا تشمل التطبيق، ولا الاستضافة على Odoo.sh، ولا صيانة الشيفرة الخاصة. وكل من يدخل إلى واجهة النظام الداخلية يُحسب مستخدمًا مدفوعًا، أما العملاء والموردون الذين يستخدمون البوابة فمجانًا.",
+          "أما ERPNext فبلا رسوم ترخيص ولا رسوم لكل مستخدم. وتصف [صفحة أسعار Frappe](https://frappe.io/erpnext/pricing) التكلفة بأنها جزءان: الاستضافة والتطبيق. ونشرح الاثنين في دليلنا عن [تكلفة ERPNext](/insights/erpnext-cost).",
+          "ويكبر الفرق مع عدد الموظفين. بالسعر المعلن 16.40 دولار، تدفع شركة لديها 40 مستخدمًا على خطة Custom مبلغ 7,872 دولارًا سنويًا مقابل البرنامج. ومع ERPNext هذا البند صفر، والاستضافة لا ترتفع مع كل مستخدم تضيفه. أما التطبيق فتكلفة مستقلة في الحالتين. قارن بين النظامين على ثلاث سنوات لا على الفاتورة الأولى: الترخيص والاستضافة والتطبيق والدعم وترقية واحدة."
+        ]
+      },
+      {
+        "heading": "أين يمكن استضافة كل نظام؟",
+        "paragraphs": [
+          "يعمل ERPNext على Frappe Cloud، وهي الاستضافة المُدارة من Frappe، أو على أي خادم تختاره. تُسعَّر Frappe Cloud بحسب الموارد لا بحسب المستخدمين: المواقع المفردة تبدأ من 5 دولارات شهريًا والخوادم من 20 إلى 40 دولارًا شهريًا، مع إدارة الترقيات والنسخ الاحتياطية. ولأن الرخصة GPL، تحصل عند الاستضافة الذاتية على البرنامج نفسه دون أن ينقص منه شيء.",
+          "أما Odoo فيتيح ثلاثة مسارات. Odoo Online هي سحابة Odoo نفسها، ومشمولة في خطتي Standard و Custom، لكنها لا تقبل الوحدات الخاصة. و Odoo.sh منصة لقواعد البيانات التي فيها شيفرة خاصة، تُدفع رسومها على حدة، وسعرها لا يشمل ترخيص Enterprise. والمسار الثالث أن تنزّل Odoo Enterprise وتستضيفه بنفسك، وهذا يتطلب خطة Custom.",
+          "ويمكن استضافة Odoo Community ذاتيًا مجانًا، لكنها تأتي حينها بلا مزايا Enterprise، وبلا استضافة Odoo ودعمها وترقية الإصدارات."
+        ]
+      },
+      {
+        "heading": "هل يدعم النظامان العربية والاتجاه من اليمين إلى اليسار؟",
+        "paragraphs": [
+          "نعم. لكليهما واجهة عربية بتخطيط من اليمين إلى اليسار، ويختار كل مستخدم لغته. وتتناول وثائق Odoo اللغات التي تُكتب من اليمين إلى اليسار مثل العربية، وموقع Odoo ووثائقها متاحان بالعربية.",
+          "ترجمات ERPNext يساهم بها مجتمع مستخدميه، ولذلك تحتاج بعض المصطلحات إلى مراجعة قبل أن يراها محاسبوك. ونشرح ما ينبغي فحصه في دليل [ERPNext بالعربية](/insights/erpnext-in-arabic).",
+          "والدعم المشمول من Odoo مذكور بالإنجليزية والفرنسية والإسبانية والهولندية. فللمساعدة بالعربية ستعتمد على شريك محلي مع أي من النظامين، ولذلك قيّم مستندات الشريك العربية وتدريبه بالعناية نفسها التي تقيّم بها البرنامج."
+        ]
+      },
+      {
+        "heading": "هل يدعم كل منهما الفوترة الإلكترونية لهيئة الزكاة؟",
+        "paragraphs": [
+          "للفوترة الإلكترونية في السعودية مرحلتان. تصف هيئة الزكاة والضريبة والجمارك [مرحلة الإصدار ومرحلة الربط](https://zatca.gov.sa/en/E-Invoicing/Introduction/Pages/Roll-out-phases.aspx): إصدار الفواتير وحفظها إلكترونيًا منذ 4 ديسمبر 2021، ثم ربط نظامك بمنصة الهيئة على دفعات منذ 1 يناير 2023.",
+          "توثّق Odoo [توطينًا خاصًا بالسعودية](https://www.odoo.com/documentation/19.0/applications/finance/fiscal_localizations/saudi_arabia.html) بوحدات رسمية: وحدة تضيف رمز QR للمرحلة الأولى، ووحدة تربط النظام بواجهة المرحلة الثانية لدى الهيئة، ووحدة للفواتير المبسطة من نقاط البيع. تُرسل فواتير الشركات للاعتماد، ويُبلَّغ عن فواتير المستهلكين. وتدرج Odoo التوطينات المحاسبية ضمن Enterprise، فتأكد من Odoo أو من شريك أي نسخة وأي إصدار يحتاجه إعدادك.",
+          "أما ERPNext فلا يتضمن الربط مع الهيئة في نظامه الأساسي. تضيفه تطبيقات من متجر Frappe، تذكرها Frappe في صفحتها الخاصة بالسعودية، وأحدها مجاني ومفتوح المصدر ويغطي المرحلتين الأولى والثانية. هذه التطبيقات يصونها ناشروها لا Frappe، فاختبر التطبيق الذي تختاره على إصدار ERPNext الذي تعمل عليه. ويشرح دليلنا عن [ربط ERPNext مع هيئة الزكاة](/insights/erpnext-zatca-e-invoicing) خطوات التسجيل.",
+          "يستطيع النظامان تلبية المتطلب. مع Odoo تأتي الوحدة من الشركة المطوّرة نفسها. ومع ERPNext تعتمد على تطبيق وعلى الفريق الذي يثبّته."
+        ]
+      },
+      {
+        "heading": "كيف يُخصَّص كل نظام وكيف يُرقّى؟",
+        "paragraphs": [
+          "ERPNext مبني على إطار Frappe. يمكن تعديل الحقول والنماذج ونماذج الطباعة والتقارير ومسارات الموافقة من الواجهة بأداة Customize Form، وهي جزء من البرنامج المجاني. أما التعديلات الأكبر فتُكتب كتطبيقات Frappe مستقلة، وهي حزم Python تُثبَّت بجانب ERPNext دون المساس بشيفرته.",
+          "أداة التخصيص بلا برمجة في Odoo هي Odoo Studio. تضيف أو تعدّل الحقول وطرق العرض والنماذج وقواعد الأتمتة وتقارير PDF وقواعد الموافقة. و Studio مقتصرة على Enterprise وتنقلك إلى خطة Custom. وما يتجاوز Studio يُنفَّذ بوحدات خاصة، وهذه لا تعمل على Odoo Online وتحتاج إلى Odoo.sh أو إلى خادمك.",
+          "المنهج في النظامين أن تبدأ بالإعداد ولا تلجأ إلى البرمجة إلا حيث تلزم. أدوات ERPNext مشمولة، أما في Odoo فطريقة التخصيص تحدد أيضًا خطتك واستضافتك.",
+          "تدعم Odoo كل إصدار رئيسي ثلاث سنوات. ومع Enterprise تكون ترقية قاعدة البيانات إلى أحدث إصدار مجانية، وتشمل التطبيقات القياسية وتعديلات Studio. أما الوحدات الخاصة فمسؤولية من يصونها، ولا تغطيها خدمة الترقية من Odoo دون عقد صيانة. ولا تشمل Community ترقية الإصدارات.",
+          "ترقيات ERPNext متاحة للجميع لأن الشيفرة متاحة. تديرها Frappe Cloud للمواقع المستضافة لديها. وعلى خادمك الخاص تنفذها أنت أو شريكك. والتطبيقات الخاصة تحتاج إلى اختبار مع كل إصدار جديد، كما في Odoo.",
+          "والقاعدة واحدة في النظامين: كلما زادت الشيفرة الخاصة زادت تكلفة كل ترقية."
+        ]
+      },
+      {
+        "heading": "أيهما له شركاء وكفاءات أكثر في الخليج؟",
+        "paragraphs": [
+          "Odoo، وبفارق كبير. في 15 نوفمبر 2026 كان دليل شركاء Odoo يضم 196 شريكًا في السعودية و120 في الإمارات و19 في عُمان و22 في ليبيا. وتذكر Frappe أن لديها أكثر من 200 شريك حول العالم، ونسبة صغيرة منهم فقط في الخليج.",
+          "الشبكة الأوسع تعني خيارات أكثر من المنفّذين، ومطوّرين أكثر خبرة، وسهولة أكبر في تغيير الشريك. ومع ERPNext دقّق في الفريق أكثر: اطلب أن ترى نماذج طباعة عربية، وربطًا يعمل مع هيئة الزكاة، وطريقتهم في الترقيات. وهذا هو الجزء الذي نتولاه في [تنفيذ ERPNext](/services/erp-implementation).",
+          "وليست أي من الشركتين جهة تواصلك الأساسية في المشروع. Frappe لا تنفّذ ERPNext بنفسها وتعمل عبر الشركاء. و Odoo تقدّم باقاتها الخاصة للشركات الصغيرة وتوجّه الشركات المتوسطة إلى الشركاء."
+        ]
+      },
+      {
+        "heading": "متى تختار Odoo؟",
+        "paragraphs": [
+          "يكون Odoo الخيار الأقوى إذا:"
+        ],
+        "list": [
+          "كنت تريد وحدات لهيئة الزكاة تصونها الشركة المطوّرة، وجهة واحدة مسؤولة عن البرنامج والاستضافة والترقيات",
+          "كنت تحتاج إلى تطبيقات يتميز فيها Odoo، مثل المتجر الإلكتروني وبناء المواقع أو الخدمة الميدانية أو الاشتراكات، ضمن النظام نفسه",
+          "كان عدد مستخدميك صغيرًا أو ثابتًا، فتبقى رسوم المستخدم متوقعة",
+          "كنت تريد خيارات واسعة من الشركاء والمطوّرين المحليين"
+        ]
+      },
+      {
+        "heading": "متى تختار ERPNext؟",
+        "paragraphs": [
+          "يكون ERPNext الخيار الأقوى إذا:"
+        ],
+        "list": [
+          "كان لديك مستخدمون كثيرون أو تتوقع زيادتهم، ولا تريد أن تكبر تكلفة البرنامج مع عدد الموظفين",
+          "كنت تريد كل الوحدات، ومنها المحاسبة الكاملة، دون قيود النسخ",
+          "كنت تريد أن تملك النظام وتستضيفه حيث تشاء وتغيّر الشريك دون أن تتغير شروط الترخيص",
+          "كانت إجراءاتك تحتاج إلى تخصيص وتريد أن تكون أدواته مشمولة"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "لست متأكدًا أي النظامين يناسب شركتك؟",
+      "body": "نحن فريق ينفّذ ERPNext ويخصّصه. أخبرنا كيف تعمل شركتك، ونقول لك بوضوح هل يناسبك ERPNext وما الذي يتطلبه.",
+      "label": "استشارات وتنفيذ أنظمة ERP"
+    }
+  }
+}

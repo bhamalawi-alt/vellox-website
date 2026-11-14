@@ -12,6 +12,7 @@ import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
 import { CtaArt } from "../CtaArt";
 import { primaryCtaSoft } from "./shared";
+import { HubSchema } from "./HubSchema";
 
 const GALLERY_TILES = 12;
 
@@ -45,6 +46,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
   const hasPhotos = projects.some((p) => p.gallery.length > 0);
   return (
     <>
+      <HubSchema locale={locale} path="/portfolio" type="CollectionPage" />
       <PageHero art="portfolio" eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
 
       {projects.length > 0 ? (

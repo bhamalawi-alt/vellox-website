@@ -1,0 +1,254 @@
+{
+  "en": {
+    "slug": "erpnext-oman-e-invoicing",
+    "date": "2026-11-15",
+    "service": "erp-implementation",
+    "category": "ERP",
+    "title": "ERPNext and Oman e-invoicing (Fawtara): how to get ready",
+    "description": "Oman's Fawtara e-invoicing becomes mandatory on 1 April and 1 October 2027. Who is covered, what the rules require, and how to prepare ERPNext.",
+    "intro": "Oman's e-invoicing programme, Fawtara, is run by the Oman Tax Authority. VAT-registered businesses with annual supplies above OMR 5 million must issue electronic tax invoices from 1 April 2027, and all other taxable persons from 1 October 2027. ERPNext has no built-in Fawtara support, so it has to be connected through an accredited service provider. This guide covers the rules as they stand in November 2026, how they differ from Saudi Arabia and the UAE, and how to prepare ERPNext.",
+    "sections": [
+      {
+        "heading": "What is Fawtara, Oman's e-invoicing programme?",
+        "paragraphs": [
+          "Fawtara is the national e-invoicing programme of the [Oman Tax Authority](https://tms.taxoman.gov.om/portal/e-invoicing) (OTA). It replaces paper and PDF invoices with structured electronic invoices that move between the seller's and the buyer's systems and are reported to the OTA.",
+          "The OTA describes it as a 5-corner model. The supplier sends the invoice to its service provider. That provider validates it and passes it to the buyer's service provider, which delivers it to the buyer. The OTA is the fifth corner and receives the tax data. Service providers must be accredited by the OTA.",
+          "The technical format follows Peppol. OpenPeppol publishes the [Oman specifications](https://docs.peppol.eu/poac/om/): PINT OM for billing and self-billing, and a Tax Data Document that carries the reported data to the OTA."
+        ]
+      },
+      {
+        "heading": "Who has to comply, and when?",
+        "paragraphs": [
+          "The dates come from Decision 189/2026 of the Chairman of the Tax Authority, issued on 3 August 2026 and published in the Official Gazette on 9 August 2026. It amends the VAT Executive Regulations and makes the electronic tax invoice mandatory in two steps. The OTA's [e-invoicing FAQs](https://tms.taxoman.gov.om/portal/e-invoicing-faq), last updated on 12 November 2026, give the same two dates.",
+          "As of November 2026, no general obligation has started. A pilot with large taxpayers selected by the OTA is under way. Press reports quoting the OTA's project manager say it began in August 2026 with about 100 companies. The OTA pages we read mention the pilot but do not date it."
+        ],
+        "table": {
+          "head": [
+            "Phase",
+            "Who",
+            "Date"
+          ],
+          "rows": [
+            [
+              "Pilot",
+              "Large taxpayers selected by the OTA (about 100 companies, according to press reports)",
+              "Began August 2026 (press reports; not dated on the OTA site)"
+            ],
+            [
+              "First mandatory phase",
+              "Taxable persons with annual supplies above OMR 5,000,000",
+              "1 April 2027"
+            ],
+            [
+              "Second mandatory phase",
+              "Taxable persons with annual supplies not exceeding OMR 5,000,000",
+              "1 October 2027"
+            ]
+          ],
+          "note": "Mandatory dates: Decision 189/2026 and the OTA e-invoicing FAQs (updated 12 November 2026). Pilot start and size: press reports only. Position as of November 2026."
+        }
+      },
+      {
+        "heading": "How is the OMR 5 million threshold measured?",
+        "paragraphs": [
+          "The OTA's FAQs say the reference point is the total value of your annual supplies as of 31 March 2027. You start on 1 April 2027 if either of two tests is met: your supplies from 1 April 2026 to 31 March 2027 exceed OMR 5,000,000, or your expected supplies from 1 April 2027 to 31 March 2028 exceed that amount. If neither is met, you start on 1 October 2027.",
+          "The count includes taxable supplies other than capital assets, supplies under the reverse charge and intra-GCC supplies. VAT groups are assessed at group level. Non-residents count only their supplies made in Oman.",
+          "The OTA also offers a [rollout checking tool](https://tms.taxoman.gov.om/portal/potential-rollout-checking) that shows your likely start date from your VATIN and supplies. The OTA says it is for awareness and preparation only."
+        ]
+      },
+      {
+        "heading": "What does a business have to do?",
+        "paragraphs": [
+          "The OTA lists three obligations for companies. The amended regulations add two points worth knowing: a tax invoice must be issued within 15 days of the event that triggers it, and the Chairman of the Tax Authority may grant a temporary exemption from e-invoicing on a justified request."
+        ],
+        "list": [
+          "Issue invoices electronically in the approved format",
+          "Use an accredited service provider, or a compatible system connected to one",
+          "Report invoice data to the OTA on time, through the service provider",
+          "Keep filing VAT returns and paying VAT on time; e-invoicing does not replace the return"
+        ]
+      },
+      {
+        "heading": "How is it different from ZATCA in Saudi Arabia and from the UAE?",
+        "paragraphs": [
+          "Saudi Arabia uses a clearance model. Your invoicing system connects directly to the tax authority's platform, stamps each invoice cryptographically, and business invoices are cleared by ZATCA before they reach the buyer. Our guide to [ERPNext and ZATCA e-invoicing](/insights/erpnext-zatca-e-invoicing) explains that flow.",
+          "In Oman your system does not connect to the tax authority. It connects to an accredited service provider, and the providers exchange the invoice and report the tax data. Oman also has two fixed dates split by one threshold, where Saudi Arabia onboards businesses in many waves.",
+          "The UAE is closer to Oman. It also uses a 5-corner model with accredited service providers and a Peppol-based format. But it is a separate system led by the UAE Ministry of Finance, with its own data fields, its own list of providers and its own phases, which tax-firm summaries date from 2027. A setup built for one country does not cover the other."
+        ]
+      },
+      {
+        "heading": "Can ERPNext handle Oman e-invoicing?",
+        "paragraphs": [
+          "Not out of the box. ERPNext's core has no Fawtara integration. A [Frappe forum thread](https://discuss.frappe.io/t/does-erpnext-15-support-oman-s-e-invoicing-standards-or-are-there-any-alternative-options/148200) asked about Oman support in June 2025 and had no replies when we read it.",
+          "The community apps we found on GitHub in November 2026 cover Oman VAT, not Fawtara. One states that e-invoicing is not yet implemented. Another describes itself as a scaffold that is not production-ready. A community developer announced open-source UAE and Oman e-invoicing apps in December 2025; the UAE app is public, but we found no Oman release. Some vendors sell Oman apps for ERPNext. We have not tested them, so ask which accredited provider they connect to and whether they have passed its tests.",
+          "The realistic route is integration. ERPNext holds the invoice data and sends each submitted sales invoice, credit note and debit note to an accredited service provider through that provider's API. The provider converts it to PINT OM, exchanges it and reports to the OTA, and ERPNext stores the status that comes back. Older ERPNext versions [may need an upgrade first](/insights/erpnext-cost)."
+        ]
+      },
+      {
+        "heading": "A preparation checklist for ERPNext users",
+        "paragraphs": [
+          "Most of the work is data and setup, and it can start before you choose a provider. This is the order we follow in an [ERPNext implementation](/services/erp-implementation):"
+        ],
+        "list": [
+          "Check that your company's legal name, address and VATIN in ERPNext match your VAT registration with the OTA",
+          "Complete customer records: VATIN for registered customers, full addresses and country",
+          "Set up tax templates for Oman's 5% VAT, plus zero-rated, exempt and reverse-charge cases, and assign them to items",
+          "Review invoice fields: invoice number, issue date, supply date, item descriptions, quantities, unit prices, VAT amount per line, currency",
+          "Prepare print formats in [Arabic and English](/insights/erpnext-in-arabic) for the readable copy of the invoice",
+          "Work out which date applies to you with the OTA's threshold tests, and confirm it with your tax adviser",
+          "Choose a service provider from the OTA's accredited list and ask for its API documentation and test environment",
+          "Test the full cycle on a copy of your system: invoices, credit notes, debit notes, rejections and resends",
+          "Train the sales and accounts teams before go-live"
+        ]
+      },
+      {
+        "heading": "What is still not confirmed?",
+        "paragraphs": [
+          "The rules are still being rolled out. In the OTA's service provider FAQs, the treatment of B2C invoices is described as still under discussion, with no timeframe yet for submitting them. A QR code is expected to be mandatory only for simplified invoices, and its details have not been released.",
+          "Tax-firm summaries, including KPMG's, note that the decision does not say whether government entities follow the same dates. Treat this as open and ask your adviser.",
+          "Some guides online, and one older OTA page, still show an earlier four-phase plan. Rely on Decision 189/2026 and the current FAQs, and confirm your own position with the Oman Tax Authority and your tax adviser."
+        ]
+      },
+      {
+        "heading": "Common questions",
+        "paragraphs": [
+          "Is e-invoicing mandatory in Oman today? No. As of November 2026 only the pilot is running. The first mandatory date is 1 April 2027.",
+          "Can a smaller business start early? Yes. The OTA's FAQs say optional early adoption is allowed.",
+          "Can ERPNext send invoices straight to the OTA? No. Invoices go through an accredited service provider. A company can apply for accreditation to act as its own provider, but for most businesses using an existing provider is simpler.",
+          "Do we need to replace our system? Not if it can produce complete invoice data and connect to a provider's API. If you still invoice from spreadsheets, this is a good time to read [what an ERP system does](/insights/what-is-an-erp-system)."
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "Getting ready for Fawtara?",
+      "body": "We set up ERPNext for Oman VAT, clean the customer and item data, and connect it to the service provider you choose, with testing before your date.",
+      "label": "See ERP consulting and implementation"
+    }
+  },
+  "ar": {
+    "slug": "erpnext-oman-e-invoicing",
+    "date": "2026-11-15",
+    "service": "erp-implementation",
+    "category": "أنظمة ERP",
+    "title": "ERPNext والفوترة الإلكترونية في عُمان «فوترة»: كيف تستعد؟",
+    "description": "تصبح الفوترة الإلكترونية «فوترة» إلزامية في عُمان في 1 أبريل و1 أكتوبر 2027. من المشمول، وما المطلوب، وكيف تجهّز نظام ERPNext قبل موعدك.",
+    "intro": "يدير جهاز الضرائب في عُمان برنامج الفوترة الإلكترونية «فوترة». على الخاضعين للضريبة الذين تتجاوز توريداتهم السنوية 5 ملايين ريال عُماني إصدار الفواتير الضريبية إلكترونيًا اعتبارًا من 1 أبريل 2027، وعلى بقية الخاضعين اعتبارًا من 1 أكتوبر 2027. ولا يتضمن ERPNext ربطًا جاهزًا مع «فوترة»، فيجب ربطه عبر مزوّد خدمة معتمد. يشرح هذا الدليل القواعد كما هي في نوفمبر 2026، وما يميّزها عن السعودية والإمارات، وكيف تجهّز ERPNext.",
+    "sections": [
+      {
+        "heading": "ما هو «فوترة»، برنامج الفوترة الإلكترونية في عُمان؟",
+        "paragraphs": [
+          "«فوترة» هو البرنامج الوطني للفوترة الإلكترونية لدى [جهاز الضرائب في عُمان](https://tms.taxoman.gov.om/portal/e-invoicing). يستبدل الفواتير الورقية وملفات PDF بفواتير إلكترونية منظمة تنتقل بين نظام البائع ونظام المشتري، وتُبلَّغ بياناتها إلى الجهاز.",
+          "يصفه الجهاز بأنه نموذج من خمسة أطراف. يرسل المورّد الفاتورة إلى مزوّد خدمته، فيتحقق منها ويمررها إلى مزوّد خدمة المشتري، الذي يسلّمها إلى المشتري. والطرف الخامس هو جهاز الضرائب الذي يستلم البيانات الضريبية. ويجب أن يكون مزوّدو الخدمة معتمدين من الجهاز.",
+          "وتتبع الصيغة الفنية معايير Peppol. تنشر OpenPeppol [المواصفات الخاصة بعُمان](https://docs.peppol.eu/poac/om/)، وهي PINT OM للفوترة والفوترة الذاتية، ومستند البيانات الضريبية (Tax Data Document) الذي ينقل البيانات المبلَّغ عنها إلى الجهاز."
+        ]
+      },
+      {
+        "heading": "من المُلزَم بالتطبيق، ومتى؟",
+        "paragraphs": [
+          "مصدر المواعيد هو القرار رقم 189/2026 الصادر عن رئيس جهاز الضرائب في 3 أغسطس 2026، والمنشور في الجريدة الرسمية في 9 أغسطس 2026. يعدّل القرار اللائحة التنفيذية لقانون ضريبة القيمة المضافة، ويجعل الفاتورة الضريبية الإلكترونية إلزامية على مرحلتين. وتذكر [الأسئلة الشائعة عن الفوترة الإلكترونية](https://tms.taxoman.gov.om/portal/e-invoicing-faq) على موقع الجهاز، وآخر تحديث لها في 12 نوفمبر 2026، الموعدين نفسيهما.",
+          "حتى نوفمبر 2026 لم يبدأ أي التزام عام. وتجري حاليًا مرحلة تجريبية مع كبار الخاضعين للضريبة الذين اختارهم الجهاز. وتذكر تقارير صحفية نقلًا عن مدير المشروع في الجهاز أنها بدأت في أغسطس 2026 مع نحو 100 شركة. أما صفحات الجهاز التي اطلعنا عليها فتذكر المرحلة التجريبية دون تاريخ."
+        ],
+        "table": {
+          "head": [
+            "المرحلة",
+            "الفئة المشمولة",
+            "التاريخ"
+          ],
+          "rows": [
+            [
+              "المرحلة التجريبية",
+              "كبار الخاضعين للضريبة الذين اختارهم الجهاز (نحو 100 شركة بحسب تقارير صحفية)",
+              "بدأت في أغسطس 2026 (تقارير صحفية؛ دون تاريخ على موقع الجهاز)"
+            ],
+            [
+              "المرحلة الإلزامية الأولى",
+              "الخاضعون للضريبة الذين تتجاوز توريداتهم السنوية 5,000,000 ريال عُماني",
+              "1 أبريل 2027"
+            ],
+            [
+              "المرحلة الإلزامية الثانية",
+              "الخاضعون للضريبة الذين لا تتجاوز توريداتهم السنوية 5,000,000 ريال عُماني",
+              "1 أكتوبر 2027"
+            ]
+          ],
+          "note": "المواعيد الإلزامية: القرار رقم 189/2026 والأسئلة الشائعة عن الفوترة الإلكترونية لدى جهاز الضرائب (تحديث 12 نوفمبر 2026). بداية المرحلة التجريبية وحجمها: تقارير صحفية فقط. الوضع كما هو في نوفمبر 2026."
+        }
+      },
+      {
+        "heading": "كيف يُحتسب حد 5 ملايين ريال عُماني؟",
+        "paragraphs": [
+          "تذكر الأسئلة الشائعة لدى الجهاز أن المرجع هو إجمالي قيمة توريداتك السنوية كما في 31 مارس 2027. تبدأ في 1 أبريل 2027 إذا تحقق أحد شرطين: أن تتجاوز توريداتك من 1 أبريل 2026 إلى 31 مارس 2027 مبلغ 5,000,000 ريال عُماني، أو أن تتجاوز توريداتك المتوقعة من 1 أبريل 2027 إلى 31 مارس 2028 هذا المبلغ. وإذا لم يتحقق أي منهما تبدأ في 1 أكتوبر 2027.",
+          "يشمل الاحتساب التوريدات الخاضعة للضريبة عدا الأصول الرأسمالية، والتوريدات الخاضعة للاحتساب العكسي، والتوريدات البينية بين دول مجلس التعاون. وتُقيَّم المجموعات الضريبية على مستوى المجموعة. أما غير المقيمين فتُحتسب توريداتهم داخل عُمان فقط.",
+          "ويوفّر الجهاز كذلك [أداة للتحقق من موعد التطبيق المحتمل](https://tms.taxoman.gov.om/portal/potential-rollout-checking) تعرض موعدك المرجّح بناءً على رقم التعريف الضريبي (VATIN) وتوريداتك. ويذكر الجهاز أنها لأغراض التوعية والاستعداد فقط."
+        ]
+      },
+      {
+        "heading": "ما المطلوب من المنشأة؟",
+        "paragraphs": [
+          "يحدد الجهاز ثلاثة التزامات على الشركات. وتضيف اللائحة المعدّلة نقطتين يحسن معرفتهما: يجب إصدار الفاتورة الضريبية خلال 15 يومًا من الواقعة الموجبة لإصدارها، ويجوز لرئيس جهاز الضرائب منح استثناء مؤقت من الفوترة الإلكترونية بناءً على طلب مبرَّر."
+        ],
+        "list": [
+          "إصدار الفواتير إلكترونيًا بالصيغة المعتمدة",
+          "استخدام مزوّد خدمة معتمد، أو نظام متوافق مرتبط بمزوّد معتمد",
+          "إبلاغ الجهاز ببيانات الفواتير في وقتها عبر مزوّد الخدمة",
+          "الاستمرار في تقديم إقرارات ضريبة القيمة المضافة وسداد الضريبة في مواعيدها، فالفوترة الإلكترونية لا تغني عن الإقرار"
+        ]
+      },
+      {
+        "heading": "ما الفرق بينه وبين «فاتورة» في السعودية ونظام الإمارات؟",
+        "paragraphs": [
+          "تعتمد السعودية نموذج الاعتماد المسبق. يرتبط نظام الفوترة لديك مباشرة بمنصة الهيئة، ويضع ختمًا تشفيريًا على كل فاتورة، وتعتمد هيئة الزكاة والضريبة والجمارك الفواتير بين المنشآت قبل وصولها إلى المشتري. ويشرح دليلنا عن [ERPNext والفوترة الإلكترونية في السعودية](/insights/erpnext-zatca-e-invoicing) هذه الدورة.",
+          "في عُمان لا يرتبط نظامك بجهاز الضرائب، بل بمزوّد خدمة معتمد، ويتبادل المزوّدون الفاتورة ويبلّغون البيانات الضريبية. ولدى عُمان موعدان ثابتان يفصل بينهما حد واحد، بينما تُلزم السعودية المنشآت على دفعات كثيرة.",
+          "أما الإمارات فأقرب إلى عُمان. فهي تعتمد كذلك نموذجًا من خمسة أطراف مع مزوّدي خدمة معتمدين وصيغة مبنية على Peppol. لكنه نظام مستقل تقوده وزارة المالية الإماراتية، له حقول بياناته وقائمة مزوّديه ومراحله، وتذكر ملخصات مكاتب الاستشارات الضريبية أنها تبدأ من 2027. فالإعداد المبني لبلد لا يغطي الآخر."
+        ]
+      },
+      {
+        "heading": "هل يدعم ERPNext الفوترة الإلكترونية في عُمان؟",
+        "paragraphs": [
+          "ليس بشكل جاهز. فالنسخة الأساسية من ERPNext لا تتضمن ربطًا مع «فوترة». وقد طُرح السؤال عن دعم عُمان في [موضوع على منتدى Frappe](https://discuss.frappe.io/t/does-erpnext-15-support-oman-s-e-invoicing-standards-or-are-there-any-alternative-options/148200) في يونيو 2025، ولم يكن عليه أي رد حين اطلعنا عليه.",
+          "تطبيقات المجتمع التي وجدناها على GitHub في نوفمبر 2026 تغطي ضريبة القيمة المضافة في عُمان لا «فوترة». أحدها يذكر صراحة أن الفوترة الإلكترونية لم تُنفَّذ بعد، وآخر يصف نفسه بأنه هيكل أولي غير جاهز للتشغيل. وأعلن أحد مطوري المجتمع في ديسمبر 2025 عن تطبيقين مفتوحي المصدر للفوترة الإلكترونية في الإمارات وعُمان؛ تطبيق الإمارات منشور، لكننا لم نجد إصدارًا لعُمان. وتبيع بعض الشركات تطبيقات لعُمان على ERPNext. لم نختبرها، فاسأل عن مزوّد الخدمة المعتمد الذي ترتبط به، وهل اجتازت اختباراته.",
+          "الطريق الواقعي هو الربط. يحتفظ ERPNext ببيانات الفاتورة، ويرسل كل فاتورة مبيعات وإشعار دائن وإشعار مدين بعد اعتمادها إلى مزوّد خدمة معتمد عبر واجهة API الخاصة به. يحوّلها المزوّد إلى صيغة PINT OM ويتبادلها ويبلّغ الجهاز، ويحفظ ERPNext الحالة العائدة. والنسخ القديمة من ERPNext [قد تحتاج إلى ترقية أولًا](/insights/erpnext-cost)."
+        ]
+      },
+      {
+        "heading": "قائمة تجهيز لمستخدمي ERPNext",
+        "paragraphs": [
+          "معظم العمل بيانات وإعدادات، ويمكن أن يبدأ قبل اختيار المزوّد. وهذا هو الترتيب الذي نتبعه في [تنفيذ ERPNext](/services/erp-implementation):"
+        ],
+        "list": [
+          "التأكد من أن الاسم القانوني للشركة وعنوانها ورقم التعريف الضريبي (VATIN) في ERPNext تطابق تسجيلك في ضريبة القيمة المضافة لدى الجهاز",
+          "استكمال بيانات العملاء: رقم التعريف الضريبي للعملاء المسجلين، والعناوين الكاملة، والدولة",
+          "إعداد قوالب الضريبة بنسبة ضريبة القيمة المضافة في عُمان 5%، مع حالات نسبة الصفر والإعفاء والاحتساب العكسي، وربطها بالأصناف",
+          "مراجعة حقول الفاتورة: رقم الفاتورة، وتاريخ الإصدار، وتاريخ التوريد، ووصف الأصناف، والكميات، وأسعار الوحدات، ومبلغ الضريبة لكل بند، والعملة",
+          "تجهيز نماذج الطباعة [بالعربية والإنجليزية](/insights/erpnext-in-arabic) للنسخة المقروءة من الفاتورة",
+          "تحديد الموعد الذي ينطبق عليك وفق شرطي الحد لدى الجهاز، وتأكيده مع مستشارك الضريبي",
+          "اختيار مزوّد خدمة من قائمة المعتمدين لدى الجهاز، وطلب وثائق واجهة API وبيئة الاختبار منه",
+          "اختبار الدورة كاملة على نسخة من نظامك: الفواتير، والإشعارات الدائنة والمدينة، وحالات الرفض وإعادة الإرسال",
+          "تدريب فريقي المبيعات والحسابات قبل التشغيل"
+        ]
+      },
+      {
+        "heading": "ما الذي لم يُحسم بعد؟",
+        "paragraphs": [
+          "القواعد ما زالت قيد التطبيق التدريجي. ففي الأسئلة الشائعة لمزوّدي الخدمة لدى الجهاز، توصف معالجة فواتير المستهلكين (B2C) بأنها ما زالت قيد النقاش، ولا توجد بعد مهلة محددة لإرسالها. ويُتوقع أن يكون رمز QR إلزاميًا للفواتير المبسطة فقط، ولم تُنشر تفاصيله بعد.",
+          "وتشير ملخصات مكاتب الاستشارات الضريبية، ومنها KPMG، إلى أن القرار لا يوضح هل تتبع الجهات الحكومية المواعيد نفسها. اعتبر هذا الأمر غير محسوم واسأل مستشارك.",
+          "وما زالت بعض الأدلة على الإنترنت، وصفحة أقدم على موقع الجهاز، تعرض خطة سابقة من أربع مراحل. اعتمد على القرار رقم 189/2026 والأسئلة الشائعة الحالية، وتأكد من وضعك مع جهاز الضرائب في عُمان ومع مستشارك الضريبي."
+        ]
+      },
+      {
+        "heading": "أسئلة شائعة",
+        "paragraphs": [
+          "هل الفوترة الإلكترونية إلزامية في عُمان اليوم؟ لا. حتى نوفمبر 2026 لا يجري سوى المرحلة التجريبية، وأول موعد إلزامي هو 1 أبريل 2027.",
+          "هل تستطيع منشأة أصغر أن تبدأ مبكرًا؟ نعم. تذكر الأسئلة الشائعة لدى الجهاز أن التطبيق المبكر الاختياري مسموح.",
+          "هل يستطيع ERPNext إرسال الفواتير مباشرة إلى جهاز الضرائب؟ لا. تمر الفواتير عبر مزوّد خدمة معتمد. ويمكن للشركة أن تطلب الاعتماد لتكون مزوّد خدمة لنفسها، لكن الاستعانة بمزوّد قائم أسهل لمعظم المنشآت.",
+          "هل نحتاج إلى استبدال نظامنا؟ لا، ما دام يُخرج بيانات فاتورة كاملة ويرتبط بواجهة API لدى المزوّد. وإن كنت ما زلت تصدر الفواتير من جداول البيانات، فهذا وقت مناسب لتقرأ [ما هو نظام ERP](/insights/what-is-an-erp-system)."
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "تستعد لنظام «فوترة»؟",
+      "body": "نُعدّ ERPNext لضريبة القيمة المضافة في عُمان، وننظف بيانات العملاء والأصناف، ونربطه بمزوّد الخدمة الذي تختاره، ونختبره قبل موعدك.",
+      "label": "استشارات وتنفيذ أنظمة ERP"
+    }
+  }
+}

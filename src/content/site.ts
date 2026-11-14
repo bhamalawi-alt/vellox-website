@@ -42,7 +42,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "Web Development", href: "/services/web-development" },
       { label: "eCommerce", href: "/services/ecommerce" },
       { label: "Web and Mobile Apps", href: "/services/web-mobile-applications" },
-      { label: "ERPNext Implementation", href: "/services/erp-implementation" },
+      { label: "ERP Consulting & Implementation", href: "/services/erp-implementation" },
     ],
   },
   {

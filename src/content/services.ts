@@ -219,22 +219,26 @@ export const SERVICES: ServiceEntry[] = [
     slug: "erp-implementation",
     outcome: "One system for accounting, stock, and sales",
     index: 8,
-    title: "ERPNext Implementation",
-    heading: "ERPNext Implementation & Customization",
-    summaryHeading: "What is ERPNext implementation?",
+    title:
+      "ERP Consulting & Implementation",
+    heading:
+      "ERP Consulting & Implementation",
+    summaryHeading:
+      "What is ERP consulting and implementation?",
     summary:
-      "ERPNext implementation is the process of setting up ERPNext, an open-source ERP system, so that accounting, inventory, sales, purchasing, manufacturing and HR run in one place for your company. Vellox Studio implements ERPNext as a Frappe Partner, around the way your business already works rather than forcing new processes on it. A typical engagement runs 6 to 16 weeks depending on the modules and covers process mapping, core setup, custom workflows and reports, integrations with payments, shipping or WhatsApp, data migration from your old system, hosting on Frappe Cloud or your own server, training and ongoing support. ERPNext works in Arabic with right-to-left screens, supports multiple currencies and companies, and has no licence fee per user for the software itself. That makes it a strong fit for growing companies in Libya, Saudi Arabia, the UAE and Oman.",
+      "ERP consulting and implementation is the work of choosing a system to run a company's accounting, inventory, sales, purchasing, manufacturing and HR in one place, then setting it up properly. Vellox Studio starts with how your business already works: we map your processes, agree what the system must do, and recommend the ERP that fits. We implement ERPNext, the open-source ERP, and customise it around your processes rather than forcing new ones on you; if another system suits you better, we say so before any work starts. A typical engagement runs 6 to 16 weeks depending on the modules and covers process mapping, core setup, custom workflows and reports, integrations, data migration from your old system, hosting, training and ongoing support. ERPNext works in Arabic with right-to-left screens, supports multiple currencies and companies, and has no licence fee per user, which suits growing companies in Libya, Saudi Arabia, the UAE and Oman.",
     tagline:
-      "Open-source ERP that runs your operations — implemented and customized by a Frappe Partner.",
-    metaTitle: "ERPNext Partner in Libya, Saudi, UAE & Oman — Vellox Studio",
+      "One system to run your operations: we help you choose the right ERP, then implement it around how you work.",
+    metaTitle:
+      "ERP Consulting & Implementation: Libya, Gulf — Vellox Studio",
     metaDescription:
-      "ERPNext implementation by a Frappe Partner for Libya and the Gulf: accounting, stock, sales and HR in one Arabic-ready system, set up around how you work.",
+      "ERP consulting and implementation for companies in Libya and the Gulf: we map how you work, recommend the right system and implement ERPNext in Arabic.",
     intro: [
-      "For companies outgrowing spreadsheets and disconnected SaaS tools, Frappe/ERPNext puts Accounting, Inventory, CRM, and HR in one system you actually own.",
-      "As a Frappe Partner we implement it around your processes — not the other way round — then customize where off-the-shelf falls short.",
+      "For companies outgrowing spreadsheets and disconnected SaaS tools, an ERP puts accounting, inventory, CRM and HR in one system. The hard part is choosing the right one and setting it up properly.",
+      "We start from your processes, recommend the system that fits, and implement it. Our implementation work is on ERPNext, the open-source ERP; when another system suits you better, we tell you before you spend anything.",
     ],
     included: [
-      "Discovery & process mapping",
+      "Discovery, process mapping & system selection",
       "ERPNext core setup — Accounting, Stock, Selling/Buying, Manufacturing",
       "Custom app development — DocTypes, workflows, validations, reports",
       "Integrations — payments, shipping, marketplaces, WhatsApp, BI",
@@ -247,7 +251,9 @@ export const SERVICES: ServiceEntry[] = [
   },
 ];
 
-export const FRAPPE_BADGE = "Frappe Partner";
+// Shown on the ERPNext page hero. Change back to "Frappe Partner" only once
+// the studio is listed in Frappe's partner directory.
+export const FRAPPE_BADGE = "ERPNext specialists";
 
 export function getServices(locale: Locale): ServiceEntry[] {
   return locale === "ar" ? SERVICES_AR : SERVICES;

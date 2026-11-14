@@ -1,5 +1,5 @@
 export const COPY = {
-  "metaTitle": "Web Design & Branding Agency, Libya & Gulf — Vellox Studio",
+  "metaTitle": "Brand, Web & ERPNext Studio in Libya & Gulf — Vellox Studio",
   "hero": {
     "metaLeft": "Remote-first",
     "metaRight": "Libya & Gulf",
@@ -19,7 +19,7 @@ export const COPY = {
     "eCommerce",
     "Web and Mobile Apps",
     "Visual Content",
-    "ERPNext Implementation",
+    "ERP Consulting & Implementation",
   ],
   "whatWeDo": {
     "heading": "Start with the brand or the website. Add the rest when you're ready.",
@@ -31,8 +31,8 @@ export const COPY = {
     ],
   },
   "erpNote": {
-    "lead": "Frappe Partner.",
-    "body": "When the spreadsheets stop coping, we set up ERPNext, the open-source system for accounting, stock, and sales, around how you already work.",
+    "lead": "ERP consulting and implementation.",
+    "body": "When the spreadsheets stop coping, we help you choose the right system and set it up around how you already work, most often ERPNext, the open-source ERP for accounting, stock, and sales.",
     "link": "How we run an ERP project",
   },
   "proof": {

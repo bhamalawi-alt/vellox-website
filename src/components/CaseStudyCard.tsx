@@ -3,6 +3,7 @@ import { englishAttrs, type Project } from "../lib/projects";
 import { getUi } from "../content/ui";
 import { arrow, localePath, type Locale } from "../lib/i18n";
 import { BrandMark } from "./BrandLogo";
+import { imageSources } from "../lib/project-images";
 
 // Shows a project's cover image when one is set in the CMS, otherwise the
 // branded placeholder below. The whole card links to the project page.
@@ -36,7 +37,8 @@ export function CaseStudyCard({
       >
         {study.cover ? (
           <img
-            src={study.cover}
+            {...imageSources(study.cover)}
+            sizes="(min-width: 768px) 50vw, 100vw"
             alt={study.coverAlt || `${study.title} project`}
             loading="lazy"
             decoding="async"

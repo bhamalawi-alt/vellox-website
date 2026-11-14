@@ -13,6 +13,7 @@ import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
 import { CtaArt } from "../CtaArt";
 import { primaryCtaSoft, quietLink } from "./shared";
+import { HubSchema } from "./HubSchema";
 
 export function aboutMetadata(locale: Locale): Metadata {
   const copy = aboutCopy(locale);
@@ -31,6 +32,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
   ];
   return (
     <>
+      <HubSchema locale={locale} path="/about" type="AboutPage" />
       <PageHero art="about" eyebrow={COPY.eyebrow} title={COPY.headline} />
 
       <section className="bg-bg py-20 text-ink md:py-28">

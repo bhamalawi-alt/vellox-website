@@ -68,6 +68,62 @@ describe("service FAQs", () => {
   });
 });
 
+describe("pages that used to compete for the same search", () => {
+  it("leaves 'web design company' to the web design page, not the homepage", () => {
+    expect(homeCopy("en").metaTitle).not.toMatch(/Web Design/i);
+    expect(homeCopy("ar").metaTitle).not.toMatch(/شركة تصميم مواقع/);
+    expect(getServices("en").find((s) => s.slug === "web-development")!.metaTitle).toMatch(/Web Design Company/);
+  });
+  it("leaves 'ERPNext بالعربي' to the Arabic guide, not the Arabic service page", () => {
+    expect(getServices("ar").find((s) => s.slug === "erp-implementation")!.metaTitle).not.toMatch(/بالعربي/);
+    expect(getArticle("ar", "erpnext-in-arabic")!.title).toMatch(/بالعربي/);
+  });
+  it("answers each service's price question in its own words", () => {
+    for (const locale of ["en", "ar"] as const) {
+      const answers = getServices(locale).flatMap((s) =>
+        getFaq(locale, s.slug).filter((f) => /cost|تكلفة/i.test(f.q)).map((f) => f.a),
+      );
+      expect(answers.length).toBeGreaterThanOrEqual(5);
+      expect(new Set(answers).size).toBe(answers.length);
+    }
+  });
+  it("makes no partner claim until the studio is listed by Frappe", () => {
+    for (const locale of ["en", "ar"] as const) {
+      const text = JSON.stringify([getServices(locale), getArticles(locale), homeCopy(locale)]);
+      expect(text).not.toMatch(/Frappe Partner|ERPNext Partner|شريك(ًا)? (معتمد(ًا)? )?لـ Frappe|شريك Frappe/);
+    }
+  });
+});
+
+// The ERP service is sold as consulting and implementation in general: the
+// studio studies the company first, then recommends and implements a system.
+// ERPNext is the system it implements, and the page says so plainly.
+describe("ERP service positioning", () => {
+  const service = (locale: "en" | "ar") => getServices(locale).find((s) => s.slug === "erp-implementation")!;
+  it("is named for ERP consulting and implementation, not for one product", () => {
+    expect(service("en").title).toBe("ERP Consulting & Implementation");
+    expect(service("en").metaTitle).toMatch(/^ERP Consulting & Implementation/);
+    expect(service("ar").title).toBe("استشارات وتنفيذ أنظمة ERP");
+    expect(service("ar").metaTitle).toMatch(/^استشارات وتنفيذ أنظمة ERP/);
+  });
+  it("still says which system the studio implements", () => {
+    for (const locale of ["en", "ar"] as const) {
+      expect(service(locale).summary).toMatch(/ERPNext/);
+      expect(service(locale).intro.join(" ")).toMatch(/ERPNext/);
+    }
+  });
+  it("answers whether the studio only works with ERPNext", () => {
+    expect(getFaq("en", "erp-implementation").some((f) => /only work with ERPNext/.test(f.q))).toBe(true);
+    expect(getFaq("ar", "erp-implementation").some((f) => /ERPNext فقط/.test(f.q))).toBe(true);
+  });
+  it("does not call the studio independent or vendor-neutral, since it implements what it recommends", () => {
+    for (const locale of ["en", "ar"] as const) {
+      const text = JSON.stringify([service(locale), getFaq(locale, "erp-implementation"), homeCopy(locale)]);
+      expect(text).not.toMatch(/vendor-neutral|vendor neutral|independent|محايد|مستقل/i);
+    }
+  });
+});
+
 describe("insights articles", () => {
   const services = new Set(getServices("en").map((s) => s.slug));
   it("has every article in both languages under the same slug", () => {
@@ -121,7 +177,8 @@ describe("insights articles", () => {
         it(`${locale} ${article.slug}: at least two links, all to real pages, none to itself`, () => {
           const links = articleLinks(article);
           expect(links.length).toBeGreaterThanOrEqual(2);
-          for (const href of links) expect(targets.has(href)).toBe(true);
+          // Links inside the site must exist; sources outside it must be https.
+          for (const href of links) expect(href.startsWith("https://") || targets.has(href)).toBe(true);
           expect(links).not.toContain(`/insights/${article.slug}`);
         });
       }

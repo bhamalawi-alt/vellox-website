@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import type React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -52,14 +53,19 @@ function RichText({ text, locale }: { text: string; locale: Locale }) {
   let last = 0;
   for (const match of text.matchAll(ARTICLE_LINK)) {
     if (match.index > last) parts.push(text.slice(last, match.index));
+    const className =
+      "text-ink underline decoration-line underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
     parts.push(
-      <Link
-        key={match.index}
-        href={localePath(locale, match[2])}
-        className="text-ink underline decoration-line underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-      >
-        {match[1]}
-      </Link>,
+      match[2].startsWith("/") ? (
+        <Link key={match.index} href={localePath(locale, match[2])} className={className}>
+          {match[1]}
+        </Link>
+      ) : (
+        // A source on another site.
+        <a key={match.index} href={match[2]} rel="noopener" className={className}>
+          {match[1]}
+        </a>
+      ),
     );
     last = match.index + match[0].length;
   }
@@ -155,15 +161,31 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
         <div className="mx-auto w-full max-w-6xl px-6">
           <div className="max-w-[68ch]">
             <p className="mb-14 text-lg leading-relaxed md:text-xl">{article.intro}</p>
-            {article.sections.map((section) => (
+            {article.sections.map((section) => {
+              // A list follows the paragraph that introduces it (the last one
+              // ending in a colon), or the last paragraph when none does.
+              const lead = section.paragraphs.findLastIndex((p) => /[:：]\s*$/.test(p));
+              const listAfter = lead === -1 ? section.paragraphs.length - 1 : lead;
+              return (
               <section key={section.heading} className="mb-12 border-t border-line pt-8">
                 <h2 className="display mb-5 text-2xl md:text-3xl">{section.heading}</h2>
                 <div className="space-y-4">
                   {section.paragraphs.map((paragraph, i) => (
                     // Index keys: the text can hold link markup, and the lists never reorder.
-                    <p key={i} className="text-base leading-relaxed text-muted md:text-lg">
-                      <RichText text={paragraph} locale={locale} />
-                    </p>
+                    <Fragment key={i}>
+                      <p className="text-base leading-relaxed text-muted md:text-lg">
+                        <RichText text={paragraph} locale={locale} />
+                      </p>
+                        {section.list && listAfter === i ? (
+                          <ul className="my-5 space-y-3 border-s-2 border-line ps-5">
+                            {section.list.map((item, j) => (
+                              <li key={j} className="text-base leading-relaxed md:text-lg">
+                                <RichText text={item} locale={locale} />
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
+                    </Fragment>
                   ))}
                 </div>
                 {section.table ? (
@@ -203,17 +225,9 @@ export function ArticlePage({ locale, slug }: { locale: Locale; slug: string }) 
                     ) : null}
                   </figure>
                 ) : null}
-                {section.list ? (
-                  <ul className="mt-5 space-y-3 border-s-2 border-line ps-5">
-                    {section.list.map((item, i) => (
-                      <li key={i} className="text-base leading-relaxed md:text-lg">
-                        <RichText text={item} locale={locale} />
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
               </section>
-            ))}
+              );
+            })}
             <ArrowLink href={href(`/services/${article.service}`)} className="text-sm uppercase tracking-[0.12em] text-ink">
               {article.cta.label}
             </ArrowLink>

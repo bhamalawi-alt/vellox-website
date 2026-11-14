@@ -33,8 +33,8 @@ export const SERVICE_KEYWORDS: Record<string, Record<Locale, string[]>> = {
     ar: ["برمجة تطبيقات الجوال", "تطبيقات iOS وAndroid", "تطوير تطبيقات الويب", "الأدوات الداخلية للشركات", "أنظمة الحجز", "منصات التعليم الإلكتروني"],
   },
   "erp-implementation": {
-    en: ["ERPNext implementation", "ERPNext customization", "ERP system", "ERPNext in Arabic", "ZATCA e-invoicing", "Data migration", "Frappe Cloud hosting", "ERPNext training and support"],
-    ar: ["تنفيذ نظام ERPNext", "تخصيص ERPNext", "نظام ERP", "ERPNext بالعربي", "الفوترة الإلكترونية (فاتورة)", "نقل البيانات", "استضافة Frappe Cloud", "تدريب ودعم ERPNext"],
+    en: ["ERP consulting", "ERP implementation", "ERP system selection", "ERPNext implementation", "ERPNext customization", "ERP system", "ERPNext in Arabic", "ZATCA e-invoicing", "Data migration", "Frappe Cloud hosting", "ERPNext training and support"],
+    ar: ["استشارات ERP", "تنفيذ أنظمة ERP", "اختيار نظام ERP", "تنفيذ نظام ERPNext", "تخصيص ERPNext", "نظام ERP", "ERPNext بالعربي", "الفوترة الإلكترونية (فاتورة)", "نقل البيانات", "استضافة Frappe Cloud", "تدريب ودعم ERPNext"],
   },
   "visual-content": {
     en: ["Product photography", "Brand photography", "Lifestyle photography", "eCommerce photography"],

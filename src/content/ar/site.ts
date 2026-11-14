@@ -30,7 +30,7 @@ export const SITE: SiteContent = {
         { label: "تطوير المواقع", href: "/services/web-development" },
         { label: "المتاجر الإلكترونية", href: "/services/ecommerce" },
         { label: "تطبيقات الويب والجوال", href: "/services/web-mobile-applications" },
-        { label: "تنفيذ نظام ERPNext", href: "/services/erp-implementation" },
+        { label: "استشارات وتنفيذ أنظمة ERP", href: "/services/erp-implementation" },
       ],
     },
     {

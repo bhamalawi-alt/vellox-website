@@ -6,6 +6,7 @@ import { getUi } from "../../content/ui";
 import Link from "next/link";
 import { arrow, localePath, type Locale } from "../../lib/i18n";
 import { pageMeta } from "../../lib/seo";
+import { HubSchema } from "./HubSchema";
 
 export function insightsMetadata(locale: Locale): Metadata {
   const copy = insightsCopy(locale);
@@ -18,6 +19,7 @@ export function InsightsPage({ locale }: { locale: Locale }) {
   const articles = getArticles(locale);
   return (
     <>
+      <HubSchema locale={locale} path="/insights" type="CollectionPage" />
       <PageHero art="insights" eyebrow={COPY.eyebrow} title={COPY.headline} lede={COPY.lede} />
 
       <section className="bg-bg py-20 text-ink md:py-28">

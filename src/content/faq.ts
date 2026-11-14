@@ -6,10 +6,6 @@ import type { Locale } from "../lib/i18n";
 
 export type FaqItem = { q: string; a: string };
 
-const PRICE_EN =
-  "Pricing depends on scope. After a short call we send a written proposal with the price, the deliverables and the timeline, so you know the full cost before anything starts.";
-const PRICE_AR =
-  "يعتمد السعر على نطاق العمل. بعد مكالمة قصيرة نرسل عرضًا مكتوبًا يتضمن السعر والمخرجات والجدول الزمني، لتعرف التكلفة كاملة قبل أن يبدأ أي عمل.";
 const REMOTE_EN =
   "Yes. We work remotely with companies in Libya, Saudi Arabia, the UAE, Oman and the rest of the Gulf, in Arabic or English, with calls and weekly updates.";
 const REMOTE_AR =
@@ -25,7 +21,7 @@ export const FAQ: Record<Locale, Record<string, FaqItem[]>> = {
     "brand-identity": [
       { q: "How long does a brand identity take?", a: "Identity engagements typically run 6–10 weeks, from exploration and refinement to the full design system and brand book." },
       { q: "Do you design Arabic and English logos?", a: "Yes. We design identities that work in Arabic and English, including bilingual logo lockups and type choices that hold up in both scripts." },
-      { q: "How much does a logo and brand identity cost?", a: PRICE_EN },
+      { q: "How much does a logo and brand identity cost?", a: "It depends on how much you need: a logo alone, or a full identity with colours, typography, stationery, packaging and a brand book. After a short call we send a written proposal with the price, the deliverables and the timeline." },
     ],
     "user-experience-design": [
       { q: "How long does UI/UX design take?", a: "UX engagements run 4–12 weeks depending on scope, and ship with everything engineering needs to build without guessing." },
@@ -35,24 +31,25 @@ export const FAQ: Record<Locale, Record<string, FaqItem[]>> = {
     "visual-content": [
       { q: "What kind of photography do you do?", a: "Product photography, lifestyle and campaign shoots, and eCommerce photography, from clean product cutouts to full campaign productions." },
       { q: "Do you deliver images ready for our store and social media?", a: "Yes. Every shoot includes retouching and delivery in each format your channels need, from product pages to social posts and packaging." },
-      { q: "How much does a product photo shoot cost?", a: PRICE_EN },
+      { q: "How much does a product photo shoot cost?", a: "It depends on the number of products, the kind of shots (plain product, lifestyle or campaign) and how many formats you need delivered. Tell us what you are shooting and we send a written quote before the shoot is booked." },
     ],
     "web-development": [
-      { q: "How much does a website cost?", a: PRICE_EN },
+      { q: "How much does a website cost?", a: "It depends mainly on the number of pages, whether the design is custom, the languages, and features such as payments or bookings. Our guide to website cost lists typical market ranges; your own price comes in a written proposal after a short call." },
       { q: "Can the website be in Arabic and English?", a: "Yes. We build bilingual sites with proper right-to-left Arabic layouts, separate pages for each language and search settings so both versions rank on Google." },
       { q: "Can we edit the website ourselves?", a: "Yes. Every site ships with a content management system your team can use to update text, images and projects without calling us." },
     ],
     ecommerce: [
       { q: "Shopify or a custom store: which is right for us?", a: "Shopify suits most stores and is quick to launch. A custom build makes sense for subscriptions, marketplaces, B2B pricing or anything Shopify cannot do. We recommend one after looking at your business model." },
       { q: "Can you connect local payment methods?", a: "Yes. We integrate Stripe and regional processors such as Checkout.com, PayTabs, Tap and mada, depending on where you sell." },
-      { q: "How much does an online store cost?", a: PRICE_EN },
+      { q: "How much does an online store cost?", a: "It depends on the platform (Shopify or a custom build), the number of products, the payment and shipping integrations, and any data moved from an old store. After a short call we send a written proposal with the price, the deliverables and the timeline." },
     ],
     "web-mobile-applications": [
       { q: "Do you build iPhone and Android apps?", a: "Yes. We build native iOS and Android apps, or one cross-platform app with React Native when speed matters, plus the backend that powers them." },
       { q: "Do you publish the app to the App Store and Google Play?", a: "Yes. We handle submission and review on both stores, a staged rollout, crash monitoring and a 30-day support window after launch." },
-      { q: "How much does it cost to build an app?", a: PRICE_EN },
+      { q: "How much does it cost to build an app?", a: "It depends on the platforms (iOS, Android, web), the number of screens and user roles, and what the app connects to, such as payments or your existing systems. We scope it with you first, then send a written proposal with the price and the timeline." },
     ],
     "erp-implementation": [
+      { q: "Do you only work with ERPNext?", a: "ERPNext is the system we implement, because it is open source, works in Arabic and has no fee per user. We start with your processes, and if another system would fit your company better, we say so before any work begins." },
       { q: "What is ERPNext?", a: "ERPNext is an open-source ERP system that puts accounting, inventory, sales, purchasing, manufacturing and HR in one place. You own it, with no per-user licence fees for the software itself." },
       { q: "Does ERPNext work in Arabic?", a: "Yes. ERPNext supports Arabic and right-to-left layouts, and we set it up around how your business already works, in Arabic, English or both." },
       { q: "How long does an ERPNext implementation take?", a: "Engagements typically run 6–16 weeks depending on the modules, covering process mapping, setup, data migration from your old system, training and support." },
@@ -67,7 +64,7 @@ export const FAQ: Record<Locale, Record<string, FaqItem[]>> = {
     "brand-identity": [
       { q: "كم يستغرق تصميم الهوية البصرية؟", a: "يستغرق مشروع الهوية عادةً من 6 إلى 10 أسابيع، من الاستكشاف والتطوير إلى نظام التصميم الكامل ودليل الهوية." },
       { q: "هل تصممون شعارات بالعربية والإنجليزية؟", a: "نعم. نصمم هويات تعمل بالعربية والإنجليزية، بما في ذلك الشعارات ثنائية اللغة واختيار خطوط تناسب الكتابتين." },
-      { q: "كم تكلفة تصميم الشعار والهوية البصرية؟", a: PRICE_AR },
+      { q: "كم تكلفة تصميم الشعار والهوية البصرية؟", a: "يعتمد ذلك على ما تحتاجه: شعار فقط، أو هوية كاملة تشمل الألوان والخطوط والمطبوعات والتغليف ودليل الهوية. بعد مكالمة قصيرة نرسل عرضًا مكتوبًا يتضمن السعر والمخرجات والجدول الزمني." },
     ],
     "user-experience-design": [
       { q: "كم يستغرق تصميم واجهات وتجربة المستخدم؟", a: "يستغرق المشروع من 4 إلى 12 أسبوعًا بحسب النطاق، ويُسلَّم مع كل ما يحتاجه المطورون للبناء من دون تخمين." },
@@ -77,24 +74,25 @@ export const FAQ: Record<Locale, Record<string, FaqItem[]>> = {
     "visual-content": [
       { q: "ما نوع التصوير الذي تقدمونه؟", a: "تصوير المنتجات، وتصوير أسلوب الحياة والحملات، وتصوير المتاجر الإلكترونية، من صور المنتجات على خلفية بيضاء إلى إنتاج الحملات الكاملة." },
       { q: "هل تسلّمون الصور جاهزة للمتجر ووسائل التواصل؟", a: "نعم. يشمل كل تصوير التعديل والتسليم بكل المقاسات التي تحتاجها قنواتك، من صفحات المنتجات إلى منشورات التواصل والتغليف." },
-      { q: "كم تكلفة جلسة تصوير المنتجات؟", a: PRICE_AR },
+      { q: "كم تكلفة جلسة تصوير المنتجات؟", a: "يعتمد ذلك على عدد المنتجات، ونوع اللقطات (منتج على خلفية بسيطة أو أسلوب حياة أو حملة)، وعدد المقاسات المطلوب تسليمها. أخبرنا بما تريد تصويره ونرسل عرض سعر مكتوبًا قبل حجز الجلسة." },
     ],
     "web-development": [
-      { q: "كم تكلفة تصميم موقع إلكتروني؟", a: PRICE_AR },
+      { q: "كم تكلفة تصميم موقع إلكتروني؟", a: "يعتمد ذلك أساسًا على عدد الصفحات، وهل التصميم خاص أم بقالب جاهز، وعدد اللغات، والخصائص مثل الدفع الإلكتروني أو الحجوزات. يعرض دليلنا عن تكلفة المواقع نطاقات السوق المعتادة، أما سعرك فيأتي في عرض مكتوب بعد مكالمة قصيرة." },
       { q: "هل يمكن أن يكون الموقع بالعربية والإنجليزية؟", a: "نعم. نبني مواقع ثنائية اللغة بتصميم عربي صحيح من اليمين إلى اليسار، وصفحات مستقلة لكل لغة، وإعدادات بحث تجعل النسختين تظهران في Google." },
       { q: "هل نستطيع تعديل الموقع بأنفسنا؟", a: "نعم. يُسلَّم كل موقع مع نظام إدارة محتوى يستخدمه فريقك لتحديث النصوص والصور والمشاريع من دون الرجوع إلينا." },
     ],
     ecommerce: [
       { q: "Shopify أم متجر مخصص: أيهما يناسبنا؟", a: "يناسب Shopify معظم المتاجر ويُطلق بسرعة. أما المتجر المخصص فمناسب للاشتراكات والأسواق متعددة البائعين وتسعير الشركات وكل ما لا يدعمه Shopify. نوصي بأحدهما بعد دراسة نموذج عملك." },
       { q: "هل تربطون وسائل الدفع المحلية؟", a: "نعم. نربط Stripe والمعالجات الإقليمية مثل Checkout.com وPayTabs وTap وmada بحسب البلد الذي تبيع فيه." },
-      { q: "كم تكلفة تصميم متجر إلكتروني؟", a: PRICE_AR },
+      { q: "كم تكلفة تصميم متجر إلكتروني؟", a: "يعتمد ذلك على المنصة (Shopify أو متجر مخصص)، وعدد المنتجات، وربط وسائل الدفع والشحن، وأي بيانات تُنقل من متجر قديم. بعد مكالمة قصيرة نرسل عرضًا مكتوبًا يتضمن السعر والمخرجات والجدول الزمني." },
     ],
     "web-mobile-applications": [
       { q: "هل تبرمجون تطبيقات iPhone وAndroid؟", a: "نعم. نبني تطبيقات iOS وAndroid أصلية، أو تطبيقًا واحدًا متعدد المنصات بـ React Native عندما تهم السرعة، مع البنية الخلفية التي تشغّلها." },
       { q: "هل تنشرون التطبيق على App Store وGoogle Play؟", a: "نعم. نتولى النشر والمراجعة على المتجرين، والطرح التدريجي، ومراقبة الأعطال، ونافذة دعم لمدة 30 يومًا بعد الإطلاق." },
-      { q: "كم تكلفة برمجة تطبيق؟", a: PRICE_AR },
+      { q: "كم تكلفة برمجة تطبيق؟", a: "يعتمد ذلك على المنصات (iOS وAndroid والويب)، وعدد الشاشات وأدوار المستخدمين، وما يرتبط به التطبيق مثل وسائل الدفع أو أنظمتك الحالية. نحدد النطاق معك أولًا، ثم نرسل عرضًا مكتوبًا بالسعر والجدول الزمني." },
     ],
     "erp-implementation": [
+      { q: "هل تعملون على ERPNext فقط؟", a: "ERPNext هو النظام الذي ننفّذه، لأنه مفتوح المصدر ويعمل بالعربية وبلا رسوم لكل مستخدم. نبدأ من إجراءاتك، وإن كان نظام آخر أنسب لشركتك أخبرناك بذلك قبل بدء أي عمل." },
       { q: "ما هو نظام ERPNext؟", a: "ERPNext نظام ERP مفتوح المصدر يجمع المحاسبة والمخزون والمبيعات والمشتريات والتصنيع والموارد البشرية في مكان واحد. النظام ملكك، من دون رسوم ترخيص لكل مستخدم على البرنامج نفسه." },
       { q: "هل يعمل ERPNext بالعربي؟", a: "نعم. يدعم ERPNext اللغة العربية والكتابة من اليمين إلى اليسار، ونُعدّه وفق الطريقة التي يعمل بها عملك فعلًا، بالعربية أو الإنجليزية أو كليهما." },
       { q: "كم يستغرق تنفيذ نظام ERPNext؟", a: "يستغرق المشروع عادةً من 6 إلى 16 أسبوعًا بحسب الوحدات، ويشمل رسم العمليات والإعداد ونقل البيانات من نظامك القديم والتدريب والدعم." },

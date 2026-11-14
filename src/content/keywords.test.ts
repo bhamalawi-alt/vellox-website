@@ -15,7 +15,7 @@ describe("service keywords", () => {
   for (const locale of ["en", "ar"] as const) {
     it(`${locale}: a flat list with no repeats and no empty terms`, () => {
       const all = getKeywords(locale);
-      expect(all.length).toBe(48);
+      expect(all.length).toBe(51);
       expect(new Set(all).size).toBe(all.length);
       for (const term of all) expect(term.trim()).toBe(term);
     });
