@@ -33,12 +33,12 @@ export const SERVICES: ServiceEntry[] = [
     heading: "Brand Strategy & Positioning",
     summaryHeading: "What is brand strategy?",
     summary:
-      "Brand strategy is the work of deciding who a company is, who it serves and why it is different, before any money goes into a logo, a website or marketing. At Vellox Studio, a brand strategy engagement typically runs 4 to 6 weeks and combines stakeholder interviews, competitor and market research, and positioning workshops. The result is a written strategy your team can use for years: a clear market position, a map of competitors, a brand architecture, a name and tagline when one is needed, and a messaging playbook that sets your tone of voice. We work remotely with founders in Libya, Saudi Arabia, the UAE and Oman, in Arabic or English. Strategy comes first because it turns every later decision about identity, content and campaigns from a matter of taste into a clear choice that follows from the position you chose.",
+      "Brand strategy is the work of deciding who a company is, who it serves and why it is different, before any money goes into a logo, a website or marketing. At Vellox Studio, a brand strategy engagement typically runs 4 to 6 weeks and combines stakeholder interviews, competitor and market research, and positioning workshops. The result is a written strategy your team can use for years: a clear market position, a map of competitors, a brand architecture, a name and tagline when one is needed, and a messaging playbook that sets your tone of voice. We work remotely with founders in Oman, Libya and the wider Gulf, in Arabic or English. Strategy comes first because it turns every later decision about identity, content and campaigns from a matter of taste into a clear choice that follows from the position you chose.",
     tagline:
       "Define who you are, who you serve, and why you're different — before you spend a cent on identity or marketing.",
-    metaTitle: "Brand Strategy & Positioning Agency — Vellox Studio",
+    metaTitle: "Brand Strategy Agency in Oman & Libya — Vellox Studio",
     metaDescription:
-      "Brand strategy, positioning, naming and messaging for founders in Libya and the Gulf. Define who you serve and why you're different before you spend on ads.",
+      "Brand strategy, positioning, naming and messaging for founders in Oman, Libya and the Gulf. Define who you serve and why you're different before you advertise.",
     intro: [
       "Brand strategy is the foundational work that decides whether everything downstream lands or flops. We help you articulate a single defensible position in the market, map the competitive landscape, name the brand, and write the messaging playbook your team will use for years. Without sharp strategy, every identity, marketing, and product decision becomes a subjective debate. With it, those decisions become obvious. Engagements typically run 4–6 weeks and combine stakeholder interviews, market research, positioning workshops, and a final strategy document your team can operationalize.",
     ],
@@ -61,12 +61,12 @@ export const SERVICES: ServiceEntry[] = [
     heading: "Brand Identity & Logo Design",
     summaryHeading: "What does brand identity design include?",
     summary:
-      "Brand identity design is the visual system that makes a company recognisable everywhere it appears: the logo, colours, typography, imagery, packaging and the rules that hold them together. At Vellox Studio, an identity project typically runs 6 to 10 weeks, moving from exploration and refinement to a complete design system and a brand book your team can use without us. We design identities that work in both Arabic and English, including bilingual logo lockups and type pairings that hold up in both scripts, from a small app icon to a large sign. For companies in Libya, Saudi Arabia, the UAE and Oman, that means one consistent brand across social media, the website, printed material and packaging. Identity work is strongest when it follows a brand strategy, so the visuals express a clear position rather than a passing trend.",
+      "Brand identity design is the visual system that makes a company recognisable everywhere it appears: the logo, colours, typography, imagery, packaging and the rules that hold them together. At Vellox Studio, an identity project typically runs 6 to 10 weeks, moving from exploration and refinement to a complete design system and a brand book your team can use without us. We design identities that work in both Arabic and English, including bilingual logo lockups and type pairings that hold up in both scripts, from a small app icon to a large sign. For companies in Oman, Libya and the wider Gulf, that means one consistent brand across social media, the website, printed material and packaging. Identity work is strongest when it follows a brand strategy, so the visuals express a clear position rather than a passing trend.",
     tagline:
       "Logo, color, typography, imagery, and the design system that holds it all together.",
-    metaTitle: "Brand Identity & Logo Design Agency — Vellox Studio",
+    metaTitle: "Brand Identity & Logo Design in Oman & Libya — Vellox Studio",
     metaDescription:
-      "Brand identity and logo design for companies in Libya, Saudi Arabia, the UAE and Oman: logo, colors, typography, packaging and a brand book your team can use.",
+      "Brand identity and logo design for companies in Oman, Libya and the wider Gulf: logo, colors, typography, packaging and a brand book your team can use.",
     intro: [
       "Brand identity is the visual translation of strategy — the logo, colors, typography, imagery, and design system that make your brand recognizable in any context. We design identities that work on a 16-pixel favicon and a 16-meter billboard, in print and on screen, today and in five years. Identity engagements typically run 6–10 weeks and include exploration, refinement, system design, and a comprehensive brand book. The deliverable is a system your team can use and extend without us in the room.",
     ],
@@ -91,7 +91,7 @@ export const SERVICES: ServiceEntry[] = [
       "UI/UX design is the process of shaping how a website or app works and looks, so people can find what they need and complete tasks without friction. UX covers research, structure and flows; UI covers the screens, components and visual detail. At Vellox Studio, a UX engagement runs 4 to 12 weeks depending on scope and covers user research, information architecture, wireframes, interactive prototypes, interface design and a design system or UI kit. We design right-to-left Arabic and left-to-right English layouts and test the screens with real users before development starts. Engineers receive everything they need to build without guessing, whether they are our own developers or your team. For companies in Libya and the Gulf, designing both languages from the start avoids the common problem of an Arabic version that feels like an afterthought.",
     tagline:
       "Products people choose to use, not products they have to use — researched, prototyped, and tested before anyone builds.",
-    metaTitle: "UI/UX Design Agency for Apps & Websites — Vellox Studio",
+    metaTitle: "UI/UX Design Agency in Oman & Libya — Vellox Studio",
     metaDescription:
       "UI/UX design for apps and websites: user research, wireframes, prototypes and interface design in Arabic and English, tested with real users before development.",
     intro: [
@@ -140,12 +140,12 @@ export const SERVICES: ServiceEntry[] = [
     heading: "Website Design & Development",
     summaryHeading: "What is included in website design and development?",
     summary:
-      "Website design and development is the work of planning, designing and building a website that loads fast, ranks in search and turns visitors into enquiries. At Vellox Studio, we build websites in Next.js and TypeScript by default, from marketing sites to web applications and content platforms. Every website ships with a responsive mobile-first design, accessibility, search basics such as titles, descriptions and a sitemap, analytics, and a content management system your team can use to update pages without calling us. For companies in Libya, Saudi Arabia, the UAE and Oman, we build bilingual sites with proper right-to-left Arabic layouts and separate pages for each language, so both versions can rank on Google. After launch, an optional maintenance plan covers security updates, fixes, performance monitoring and small improvements.",
+      "Website design and development is the work of planning, designing and building a website that loads fast, ranks in search and turns visitors into enquiries. At Vellox Studio, we build websites in Next.js and TypeScript by default, from marketing sites to web applications and content platforms. Every website ships with a responsive mobile-first design, accessibility, search basics such as titles, descriptions and a sitemap, analytics, and a content management system your team can use to update pages without calling us. For companies in Oman, Libya and the wider Gulf, we build bilingual sites with proper right-to-left Arabic layouts and separate pages for each language, so both versions can rank on Google. After launch, an optional maintenance plan covers security updates, fixes, performance monitoring and small improvements.",
     tagline:
       "Websites that load fast, rank well, and your team can edit without calling us.",
-    metaTitle: "Web Design Company in Libya, the Gulf & Oman — Vellox Studio",
+    metaTitle: "Web Design Company in Oman & Libya — Vellox Studio",
     metaDescription:
-      "Website design and development for companies in Libya, Saudi Arabia, the UAE and Oman: fast Arabic and English sites built for search, with an easy-to-edit CMS.",
+      "Website design and development for companies in Oman, Libya and the wider Gulf: fast Arabic and English sites built for search, with an easy-to-edit CMS.",
     intro: [
       "Web development at Vellox covers everything from marketing sites to multi-tenant SaaS platforms. We build in Next.js, TypeScript, and Prisma by default — a stack that's fast, SEO-friendly, and easy to hire for. Every engagement ships with responsive design, accessibility, Core Web Vitals in the green, analytics, and a CMS your team can use without us. We don't disappear at launch: a maintenance retainer covers ongoing improvements.",
     ],
@@ -168,12 +168,12 @@ export const SERVICES: ServiceEntry[] = [
     heading: "eCommerce Website Development",
     summaryHeading: "What does eCommerce website development include?",
     summary:
-      "eCommerce website development is the design and build of an online store that takes orders, accepts payments and is easy for your team to run day to day. At Vellox Studio, we build stores on Shopify, which suits most businesses and launches quickly, or custom-built when a business needs subscriptions, marketplaces, B2B pricing or other models Shopify does not support. Work includes product data and collections, search, checkout, migration from platforms such as WooCommerce or Magento, and payment integration with Stripe or regional providers such as Checkout.com, PayTabs, Tap and mada. For brands in Libya, Saudi Arabia, the UAE and Oman, stores can run in Arabic and English. After launch, an optional conversion programme tests product pages, checkout and mobile experience to grow revenue from the visitors you already have.",
+      "eCommerce website development is the design and build of an online store that takes orders, accepts payments and is easy for your team to run day to day. At Vellox Studio, we build stores on Shopify, which suits most businesses and launches quickly, or custom-built when a business needs subscriptions, marketplaces, B2B pricing or other models Shopify does not support. Work includes product data and collections, search, checkout, migration from platforms such as WooCommerce or Magento, and payment integration with Stripe or regional providers such as Checkout.com, PayTabs, Tap and mada. For brands in Oman, Libya and the wider Gulf, stores can run in Arabic and English. After launch, an optional conversion programme tests product pages, checkout and mobile experience to grow revenue from the visitors you already have.",
     tagline:
       "Online stores built to sell — on Shopify or custom-built — and tuned for revenue after launch.",
-    metaTitle: "eCommerce Website Development in the Gulf — Vellox Studio",
+    metaTitle: "eCommerce Development in Oman & Libya — Vellox Studio",
     metaDescription:
-      "Online store design and development on Shopify or custom-built, for brands in Libya, Saudi Arabia, the UAE and Oman. Built to take orders from day one.",
+      "Online store design and development on Shopify or custom-built, for brands in Oman, Libya and the wider Gulf. Built to take orders from day one.",
     intro: [
       "eCommerce is where brand, UX, and engineering converge on a single metric: revenue. We build Shopify stores, custom headless storefronts, multi-vendor marketplaces, and B2B portals — each engineered for the specific business model it serves. We don't just build and leave: after launch, a CRO retainer keeps testing and improving conversion.",
     ],
@@ -196,12 +196,12 @@ export const SERVICES: ServiceEntry[] = [
     heading: "Mobile & Web App Development",
     summaryHeading: "What does mobile and web app development include?",
     summary:
-      "Mobile and web app development is the design and build of applications people use on their phones and in the browser, together with the backend that powers them. At Vellox Studio, we build native iOS apps in Swift and SwiftUI and native Android apps in Kotlin, or a single cross-platform app with React Native when speed matters more. Typical projects include booking and scheduling systems, learning platforms, internal business tools, APIs and payment flows. Each project covers UX design, development, the backend, submission to the App Store and Google Play, a staged rollout, crash monitoring and a 30-day support window after launch. For companies in Libya, Saudi Arabia, the UAE and Oman, apps can be built in Arabic and English from the start. After launch, monthly releases add features and fixes, measured by retention, crash-free sessions and store ratings.",
+      "Mobile and web app development is the design and build of applications people use on their phones and in the browser, together with the backend that powers them. At Vellox Studio, we build native iOS apps in Swift and SwiftUI and native Android apps in Kotlin, or a single cross-platform app with React Native when speed matters more. Typical projects include booking and scheduling systems, learning platforms, internal business tools, APIs and payment flows. Each project covers UX design, development, the backend, submission to the App Store and Google Play, a staged rollout, crash monitoring and a 30-day support window after launch. For companies in Oman, Libya and the wider Gulf, apps can be built in Arabic and English from the start. After launch, monthly releases add features and fixes, measured by retention, crash-free sessions and store ratings.",
     tagline:
       "iPhone, Android, and web apps built for people who come back, not just downloads.",
-    metaTitle: "Mobile App Development Company — Vellox Studio",
+    metaTitle: "Mobile App Development in Oman & Libya — Vellox Studio",
     metaDescription:
-      "iPhone, Android and web app development for companies in Libya, Saudi Arabia, the UAE and Oman, from UX design and prototyping to App Store launch and updates.",
+      "iPhone, Android and web app development for companies in Oman, Libya and the wider Gulf, from UX design and prototyping to App Store launch and updates.",
     intro: [
       "We build native mobile apps (Swift/Kotlin), cross-platform apps (React Native), and the backend APIs that power them. We build booking systems, learning platforms, internal business tools, and payment flows. Mobile engagements include design, development, App Store/Play Store submission, and post-launch monitoring.",
     ],
@@ -226,13 +226,13 @@ export const SERVICES: ServiceEntry[] = [
     summaryHeading:
       "What is ERP consulting and implementation?",
     summary:
-      "ERP consulting and implementation is the work of choosing a system to run a company's accounting, inventory, sales, purchasing, manufacturing and HR in one place, then setting it up properly. Vellox Studio starts with how your business already works: we map your processes, agree what the system must do, and recommend the ERP that fits. We implement ERPNext, the open-source ERP, and customise it around your processes rather than forcing new ones on you; if another system suits you better, we say so before any work starts. A typical engagement runs 6 to 16 weeks depending on the modules and covers process mapping, core setup, custom workflows and reports, integrations, data migration from your old system, hosting, training and ongoing support. ERPNext works in Arabic with right-to-left screens, supports multiple currencies and companies, and has no licence fee per user, which suits growing companies in Libya, Saudi Arabia, the UAE and Oman.",
+      "ERP consulting and implementation is the work of choosing a system to run a company's accounting, inventory, sales, purchasing, manufacturing and HR in one place, then setting it up properly. Vellox Studio starts with how your business already works: we map your processes, agree what the system must do, and recommend the ERP that fits. We implement ERPNext, the open-source ERP, and customise it around your processes rather than forcing new ones on you; if another system suits you better, we say so before any work starts. A typical engagement runs 6 to 16 weeks depending on the modules and covers process mapping, core setup, custom workflows and reports, integrations, data migration from your old system, hosting, training and ongoing support. ERPNext works in Arabic with right-to-left screens, supports multiple currencies and companies, and has no licence fee per user, which suits growing companies in Oman, Libya and the wider Gulf.",
     tagline:
       "One system to run your operations: we help you choose the right ERP, then implement it around how you work.",
     metaTitle:
-      "ERP Consulting & Implementation: Libya, Gulf — Vellox Studio",
+      "ERP Consulting & Implementation: Oman, Libya — Vellox Studio",
     metaDescription:
-      "ERP consulting and implementation for companies in Libya and the Gulf: we map how you work, recommend the right system and implement ERPNext in Arabic.",
+      "ERP consulting and implementation for companies in Oman, Libya and the Gulf: we map how you work, recommend the right system and implement ERPNext in Arabic.",
     intro: [
       "For companies outgrowing spreadsheets and disconnected SaaS tools, an ERP puts accounting, inventory, CRM and HR in one system. The hard part is choosing the right one and setting it up properly.",
       "We start from your processes, recommend the system that fits, and implement it. Our implementation work is on ERPNext, the open-source ERP; when another system suits you better, we tell you before you spend anything.",

@@ -1,6 +1,6 @@
 # Vellox Studio
 
-> Vellox Studio is a design and engineering studio for companies in Libya, Saudi Arabia, the United Arab Emirates, Oman and the rest of the Gulf. One team covers brand strategy, brand identity and logo design, website design and development, eCommerce stores, mobile and web apps, UI/UX design, product photography, and ERP consulting and implementation, delivered on ERPNext. The site is bilingual: English at the root and Arabic under /ar.
+> Vellox Studio is a design and engineering studio for companies in Oman and Libya, and across the rest of the Gulf, including Saudi Arabia and the United Arab Emirates. One team covers brand strategy, brand identity and logo design, website design and development, eCommerce stores, mobile and web apps, UI/UX design, product photography, and ERP consulting and implementation, delivered on ERPNext. The site is bilingual: English at the root and Arabic under /ar.
 
 Contact: info@velloxstudio.com · WhatsApp +20 105 521 2405 · https://www.velloxstudio.com/contact
 
@@ -28,6 +28,9 @@ Specialties: Brand strategy, Brand positioning, Brand naming, Brand messaging, T
 - [ERPNext vs Odoo: which ERP fits Saudi and Gulf companies?](https://www.velloxstudio.com/insights/erpnext-vs-odoo)
 - [ERPNext and UAE e-invoicing: what companies need to prepare](https://www.velloxstudio.com/insights/erpnext-uae-e-invoicing)
 - [ERPNext and Oman e-invoicing (Fawtara): how to get ready](https://www.velloxstudio.com/insights/erpnext-oman-e-invoicing)
+- [Starting an online store in Oman and Libya: payments, licences and delivery](https://www.velloxstudio.com/insights/online-store-oman-libya)
+- [How much does a brand identity cost in Oman and Libya?](https://www.velloxstudio.com/insights/brand-identity-cost-oman-libya)
+- [How much does a mobile app cost in Oman and Libya?](https://www.velloxstudio.com/insights/app-development-cost-oman-libya)
 
 ## Work
 
@@ -64,6 +67,9 @@ Specialties: Brand strategy, Brand positioning, Brand naming, Brand messaging, T
 - [مقارنة ERPNext و Odoo: أيهما أنسب للشركات في السعودية والخليج؟](https://www.velloxstudio.com/ar/insights/erpnext-vs-odoo)
 - [ERPNext والفوترة الإلكترونية في الإمارات: ما الذي يجب تجهيزه؟](https://www.velloxstudio.com/ar/insights/erpnext-uae-e-invoicing)
 - [ERPNext والفوترة الإلكترونية في عُمان «فوترة»: كيف تستعد؟](https://www.velloxstudio.com/ar/insights/erpnext-oman-e-invoicing)
+- [كيف تفتح متجرًا إلكترونيًا في عُمان وليبيا: الدفع والترخيص والتوصيل](https://www.velloxstudio.com/ar/insights/online-store-oman-libya)
+- [كم تكلفة تصميم هوية بصرية في عُمان وليبيا؟](https://www.velloxstudio.com/ar/insights/brand-identity-cost-oman-libya)
+- [كم تكلفة برمجة تطبيق جوال في عُمان وليبيا؟](https://www.velloxstudio.com/ar/insights/app-development-cost-oman-libya)
 
 ## Optional
 

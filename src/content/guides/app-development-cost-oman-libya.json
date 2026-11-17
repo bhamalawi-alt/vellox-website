@@ -1,0 +1,200 @@
+{
+  "en": {
+    "slug": "app-development-cost-oman-libya",
+    "date": "2026-11-17",
+    "service": "web-mobile-applications",
+    "category": "Apps",
+    "title": "How much does a mobile app cost in Oman and Libya?",
+    "description": "Estimated prices for simple, medium and complex mobile apps in Oman and Libya, what drives the cost, and the running costs to budget after launch.",
+    "intro": "In Oman, a simple mobile app for iPhone and Android costs roughly OMR 1,500 to 6,000, and an app with accounts, payments and an admin panel roughly OMR 6,000 to 20,000. In Libya, the same two levels cost roughly LYD 5,000 to 15,000 and LYD 15,000 to 50,000. Few developers in either country publish their prices, so these figures are estimates built from the ranges that are published, and they are not our price list. This guide explains what puts an app in each band and what it costs to keep it running.",
+    "sections": [
+      {
+        "heading": "Estimated price ranges in Oman and Libya",
+        "paragraphs": [
+          "The ranges below are for one app on both iPhone and Android, with the backend and admin panel it needs, in November 2026. Where your app falls depends mostly on its features:"
+        ],
+        "table": {
+          "head": ["Type of app", "Oman (OMR)", "Libya (LYD)"],
+          "rows": [
+            ["Simple: a few screens, content managed from a basic backend, no payments", "1,500–6,000", "5,000–15,000"],
+            ["Medium: user accounts, payments, bookings or orders, an admin panel", "6,000–20,000", "15,000–50,000"],
+            ["Complex: a marketplace, real-time features, links to other company systems", "20,000–70,000", "50,000 and up"]
+          ],
+          "note": "Estimates, collected November 2026. Oman figures build on ranges published by agencies that market to Omani companies. Libyan developers publish almost no app prices, so Libya's figures are our estimate. These are market figures, not our price list."
+        }
+      },
+      {
+        "heading": "What decides the price",
+        "paragraphs": [
+          "An app's price is mostly the number of weeks it takes to design, build and test. These are the things that add weeks:"
+        ],
+        "list": [
+          "Features: every screen, user role and action has to be designed, built and tested",
+          "The backend: the server, database and admin panel your team uses to manage content, orders and users",
+          "Payments: connecting a gateway, handling failed payments and refunds, and passing the gateway's review",
+          "Integrations: links to your accounting, stock or [ERP system](/services/erp-implementation), maps, SMS or WhatsApp",
+          "Arabic and English: right-to-left layouts have to be designed and tested, not just translated",
+          "Design: a custom design costs more than a ready-made kit, and usually performs better"
+        ]
+      },
+      {
+        "heading": "Native or cross-platform?",
+        "paragraphs": [
+          "A native app is built twice: in Swift for iPhone and in Kotlin for Android. It gives the best performance and the fullest access to the phone, but it costs close to two separate builds.",
+          "A cross-platform app is built once, with React Native or Flutter, and runs on both. For most business apps, such as bookings, orders, loyalty or internal tools, it is the sensible choice and saves a large part of the cost. Native is worth it for apps that lean heavily on the camera, graphics, sensors or offline work."
+        ]
+      },
+      {
+        "heading": "Taking payments inside an app",
+        "paragraphs": [
+          "Payments are often the hardest part for apps in Oman and Libya, because international gateways such as Stripe do not serve companies in either country. In Oman, the gateway should accept OmanNet debit cards, which most shoppers use. In Libya, payments go through providers licensed by the Central Bank, usually arranged through your bank. Our guide to [starting an online store in Oman and Libya](/insights/online-store-oman-libya) lists the providers in each country.",
+          "Apple and Google also have rules: digital goods sold inside an app, such as subscriptions or paid content, usually have to use their in-app purchase systems, which take a commission. Physical goods and services, such as orders and bookings, can use your own gateway."
+        ]
+      },
+      {
+        "heading": "Do you need an app at all?",
+        "paragraphs": [
+          "An app makes sense when people will use it often: to reorder, book, track or check something every week. If customers will visit once or twice, a fast mobile [website](/services/web-development) or web app does the same job for less, works on every phone without a download, and can be found on Google.",
+          "Many companies start with a website or web app, learn what customers actually use, and build the mobile app afterwards with a clearer list of features."
+        ]
+      },
+      {
+        "heading": "How long it takes",
+        "paragraphs": [
+          "As a rough guide, a simple app takes two to three months from design to the app stores, a medium app three to six months, and a complex app six months or more. Apple and Google review every app before it goes live, so leave a week or two before any launch date you announce."
+        ]
+      },
+      {
+        "heading": "Running costs after launch",
+        "paragraphs": [
+          "An app is never finished: phones and operating systems change every year, and an app that is not updated starts to break. Budget for these every year:"
+        ],
+        "list": [
+          "Apple Developer Program: US$99 a year, needed to publish on the App Store. In Libya, paying it needs a card that works for international payments",
+          "Google Play developer account: a one-time US$25",
+          "Servers and services: hosting, database, notifications, maps and SMS, which grow with the number of users",
+          "Maintenance and updates: a common rule of thumb is 15 to 20 percent of the build cost each year",
+          "Payment gateway fees on every transaction, if the app takes payments"
+        ]
+      },
+      {
+        "heading": "How to compare quotes",
+        "paragraphs": [
+          "App quotes vary widely because each developer imagines a different app. Write down your main features first, then ask each one:"
+        ],
+        "list": [
+          "Is the price for iPhone and Android, and is it native or cross-platform?",
+          "Does it include the backend, the admin panel and the design?",
+          "Which payment gateway will you connect, and have you done it before in my country?",
+          "Who owns the source code and the app store accounts?",
+          "What happens after launch: how long is support, and what does maintenance cost?",
+          "Can I download an app you built and try it?"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "Planning an app?",
+      "body": "We design and build iPhone, Android and web apps in Arabic and English, with the backend and payments they need.",
+      "label": "See app development"
+    }
+  },
+  "ar": {
+    "slug": "app-development-cost-oman-libya",
+    "date": "2026-11-17",
+    "service": "web-mobile-applications",
+    "category": "التطبيقات",
+    "title": "كم تكلفة برمجة تطبيق جوال في عُمان وليبيا؟",
+    "description": "أسعار تقديرية لتطبيقات الجوال البسيطة والمتوسطة والمعقدة في عُمان وليبيا، وما الذي يحدد التكلفة، وتكاليف التشغيل بعد الإطلاق.",
+    "intro": "في عُمان تتراوح تكلفة تطبيق جوال بسيط للآيفون والأندرويد بين نحو 1,500 و6,000 ريال عُماني، والتطبيق الذي فيه حسابات ومدفوعات ولوحة تحكم بين نحو 6,000 و20,000 ريال. وفي ليبيا يكلّف المستويان نفسهما نحو 5,000 إلى 15,000 دينار، و15,000 إلى 50,000 دينار. قليل من المطورين في البلدين ينشر أسعاره، لذا فهذه أرقام تقديرية مبنية على النطاقات المنشورة، وليست قائمة أسعارنا. ويشرح هذا الدليل ما الذي يضع التطبيق في كل فئة، وكم يكلّف تشغيله.",
+    "sections": [
+      {
+        "heading": "نطاقات الأسعار التقديرية في عُمان وليبيا",
+        "paragraphs": [
+          "النطاقات أدناه لتطبيق واحد على الآيفون والأندرويد معًا، مع الخادم ولوحة التحكم اللازمين له، في نوفمبر 2026. وتحدد الميزات غالبًا في أي فئة يقع تطبيقك:"
+        ],
+        "table": {
+          "head": ["نوع التطبيق", "عُمان (ريال عُماني)", "ليبيا (دينار)"],
+          "rows": [
+            ["بسيط: شاشات قليلة، ومحتوى يُدار من خادم بسيط، دون مدفوعات", "1,500–6,000", "5,000–15,000"],
+            ["متوسط: حسابات مستخدمين، ومدفوعات، وحجوزات أو طلبات، ولوحة تحكم", "6,000–20,000", "15,000–50,000"],
+            ["معقد: سوق إلكتروني، أو ميزات فورية، أو ربط بأنظمة أخرى في الشركة", "20,000–70,000", "50,000 فأكثر"]
+          ],
+          "note": "أرقام تقديرية جُمعت في نوفمبر 2026. أرقام عُمان مبنية على نطاقات نشرتها وكالات تستهدف الشركات العُمانية. ولا يكاد المطورون الليبيون ينشرون أسعار التطبيقات، فأرقام ليبيا تقديرنا. وهي أرقام السوق لا قائمة أسعارنا."
+        }
+      },
+      {
+        "heading": "ما الذي يحدد السعر",
+        "paragraphs": [
+          "سعر التطبيق هو في الغالب عدد الأسابيع التي يستغرقها تصميمه وبرمجته واختباره. وهذه الأمور هي ما يضيف أسابيع:"
+        ],
+        "list": [
+          "الميزات: كل شاشة وكل نوع مستخدم وكل إجراء يحتاج تصميمًا وبرمجة واختبارًا",
+          "الخادم: الخادم وقاعدة البيانات ولوحة التحكم التي يدير بها فريقك المحتوى والطلبات والمستخدمين",
+          "المدفوعات: ربط بوابة الدفع، والتعامل مع العمليات الفاشلة والمبالغ المستردة، واجتياز مراجعة البوابة",
+          "الربط مع الأنظمة: المحاسبة أو المخزون أو [نظام ERP](/services/erp-implementation)، والخرائط، والرسائل النصية أو واتساب",
+          "العربية والإنجليزية: الواجهات من اليمين إلى اليسار تحتاج تصميمًا واختبارًا، لا ترجمة فقط",
+          "التصميم: التصميم الخاص أغلى من الواجهات الجاهزة، وأداؤه أفضل عادةً"
+        ]
+      },
+      {
+        "heading": "تطبيق أصلي أم متعدد المنصات؟",
+        "paragraphs": [
+          "التطبيق الأصلي (Native) يُبنى مرتين: بلغة Swift للآيفون وبلغة Kotlin للأندرويد. يعطي أفضل أداء وأوسع وصول لإمكانات الهاتف، لكن تكلفته تقارب بناء تطبيقين منفصلين.",
+          "أما التطبيق متعدد المنصات فيُبنى مرة واحدة بـReact Native أو Flutter ويعمل على النظامين. ولمعظم تطبيقات الأعمال، كالحجوزات والطلبات وبرامج الولاء والأدوات الداخلية، هو الخيار المعقول ويوفّر جزءًا كبيرًا من التكلفة. والتطبيق الأصلي يستحق تكلفته في التطبيقات التي تعتمد كثيرًا على الكاميرا أو الرسوميات أو المستشعرات أو العمل دون اتصال."
+        ]
+      },
+      {
+        "heading": "استلام المدفوعات داخل التطبيق",
+        "paragraphs": [
+          "المدفوعات غالبًا أصعب جزء في التطبيقات في عُمان وليبيا، لأن البوابات الدولية مثل Stripe لا تخدم الشركات في البلدين. ففي عُمان يجب أن تقبل البوابة بطاقات «عُمان نت» التي يستخدمها معظم المتسوقين. وفي ليبيا تمر المدفوعات عبر شركات مرخّصة من المصرف المركزي، ويُرتَّب ذلك عادةً عبر مصرفك. وفي دليلنا عن [فتح متجر إلكتروني في عُمان وليبيا](/insights/online-store-oman-libya) قائمة بمزوّدي الدفع في كل بلد.",
+          "ولدى Apple وGoogle قواعد أيضًا: المنتجات الرقمية التي تُباع داخل التطبيق، كالاشتراكات والمحتوى المدفوع، يجب عادةً أن تمر عبر أنظمة الشراء داخل التطبيق الخاصة بهما، وتقتطعان منها عمولة. أما السلع المادية والخدمات، كالطلبات والحجوزات، فيمكن أن تستخدم بوابة الدفع الخاصة بك."
+        ]
+      },
+      {
+        "heading": "هل تحتاج تطبيقًا أصلًا؟",
+        "paragraphs": [
+          "التطبيق منطقي حين يستخدمه الناس كثيرًا: لإعادة الطلب أو الحجز أو المتابعة أو التحقق من شيء كل أسبوع. أما إن كان العملاء سيزورونك مرة أو مرتين، فإن [موقعًا إلكترونيًا](/services/web-development) سريعًا على الجوال أو تطبيق ويب يؤدي المهمة نفسها بتكلفة أقل، ويعمل على كل الهواتف دون تحميل، ويمكن العثور عليه في Google.",
+          "وتبدأ شركات كثيرة بموقع أو تطبيق ويب، فتعرف ما يستخدمه العملاء فعلًا، ثم تبني تطبيق الجوال بعد ذلك بقائمة ميزات أوضح."
+        ]
+      },
+      {
+        "heading": "كم يستغرق بناء التطبيق",
+        "paragraphs": [
+          "تقريبيًا، يستغرق التطبيق البسيط من شهرين إلى ثلاثة أشهر من التصميم حتى متاجر التطبيقات، والمتوسط من ثلاثة إلى ستة أشهر، والمعقد ستة أشهر أو أكثر. وتراجع Apple وGoogle كل تطبيق قبل نشره، فاترك أسبوعًا أو أسبوعين قبل أي موعد إطلاق تعلنه."
+        ]
+      },
+      {
+        "heading": "تكاليف التشغيل بعد الإطلاق",
+        "paragraphs": [
+          "التطبيق لا ينتهي أبدًا: الهواتف وأنظمة التشغيل تتغير كل سنة، والتطبيق الذي لا يُحدَّث يبدأ بالتعطل. خصّص ميزانية سنوية لهذه البنود:"
+        ],
+        "list": [
+          "برنامج مطوري Apple: ‏99 دولارًا أمريكيًا في السنة، وهو شرط للنشر على App Store. وفي ليبيا يحتاج دفعه إلى بطاقة تعمل في المدفوعات الدولية",
+          "حساب مطور على Google Play: ‏25 دولارًا أمريكيًا مرة واحدة",
+          "الخوادم والخدمات: الاستضافة وقاعدة البيانات والإشعارات والخرائط والرسائل النصية، وتزيد مع عدد المستخدمين",
+          "الصيانة والتحديثات: القاعدة الشائعة أنها 15 إلى 20 بالمئة من تكلفة البناء كل سنة",
+          "رسوم بوابة الدفع على كل عملية، إن كان التطبيق يستلم مدفوعات"
+        ]
+      },
+      {
+        "heading": "كيف تقارن بين العروض",
+        "paragraphs": [
+          "تتفاوت عروض التطبيقات كثيرًا لأن كل مطوّر يتخيل تطبيقًا مختلفًا. اكتب ميزاتك الأساسية أولًا، ثم اسأل كل مطوّر:"
+        ],
+        "list": [
+          "هل السعر للآيفون والأندرويد معًا، وهل التطبيق أصلي أم متعدد المنصات؟",
+          "هل يشمل الخادم ولوحة التحكم والتصميم؟",
+          "ما بوابة الدفع التي ستربطونها، وهل فعلتم ذلك من قبل في بلدي؟",
+          "من يملك الشيفرة المصدرية وحسابات متاجر التطبيقات؟",
+          "ماذا بعد الإطلاق: كم مدة الدعم، وكم تكلفة الصيانة؟",
+          "هل يمكنني تحميل تطبيق بنيتموه وتجربته؟"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "تخطط لتطبيق؟",
+      "body": "نصمم ونبني تطبيقات الآيفون والأندرويد والويب بالعربية والإنجليزية، مع الخادم والمدفوعات التي تحتاجها.",
+      "label": "برمجة التطبيقات"
+    }
+  }
+}

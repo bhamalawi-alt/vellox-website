@@ -9,14 +9,14 @@ export type FaqItem = { q: string; a: string };
 const REMOTE_EN =
   "Yes. We work remotely with companies in Libya, Saudi Arabia, the UAE, Oman and the rest of the Gulf, in Arabic or English, with calls and weekly updates.";
 const REMOTE_AR =
-  "نعم. نعمل عن بُعد مع الشركات في ليبيا والسعودية والإمارات وعُمان وبقية دول الخليج، بالعربية أو الإنجليزية، مع مكالمات وتحديثات أسبوعية.";
+  "نعم. نعمل عن بُعد مع الشركات في عُمان وليبيا ودول الخليج وبقية دول الخليج، بالعربية أو الإنجليزية، مع مكالمات وتحديثات أسبوعية.";
 
 export const FAQ: Record<Locale, Record<string, FaqItem[]>> = {
   en: {
     "brand-strategy": [
       { q: "How long does a brand strategy project take?", a: "Brand strategy engagements typically run 4–6 weeks: stakeholder interviews, market research, positioning workshops and a final strategy document your team can use." },
       { q: "What do we get at the end?", a: "A written strategy covering your positioning, competitor landscape, brand architecture, naming and tagline if needed, and a messaging playbook with your tone of voice." },
-      { q: "Do you work with companies in Libya and the Gulf?", a: REMOTE_EN },
+      { q: "Do you work with companies in Oman, Libya and the Gulf?", a: REMOTE_EN },
     ],
     "brand-identity": [
       { q: "How long does a brand identity take?", a: "Identity engagements typically run 6–10 weeks, from exploration and refinement to the full design system and brand book." },
@@ -59,7 +59,7 @@ export const FAQ: Record<Locale, Record<string, FaqItem[]>> = {
     "brand-strategy": [
       { q: "كم يستغرق مشروع استراتيجية العلامة التجارية؟", a: "يستغرق المشروع عادةً من 4 إلى 6 أسابيع: مقابلات مع أصحاب القرار، وبحث في السوق، وورش عمل لتحديد الموقع التنافسي، ووثيقة استراتيجية نهائية يستخدمها فريقك." },
       { q: "ما الذي نحصل عليه في النهاية؟", a: "استراتيجية مكتوبة تشمل موقعك التنافسي وخريطة المنافسين وهيكلة العلامة، والاسم والشعار اللفظي عند الحاجة، ودليل رسائل يحدد نبرة صوت علامتك." },
-      { q: "هل تعملون مع الشركات في ليبيا والخليج؟", a: REMOTE_AR },
+      { q: "هل تعملون مع الشركات في عُمان وليبيا والخليج؟", a: REMOTE_AR },
     ],
     "brand-identity": [
       { q: "كم يستغرق تصميم الهوية البصرية؟", a: "يستغرق مشروع الهوية عادةً من 6 إلى 10 أسابيع، من الاستكشاف والتطوير إلى نظام التصميم الكامل ودليل الهوية." },

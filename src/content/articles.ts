@@ -10,6 +10,9 @@
 import type { Locale } from "../lib/i18n";
 import erpnextVsOdoo from "./guides/erpnext-vs-odoo.json";
 import omanEInvoicing from "./guides/erpnext-oman-e-invoicing.json";
+import onlineStoreOmanLibya from "./guides/online-store-oman-libya.json";
+import brandIdentityCost from "./guides/brand-identity-cost-oman-libya.json";
+import appDevelopmentCost from "./guides/app-development-cost-oman-libya.json";
 import uaeEInvoicing from "./guides/erpnext-uae-e-invoicing.json";
 
 /**
@@ -177,7 +180,7 @@ const EN: Article[] = [
   {
     slug: "how-much-does-a-website-cost",
     date: PUBLISHED,
-    updated: "2026-11-15",
+    updated: "2026-11-17",
     service: "web-development",
     category: "Web",
     title: "How much does a website cost? What actually drives the price",
@@ -215,20 +218,20 @@ const EN: Article[] = [
         ],
       },
       {
-        heading: "Typical market ranges in Libya, Saudi Arabia and the UAE",
+        heading: "Typical market ranges in Oman, Libya, Saudi Arabia and the UAE",
         paragraphs: [
           "These are ranges published by agencies and platforms in each country, collected in November 2026. They are market figures, not our price list: your quote depends on the six things above.",
         ],
         table: {
-          head: ["What you are buying", "Libya (LYD)", "Saudi Arabia (SAR)", "UAE (AED)"],
+          head: ["What you are buying", "Oman (OMR)", "Libya (LYD)", "Saudi Arabia (SAR)", "UAE (AED)"],
           rows: [
-            ["Template website", "900–1,500", "2,000–7,000", "1,000–4,500"],
-            ["Custom company website, Arabic and English, editable", "1,300–4,000 and up", "8,000–25,000", "6,000–18,000"],
-            ["Online store on Shopify, Salla or Zid", "1,700–3,500 and up", "7,000–25,000", "3,000–15,000"],
-            ["Custom online store", "Quoted per project", "20,000–60,000", "18,000–50,000"],
-            ["Maintenance, per month", "From about 400", "From about 2,000", "300–3,000"],
+            ["Template website", "250–800", "900–1,500", "2,000–7,000", "1,000–4,500"],
+            ["Custom company website, Arabic and English, editable", "1,200–8,000", "1,300–4,000 and up", "8,000–25,000", "6,000–18,000"],
+            ["Online store on Shopify, Salla or Zid", "From about 600", "1,700–3,500 and up", "7,000–25,000", "3,000–15,000"],
+            ["Custom online store", "Quoted per project", "Quoted per project", "20,000–60,000", "18,000–50,000"],
+            ["Maintenance, per month", "Not published", "From about 400", "From about 2,000", "300–3,000"],
           ],
-          note: "Libya has few published price lists, so its ranges rest on a small number of local agencies. UAE figures exclude 5% VAT.",
+          note: "Oman and Libya have few published price lists: Oman's ranges come from a few Muscat studios' packages and agency estimates, and Libya's from a small number of local agencies. UAE and Oman figures exclude 5% VAT.",
         },
       },
       {
@@ -236,7 +239,7 @@ const EN: Article[] = [
         paragraphs: [
           "A store is a website plus a business system. Most stores in the region are built on a hosted platform rather than from scratch. [Shopify](https://www.shopify.com/) is an international platform. [Salla](https://salla.com/) and [Zid](https://zid.sa/) are Saudi platforms made for Arabic-speaking merchants, with payment and shipping services built in. Each has its own plans and fees, which you pay to the platform separately from the studio that sets up and designs your store, so check the platform's current pricing page before you compare quotes.",
           "A platform store costs less to build because checkout, hosting and security come ready-made. A [custom online store](/services/ecommerce) makes sense when the platform cannot do what your business needs: unusual pricing, a link to your accounting or stock system, or a buying experience the themes do not allow.",
-          "Whichever route you take, somebody still has to set up the parts that take money and move goods. Product data is the one most often underestimated: if you have hundreds of products, agree who enters them and in what format before the price is fixed. The full list:",
+          "Whichever route you take, somebody still has to set up the parts that take money and move goods. Product data is the one most often underestimated: if you have hundreds of products, agree who enters them and in what format before the price is fixed. If you are selling in Oman or Libya, our guide to [starting an online store there](/insights/online-store-oman-libya) covers the local gateways and delivery companies. The full list:",
         ],
         list: [
           "Payments: a payment provider has to approve your business before you can accept cards, and it will usually ask for company documents, so start early",
@@ -248,14 +251,14 @@ const EN: Article[] = [
       },
       {
         heading: "If you need a brand identity too",
-        paragraphs: ["Many new websites start with a logo or a brand identity. These are the published ranges for that work in the Gulf:"],
+        paragraphs: ["Many new websites start with a logo or a brand identity. Our [brand identity cost guide](/insights/brand-identity-cost-oman-libya) covers Oman and Libya in detail. These are the published ranges for that work in the Gulf:"],
         table: {
-          head: ["What you are buying", "Libya", "Saudi Arabia (SAR)", "UAE (AED)"],
+          head: ["What you are buying", "Oman (OMR)", "Libya", "Saudi Arabia (SAR)", "UAE (AED)"],
           rows: [
-            ["Logo only", "Quoted per project", "750–12,000", "1,000–15,000"],
-            ["Full brand identity with guidelines", "Quoted per project", "3,500–18,000", "8,500–40,000"],
+            ["Logo only", "Quoted per project", "Quoted per project", "750–12,000", "1,000–15,000"],
+            ["Full brand identity with guidelines", "About 900–1,900", "Quoted per project", "3,500–18,000", "8,500–40,000"],
           ],
-          note: "Libyan studios do not publish identity prices. The ranges are for studio-level work; large agencies charge more. Collected November 2026.",
+          note: "Oman's range comes from a Gulf studio's published packages for Omani clients; studios based in Oman do not publish identity prices, and neither do Libyan studios. The ranges are for studio-level work; large agencies charge more. Collected November 2026.",
         },
       },
       {
@@ -1036,7 +1039,7 @@ const AR: Article[] = [
   {
     slug: "how-much-does-a-website-cost",
     date: PUBLISHED,
-    updated: "2026-11-15",
+    updated: "2026-11-17",
     service: "web-development",
     category: "المواقع",
     title: "كم تكلفة تصميم موقع إلكتروني؟ ما الذي يحدد السعر فعلًا",
@@ -1074,20 +1077,20 @@ const AR: Article[] = [
         ],
       },
       {
-        heading: "نطاقات الأسعار المعتادة في ليبيا والسعودية والإمارات",
+        heading: "نطاقات الأسعار المعتادة في عُمان وليبيا والسعودية والإمارات",
         paragraphs: [
           "هذه نطاقات نشرتها وكالات ومنصات في كل بلد، وجُمعت في نوفمبر 2026. وهي أرقام السوق لا قائمة أسعارنا: عرضك يعتمد على العوامل الست أعلاه.",
         ],
         table: {
-          head: ["ما الذي تشتريه", "ليبيا (دينار)", "السعودية (ريال)", "الإمارات (درهم)"],
+          head: ["ما الذي تشتريه", "عُمان (ريال عُماني)", "ليبيا (دينار)", "السعودية (ريال)", "الإمارات (درهم)"],
           rows: [
-            ["موقع بقالب جاهز", "900–1,500", "2,000–7,000", "1,000–4,500"],
-            ["موقع شركة بتصميم خاص، عربي وإنجليزي، قابل للتعديل", "1,300–4,000 فأكثر", "8,000–25,000", "6,000–18,000"],
-            ["متجر إلكتروني على Shopify أو سلة أو زد", "1,700–3,500 فأكثر", "7,000–25,000", "3,000–15,000"],
-            ["متجر إلكتروني مخصص", "يُسعَّر بحسب المشروع", "20,000–60,000", "18,000–50,000"],
-            ["الصيانة شهريًا", "من نحو 400", "من نحو 2,000", "300–3,000"],
+            ["موقع بقالب جاهز", "250–800", "900–1,500", "2,000–7,000", "1,000–4,500"],
+            ["موقع شركة بتصميم خاص، عربي وإنجليزي، قابل للتعديل", "1,200–8,000", "1,300–4,000 فأكثر", "8,000–25,000", "6,000–18,000"],
+            ["متجر إلكتروني على Shopify أو سلة أو زد", "من نحو 600", "1,700–3,500 فأكثر", "7,000–25,000", "3,000–15,000"],
+            ["متجر إلكتروني مخصص", "يُسعَّر بحسب المشروع", "يُسعَّر بحسب المشروع", "20,000–60,000", "18,000–50,000"],
+            ["الصيانة شهريًا", "غير منشورة", "من نحو 400", "من نحو 2,000", "300–3,000"],
           ],
-          note: "قوائم الأسعار المنشورة في ليبيا قليلة، فنطاقاتها مبنية على عدد محدود من الوكالات المحلية. وأرقام الإمارات لا تشمل ضريبة القيمة المضافة (5%).",
+          note: "قوائم الأسعار المنشورة في عُمان وليبيا قليلة: نطاقات عُمان مأخوذة من باقات عدد من استوديوهات مسقط وتقديرات الوكالات، ونطاقات ليبيا من عدد محدود من الوكالات المحلية. وأرقام الإمارات وعُمان لا تشمل ضريبة القيمة المضافة (5%).",
         },
       },
       {
@@ -1095,7 +1098,7 @@ const AR: Article[] = [
         paragraphs: [
           "المتجر موقع ومعه نظام عمل. تُبنى معظم المتاجر في المنطقة على منصة جاهزة لا من الصفر. [Shopify](https://www.shopify.com/) منصة عالمية. و[سلة](https://salla.com/) و[زد](https://zid.sa/) منصتان سعوديتان موجّهتان للتاجر العربي، وفيهما خدمات الدفع والشحن. ولكل منصة باقاتها ورسومها، تدفعها للمنصة نفسها لا للشركة التي تجهّز متجرك وتصممه، فراجع صفحة الأسعار الحالية للمنصة قبل مقارنة العروض.",
           "المتجر على منصة أقل تكلفة في البناء لأن صفحة الدفع والاستضافة والأمان تأتي جاهزة. أما [المتجر الإلكتروني المخصص](/services/ecommerce) فيناسبك حين لا تستطيع المنصة تلبية ما يحتاجه نشاطك: تسعير غير معتاد، أو ربط مع نظام المحاسبة أو المخزون، أو تجربة شراء لا تسمح بها القوالب.",
-          "وأيًّا كان الطريق الذي تختاره، لا بد أن يجهّز أحد الأجزاء التي تستقبل المال وتحرّك البضاعة. وبيانات المنتجات هي الجزء الذي يُستهان به أكثر من غيره: فإن كانت لديك مئات المنتجات، فاتفقوا على من يُدخلها وبأي صيغة قبل تثبيت السعر. وهذه القائمة كاملة:",
+          "وأيًّا كان الطريق الذي تختاره، لا بد أن يجهّز أحد الأجزاء التي تستقبل المال وتحرّك البضاعة. وبيانات المنتجات هي الجزء الذي يُستهان به أكثر من غيره: فإن كانت لديك مئات المنتجات، فاتفقوا على من يُدخلها وبأي صيغة قبل تثبيت السعر. وإن كنت تبيع في عُمان أو ليبيا، ففي دليلنا عن [فتح متجر إلكتروني هناك](/insights/online-store-oman-libya) بوابات الدفع وشركات التوصيل المحلية. وهذه القائمة كاملة:",
         ],
         list: [
           "الدفع: يجب أن يوافق مزوّد خدمة الدفع على نشاطك قبل أن تقبل البطاقات، ويطلب عادةً مستندات الشركة، فابدأ مبكرًا",
@@ -1107,14 +1110,14 @@ const AR: Article[] = [
       },
       {
         heading: "وإن احتجت هوية بصرية أيضًا",
-        paragraphs: ["كثير من المواقع الجديدة تبدأ بشعار أو هوية بصرية. وهذه النطاقات المنشورة لها في الخليج:"],
+        paragraphs: ["كثير من المواقع الجديدة تبدأ بشعار أو هوية بصرية. وفي [دليل تكلفة الهوية البصرية](/insights/brand-identity-cost-oman-libya) تفاصيل عُمان وليبيا. وهذه النطاقات المنشورة لها في الخليج:"],
         table: {
-          head: ["ما الذي تشتريه", "ليبيا", "السعودية (ريال)", "الإمارات (درهم)"],
+          head: ["ما الذي تشتريه", "عُمان (ريال عُماني)", "ليبيا", "السعودية (ريال)", "الإمارات (درهم)"],
           rows: [
-            ["شعار فقط", "يُسعَّر بحسب المشروع", "750–12,000", "1,000–15,000"],
-            ["هوية بصرية كاملة مع دليل الاستخدام", "يُسعَّر بحسب المشروع", "3,500–18,000", "8,500–40,000"],
+            ["شعار فقط", "يُسعَّر بحسب المشروع", "يُسعَّر بحسب المشروع", "750–12,000", "1,000–15,000"],
+            ["هوية بصرية كاملة مع دليل الاستخدام", "نحو 900–1,900", "يُسعَّر بحسب المشروع", "3,500–18,000", "8,500–40,000"],
           ],
-          note: "لا تنشر الاستوديوهات الليبية أسعار الهوية البصرية. والنطاقات لأعمال على مستوى الاستوديوهات، أما الوكالات الكبرى فتتقاضى أكثر. جُمعت في نوفمبر 2026.",
+          note: "نطاق عُمان مأخوذ من باقات منشورة لاستوديو خليجي يخدم العملاء في عُمان، إذ لا تنشر الاستوديوهات العُمانية ولا الليبية أسعار الهوية البصرية. والنطاقات لأعمال على مستوى الاستوديوهات، أما الوكالات الكبرى فتتقاضى أكثر. جُمعت في نوفمبر 2026.",
         },
       },
       {
@@ -1767,7 +1770,7 @@ const AR: Article[] = [
 
 // Longer guides are kept one per file in ./guides, each with its English and
 // Arabic versions, and join the lists here.
-const GUIDES: { en: Article; ar: Article }[] = [erpnextVsOdoo, uaeEInvoicing, omanEInvoicing];
+const GUIDES: { en: Article; ar: Article }[] = [erpnextVsOdoo, uaeEInvoicing, omanEInvoicing, onlineStoreOmanLibya, brandIdentityCost, appDevelopmentCost];
 for (const guide of GUIDES) {
   EN.push(guide.en);
   AR.push(guide.ar);
@@ -1784,11 +1787,13 @@ export function getArticle(locale: Locale, slug: string): Article | undefined {
 }
 
 // Guides that are also useful on a second service page, besides the one they
-// lead to: the two website guides apply to stores, and choosing an agency
-// covers how its design process works.
+// lead to: the two website guides apply to stores, the website cost guide has
+// identity prices, choosing an agency covers its design process and how to
+// judge an app developer, and identity costs matter when planning strategy.
 const ALSO_FOR: Record<string, string[]> = {
-  "how-much-does-a-website-cost": ["ecommerce"],
-  "how-to-choose-a-web-design-company": ["ecommerce", "user-experience-design"],
+  "how-much-does-a-website-cost": ["ecommerce", "brand-identity"],
+  "how-to-choose-a-web-design-company": ["ecommerce", "user-experience-design", "web-mobile-applications"],
+  "brand-identity-cost-oman-libya": ["brand-strategy"],
 };
 
 /** The guides shown on a service page, in its "related guides" block. */
@@ -1802,7 +1807,9 @@ export function getArticlesForService(locale: Locale, service: string): Article[
 export function getRelatedArticles(locale: Locale, slug: string): Article[] {
   const article = getArticle(locale, slug);
   if (!article) return [];
-  return BY_LOCALE[locale].filter((a) => a.slug !== slug && a.service === article.service).slice(0, 3);
+  // Guides listed on the same service page, so a store guide also shows the
+  // website cost guide, which covers stores too.
+  return getArticlesForService(locale, article.service).filter((a) => a.slug !== slug).slice(0, 3);
 }
 
 export const ARTICLE_SLUGS = EN.map((a) => a.slug);

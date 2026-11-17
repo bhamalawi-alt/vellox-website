@@ -95,6 +95,29 @@ describe("pages that used to compete for the same search", () => {
   });
 });
 
+// Oman and Libya are the markets the studio wants to win first. Every service
+// that can be delivered remotely names both in its search title. Product
+// photography needs a shoot on location, so it makes no country claim.
+describe("Oman and Libya focus", () => {
+  const REMOTE = (slug: string) => slug !== "visual-content";
+  const NAMES = { en: [/Oman/, /Libya/], ar: [/عُمان/, /ليبيا/] };
+  it("names Oman and Libya in every remote service's search title", () => {
+    for (const locale of ["en", "ar"] as const) {
+      for (const service of getServices(locale).filter((s) => REMOTE(s.slug))) {
+        for (const name of NAMES[locale]) expect(service.metaTitle, `${locale} ${service.slug}`).toMatch(name);
+      }
+    }
+  });
+  it("no longer lists Libya first and Oman last", () => {
+    for (const locale of ["en", "ar"] as const) {
+      for (const service of getServices(locale)) {
+        const text = [service.summary, service.metaDescription].join(" ");
+        expect(text).not.toMatch(/Libya, Saudi Arabia, the UAE and Oman|ليبيا والسعودية والإمارات وعُمان/);
+      }
+    }
+  });
+});
+
 // The ERP service is sold as consulting and implementation in general: the
 // studio studies the company first, then recommends and implements a system.
 // ERPNext is the system it implements, and the page says so plainly.
@@ -162,7 +185,9 @@ describe("insights articles", () => {
         expect(related.length).toBeGreaterThanOrEqual(1);
         expect(related.length).toBeLessThanOrEqual(3);
         expect(related.map((a) => a.slug)).not.toContain(article.slug);
-        for (const other of related) expect(other.service).toBe(article.service);
+        // The same subject: guides listed on the same service page.
+        const sameSubject = getArticlesForService(locale, article.service).map((a) => a.slug);
+        for (const other of related) expect(sameSubject).toContain(other.slug);
       });
     }
   }
@@ -206,7 +231,7 @@ describe("insights articles", () => {
     // Prices only: the first column is the label, which words numbers differently per language.
     const figures = (rows: string[][]) => rows.map((r) => r.slice(1).join("|").match(/\d[\d,]*/g));
     for (const [slug, shape] of [
-      ["how-much-does-a-website-cost", [[4, 5], [4, 2]]],
+      ["how-much-does-a-website-cost", [[5, 5], [5, 2]]],
       ["erpnext-cost", [[3, 9]]],
     ] as const) {
       it(`${slug}: the same tables, with the same figures, in both languages`, () => {
@@ -227,6 +252,28 @@ describe("insights articles", () => {
           const article = getArticle(locale, slug)!;
           expect(article.updated! > article.date).toBe(true);
         }
+      });
+    }
+    it("puts Oman first among the markets in the website cost tables", () => {
+      for (const table of tables("en", "how-much-does-a-website-cost")) expect(table.head[1]).toMatch(/^Oman/);
+      for (const table of tables("ar", "how-much-does-a-website-cost")) expect(table.head[1]).toMatch(/^عُمان/);
+    });
+    // Oman and Libya studios rarely publish identity or app prices, so these two
+    // guides give estimates and must say so on every table, in both languages.
+    for (const slug of ["brand-identity-cost-oman-libya", "app-development-cost-oman-libya"]) {
+      it(`${slug}: Oman and Libya tables, labelled as estimates, same figures in both languages`, () => {
+        const en = tables("en", slug);
+        const ar = tables("ar", slug);
+        expect(en.length).toBeGreaterThanOrEqual(1);
+        expect(ar.length).toBe(en.length);
+        en.forEach((table, i) => {
+          expect(table.head.slice(1, 3).join(" ")).toMatch(/Oman.*Libya/);
+          expect(ar[i].head.slice(1, 3).join(" ")).toMatch(/عُمان.*ليبيا/);
+          expect(table.note).toMatch(/estimate/i);
+          expect(ar[i].note).toMatch(/تقدير/);
+          for (const t of [table, ar[i]]) for (const row of t.rows) expect(row.length).toBe(t.head.length);
+          expect(figures(ar[i].rows)).toEqual(figures(table.rows));
+        });
       });
     }
     it("says the ERPNext figures are partner estimates and that the work is priced per business", () => {

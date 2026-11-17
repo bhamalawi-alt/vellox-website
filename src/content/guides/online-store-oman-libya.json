@@ -1,0 +1,216 @@
+{
+  "en": {
+    "slug": "online-store-oman-libya",
+    "date": "2026-11-17",
+    "service": "ecommerce",
+    "category": "Web",
+    "title": "Starting an online store in Oman and Libya: payments, licences and delivery",
+    "description": "How to open an online store in Oman or Libya: the licence you need, which payment gateways work, delivery options and what a store costs to build.",
+    "intro": "An online store in Oman or Libya is not set up the way guides written for Europe or the US describe. Stripe works in neither country, and Shopify's own payments are not available in either. Each country also has its own e-commerce licence. This guide covers the licence, payments, delivery and platform choices in each country as they stand in November 2026, with sources, so you can plan the store before you pay anyone to build it.",
+    "sections": [
+      {
+        "heading": "What every store needs, in either country",
+        "paragraphs": [
+          "Whatever you sell, five things have to be in place before the first order. Payments usually take longest, because a payment provider has to review your company before it lets you take cards, so start with that:"
+        ],
+        "list": [
+          "A licence to sell online, in the company's name or, where allowed, your own",
+          "A way to take money: a payment gateway, mobile wallets, bank transfer or cash on delivery",
+          "A delivery partner that covers your cities and, if you need it, collects cash",
+          "The store itself, on a platform such as Shopify or Salla, or [custom-built](/services/ecommerce)",
+          "Clear policies on returns, privacy and complaints, published on the store"
+        ]
+      },
+      {
+        "heading": "Oman: the licence and the rules",
+        "paragraphs": [
+          "Since February 2024, selling online in Oman needs an e-commerce licence under Ministerial Decision 499/2023 of the Ministry of Commerce, Industry and Investment Promotion. You apply through the Oman Business Platform (Invest Easy). Companies need a commercial registration. Omani individuals aged 18 or over can take out a freelancer registration and add the e-commerce activity. Fines for selling without a licence go up to OMR 500, according to the [Oman Observer](https://www.omanobserver.om/ampArticle/1150408).",
+          "The decision also sets what the store must show: a return and exchange policy that follows the law, a statement of how customer data is protected, and a way to handle complaints. Consumer protection law applies to online sales as it does in shops, and the Consumer Protection Authority has warned online sellers to comply.",
+          "Two more laws matter. VAT is 5%, and registering is mandatory once taxable sales pass OMR 38,500 a year. VAT-registered stores will also have to issue electronic invoices under [Fawtara, Oman's e-invoicing programme](/insights/erpnext-oman-e-invoicing), from 2027. The Personal Data Protection Law (Royal Decree 6/2022) covers the customer data a store collects, and its executive regulations were issued in 2024."
+        ]
+      },
+      {
+        "heading": "Oman: taking payments",
+        "paragraphs": [
+          "Most Omani shoppers pay with OmanNet, the national debit-card network run by the Central Bank of Oman. [Tap Payments says](https://support.tap.company/en/support/solutions/articles/153000140241-what-is-omannet-how-can-i-accept-omannet-on-my-website-or-mobile-app-) OmanNet carries about 70% of online transactions in the country, so a gateway that does not accept it will lose many customers at checkout.",
+          "Gateways that accept OmanNet include Tap, [PayTabs](https://support.paytabs.com/en/support/solutions/articles/60000692060) and [Amazon Payment Services](https://paymentservices.amazon.com/oman-net), and all three also take Visa and Mastercard. Paymob holds an Omani licence for OmanNet as well. Amwal Pay and Thawani are Omani providers regulated by the Central Bank of Oman, and the main banks, including Bank Muscat and NBO, offer their own gateways.",
+          "Stripe is not available to businesses in Oman. Apple Pay has worked with Omani bank cards since September 2024, and most of the gateways above can offer it. Fees are agreed with each provider and are rarely published, so ask two or three for a quote, and ask specifically about the OmanNet rate, which Tap says is lower than its card rate."
+        ]
+      },
+      {
+        "heading": "Oman: delivery and cash on delivery",
+        "paragraphs": [
+          "[Asyad Express](https://asyad.om/freight/e-commerce), the express arm of Oman's national postal and logistics group, delivers to every governorate. It offers same-day delivery in Muscat, delivery within 72 hours across the country, cash on delivery, returns handling and warehousing for online stores. Aramex is the other carrier stores most often use for cash on delivery.",
+          "Many stores offer both: card at checkout, with cash on delivery for customers who prefer it. Ask your carrier how often it pays out the cash it collects, because that decides your cash flow."
+        ]
+      },
+      {
+        "heading": "Libya: the licence and the rules",
+        "paragraphs": [
+          "Libya regulates electronic transactions under [Law No. 6 of 2022](https://lawsociety.ly/?p=18331). Online stores themselves are covered by [Decision No. 7 of 2023](https://lawsociety.ly/akn/ly/act/decision/moecon/2023/7) of the Ministry of Economy and Trade, which sets how stores are classified, registered and licensed. Registration and licensing go through the Libya Trade Network, set up by Cabinet Decision 681/2021.",
+          "Commercial registers are now recognised only through the ministry's electronic system. If your company was registered on paper, check that its record is in the electronic system before you apply for the store licence. The fees are not published in a form we could confirm, so ask the ministry or your accountant for the current amounts."
+        ]
+      },
+      {
+        "heading": "Libya: taking payments",
+        "paragraphs": [
+          "International gateways do not work for Libyan companies: Stripe does not support Libya, and Shopify's staff have said Shopify cannot connect to Moamalat. Payments go through Libyan providers licensed by the Central Bank of Libya. The bank [publishes the list](https://cbl.gov.ly/en/?p=15034), which in November 2026 named 13 companies:",
+          "Under Central Bank rules, payment companies serve merchants through banks, so the usual first step is to speak to your bank about which of these it supports. Mobile wallets have daily and per-payment limits, which matter if you sell expensive items. Because of those limits and how new online card payments still are, many Libyan stores also take cash on delivery and bank transfer."
+        ],
+        "list": [
+          "Card payment companies: Moamalat, the national card switch, plus Tadawul, Masarat (which runs Sahara Pay), Tafani, Oboor and Ethmar",
+          "Mobile wallets: Sadad from Al-Madar, Edfali from the Commerce and Development Bank, and others on the Central Bank's list",
+          "[LYPay](https://central-bank-of-libya.gitbook.io/devportal/lypay), the Central Bank's instant payment system since August 2024, which lets customers pay by QR code with money arriving at once"
+        ]
+      },
+      {
+        "heading": "Libya: delivery",
+        "paragraphs": [
+          "[Vanex](https://vanex.ly) delivers across Libya, with branches in Tripoli, Benghazi, Misrata, Sebha, Zuwara, Ajdabiya, Al-Bayda and Kufra. It offers online stores a portal for orders, free pickup and order confirmation by phone. DHL Express reaches the main cities, but for international shipments, not local delivery.",
+          "Before you choose a delivery company, ask whether it collects cash on delivery, how quickly it pays the cash to you, and what happens to returned orders."
+        ]
+      },
+      {
+        "heading": "Which platform: Shopify, Salla or a custom store?",
+        "paragraphs": [
+          "Shopify works in both countries, but Shopify Payments does not. Oman and Libya are not on [Shopify's list of supported countries](https://help.shopify.com/en/manual/payments/shopify-payments/supported-countries). In Oman that is easy to solve, because Amwal Pay, PayTabs and other gateways connect to Shopify. In Libya, local gateways have no ready-made Shopify connection, which is why many Libyan stores are built on WooCommerce or custom-built with a local gateway.",
+          "[Salla](https://help.salla.sa/en/article/verify-your-salla-store-in-oman-salla/hhtm008d8rxyoy0umb2khh5h) accepts stores from Oman once they are verified, with payouts to an Omani bank account. Few Omani stores use it so far.",
+          "A [custom online store](/services/ecommerce) costs more to build but connects to any local gateway and delivery company, and can link to your accounting or stock system. It is the usual route in Libya, and in Oman when a platform cannot do what your business needs."
+        ]
+      },
+      {
+        "heading": "What a store costs to build",
+        "paragraphs": [
+          "From published prices in November 2026, a store on a platform starts at about OMR 600 in Oman, and stores built by Libyan agencies run from about LYD 1,700 to LYD 5,000 and up. These are market figures, not our price list. Our [website cost guide](/insights/how-much-does-a-website-cost) has the full ranges and explains what moves the price.",
+          "Platform and gateway fees are paid separately, every month or on every sale. Budget too for product photos and descriptions in Arabic and English, which take longer than most owners expect. If you are starting the brand at the same time, plan the [brand identity](/services/brand-identity) first, so the store is designed once."
+        ]
+      },
+      {
+        "heading": "A launch checklist",
+        "paragraphs": [
+          "Work through these in order. The first two take the longest, so start them while the store is being designed:"
+        ],
+        "list": [
+          "Licence: Invest Easy in Oman, or the Libya Trade Network in Libya",
+          "Payments: apply to a gateway that accepts OmanNet in Oman, or to your bank and a licensed provider in Libya",
+          "Delivery: sign with a carrier and agree how cash on delivery and returns work",
+          "Policies: returns, privacy and complaints, written for your country's rules",
+          "Products: names, prices, options, photos and descriptions in both languages",
+          "Test orders: pay, deliver and refund a real order before you announce the launch"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "Planning a store in Oman or Libya?",
+      "body": "We design and build online stores in Arabic and English, connected to the payment gateways and delivery companies that work in your country.",
+      "label": "See eCommerce development"
+    }
+  },
+  "ar": {
+    "slug": "online-store-oman-libya",
+    "date": "2026-11-17",
+    "service": "ecommerce",
+    "category": "المواقع",
+    "title": "كيف تفتح متجرًا إلكترونيًا في عُمان وليبيا: الدفع والترخيص والتوصيل",
+    "description": "دليل فتح متجر إلكتروني في عُمان أو ليبيا: الترخيص المطلوب، وبوابات الدفع التي تعمل فعلًا، وشركات التوصيل، وتكلفة بناء المتجر.",
+    "intro": "فتح متجر إلكتروني في عُمان أو ليبيا لا يتم بالطريقة التي تشرحها الأدلة المكتوبة لأوروبا أو أمريكا. فخدمة Stripe لا تعمل في البلدين، ومدفوعات Shopify الخاصة غير متاحة في أيٍّ منهما، ولكل بلد ترخيصه الخاص للتجارة الإلكترونية. يشرح هذا الدليل الترخيص والدفع والتوصيل واختيار المنصة في كل بلد كما هي في نوفمبر 2026، مع المصادر، لتخطط لمتجرك قبل أن تدفع لأحد مقابل بنائه.",
+    "sections": [
+      {
+        "heading": "ما يحتاجه كل متجر في البلدين",
+        "paragraphs": [
+          "أيًّا كان ما تبيعه، لا بد من خمسة أمور قبل أول طلب. والدفع يأخذ عادةً أطول وقت، لأن مزوّد الدفع يراجع شركتك قبل أن يسمح لك بقبول البطاقات، فابدأ به:"
+        ],
+        "list": [
+          "ترخيص للبيع عبر الإنترنت، باسم الشركة أو باسمك حيث يُسمح بذلك",
+          "طريقة لاستلام المال: بوابة دفع، أو محافظ إلكترونية، أو تحويل مصرفي، أو الدفع عند الاستلام",
+          "شركة توصيل تغطي مدنك، وتحصّل المبلغ نقدًا إن احتجت ذلك",
+          "المتجر نفسه، على منصة مثل Shopify أو سلة، أو [بتطوير خاص](/services/ecommerce)",
+          "سياسات واضحة للاسترجاع والخصوصية والشكاوى، منشورة في المتجر"
+        ]
+      },
+      {
+        "heading": "عُمان: الترخيص والأنظمة",
+        "paragraphs": [
+          "منذ فبراير 2024 يحتاج البيع عبر الإنترنت في عُمان إلى ترخيص تجارة إلكترونية بموجب القرار الوزاري 499/2023 الصادر عن وزارة التجارة والصناعة وترويج الاستثمار. ويُقدَّم الطلب عبر منصة عُمان للأعمال (استثمر بسهولة). تحتاج الشركات إلى سجل تجاري، ويمكن للعُمانيين من سن 18 عامًا فأكثر استخراج سجل للعمل الحر وإضافة نشاط التجارة الإلكترونية إليه. وتصل غرامة البيع دون ترخيص إلى 500 ريال عُماني، بحسب [عُمان أوبزرفر](https://www.omanobserver.om/ampArticle/1150408).",
+          "ويحدد القرار كذلك ما يجب أن يعرضه المتجر: سياسة استرجاع واستبدال متوافقة مع القانون، وبيانًا بكيفية حماية بيانات العملاء، وآلية للتعامل مع الشكاوى. وينطبق قانون حماية المستهلك على البيع عبر الإنترنت كما ينطبق على المحلات، وقد نبّهت هيئة حماية المستهلك البائعين عبر الإنترنت إلى الالتزام به.",
+          "وهناك قانونان آخران مهمان. ضريبة القيمة المضافة 5%، والتسجيل فيها إلزامي إذا تجاوزت المبيعات الخاضعة للضريبة 38,500 ريال عُماني في السنة. وسيُطلب من المتاجر المسجلة في الضريبة إصدار فواتير إلكترونية ضمن [برنامج «فوترة» للفوترة الإلكترونية في عُمان](/insights/erpnext-oman-e-invoicing) بدءًا من 2027. أما قانون حماية البيانات الشخصية (المرسوم السلطاني 6/2022) فيشمل بيانات العملاء التي يجمعها المتجر، وقد صدرت لائحته التنفيذية في 2024."
+        ]
+      },
+      {
+        "heading": "عُمان: استلام المدفوعات",
+        "paragraphs": [
+          "يدفع معظم المتسوقين في عُمان ببطاقات «عُمان نت»، شبكة بطاقات الخصم الوطنية التي يديرها البنك المركزي العُماني. و[تقول Tap](https://support.tap.company/en/support/solutions/articles/153000140241-what-is-omannet-how-can-i-accept-omannet-on-my-website-or-mobile-app-) إن «عُمان نت» تمرّ عبرها نحو 70% من المعاملات الإلكترونية في البلد، فالبوابة التي لا تقبلها ستخسر كثيرًا من العملاء عند الدفع.",
+          "ومن البوابات التي تقبل «عُمان نت»: Tap و[PayTabs](https://support.paytabs.com/en/support/solutions/articles/60000692060) و[Amazon Payment Services](https://paymentservices.amazon.com/oman-net)، وتقبل الثلاث أيضًا Visa وMastercard. ولدى Paymob ترخيص عُماني لـ«عُمان نت» كذلك. أما «أموال باي» و«ثواني» فمزوّدان عُمانيان يخضعان لرقابة البنك المركزي العُماني، وتقدّم البنوك الكبرى، ومنها بنك مسقط والبنك الوطني العُماني، بوابات دفع خاصة بها.",
+          "خدمة Stripe غير متاحة للشركات في عُمان. ويعمل Apple Pay مع بطاقات البنوك العُمانية منذ سبتمبر 2024، وتستطيع معظم البوابات أعلاه تفعيله. والرسوم يُتفق عليها مع كل مزوّد ونادرًا ما تُنشر، فاطلب عرضًا من اثنين أو ثلاثة، واسأل تحديدًا عن رسوم «عُمان نت»، التي تقول Tap إنها أقل من رسوم البطاقات الدولية."
+        ]
+      },
+      {
+        "heading": "عُمان: التوصيل والدفع عند الاستلام",
+        "paragraphs": [
+          "تغطي [أسياد إكسبريس](https://asyad.om/freight/e-commerce)، ذراع التوصيل السريع في مجموعة أسياد الوطنية للبريد والخدمات اللوجستية، جميع المحافظات. وتقدم التوصيل في اليوم نفسه داخل مسقط، والتوصيل خلال 72 ساعة في أنحاء البلاد، والدفع عند الاستلام، وإدارة المرتجعات، والتخزين للمتاجر الإلكترونية. وأرامكس هي الشركة الأخرى التي تعتمد عليها المتاجر كثيرًا في الدفع عند الاستلام.",
+          "تقدّم متاجر كثيرة الخيارين: البطاقة عند الطلب، والدفع عند الاستلام لمن يفضّله. واسأل شركة التوصيل عن عدد مرات تحويلها للمبالغ التي تحصّلها، لأن ذلك يحدد سيولتك."
+        ]
+      },
+      {
+        "heading": "ليبيا: الترخيص والأنظمة",
+        "paragraphs": [
+          "تُنظَّم المعاملات الإلكترونية في ليبيا بـ[القانون رقم 6 لسنة 2022](https://lawsociety.ly/?p=18331). أما المتاجر الإلكترونية نفسها فيغطيها [القرار رقم 7 لسنة 2023](https://lawsociety.ly/akn/ly/act/decision/moecon/2023/7) الصادر عن وزارة الاقتصاد والتجارة، الذي يحدد تصنيف المتاجر وتسجيلها وترخيصها. ويتم التسجيل والترخيص عبر «شبكة التجارة الليبية» المنشأة بقرار مجلس الوزراء رقم 681 لسنة 2021.",
+          "ولم تعد السجلات التجارية معتمدة إلا عبر المنظومة الإلكترونية للوزارة. فإن كانت شركتك مسجلة ورقيًا، فتأكد أن سجلها مُدرج في المنظومة الإلكترونية قبل أن تتقدم بطلب ترخيص المتجر. ولم نجد الرسوم منشورة بشكل يمكن التحقق منه، فاسأل الوزارة أو محاسبك عن المبالغ الحالية."
+        ]
+      },
+      {
+        "heading": "ليبيا: استلام المدفوعات",
+        "paragraphs": [
+          "بوابات الدفع الدولية لا تعمل للشركات الليبية: فخدمة Stripe لا تدعم ليبيا، وذكر فريق Shopify أن المنصة لا ترتبط بـ«معاملات». لذلك تمر المدفوعات عبر شركات ليبية مرخّصة من مصرف ليبيا المركزي. و[ينشر المصرف قائمتها](https://cbl.gov.ly/en/?p=15034)، وقد ضمّت في نوفمبر 2026 ثلاث عشرة شركة:",
+          "وبحسب تعليمات المصرف المركزي، تخدم شركات الدفع التجار من خلال المصارف، فالخطوة الأولى عادةً أن تسأل مصرفك أيّ هذه الخدمات يدعم. وللمحافظ الإلكترونية حدود يومية وحدود لكل عملية، وهذا مهم إن كنت تبيع منتجات مرتفعة السعر. وبسبب هذه الحدود وحداثة الدفع الإلكتروني بالبطاقات، تقبل متاجر ليبية كثيرة أيضًا الدفع عند الاستلام والتحويل المصرفي."
+        ],
+        "list": [
+          "شركات الدفع بالبطاقات: «معاملات»، المحوّل الوطني للبطاقات، إضافة إلى «تداول» و«مسارات» (التي تشغّل «صحارى باي») و«تفاني» و«عبور» و«إثمار»",
+          "المحافظ الإلكترونية: «سداد» من المدار، و«ادفعلي» من مصرف التجارة والتنمية، وغيرها من الشركات في قائمة المصرف المركزي",
+          "[LYPay](https://central-bank-of-libya.gitbook.io/devportal/lypay)، نظام الدفع الفوري التابع للمصرف المركزي منذ أغسطس 2024، ويتيح للعميل الدفع برمز QR ووصول المبلغ فورًا"
+        ]
+      },
+      {
+        "heading": "ليبيا: التوصيل",
+        "paragraphs": [
+          "تغطي [فانكس](https://vanex.ly) أنحاء ليبيا، ولها فروع في طرابلس وبنغازي ومصراتة وسبها وزوارة وأجدابيا والبيضاء والكفرة. وتقدّم للمتاجر الإلكترونية بوابة لإدارة الطلبات، واستلامًا مجانيًا للشحنات، وتأكيد الطلبات هاتفيًا. أما DHL Express فتصل إلى المدن الرئيسية، لكن للشحنات الدولية لا للتوصيل المحلي.",
+          "قبل أن تختار شركة التوصيل، اسأل: هل تحصّل المبلغ عند الاستلام؟ وكم تستغرق لتحويله إليك؟ وماذا يحدث للطلبات المرتجعة؟"
+        ]
+      },
+      {
+        "heading": "أي منصة تختار: Shopify أم سلة أم متجر مخصص؟",
+        "paragraphs": [
+          "يعمل Shopify في البلدين، أما Shopify Payments فلا. فعُمان وليبيا ليستا في [قائمة الدول المدعومة لدى Shopify](https://help.shopify.com/en/manual/payments/shopify-payments/supported-countries). وفي عُمان يسهل حل ذلك، لأن «أموال باي» وPayTabs وبوابات أخرى ترتبط بـShopify. أما في ليبيا فلا يوجد للبوابات المحلية ربط جاهز مع Shopify، ولهذا تُبنى متاجر ليبية كثيرة على WooCommerce أو بتطوير خاص مع بوابة محلية.",
+          "وتقبل [سلة](https://help.salla.sa/en/article/verify-your-salla-store-in-oman-salla/hhtm008d8rxyoy0umb2khh5h) المتاجر من عُمان بعد توثيقها، مع تحويل الأرباح إلى حساب مصرفي عُماني. ولا يزال عدد المتاجر العُمانية عليها قليلًا.",
+          "أما [المتجر الإلكتروني المخصص](/services/ecommerce) فتكلفة بنائه أعلى، لكنه يرتبط بأي بوابة محلية وأي شركة توصيل، ويمكن ربطه بنظام المحاسبة أو المخزون. وهو الطريق المعتاد في ليبيا، وفي عُمان حين لا تلبي المنصة ما يحتاجه نشاطك."
+        ]
+      },
+      {
+        "heading": "كم تكلفة بناء المتجر؟",
+        "paragraphs": [
+          "بحسب الأسعار المنشورة في نوفمبر 2026، يبدأ المتجر على منصة من نحو 600 ريال عُماني في عُمان، وتتراوح المتاجر التي تبنيها الوكالات الليبية بين نحو 1,700 و5,000 دينار فأكثر. هذه أرقام السوق لا قائمة أسعارنا. وفي [دليل تكلفة تصميم الموقع](/insights/how-much-does-a-website-cost) النطاقات كاملة وما الذي يرفع السعر أو يخفضه.",
+          "ورسوم المنصة وبوابة الدفع تُدفع منفصلة، شهريًا أو على كل عملية بيع. واحسب كذلك صور المنتجات وأوصافها بالعربية والإنجليزية، فهي تأخذ وقتًا أطول مما يتوقعه معظم أصحاب المتاجر. وإن كنت تطلق العلامة التجارية في الوقت نفسه، فخطّط [للهوية البصرية](/services/brand-identity) أولًا، حتى يُصمَّم المتجر مرة واحدة."
+        ]
+      },
+      {
+        "heading": "قائمة مراجعة قبل الإطلاق",
+        "paragraphs": [
+          "اتبعها بالترتيب. البندان الأولان يأخذان أطول وقت، فابدأ بهما أثناء تصميم المتجر:"
+        ],
+        "list": [
+          "الترخيص: عبر «استثمر بسهولة» في عُمان، أو «شبكة التجارة الليبية» في ليبيا",
+          "الدفع: تقدّم لبوابة تقبل «عُمان نت» في عُمان، أو لمصرفك ولمزوّد دفع مرخّص في ليبيا",
+          "التوصيل: تعاقد مع شركة توصيل واتفق على آلية الدفع عند الاستلام والمرتجعات",
+          "السياسات: الاسترجاع والخصوصية والشكاوى، مكتوبة وفق أنظمة بلدك",
+          "المنتجات: الأسماء والأسعار والخيارات والصور والأوصاف باللغتين",
+          "طلبات تجريبية: ادفع واستلم واسترجع طلبًا حقيقيًا قبل الإعلان عن الإطلاق"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "تخطط لمتجر في عُمان أو ليبيا؟",
+      "body": "نصمم ونبني متاجر إلكترونية بالعربية والإنجليزية، مربوطة ببوابات الدفع وشركات التوصيل التي تعمل في بلدك.",
+      "label": "تصميم المتاجر الإلكترونية"
+    }
+  }
+}
